@@ -23,5 +23,3 @@
 - Confidentiality and personal data are minimized.
 
 Record rule source, evidence, status, owner, remediation, and verification date for each applicable check.
-
-\n

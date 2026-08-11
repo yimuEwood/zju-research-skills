@@ -67,4 +67,3 @@ orchestration_distillation:
     - "transactional artifact merge with immutable IDs and explicit supersession"
     - "evidence, claim, data, artifact, integrity, reproducibility, and release gates"
     - "deterministic twenty-case cross-domain routing benchmark"
-\n

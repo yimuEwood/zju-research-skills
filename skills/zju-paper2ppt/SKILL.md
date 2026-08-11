@@ -63,4 +63,3 @@ Return:
 4. Actual `.pptx` plus used assets when requested and feasible.
 5. `QA report` with rendered-preview findings.
 6. `Open questions` for the presenter.
-\n

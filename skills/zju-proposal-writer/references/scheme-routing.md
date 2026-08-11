@@ -13,5 +13,3 @@ Modes:
 - `audit`: return findings and remediation without silently changing the proposal.
 
 If the official scheme is unavailable, provide a generic draft marked `template_pending`; do not label it submission ready.
-
-\n

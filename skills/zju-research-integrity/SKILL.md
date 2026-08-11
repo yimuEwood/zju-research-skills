@@ -42,5 +42,3 @@ Return:
 5. `Remediation and disclosure plan`.
 6. `Escalation options` based on freshly verified official routes.
 7. `Owners, deadlines, unresolved questions, and re-audit trigger`.
-
-\n

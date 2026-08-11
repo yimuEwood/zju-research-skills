@@ -18,5 +18,3 @@ notes: ""
 `Explicit` means directly stated or shown. `Inherent` requires a documented technical necessity, not plausibility. `Needs_confirmation` and `unsupported` features stay out of formal claims.
 
 Prior-art records need publication/priority identifiers, source, date checked, relevant passages/figures, mapped features, and status-verification source. A similarity observation is not a legal novelty conclusion.
-
-\n

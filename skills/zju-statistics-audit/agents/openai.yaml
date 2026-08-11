@@ -2,4 +2,3 @@ interface:
   display_name: "浙大统计报告审计"
   short_description: "Audit study statistics and reporting"
   default_prompt: "Use $zju-statistics-audit to check the design, analysis, figures, and statistical wording."
-\n

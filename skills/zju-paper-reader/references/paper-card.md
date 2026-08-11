@@ -15,5 +15,3 @@ Use these headings:
 11. `Source anchors`
 
 The evidence chain should map each central author claim to data, figure/table, analysis, and caveat. “Reuse for my research” must distinguish reusable method, testable hypothesis, transferable dataset/code, and speculation.
-
-\n

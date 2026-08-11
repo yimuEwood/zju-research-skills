@@ -35,5 +35,3 @@ Each source file entry should contain `path`, `sha256` or `unavailable`, `media_
 11. Amendments
 
 Observation is a direct record. Interpretation explains what the observation may mean. Derived values must name the formula, input source, units, and software/version when available.
-
-\n

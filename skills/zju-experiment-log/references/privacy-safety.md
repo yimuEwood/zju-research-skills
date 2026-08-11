@@ -6,5 +6,3 @@
 - Obsidian is a filesystem destination, not an evidence source. Confirm the target vault/path and collision policy before writing.
 - Feishu or another cloud destination requires explicit user selection and applicable authorization. Record the destination document ID after a successful write; do not claim a sync occurred when only a local file exists.
 - Prefer append-only amendments. Record author, timestamp, changed field, old value, new value, and reason.
-
-\n

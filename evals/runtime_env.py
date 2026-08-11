@@ -74,4 +74,3 @@ def codex_subprocess_env(base: Mapping[str, str] | None = None) -> tuple[dict[st
         env[f"{scheme.upper()}_PROXY"] = value
         env[f"{scheme.lower()}_proxy"] = value
     return env, "wininet"
-\n

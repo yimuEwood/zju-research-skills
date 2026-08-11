@@ -19,5 +19,3 @@ Rapid-review shortcuts must be named with their likely bias direction. A narrati
 ## Pooling gate
 
 Pool only if the studies address a sufficiently common estimand, the units and time points are compatible, dependence is handled, and effect estimates plus uncertainty are available or lawfully derivable. Otherwise use structured synthesis without meta-analysis.
-
-\n

@@ -10,5 +10,3 @@
 - `not_applicable`: explain why no new data/code artifact supports the work.
 
 Repository selection factors include domain fit, persistence, identifier/version support, metadata, access controls, file limits, preservation, license choices, and journal/funder requirements. Verify live institutional routes before recommending them.
-
-\n

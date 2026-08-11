@@ -34,5 +34,3 @@
     {"audit_id":"G030","submitted":{"doi":"10.9999/ref30","pages":"300-309"},"canonical":{"doi":"10.9999/ref30","pages":"e030"},"expected_error_fields":["pages"]}
   ]
 }
-
-\n

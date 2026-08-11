@@ -2,4 +2,3 @@ interface:
   display_name: "ZJU Research Director"
   short_description: "Orchestrate traceable end-to-end research missions"
   default_prompt: "Use $zju-research-director to turn my research goal into a gated, traceable mission across the ZJU research skill portfolio."
-\n

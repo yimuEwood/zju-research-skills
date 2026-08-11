@@ -45,4 +45,3 @@ Return:
 4. Ready-to-paste data/code availability statement.
 5. Dataset/code citation list.
 6. `Unresolved identifiers, restrictions, and owner decisions`.
-\n

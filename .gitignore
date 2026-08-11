@@ -12,4 +12,3 @@ evals/results/expansion-full-20260811-a/*
 !evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json
 evals/cache/
 .pytest_cache/
-\n

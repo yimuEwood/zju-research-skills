@@ -28,5 +28,3 @@
 ## Common critical defects
 
 Pseudoreplication, unit-of-analysis error, unmodeled repeated measures, outcome switching, undisclosed exclusions, incompatible denominator, impossible confidence interval/P-value combination, uncorrected broad multiplicity, and claim direction conflicting with results.
-
-\n

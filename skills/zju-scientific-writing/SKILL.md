@@ -46,4 +46,3 @@ If the source passage or author data is absent, do not produce revised prose and
 ## Output Contract
 
 Return: mode and scope, evidence-bound text, contribution-to-results map when applicable, unresolved placeholders, claim-evidence exceptions, reviewer-readiness status when requested, and material-change log. For polish mode, explicitly confirm whether numbers, direction, significance, units, and citations were preserved.
-\n

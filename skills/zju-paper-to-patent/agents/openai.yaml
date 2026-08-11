@@ -2,4 +2,3 @@ interface:
   display_name: "ZJU Paper to Patent"
   short_description: "Map research evidence into patent disclosures."
   default_prompt: "Use $zju-paper-to-patent to extract supported invention points and draft a technical disclosure."
-\n

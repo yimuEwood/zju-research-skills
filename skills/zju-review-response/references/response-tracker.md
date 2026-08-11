@@ -17,5 +17,3 @@ owner: ""
 ```
 
 Use `verified_complete` only when the action/evidence, response wording, manuscript change, and location agree. A defensible disagreement still needs a clear response and any clarifying manuscript edit.
-
-\n

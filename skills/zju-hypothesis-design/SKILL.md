@@ -46,5 +46,3 @@ Return:
 6. `Prospective decision rules`.
 7. `Feasibility, safety, ethics, and integrity risks`.
 8. `Recommended first test and stop/revise conditions`.
-
-\n

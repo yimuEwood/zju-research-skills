@@ -17,5 +17,3 @@ Use severity based on consequence:
 - `Major, Blocking Yes`: central claim cannot be established without resolution.
 - `Major, Blocking No`: materially affects validity, scope, or interpretation but a bounded case remains.
 - `Minor`: local clarity, reporting, or presentation correction that does not alter the central inference.
-
-\n

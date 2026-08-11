@@ -18,5 +18,3 @@ Use one record per atomic claim:
 Allowed evidence classes: `author_data`, `author_method`, `verified_literature`, `policy_or_standard`, and `clearly_labeled_inference`. Use statuses `supported`, `partial`, `contradicted`, `unverified`, or `placeholder`.
 
 A verified citation identifier establishes source identity, not claim support. Literature claims need a source anchor and support assessment. Author-result claims need a data, figure, table, or analysis anchor.
-
-\n

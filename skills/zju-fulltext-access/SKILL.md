@@ -31,4 +31,3 @@ Use `references/access-routes.md` for the decision tree. For a batch of locally 
 ## Output Contract
 
 Return: verified target, recommended route, numbered manual steps, access/compliance status, supplementary-material status, and fallback. If the route fails, explain the barrier without attempting evasion.
-\n

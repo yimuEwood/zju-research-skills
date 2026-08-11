@@ -14,5 +14,3 @@ For each proposed experiment record:
 - information gain and next action.
 
 Prefer perturbations and orthogonal measurements that yield different predictions across hypotheses. Replication improves precision but does not by itself distinguish mechanisms. A rescue or reversal design is useful only when alternative pathways and off-target effects are addressed.
-
-\n

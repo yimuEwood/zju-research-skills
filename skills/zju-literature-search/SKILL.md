@@ -45,4 +45,3 @@ If a requested export or record set is absent, do not stop after asking for it. 
 ## Output Contract
 
 Return these sections in order: research question, eligibility criteria, search log, screening flow, evidence table, limitations, and next actions. Every retained row must have a provenance source and either a stable identifier or an explicit `identifier_missing` flag.
-\n

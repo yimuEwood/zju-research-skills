@@ -44,5 +44,3 @@ Return:
 6. `Criteria assessment and recommendation posture`.
 7. For panel mode only, frozen reports plus a separately labelled post-review synthesis.
 8. `Unsupported or not-assessable items`.
-
-\n

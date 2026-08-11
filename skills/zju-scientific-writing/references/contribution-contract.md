@@ -24,4 +24,3 @@ For every major Results subsection, record `section_id`, `contribution_ids`, and
 Before declaring a manuscript submission-ready, record likely objections about novelty, method validity, statistics, missing controls, scope, reproducibility, ethics, data/code access, and venue fit. For each objection, record evidence, severity, disposition, response, and manuscript change.
 
 Allowed dispositions are `open`, `resolved`, or `accepted_limitation`. `open` blocks submission readiness. An accepted limitation must be disclosed in the manuscript and must not invalidate the central contribution.
-\n

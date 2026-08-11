@@ -14,5 +14,3 @@
 Each slide needs `slide_id`, title, one claim, source anchors, visual assets, on-slide text, speaker notes, estimated seconds, and transition purpose. Use a stable terminology ledger across slides and notes.
 
 Do not use a results figure until the audience knows the question, comparison, variables, and reading instruction. Do not make the final slide a generic “Thank you”; restate the bounded take-home message and open question.
-
-\n

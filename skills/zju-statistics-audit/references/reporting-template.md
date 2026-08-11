@@ -20,5 +20,3 @@ Capture outcome, estimand, groups, experimental unit, observational unit, hierar
 ## Consistency row
 
 Track metric, location A/value, location B/value, expected relation, status, and resolution. Compare group labels, units, denominators, direction, effect estimate, interval, P value, and significance symbol.
-
-\n

@@ -2,4 +2,3 @@ interface:
   display_name: "浙大科研文献检索"
   short_description: "Search and organize scholarly evidence"
   default_prompt: "Use $zju-literature-search to design and run a traceable literature search for my research question."
-\n

@@ -57,4 +57,3 @@ Return:
 5. Chinese technical disclosure or structured claim/specification draft as requested.
 6. Claim-aligned figure/formula plan.
 7. `Support and consistency audit` plus professional-review handoff.
-\n

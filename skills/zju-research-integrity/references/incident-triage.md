@@ -8,5 +8,3 @@
 6. Document what was referred, when, by whom, under what authority, and what evidence was preserved.
 
 AI assistance can organize materials and highlight inconsistencies. It must not decide intent or misconduct, interview parties, or replace institutional fact-finding.
-
-\n

@@ -151,4 +151,3 @@ targets:
 
 portfolio_governance_sources: [agent-skills-spec, agentic-awesome-skills, claude-scholar]
 inspected_only_sources: [academic-research-skills, supervisor-skills]
-\n

@@ -27,5 +27,3 @@ Avoid sentence-by-sentence duplication unless explicitly requested. Never transl
 - Figure inventory: figure/panel, experimental or analytical role, primary comparison, uncertainty encoding, and anchor.
 - Table inventory: table, variables/columns, population or sample, key result, and anchor.
 - Evidence inventory: claim, evidence type, anchor, confidence, and caveat.
-
-\n

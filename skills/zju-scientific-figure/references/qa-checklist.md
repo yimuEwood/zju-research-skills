@@ -22,5 +22,3 @@
 - Fonts are embedded or safely substituted.
 - Vector text remains selectable where appropriate.
 - Raster images meet the current target journal specification, verified at delivery time.
-
-\n

@@ -10,5 +10,3 @@ Create these artifacts before prose:
 6. `execution_plan`: work packages, dependencies, milestones, owners, decision rules, risks, fallback.
 
 Every objective must map to at least one work package and measurable success criterion. Every work package must map to an objective and project output. Preliminary evidence must state provenance and whether it is published, unpublished, or planned.
-
-\n

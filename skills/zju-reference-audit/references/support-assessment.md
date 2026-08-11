@@ -14,5 +14,3 @@ Evaluate one atomic claim at a time.
 5. Record an anchor and suggest the smallest safe wording change.
 
 Causal claims require a design capable of supporting causal inference. Statistical significance does not establish practical importance, mechanism, or generalizability.
-
-\n

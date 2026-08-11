@@ -12,5 +12,3 @@ Apply the routes in order and stop once the requested version is obtained lawful
 Version labels matter: version of record, accepted manuscript, preprint, data supplement, correction, and retraction notice are not interchangeable. Record what was obtained.
 
 For each attempt capture: `target_id`, `route`, `url`, `attempted_at`, `status`, `version`, `license_or_entitlement_basis`, `supplement_status`, and `notes`.
-
-\n

@@ -35,4 +35,3 @@ A cached check outside the audit window is `stale`, not negative evidence. If th
 ## Zotero actions
 
 Recommend granular edits: update DOI; refresh metadata; merge exact duplicates after preserving attachments/notes; link preprint to published version; attach correction or retraction notice; or leave unchanged pending confirmation. Do not claim to have modified Zotero unless the action was actually performed.
-\n

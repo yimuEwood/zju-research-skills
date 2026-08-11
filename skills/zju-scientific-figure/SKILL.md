@@ -58,4 +58,3 @@ Return:
 4. Exported figure files and dimensions.
 5. Complete legend and accessibility note.
 6. `QA report` with blockers resolved or explicitly open.
-\n

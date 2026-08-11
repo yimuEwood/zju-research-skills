@@ -13,5 +13,3 @@ Use the recipient’s current official template when supplied. A generic technic
 9. Source-to-feature table, prior-art ledger, and `[TO CONFIRM]` list for professional review.
 
 Keep formal claims free of placeholders. If required support is missing, label the package incomplete and route questions to the inventor or patent professional.
-
-\n

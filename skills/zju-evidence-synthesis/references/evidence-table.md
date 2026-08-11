@@ -24,5 +24,3 @@ extractor_note: ""
 Use `not_reported` rather than an empty string when the source was checked. Distinguish `not_applicable` from `not_reported`. Store converted values alongside the original value and conversion rule.
 
 Every synthesis claim must list contributing study IDs, contradictory study IDs, certainty, and the specific evidence-table fields used.
-
-\n

@@ -21,4 +21,3 @@ Autonomy is a ceiling on actions, not a quality score. A higher level never rela
 ## Required stop conditions
 
 Stop on a critical risk, conflicting source identity, unsupported release claim, missing required artifact, failed validator, exceeded budget, repeated non-progress, a new ethics/privacy concern, or a decision that changes research scope. Record the stop reason and a resumable next action.
-\n

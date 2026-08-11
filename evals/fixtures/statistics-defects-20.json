@@ -24,5 +24,3 @@
     {"id":"D020","text":"The primary endpoint in the registry differs from the endpoint labeled primary in the manuscript.","expected_checks":["outcome_switching"]}
   ]
 }
-
-\n

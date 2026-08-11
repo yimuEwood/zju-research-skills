@@ -53,4 +53,3 @@ Return:
 5. Draft proposal in the requested structure.
 6. `Compliance and unresolved-field checklist`.
 7. `Review scorecard and next revision action`.
-\n

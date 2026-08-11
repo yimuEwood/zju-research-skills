@@ -33,5 +33,3 @@ Apply `quality-gates.json`. The distilled arm passes when it gains at least 10 p
 ## Required run record
 
 For every run save case ID, randomized arm ID, model/version, tool availability, start/end time, token use, raw response, artifact hashes, rater scores, failure class, and adjudication note. Never tune a skill on held-out gold answers without recording that contamination.
-
-\n

@@ -19,5 +19,3 @@ artifact_checks: []
 A useful prediction names the measured variable, direction or pattern, context, and time point. A falsifier must be a plausible observation, not “complete proof that the theory is wrong.”
 
 Do not use “novel,” “important,” or “plausible” as evidence. Record a hypothesis as `unresolved` when available tests cannot distinguish it from alternatives.
-
-\n

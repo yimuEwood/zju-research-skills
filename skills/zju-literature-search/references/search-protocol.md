@@ -46,5 +46,3 @@ Recommended extraction fields:
 4. Retrieve eligible full text lawfully.
 5. Record one explicit reason for each full-text exclusion.
 6. Reconcile uncertain decisions rather than silently guessing.
-
-\n

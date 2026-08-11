@@ -41,4 +41,3 @@ For abstract-only or metadata-only input, explicitly request lawful full text th
 ## Output Contract
 
 Begin with source identity, mode, and coverage. Then provide section-aligned content, equation/figure/table inventories, evidence-anchored findings, limitations, and reusable questions. Include a `Source anchors` section containing all referenced anchors.
-\n

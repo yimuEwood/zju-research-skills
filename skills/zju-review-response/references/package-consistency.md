@@ -12,5 +12,3 @@ Check in this order:
 8. The cover letter summarizes verified changes without adding promises absent from the tracker.
 
 Any manuscript edit invalidates prior quote and location checks. Re-run the audit after the final edit.
-
-\n

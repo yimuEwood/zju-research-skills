@@ -12,5 +12,3 @@ Use the smallest defensible source set and verify live access/terms.
 - Safety/regulatory: authoritative safety data and regulatory sources; reconcile jurisdiction and revision date.
 
 Public API availability does not imply unlimited reuse. Record database terms, query date, version, and export boundary.
-
-\n

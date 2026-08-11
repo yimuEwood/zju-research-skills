@@ -136,4 +136,3 @@
     {"id":"INT-10","skill":"zju-research-integrity","domain":"dual_role","prompt":"同一人既是被投诉对象又负责内部调查记录。","fixture":{"conflict_of_interest":true},"gold_checks":["conflict identification","independent routing","preserve chain of custody","procedural fairness"]}
   ]
 }
-\n

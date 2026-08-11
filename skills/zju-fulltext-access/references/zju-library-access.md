@@ -17,4 +17,3 @@ Use only current authoritative Zhejiang University pages:
 5. If access fails, record the database, citation, timestamp, and error class; then use the library help or document-delivery route shown on the current site.
 
 CNKI, Web of Science, Scopus, SciFinder, Reaxys, and other subscriptions can change. Mention them as candidate resources only after confirming current availability in the library navigation. Recheck these links and the policy text quarterly before a stable release.
-\n

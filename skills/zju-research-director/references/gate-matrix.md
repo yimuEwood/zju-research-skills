@@ -27,4 +27,3 @@ For a release, evaluate `evidence -> data/analysis -> reference -> claim -> arti
 ## Gate ledger fields
 
 Record `gate`, `status`, `checked_inputs`, `blockers`, `warnings`, `required_actions`, `human_authority`, and the decision/artifact IDs used. A later pass appends a new decision; it must not erase the prior blocked result.
-\n

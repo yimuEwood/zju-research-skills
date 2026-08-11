@@ -38,4 +38,3 @@ If asked to overwrite or erase an earlier observation, refuse the silent change 
 ## Output Contract
 
 Return the saved record path, experiment identity, missing required fields, source manifest, run-manifest status when applicable, next decision gate, and unresolved ambiguities. The Markdown body must include Objective, Materials and samples, Procedure, Deviations, Observations, Results, Interpretation, Anomalies, and Next actions.
-\n

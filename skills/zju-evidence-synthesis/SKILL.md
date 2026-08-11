@@ -49,4 +49,3 @@ Return:
 5. `Synthesis by outcome` with heterogeneity and certainty.
 6. `Claim-to-evidence matrix`.
 7. `Unresolved evidence gaps and update trigger`.
-\n

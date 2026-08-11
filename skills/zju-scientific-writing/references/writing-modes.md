@@ -17,5 +17,3 @@ Recommended section logic:
 Before editing extract all numbers, units, inequalities, P values, confidence intervals, sample counts, group labels, directions, time points, gene/protein/species notation, citation keys, figure/table references, and modal strength. Compare after editing.
 
 Classify changes as `language_only`, `clarifying_non_substantive`, or `substantive_author_confirmation`. Any altered numeric meaning, causal force, novelty, limitation, or citation scope is substantive.
-
-\n

@@ -2,4 +2,3 @@ interface:
   display_name: "ZJU Hypothesis Design"
   short_description: "Turn evidence gaps into testable hypotheses."
   default_prompt: "Use $zju-hypothesis-design to formulate and stress-test hypotheses from this evidence."
-\n

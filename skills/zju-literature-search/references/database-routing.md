@@ -13,5 +13,3 @@ Choose sources by evidence type and access, not by a single universal ranking.
 | Patents | Google Patents, Espacenet, WIPO Patentscope | Licensed patent analytics platforms |
 
 Use at least one source that supports stable metadata export. Confirm current Zhejiang University database availability through the library navigation page; subscriptions change. Do not claim that a named database is available merely because it appears in this routing table.
-
-\n

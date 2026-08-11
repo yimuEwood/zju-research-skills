@@ -24,5 +24,3 @@ Score dimensions separately from 0 to 2: topic fit, methodological fit, evidence
 ## Digest minimum
 
 Include title, year, stable identifier, source database, source level, inclusion reason, relevance dimensions, evidence limit, and lawful access route. Flag corrections, expressions of concern, and retractions prominently.
-
-\n

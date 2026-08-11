@@ -26,5 +26,3 @@ approved_by: ""
 For each query version record the exact string or structured payload, database, filters, date executed, and reason for change. Never edit an old version in place. A spelling fix that changes retrieval is a new version.
 
 Pause and request confirmation when a scope change affects fields, populations, interventions, outcome families, material classes, or language/date restrictions.
-
-\n

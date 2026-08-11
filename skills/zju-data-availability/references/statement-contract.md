@@ -13,5 +13,3 @@ For every artifact state:
 Use resolvable persistent identifiers only after verification. Cite datasets and software as research outputs, not only as URLs. Keep repository landing pages distinct from direct file links.
 
 An honest incomplete statement with explicit pending fields is preferable to a fluent but false claim of availability.
-
-\n

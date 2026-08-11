@@ -49,4 +49,3 @@ Freeze specialist outputs before downstream use. Merge new artifacts by stable I
 ## Resume semantics
 
 Validate the whole mission, preserve completed/failed history, recalculate readiness from dependency and gate state, then select the earliest ready incomplete step. Never restart completed work unless its input was superseded or a correction/retraction invalidated it.
-\n

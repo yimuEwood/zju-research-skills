@@ -69,4 +69,3 @@ Return these sections for every mode:
 6. `Next action`: exactly one ready action, or the concrete condition required to unblock.
 
 Do not claim the mission, analysis, document, figure, deck, filing, or submission is complete unless the corresponding artifact exists and every required gate passed.
-\n

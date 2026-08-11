@@ -14,5 +14,3 @@ Identity fields:
 Evidence records need `record_id`, `entity_id`, property/endpoint, value, relation operator, unit, conditions, method/assay, evidence type, source database, primary source identifier, source anchor, date/version, and uncertainty.
 
 Never convert or compare units until basis and conditions agree. Preserve qualifiers such as `<`, `>`, approximately, below detection, racemate, wet/dry basis, temperature, pressure, pH, solvent, and crystal form.
-
-\n

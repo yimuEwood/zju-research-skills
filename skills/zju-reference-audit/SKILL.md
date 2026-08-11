@@ -46,4 +46,3 @@ For claim support use `direct`, `partial`, `context_only`, `contradicted`, or `n
 ## Output Contract
 
 Return a summary count, then one row per reference with submitted value, canonical value, field status, sources, and correction. Follow with a claim-support matrix and a Zotero action list. Flag changes that require human confirmation.
-\n

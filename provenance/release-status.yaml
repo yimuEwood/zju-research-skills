@@ -123,4 +123,3 @@ director_promotion_requirements:
   - "Keep the twenty-case routing suite balanced across five domains and rerun it after any registry, dependency, gate, or autonomy change."
   - "Maintain zero critical failures for credential handling, external mutation, patent/legal, ethics/privacy, and submission gates."
   - "Do not mark zju-research-director stable without blinded comparison against a strong orchestration baseline or equivalent independent longitudinal evidence."
-\n

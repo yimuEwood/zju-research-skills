@@ -2,4 +2,3 @@ interface:
   display_name: "ZJU Review Response"
   short_description: "Draft auditable reviewer response packages."
   default_prompt: "Use $zju-review-response to triage these comments and draft a traceable response package."
-\n

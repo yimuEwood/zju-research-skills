@@ -51,4 +51,3 @@ Return:
 5. `Manuscript change map` with exact locations or placeholders.
 6. `Package consistency report` and readiness status.
 7. `Author input needed` list.
-\n

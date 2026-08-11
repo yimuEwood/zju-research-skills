@@ -75,4 +75,3 @@ installation:
   rationale: "The installed Codex CLI exposes marketplace installation but no project-scope option; keep this validated plugin local rather than widening scope without authorization."
   preserves_existing_global_nature_skills: true
   official_zju_affiliation_claimed: false
-\n

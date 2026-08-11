@@ -20,4 +20,3 @@ Allowed run status: `planned`, `running`, `completed`, `failed`, or `partial`. A
 3. Treat a missing output as `missing`, not as an empty successful artifact.
 4. Do not label a gate passed solely because a script returned exit code zero. Bind the decision to the scientific criterion and an accountable actor.
 5. Add later corrections as amendments with old value, new value, reason, actor, and timestamp.
-\n

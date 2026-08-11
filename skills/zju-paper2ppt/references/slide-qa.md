@@ -9,5 +9,3 @@
 - Speaker notes explain transitions, uncertainty, and likely questions.
 - Claims based only on abstracts or OCR are marked.
 - The final PPTX opens, uses the requested aspect ratio, and contains the expected slide count.
-
-\n

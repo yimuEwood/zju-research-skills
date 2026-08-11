@@ -31,4 +31,3 @@ Always emit an explicit severity for each finding. Classify pseudoreplication, w
 ## Output Contract
 
 Return: design map, analysis inventory, issue table, cross-section consistency table, required author queries, and a prioritized repair plan. Keep automated heuristic findings labeled `triage_only` until manually confirmed.
-\n

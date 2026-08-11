@@ -9,4 +9,3 @@ Live verification: 2026-08-11. Re-open the official page before relying on curre
 For human/animal research, clinical studies, biosafety, hazardous chemicals, data protection, export control, authorship, funding, and journal-specific requirements, use the current official policy owned by the relevant ZJU office and the project’s governing body. Do not infer the responsible office from an old contact page.
 
 When sources conflict, record the conflict and route it to the authorized institutional owner. This reference is a navigation aid, not a complete policy reproduction.
-\n
