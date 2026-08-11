@@ -1,0 +1,5 @@
+interface:
+  display_name: "浙大参考文献审计"
+  short_description: "Verify references and citation support"
+  default_prompt: "Use $zju-reference-audit to verify these references field by field and report corrections."
+\n

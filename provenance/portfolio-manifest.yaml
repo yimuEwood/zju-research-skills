@@ -1,0 +1,78 @@
+schema_version: "1.0"
+plugin_version: "0.4.0"
+snapshot_date: "2026-08-11"
+total_skills: 20
+
+stable_first_wave:
+  evaluation_run: "full-20260811-a"
+  evidence: "evals/results/full-20260811-a/aggregate-adjudicated.json"
+  skills:
+    - zju-literature-search
+    - zju-fulltext-access
+    - zju-reference-audit
+    - zju-paper-reader
+    - zju-experiment-log
+    - zju-statistics-audit
+    - zju-scientific-writing
+
+beta_expansion:
+  local_evidence:
+    quick_validate: "20/20 passed"
+    structural_audit: "20 A grades"
+    unit_tests: "52 passed"
+    security_scan: "28 scripts, zero findings"
+  task_evaluation_status: passed
+  task_evaluation:
+    run: "expansion-full-20260811-a"
+    evidence: "evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json"
+    cases: 120
+    mean_primary_score: 84.385
+    gold_check_rate: 0.8458
+    critical_failures: 0
+    all_skills_passed: true
+  skills:
+    - zju-literature-monitor
+    - zju-evidence-synthesis
+    - zju-hypothesis-design
+    - zju-scientific-figure
+    - zju-paper2ppt
+    - zju-reviewer
+    - zju-review-response
+    - zju-data-availability
+    - zju-proposal-writer
+    - zju-paper-to-patent
+    - zju-chemistry-databases
+    - zju-research-integrity
+
+beta_director:
+  skill: zju-research-director
+  skills:
+    - zju-research-director
+  architecture: "Shared Research Mission, nineteen-skill capability registry, dependency DAG, L0-L4 autonomy controls, transactional artifacts, state transitions, and stage gates."
+  routing_evaluation:
+    run: "director-routing-20260811-a"
+    evidence: "evals/results/director-routing-20260811-a.json"
+    cases: 20
+    domains: 5
+    specialist_skills_covered: 19
+    passed: 20
+    critical_failures: 0
+  forward_test:
+    run: "director-forward-20260811-a"
+    evidence: "evals/results/director-forward-20260811-a.json"
+    fresh_context_cases: 3
+    passed: 3
+    critical_failures: 0
+  release_status: beta
+  stable_promotion_boundary: "Requires a blinded head-to-head comparison against the strongest available source orchestration baseline or equivalent independent longitudinal use evidence."
+
+installation:
+  plugin_manifest: ".codex-plugin/plugin.json"
+  skill_root: "skills/"
+  local_trial_mode: "isolated project evaluation workspaces"
+  project_scoped_cli_install_available: false
+  user_level_install_performed: false
+  rationale: "The installed Codex CLI exposes marketplace installation but no project-scope option; keep this validated plugin local rather than widening scope without authorization."
+  preserves_existing_global_nature_skills: true
+  official_zju_affiliation_claimed: false
+\n

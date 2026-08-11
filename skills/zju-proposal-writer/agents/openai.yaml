@@ -1,0 +1,5 @@
+interface:
+  display_name: "ZJU Proposal Writer"
+  short_description: "Build evidence-first research proposals."
+  default_prompt: "Use $zju-proposal-writer to develop this idea into an evidence-grounded research proposal."
+\n

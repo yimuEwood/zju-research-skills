@@ -1,0 +1,5 @@
+interface:
+  display_name: "ZJU Paper to PPT"
+  short_description: "Build evidence-led Chinese research decks."
+  default_prompt: "Use $zju-paper2ppt to turn this paper into a traceable Chinese research presentation."
+\n

@@ -1,0 +1,5 @@
+interface:
+  display_name: "ZJU Scientific Figure"
+  short_description: "Design and audit publication-ready figures."
+  default_prompt: "Use $zju-scientific-figure to plan and validate a publication-ready scientific figure."
+\n

@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+evals/results/*
+!evals/results/director-forward-20260811-a.json
+!evals/results/director-routing-20260811-a.json
+!evals/results/portfolio-audit-20260811-v040.json
+!evals/results/full-20260811-a/
+evals/results/full-20260811-a/*
+!evals/results/full-20260811-a/aggregate-adjudicated.json
+!evals/results/expansion-full-20260811-a/
+evals/results/expansion-full-20260811-a/*
+!evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json
+evals/cache/
+.pytest_cache/
+\n

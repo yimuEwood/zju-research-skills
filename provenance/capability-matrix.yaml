@@ -1,0 +1,70 @@
+schema_version: "1.0"
+snapshot_date: "2026-08-11"
+decision_rule: "Adopt only a bounded pattern that improves a named ZJU workflow, can be independently tested, and is license-compatible."
+
+repositories:
+  agentic-awesome-skills:
+    role: "discovery and portfolio governance"
+    strengths: ["capability catalog", "selection manifest", "evidence sidecar", "risk audit"]
+    adopted_into: ["provenance", "evals", "zju-research-director"]
+    excluded: ["bulk catalog vendoring", "popularity as a quality verdict"]
+  academic-research-skills:
+    role: "capability comparison only"
+    strengths: ["pipeline breadth", "evaluation isolation", "claim-drift attention"]
+    adopted_into: []
+    excluded: ["all text and workflow expression because of CC-BY-NC-4.0 compatibility"]
+  nature-skills:
+    role: "Chinese-first scientific workflow baseline"
+    strengths: ["research routing", "writing", "access", "review", "figures", "presentations", "data", "patent drafting"]
+    adopted_into: ["first-wave seven", "zju-literature-monitor", "zju-evidence-synthesis", "zju-scientific-figure", "zju-paper2ppt", "zju-reviewer", "zju-review-response", "zju-data-availability", "zju-proposal-writer", "zju-paper-to-patent"]
+    excluded: ["marketing", "author profiles", "installation prose", "credential persistence", "bulk downloading", "automatic multi-reviewer claims"]
+  scientific-agent-skills:
+    role: "deterministic scientific utilities"
+    strengths: ["database breadth", "statistics", "citation management", "script testing"]
+    adopted_into: ["zju-literature-search", "zju-reference-audit", "zju-statistics-audit", "zju-scientific-writing", "zju-evidence-synthesis", "zju-chemistry-databases"]
+    excluded: ["unneeded runtime dependencies", "network calls inside shipped validators"]
+  auto-claude-code-research-in-sleep:
+    role: "research pipeline safety and handoff"
+    strengths: ["untrusted-content hygiene", "provenance manifest", "experiment bridge", "review gates"]
+    adopted_into: ["zju-literature-search", "zju-paper-reader", "zju-experiment-log", "zju-literature-monitor", "zju-research-integrity", "zju-research-director", "evals"]
+    excluded: ["unattended external mutation", "automatic writes", "unverified cross-model claims"]
+  claude-scholar:
+    role: "skill portfolio quality assurance"
+    strengths: ["weighted review", "progressive disclosure", "remediation backlog"]
+    adopted_into: ["provenance", "tests", "zju-research-director"]
+    excluded: ["Claude-specific metadata", "self-reported quality as release evidence"]
+  supervisor-skills:
+    role: "capability comparison only"
+    strengths: ["supervisor-style review", "paper templates", "idea evaluation"]
+    adopted_into: []
+    excluded: ["all text, templates, and workflow expression because of CC-BY-NC-SA-4.0 compatibility"]
+  paperspine:
+    role: "manuscript and proposal stage gates"
+    strengths: ["contribution contract", "results validation", "reviewer objections", "resume gates"]
+    adopted_into: ["zju-scientific-writing", "zju-hypothesis-design", "zju-reviewer", "zju-proposal-writer", "zju-research-integrity", "zju-research-director"]
+    excluded: ["monolithic orchestration", "mandatory UI", "submission-ready claims without evaluation"]
+
+expansion_distillation:
+  zju-literature-monitor: ["versioned queries", "DOI-first state", "no implicit automation or external delivery"]
+  zju-evidence-synthesis: ["study-outcome table", "pooling gate", "outcome-level certainty"]
+  zju-hypothesis-design: ["competing mechanisms", "unique predictions", "prospective falsification and decision rules"]
+  zju-scientific-figure: ["claim-first panel contract", "transformation ledger", "generated schematic separated from data"]
+  zju-paper2ppt: ["paper-type arc", "slide-to-source map", "actual PPTX and rendered QA boundary"]
+  zju-reviewer: ["single-review default", "explicit isolated panel mode", "stable concern IDs"]
+  zju-review-response: ["verbatim item ledger", "verified action status", "cross-file package consistency"]
+  zju-data-availability: ["artifact-to-claim map", "access routes", "identifier and restriction validation"]
+  zju-proposal-writer: ["official-call gate", "research canon", "objective-to-work-package validation"]
+  zju-paper-to-patent: ["source-feature support states", "confidentiality", "professional legal-review boundary"]
+  zju-chemistry-databases: ["identity-first routing", "conditions and evidence types", "licensed-interface boundary"]
+  zju-research-integrity: ["neutral triage", "immutable evidence preservation", "no automated misconduct verdict"]
+
+orchestration_distillation:
+  zju-research-director:
+    - "one shared Research Mission instead of prose-only handoffs"
+    - "machine-readable capability registry for all nineteen specialists"
+    - "minimal dependency DAG rather than a monolithic all-skills prompt"
+    - "L0-L4 autonomy ceilings with action-specific human gates"
+    - "transactional artifact merge with immutable IDs and explicit supersession"
+    - "evidence, claim, data, artifact, integrity, reproducibility, and release gates"
+    - "deterministic twenty-case cross-domain routing benchmark"
+\n

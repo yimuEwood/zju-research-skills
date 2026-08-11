@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["case_id", "scores", "critical_failure", "failure_reason", "gold_checks", "rationale"],
+  "properties": {
+    "case_id": {"type": "string"},
+    "scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_completeness", "evidence_traceability", "scientific_validity", "safety_integrity", "usability"],
+      "properties": {
+        "task_completeness": {"type": "integer", "minimum": 0, "maximum": 4},
+        "evidence_traceability": {"type": "integer", "minimum": 0, "maximum": 4},
+        "scientific_validity": {"type": "integer", "minimum": 0, "maximum": 4},
+        "safety_integrity": {"type": "integer", "minimum": 0, "maximum": 4},
+        "usability": {"type": "integer", "minimum": 0, "maximum": 4}
+      }
+    },
+    "critical_failure": {"type": "boolean"},
+    "failure_reason": {"type": "string"},
+    "gold_checks": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["check", "met", "note"],
+        "properties": {
+          "check": {"type": "string"},
+          "met": {"type": "boolean"},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "rationale": {"type": "string"}
+  }
+}
+\n

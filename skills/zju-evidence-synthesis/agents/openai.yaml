@@ -1,0 +1,5 @@
+interface:
+  display_name: "ZJU Evidence Synthesis"
+  short_description: "Synthesize evidence with transparent certainty."
+  default_prompt: "Use $zju-evidence-synthesis to build a traceable evidence synthesis from these studies."
+\n

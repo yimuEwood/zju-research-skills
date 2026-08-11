@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "repository": "https://github.com/Yuan1z0825/nature-skills",
+  "commit": "1ea82ffff20f40077bf84b74182f55eeaf3d111d",
+  "license": "Apache-2.0",
+  "selected_skills": [
+    "nature-academic-search",
+    "nature-citation",
+    "nature-downloader",
+    "nature-experiment-log",
+    "nature-paper-card",
+    "nature-polishing",
+    "nature-reader",
+    "nature-ref-verifier",
+    "nature-statistics",
+    "nature-writing"
+  ],
+  "file_count": 306,
+  "content_sha256": "2213d86f4c71dcc25c1daab0521815b5d6ca50f91279fd40319f1c18eeec7504"
+}
+
+\n

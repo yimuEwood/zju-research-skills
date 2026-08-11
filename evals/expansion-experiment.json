@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "zju-expansion-distilled-task-validation-v1",
+  "model": "gpt-5.4-mini",
+  "rater_model": "gpt-5.5",
+  "reasoning_effort": "low",
+  "sandbox": "read-only",
+  "web_search": false,
+  "session_mode": "ephemeral",
+  "timeout_seconds": 180,
+  "random_seed": 20260811,
+  "release_thresholds": {
+    "minimum_overall_score": 75.0,
+    "minimum_per_skill_score": 70.0,
+    "minimum_gold_check_rate": 0.75,
+    "maximum_critical_failures": 0
+  }
+}
+\n

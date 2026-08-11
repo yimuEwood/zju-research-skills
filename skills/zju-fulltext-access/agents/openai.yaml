@@ -1,0 +1,5 @@
+interface:
+  display_name: "浙大学术全文获取"
+  short_description: "Find lawful routes to academic full text"
+  default_prompt: "Use $zju-fulltext-access to find a lawful full-text access route for this paper."
+\n

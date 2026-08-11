@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "minimum_cases_per_skill": 10,
+  "comparison_arms": ["no_skill", "upstream_skill", "distilled_skill"],
+  "release_gate": {
+    "minimum_primary_score_gain_points": 10,
+    "minimum_efficiency_gain_percent": 20,
+    "maximum_quality_regression_points": 2,
+    "unresolved_critical_security_findings": 0,
+    "unresolved_high_security_findings": 0,
+    "requires_license_record": true,
+    "requires_pinned_source_commit": true
+  },
+  "status_policy": {
+    "draft": "Workflow implemented but not yet evaluated on all gold cases.",
+    "beta": "Gold cases pass and limited real-task testing is complete.",
+    "stable": "Blind comparison and representative real-task validation pass."
+  }
+}
+\n

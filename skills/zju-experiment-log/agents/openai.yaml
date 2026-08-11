@@ -1,0 +1,5 @@
+interface:
+  display_name: "浙大实验日志"
+  short_description: "Create traceable experiment log records"
+  default_prompt: "Use $zju-experiment-log to turn these notes and files into a traceable experiment record."
+\n

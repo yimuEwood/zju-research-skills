@@ -1,0 +1,5 @@
+interface:
+  display_name: "ZJU Research Integrity"
+  short_description: "Audit research conduct and evidence provenance."
+  default_prompt: "Use $zju-research-integrity to audit this workflow for research-integrity and provenance risks."
+\n

@@ -1,0 +1,36 @@
+ZJU Research OS (zju-research-skills)
+Copyright 2026 ZJU Research Skills Project
+
+This plugin contains original distilled workflows and a Research Mission
+orchestration protocol released under Apache-2.0.
+It was designed with reference to the following open projects. No upstream
+repository is vendored wholesale. See provenance/sources.yaml for exact pinned
+commits, files consulted, licenses, and the scope of adaptation.
+
+- Yuan1z0825/nature-skills, Apache-2.0. Nature-style Chinese research workflow
+  patterns for search, access, writing, monitoring, figures, presentations,
+  review, data availability, proposals, patents, and integrity boundaries.
+- K-Dense-AI/scientific-agent-skills, MIT. Reproducible literature-search,
+  statistical-analysis, scientific-writing, testing, and safety patterns.
+- jaechang-hits/SciAgent-Skills, CC BY 4.0. Life-science evaluation ideas and
+  biostatistical task coverage.
+- yorkeccak/scientific-skills, MIT. Natural-language source-routing ideas for
+  literature, biomedical, and chemistry discovery.
+- agentskills/agentskills, Apache-2.0. Agent Skills open-format conventions.
+- sickn33/agentic-awesome-skills, MIT. Portfolio selection, evidence-manifest,
+  and deterministic validation concepts.
+- wanshuiyin/Auto-claude-code-research-in-sleep, MIT. Untrusted-content,
+  provenance, experiment-handoff, and review-gate concepts.
+- Galaxy-Dawn/claude-scholar, MIT. Skill-quality scorecard and remediation
+  concepts.
+- WUBING2023/PaperSpine, MIT. Contribution-first, results-validation, and
+  reviewer-readiness gate concepts.
+
+Imbad0202/academic-research-skills (CC BY-NC 4.0) and
+HKUSTDial/Supervisor-Skills (CC BY-NC-SA 4.0) were inspected only to compare
+capability coverage. No protected text, templates, or workflow expression from
+those repositories is incorporated into this Apache-2.0 distribution.
+
+Zhejiang University names, links, and policies are referenced for navigation
+and compliance. This project is not an official Zhejiang University service.
+\n

@@ -1,0 +1,1201 @@
+{
+  "complete": true,
+  "issues": [],
+  "overall": {
+    "case_count": 120,
+    "critical_failures": 0,
+    "gold_check_rate": 0.8458,
+    "mean_primary_score": 84.385
+  },
+  "per_skill": {
+    "zju-chemistry-databases": {
+      "case_count": 10,
+      "critical_failures": 0,
+      "gold_check_rate": 0.75,
+      "mean_primary_score": 77.375,
+      "passed": true
+    },
+    "zju-data-availability": {
+      "case_count": 10,
+      "critical_failures": 0,
+      "gold_check_rate": 0.8,
+      "mean_primary_score": 87.75,
+      "passed": true
+    },
+    "zju-evidence-synthesis": {
+      "case_count": 10,
+      "critical_failures": 0,
+      "gold_check_rate": 0.825,
+      "mean_primary_score": 82.0,
+      "passed": true
+    },
+    "zju-hypothesis-design": {
+      "case_count": 10,
+      "critical_failures": 0,
+      "gold_check_rate": 0.9,
+      "mean_primary_score": 83.25,
+      "passed": true
+    },
+    "zju-literature-monitor": {
+      "case_count": 10,
+      "critical_failures": 0,
+      "gold_check_rate": 0.85,
+      "mean_primary_score": 90.625,
+      "passed": true
+    },
+    "zju-paper-to-patent": {
+      "case_count": 10,
+      "critical_failures": 0,
+      "gold_check_rate": 0.8,
+      "mean_primary_score": 82.5,
+      "passed": true
+    },
+    "zju-paper2ppt": {
+      "case_count": 10,
+      "critical_failures": 0,
+      "gold_check_rate": 0.925,
+      "mean_primary_score": 84.0,
+      "passed": true
+    },
+    "zju-proposal-writer": {
+      "case_count": 10,
+      "critical_failures": 0,
+      "gold_check_rate": 0.9,
+      "mean_primary_score": 89.125,
+      "passed": true
+    },
+    "zju-research-integrity": {
+      "case_count": 10,
+      "critical_failures": 0,
+      "gold_check_rate": 0.825,
+      "mean_primary_score": 83.875,
+      "passed": true
+    },
+    "zju-review-response": {
+      "case_count": 10,
+      "critical_failures": 0,
+      "gold_check_rate": 0.875,
+      "mean_primary_score": 83.5,
+      "passed": true
+    },
+    "zju-reviewer": {
+      "case_count": 10,
+      "critical_failures": 0,
+      "gold_check_rate": 0.8,
+      "mean_primary_score": 83.5,
+      "passed": true
+    },
+    "zju-scientific-figure": {
+      "case_count": 10,
+      "critical_failures": 0,
+      "gold_check_rate": 0.9,
+      "mean_primary_score": 85.125,
+      "passed": true
+    }
+  },
+  "rater_id": "expansion-full-judge-1",
+  "records": [
+    {
+      "case_id": "MON-01",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-literature-monitor",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "MON-02",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-literature-monitor",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "MON-03",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 67.5,
+      "skill": "zju-literature-monitor",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "MON-04",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 88.75,
+      "skill": "zju-literature-monitor",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "MON-05",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-literature-monitor",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "MON-06",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-literature-monitor",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "MON-07",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-literature-monitor",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "MON-08",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-literature-monitor",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "MON-09",
+      "critical_failure": false,
+      "gold_met": 0,
+      "gold_total": 4,
+      "primary_score": 65.0,
+      "skill": "zju-literature-monitor",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "MON-10",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 85.0,
+      "skill": "zju-literature-monitor",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "SYN-01",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-evidence-synthesis",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "SYN-02",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 67.5,
+      "skill": "zju-evidence-synthesis",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "SYN-03",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-evidence-synthesis",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "SYN-04",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 82.5,
+      "skill": "zju-evidence-synthesis",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "SYN-05",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 87.5,
+      "skill": "zju-evidence-synthesis",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "SYN-06",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-evidence-synthesis",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "SYN-07",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 85.0,
+      "skill": "zju-evidence-synthesis",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "SYN-08",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 60.0,
+      "skill": "zju-evidence-synthesis",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "SYN-09",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-evidence-synthesis",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "SYN-10",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 56.25,
+      "skill": "zju-evidence-synthesis",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "HYP-01",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-hypothesis-design",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "HYP-02",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-hypothesis-design",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "HYP-03",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-hypothesis-design",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "HYP-04",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-hypothesis-design",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "HYP-05",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-hypothesis-design",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "HYP-06",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 53.75,
+      "skill": "zju-hypothesis-design",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "HYP-07",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 82.5,
+      "skill": "zju-hypothesis-design",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "HYP-08",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 53.75,
+      "skill": "zju-hypothesis-design",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "HYP-09",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-hypothesis-design",
+      "source_run_id": "expansion-amendment-20260811-a"
+    },
+    {
+      "case_id": "HYP-10",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 73.75,
+      "skill": "zju-hypothesis-design",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "FIG-01",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 95.0,
+      "skill": "zju-scientific-figure",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "FIG-02",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 67.5,
+      "skill": "zju-scientific-figure",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "FIG-03",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 53.75,
+      "skill": "zju-scientific-figure",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "FIG-04",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 73.75,
+      "skill": "zju-scientific-figure",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "FIG-05",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-scientific-figure",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "FIG-06",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 73.75,
+      "skill": "zju-scientific-figure",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "FIG-07",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-scientific-figure",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "FIG-08",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-scientific-figure",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "FIG-09",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-scientific-figure",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "FIG-10",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-scientific-figure",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PPT-01",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 88.75,
+      "skill": "zju-paper2ppt",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "PPT-02",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 80.0,
+      "skill": "zju-paper2ppt",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "PPT-03",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 73.75,
+      "skill": "zju-paper2ppt",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "PPT-04",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-paper2ppt",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "PPT-05",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 88.75,
+      "skill": "zju-paper2ppt",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "PPT-06",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 86.25,
+      "skill": "zju-paper2ppt",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "PPT-07",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 55.0,
+      "skill": "zju-paper2ppt",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "PPT-08",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-paper2ppt",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "PPT-09",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-paper2ppt",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "PPT-10",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 80.0,
+      "skill": "zju-paper2ppt",
+      "source_run_id": "expansion-remediation2-20260811-a"
+    },
+    {
+      "case_id": "REV-01",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-reviewer",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "REV-02",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-reviewer",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "REV-03",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-reviewer",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "REV-04",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 73.75,
+      "skill": "zju-reviewer",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "REV-05",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 58.75,
+      "skill": "zju-reviewer",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "REV-06",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-reviewer",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "REV-07",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 78.75,
+      "skill": "zju-reviewer",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "REV-08",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 88.75,
+      "skill": "zju-reviewer",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "REV-09",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 73.75,
+      "skill": "zju-reviewer",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "REV-10",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 80.0,
+      "skill": "zju-reviewer",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "RESP-01",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-review-response",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "RESP-02",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-review-response",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "RESP-03",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 80.0,
+      "skill": "zju-review-response",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "RESP-04",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-review-response",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "RESP-05",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 68.75,
+      "skill": "zju-review-response",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "RESP-06",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-review-response",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "RESP-07",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 87.5,
+      "skill": "zju-review-response",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "RESP-08",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 67.5,
+      "skill": "zju-review-response",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "RESP-09",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 85.0,
+      "skill": "zju-review-response",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "RESP-10",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 58.75,
+      "skill": "zju-review-response",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "DATA-01",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 67.5,
+      "skill": "zju-data-availability",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "DATA-02",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 91.25,
+      "skill": "zju-data-availability",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "DATA-03",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-data-availability",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "DATA-04",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-data-availability",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "DATA-05",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-data-availability",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "DATA-06",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-data-availability",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "DATA-07",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-data-availability",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "DATA-08",
+      "critical_failure": false,
+      "gold_met": 1,
+      "gold_total": 4,
+      "primary_score": 60.0,
+      "skill": "zju-data-availability",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "DATA-09",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 78.75,
+      "skill": "zju-data-availability",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "DATA-10",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 80.0,
+      "skill": "zju-data-availability",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PROP-01",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-proposal-writer",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PROP-02",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-proposal-writer",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PROP-03",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 95.0,
+      "skill": "zju-proposal-writer",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PROP-04",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 73.75,
+      "skill": "zju-proposal-writer",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PROP-05",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-proposal-writer",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PROP-06",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-proposal-writer",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PROP-07",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-proposal-writer",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PROP-08",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-proposal-writer",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PROP-09",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 73.75,
+      "skill": "zju-proposal-writer",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PROP-10",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 80.0,
+      "skill": "zju-proposal-writer",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PAT-01",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-paper-to-patent",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PAT-02",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 67.5,
+      "skill": "zju-paper-to-patent",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PAT-03",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-paper-to-patent",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PAT-04",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 73.75,
+      "skill": "zju-paper-to-patent",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PAT-05",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 86.25,
+      "skill": "zju-paper-to-patent",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PAT-06",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 78.75,
+      "skill": "zju-paper-to-patent",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PAT-07",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 73.75,
+      "skill": "zju-paper-to-patent",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PAT-08",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 80.0,
+      "skill": "zju-paper-to-patent",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PAT-09",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-paper-to-patent",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "PAT-10",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 77.5,
+      "skill": "zju-paper-to-patent",
+      "source_run_id": "expansion-remediation-20260811-a"
+    },
+    {
+      "case_id": "CHEM-01",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-chemistry-databases",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "CHEM-02",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 81.25,
+      "skill": "zju-chemistry-databases",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "CHEM-03",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 61.25,
+      "skill": "zju-chemistry-databases",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "CHEM-04",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 67.5,
+      "skill": "zju-chemistry-databases",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "CHEM-05",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 72.5,
+      "skill": "zju-chemistry-databases",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "CHEM-06",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-chemistry-databases",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "CHEM-07",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 78.75,
+      "skill": "zju-chemistry-databases",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "CHEM-08",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 52.5,
+      "skill": "zju-chemistry-databases",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "CHEM-09",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 78.75,
+      "skill": "zju-chemistry-databases",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "CHEM-10",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-chemistry-databases",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "INT-01",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 82.5,
+      "skill": "zju-research-integrity",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "INT-02",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-research-integrity",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "INT-03",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 77.5,
+      "skill": "zju-research-integrity",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "INT-04",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 78.75,
+      "skill": "zju-research-integrity",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "INT-05",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-research-integrity",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "INT-06",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 93.75,
+      "skill": "zju-research-integrity",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "INT-07",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 56.25,
+      "skill": "zju-research-integrity",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "INT-08",
+      "critical_failure": false,
+      "gold_met": 2,
+      "gold_total": 4,
+      "primary_score": 85.0,
+      "skill": "zju-research-integrity",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "INT-09",
+      "critical_failure": false,
+      "gold_met": 3,
+      "gold_total": 4,
+      "primary_score": 71.25,
+      "skill": "zju-research-integrity",
+      "source_run_id": "expansion-full-20260811-a"
+    },
+    {
+      "case_id": "INT-10",
+      "critical_failure": false,
+      "gold_met": 4,
+      "gold_total": 4,
+      "primary_score": 100.0,
+      "skill": "zju-research-integrity",
+      "source_run_id": "expansion-full-20260811-a"
+    }
+  ],
+  "release_gate_passed": true,
+  "replacements": {
+    "HYP-09": "expansion-amendment-20260811-a"
+  },
+  "run_id": "expansion-full-20260811-a",
+  "schema_version": "1.0",
+  "skill_replacements": {
+    "zju-data-availability": "expansion-remediation-20260811-a",
+    "zju-literature-monitor": "expansion-remediation2-20260811-a",
+    "zju-paper-to-patent": "expansion-remediation-20260811-a",
+    "zju-paper2ppt": "expansion-remediation2-20260811-a",
+    "zju-proposal-writer": "expansion-remediation-20260811-a",
+    "zju-review-response": "expansion-remediation-20260811-a",
+    "zju-scientific-figure": "expansion-remediation-20260811-a"
+  },
+  "thresholds": {
+    "maximum_critical_failures": 0,
+    "minimum_gold_check_rate": 0.75,
+    "minimum_overall_score": 75.0,
+    "minimum_per_skill_score": 70.0
+  }
+}
+\n

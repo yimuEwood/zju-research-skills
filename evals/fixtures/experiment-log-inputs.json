@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "fixtures": [
+    {"id":"text-only","inputs":[{"type":"text","content":"Sample A changed from clear to pale yellow after 10 min."}],"missing":["operator"],"gold_checks":["unknown operator","observation preserved","no inferred mechanism"]},
+    {"id":"image-only","inputs":[{"type":"image","path":"fixtures/raw/plate-before.png"},{"type":"image","path":"fixtures/raw/plate-after.png"}],"gold_checks":["paths retained","hash if accessible","visible facts only"]},
+    {"id":"audio-only","inputs":[{"type":"audio_transcript","path":"fixtures/raw/note.wav","uncertain_span":"00:01:23-00:01:27"}],"gold_checks":["uncertain timestamp","transcript provenance","no guessed value"]},
+    {"id":"mixed","inputs":[{"type":"text"},{"type":"image"},{"type":"audio_transcript"},{"type":"instrument_csv"}],"gold_checks":["source manifest","separated observations/results","traceable paths"]}
+  ],
+  "note": "Raw binary files are supplied by the evaluator so that private or copyrighted laboratory media are not bundled in the plugin."
+}
+
+\n

@@ -1,0 +1,150 @@
+{
+  "valid": true,
+  "suite_id": "zju-research-director-routing-v1",
+  "cases": 20,
+  "passed": 20,
+  "failed": 0,
+  "reports": [
+    {
+      "mission_id": "DIR-CHEM-01",
+      "passed": true,
+      "route_length": 7,
+      "plan_hash": "88b4778d5a842d8ca4aafa415b4632c30baff353e00ce44b9828f5bceb5909f8",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-CHEM-02",
+      "passed": true,
+      "route_length": 9,
+      "plan_hash": "3ed6f27468cf5dd637b96f79ea386b8e47b2280250d2757a171fb049edbca387",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-CHEM-03",
+      "passed": true,
+      "route_length": 7,
+      "plan_hash": "3d3f03f33a9be717f17e9990a74b6412e073ef131762941f78ff4c25fc03b272",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-CHEM-04",
+      "passed": true,
+      "route_length": 7,
+      "plan_hash": "60e883a9202e86c782ba4d82c3f75ea833bf718414ff5a1022c4b5b80656571e",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-MAT-01",
+      "passed": true,
+      "route_length": 9,
+      "plan_hash": "b65ce4b99c0023306cb09f7f84e90dd90b0a3796a55d72d3739d59341a6de716",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-MAT-02",
+      "passed": true,
+      "route_length": 9,
+      "plan_hash": "221cc5f591775e13e32096c4fbba9d7bd0f4e17c7daa72c51c11109772ccbf49",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-MAT-03",
+      "passed": true,
+      "route_length": 7,
+      "plan_hash": "09ec219da0ba67a6ecaa43be64805e8b05c9ed39b2210f6b0823bd7ce3752649",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-MAT-04",
+      "passed": true,
+      "route_length": 7,
+      "plan_hash": "737d02597b4cc0b23cad4677204a57b6935f7cb3e4882b15459cd9db710ec6be",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-BIO-01",
+      "passed": true,
+      "route_length": 8,
+      "plan_hash": "0c101a3353026f24e73413c1f70ab4d61ab371ae7e927a7462394baca695403d",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-BIO-02",
+      "passed": true,
+      "route_length": 9,
+      "plan_hash": "e43d59a0951be6758e80b4f943e6eaa5e40a4c825ab94c6ba2e05036a53ba23a",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-BIO-03",
+      "passed": true,
+      "route_length": 8,
+      "plan_hash": "77796d77793768760f98b7314d1317f97d605e3511951f204d8f9c6d255fa306",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-BIO-04",
+      "passed": true,
+      "route_length": 7,
+      "plan_hash": "dc9f5a5c6a473316968c6c09c5d5f24b86533ed3452b511f7a52fc72eaa2e2aa",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-AGR-01",
+      "passed": true,
+      "route_length": 8,
+      "plan_hash": "cc3cbdb742c0d06a5fd6bb4f1949b69f5ad06255d3405d8033f59d7e805e93ab",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-AGR-02",
+      "passed": true,
+      "route_length": 8,
+      "plan_hash": "1efb11854a237e13f1ca75f02b8a6938b81119d861295720294cb8f319dbfe41",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-AGR-03",
+      "passed": true,
+      "route_length": 7,
+      "plan_hash": "84c0f2e852544013810af43b7393226d6d57c496876d86702e4fc3866f249fd8",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-AGR-04",
+      "passed": true,
+      "route_length": 8,
+      "plan_hash": "1766abd3cc572d3d10db16769361f4a87fcf8383fda2e541e0536ccfc0872809",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-COMP-01",
+      "passed": true,
+      "route_length": 8,
+      "plan_hash": "f0a204df0498a59b01733c7289ac5d24536ac0f06ecb1b8fdd1068e841538e46",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-COMP-02",
+      "passed": true,
+      "route_length": 8,
+      "plan_hash": "61330751e0b2948d0547deb6bac6a8ba0dbf6e3f30c1cabcd51a8e599922a215",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-COMP-03",
+      "passed": true,
+      "route_length": 7,
+      "plan_hash": "08f6f6ae01f3fd9c821a5ae70ad449abb0f0d0fa8d19d30dada977e037424b09",
+      "failures": []
+    },
+    {
+      "mission_id": "DIR-COMP-04",
+      "passed": true,
+      "route_length": 8,
+      "plan_hash": "ce2f442847fbfdeaa57e86fc6ab2409d3da9858b64119d7060f832eb0b1bb2ed",
+      "failures": []
+    }
+  ]
+}
+\n

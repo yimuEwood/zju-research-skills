@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "description": "Twenty synthetic reporting defects for gold-label recall testing.",
+  "cases": [
+    {"id":"D001","text":"Six mice contributed ten cells each; n=60 independent replicates.","expected_checks":["pseudoreplication","experimental_unit"]},
+    {"id":"D002","text":"Each participant was measured five times and all observations were analyzed as independent.","expected_checks":["repeated_measures","independence"]},
+    {"id":"D003","text":"Sample size was selected from laboratory habit; no precision or power rationale was used.","expected_checks":["sample_size_rationale"]},
+    {"id":"D004","text":"The difference was significant at P=0.04; no magnitude or interval was reported.","expected_checks":["effect_size","confidence_interval"]},
+    {"id":"D005","text":"Twenty primary outcomes were each tested at alpha 0.05 without correction.","expected_checks":["multiplicity"]},
+    {"id":"D006","text":"Error bars are shown but neither their definition nor what each point represents is stated.","expected_checks":["figure_error_bar","unit_of_plot"]},
+    {"id":"D007","text":"The abstract reports a 20% increase while Table 2 reports an 18% decrease.","expected_checks":["direction_consistency"]},
+    {"id":"D008","text":"Fifteen percent of participants were lost; missingness and analysis population were not described.","expected_checks":["missing_data","analysis_population"]},
+    {"id":"D009","text":"P=0.12 was interpreted as proof that treatments are equivalent.","expected_checks":["nonsignificance_as_equivalence"]},
+    {"id":"D010","text":"A subgroup selected after viewing results was presented as confirmatory.","expected_checks":["post_hoc_subgroup","confirmatory_label"]},
+    {"id":"D011","text":"Three technical PCR wells were described as three biological replicates.","expected_checks":["technical_vs_biological_replicate"]},
+    {"id":"D012","text":"Cluster-randomized schools were analyzed at student level without cluster adjustment.","expected_checks":["clustering","unit_of_analysis"]},
+    {"id":"D013","text":"A paired crossover design was analyzed with an unpaired test.","expected_checks":["pairing"]},
+    {"id":"D014","text":"Outliers were removed after analysis, but no rule or excluded count was reported.","expected_checks":["outlier_rule","exclusion_count"]},
+    {"id":"D015","text":"Methods state a two-sided test; Results report a one-sided P value.","expected_checks":["sidedness_consistency"]},
+    {"id":"D016","text":"A confidence interval excludes zero but the reported two-sided P value is 0.21.","expected_checks":["interval_p_consistency"]},
+    {"id":"D017","text":"The model assumes proportional hazards; no assessment is reported despite crossing curves.","expected_checks":["model_assumption"]},
+    {"id":"D018","text":"The outcome unit is mg/L in Methods and mmol/L in Figure 3 without conversion.","expected_checks":["unit_consistency"]},
+    {"id":"D019","text":"Enrollment was 120, exclusions were 10, but the analysis denominator is reported as 125.","expected_checks":["denominator_consistency"]},
+    {"id":"D020","text":"The primary endpoint in the registry differs from the endpoint labeled primary in the manuscript.","expected_checks":["outcome_switching"]}
+  ]
+}
+
+\n

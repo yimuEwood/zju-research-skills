@@ -1,0 +1,248 @@
+{
+  "valid": true,
+  "minimum_score": 90,
+  "scope": "Structural and instructional quality only; scientific task quality requires blind evaluation.",
+  "reports": [
+    {
+      "skill": "zju-chemistry-databases",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-data-availability",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-evidence-synthesis",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-experiment-log",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-fulltext-access",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-hypothesis-design",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-literature-monitor",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-literature-search",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-paper-reader",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-paper-to-patent",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-paper2ppt",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-proposal-writer",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-reference-audit",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-research-director",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-research-integrity",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-review-response",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-reviewer",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-scientific-figure",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-scientific-writing",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    },
+    {
+      "skill": "zju-statistics-audit",
+      "score": 100,
+      "grade": "A",
+      "dimensions": {
+        "description": 25,
+        "organization": 30,
+        "style": 20,
+        "structure": 25
+      },
+      "findings": []
+    }
+  ]
+}
+\n

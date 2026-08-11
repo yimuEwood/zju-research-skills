@@ -1,0 +1,5 @@
+interface:
+  display_name: "ZJU Chemistry Databases"
+  short_description: "Route safe, traceable chemistry database work."
+  default_prompt: "Use $zju-chemistry-databases to plan a traceable search across relevant chemistry databases."
+\n

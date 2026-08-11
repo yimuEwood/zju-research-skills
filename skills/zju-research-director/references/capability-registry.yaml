@@ -1,0 +1,919 @@
+{
+  "schema_version": "1.0",
+  "format_note": "JSON syntax stored as YAML 1.2 so the Research Director can load the registry with the Python standard library.",
+  "semantics": {
+    "prerequisites": "Default upstream skills in an end-to-end route; an already validated artifact with the same output type may satisfy a prerequisite.",
+    "dependencies": "Conditional supporting skills named by the specialist workflow; they are invoked only when their evidence or artifact is needed.",
+    "external_state": "Whether normal use reads or may conditionally mutate a remote system; local workspace artifacts do not count as external state.",
+    "validators": "Only shipped deterministic scripts are listed. Their kind distinguishes validation from transformation or triage."
+  },
+  "allowed_enums": {
+    "stages": [
+      "framing",
+      "discovery",
+      "access",
+      "reading",
+      "synthesis",
+      "design",
+      "execution",
+      "analysis",
+      "communication",
+      "review",
+      "sharing",
+      "commercialization",
+      "integrity"
+    ],
+    "risk_levels": ["low", "medium", "high", "critical"],
+    "external_state": ["none", "read_only", "conditional_write"],
+    "human_gates": [
+      "ethics",
+      "privacy",
+      "external_action",
+      "patent_legal",
+      "integrity",
+      "submission_release"
+    ],
+    "validator_kinds": [
+      "validator",
+      "normalizer",
+      "classifier",
+      "comparator",
+      "renderer",
+      "state_updater",
+      "triage",
+      "auditor"
+    ],
+    "fallback_statuses": ["draft", "partial", "blocked", "manual_route", "triage", "not_assessed"]
+  },
+  "skills": {
+    "zju-literature-search": {
+      "description": "Designs and records reproducible multi-source scholarly searches, then normalizes, deduplicates, and screens the resulting metadata evidence set.",
+      "role": "Reproducible evidence discovery and study-set construction.",
+      "stages": ["discovery"],
+      "accepts": [
+        "research_question",
+        "eligibility_criteria",
+        "seed_records",
+        "database_constraints",
+        "metadata_export"
+      ],
+      "produces": [
+        "search_protocol",
+        "literature_set",
+        "evidence_table",
+        "screening_flow"
+      ],
+      "risk_level": "low",
+      "external_state": "read_only",
+      "required_human_gates": [],
+      "validators": [
+        {
+          "path": "skills/zju-literature-search/scripts/normalize_records.py",
+          "kind": "normalizer",
+          "purpose": "Normalize JSON or JSONL records and deduplicate them with stable identifier and title-year fallbacks."
+        }
+      ],
+      "prerequisites": [],
+      "dependencies": [],
+      "next_skills": [
+        "zju-literature-monitor",
+        "zju-fulltext-access",
+        "zju-reference-audit",
+        "zju-paper-reader",
+        "zju-evidence-synthesis",
+        "zju-proposal-writer",
+        "zju-paper-to-patent"
+      ],
+      "fallback": {
+        "status": "draft",
+        "trigger": "No executable search route or metadata export is available.",
+        "behavior": "Return a source-specific search protocol and import-processing scaffold, preserve pending counts, and never invent records or executed result counts.",
+        "produces": ["search_intake_scaffold", "pending_search_log"]
+      }
+    },
+    "zju-fulltext-access": {
+      "description": "Finds the least-privileged lawful route to a verified paper or supplement through open access, documented APIs, ZJU licensed access, or a manual library route.",
+      "role": "Lawful full-text and supplementary-material access routing.",
+      "stages": ["access"],
+      "accepts": [
+        "citation",
+        "doi",
+        "pmid",
+        "title",
+        "metadata_record",
+        "access_request"
+      ],
+      "produces": [
+        "full_text",
+        "full_text_access_plan",
+        "supplementary_material_status",
+        "access_note"
+      ],
+      "risk_level": "medium",
+      "external_state": "read_only",
+      "required_human_gates": ["external_action"],
+      "validators": [
+        {
+          "path": "skills/zju-fulltext-access/scripts/classify_access.py",
+          "kind": "classifier",
+          "purpose": "Triage locally supplied metadata into likely access routes while rejecting credential-like fields."
+        }
+      ],
+      "prerequisites": ["zju-literature-search"],
+      "dependencies": [],
+      "next_skills": [
+        "zju-paper-reader",
+        "zju-evidence-synthesis",
+        "zju-paper2ppt"
+      ],
+      "fallback": {
+        "status": "manual_route",
+        "trigger": "No verified open or automated authorized route succeeds.",
+        "behavior": "Return the exact official manual route and authentication step, leave access unresolved, and never capture credentials or evade access control.",
+        "produces": ["manual_access_route", "unresolved_access_note"]
+      }
+    },
+    "zju-reference-audit": {
+      "description": "Separately verifies bibliographic identity and whether each cited source supports the nearby claim, including correction, retraction, and freshness checks.",
+      "role": "Field-level citation identity and claim-support assurance.",
+      "stages": ["analysis", "review"],
+      "accepts": [
+        "citation",
+        "reference_list",
+        "claim_source_pair",
+        "canonical_metadata",
+        "status_records"
+      ],
+      "produces": [
+        "reference_audit",
+        "metadata_differences",
+        "claim_support_matrix",
+        "zotero_actions"
+      ],
+      "risk_level": "medium",
+      "external_state": "read_only",
+      "required_human_gates": [],
+      "validators": [
+        {
+          "path": "skills/zju-reference-audit/scripts/compare_metadata.py",
+          "kind": "comparator",
+          "purpose": "Compare submitted and canonical reference metadata field by field."
+        },
+        {
+          "path": "skills/zju-reference-audit/scripts/validate_status_freshness.py",
+          "kind": "validator",
+          "purpose": "Check whether correction and retraction status records remain within the declared audit window."
+        }
+      ],
+      "prerequisites": ["zju-literature-search"],
+      "dependencies": ["zju-fulltext-access", "zju-paper-reader"],
+      "next_skills": [
+        "zju-evidence-synthesis",
+        "zju-scientific-writing",
+        "zju-proposal-writer",
+        "zju-reviewer",
+        "zju-review-response",
+        "zju-research-integrity"
+      ],
+      "fallback": {
+        "status": "not_assessed",
+        "trigger": "Canonical metadata, full source text, or a source anchor is unavailable.",
+        "behavior": "Keep bibliographic identity and claim support as separate lanes, mark the unavailable lane not_verified or not_assessable, and request a human-confirmed source or anchor.",
+        "produces": ["partial_reference_audit", "source_request"]
+      }
+    },
+    "zju-paper-reader": {
+      "description": "Reads a complete scientific paper into source-anchored bilingual notes or a deep Paper Card while preserving equations, figures, tables, methods, results, and limitations.",
+      "role": "Full-paper evidence extraction and close reading.",
+      "stages": ["reading"],
+      "accepts": [
+        "full_text",
+        "pdf",
+        "supplementary_material",
+        "source_metadata",
+        "reader_mode"
+      ],
+      "produces": [
+        "paper_card",
+        "bilingual_reader",
+        "reader_notes",
+        "source_anchor_inventory"
+      ],
+      "risk_level": "low",
+      "external_state": "none",
+      "required_human_gates": [],
+      "validators": [
+        {
+          "path": "skills/zju-paper-reader/scripts/validate_reader.py",
+          "kind": "validator",
+          "purpose": "Check saved Markdown for the required mode-specific structure and source-anchor section."
+        }
+      ],
+      "prerequisites": ["zju-fulltext-access"],
+      "dependencies": ["zju-reference-audit"],
+      "next_skills": [
+        "zju-evidence-synthesis",
+        "zju-paper2ppt",
+        "zju-paper-to-patent",
+        "zju-reviewer"
+      ],
+      "fallback": {
+        "status": "partial",
+        "trigger": "Only metadata, an abstract, or incompletely extracted full text is available.",
+        "behavior": "Return a partial reader with an explicit coverage table and unavailable sections, and route lawful full-text acquisition without implying those sections were read.",
+        "produces": ["partial_reader", "coverage_table"]
+      }
+    },
+    "zju-experiment-log": {
+      "description": "Converts mixed laboratory notes and run artifacts into an append-only, source-traceable Markdown record with parseable YAML and optional run manifests.",
+      "role": "Immutable-source experiment and computational-run recordkeeping.",
+      "stages": ["execution"],
+      "accepts": [
+        "experiment_text",
+        "image_metadata",
+        "audio_transcript",
+        "instrument_export",
+        "structured_intake",
+        "run_manifest"
+      ],
+      "produces": [
+        "experiment_log",
+        "run_manifest",
+        "source_manifest",
+        "amendment_record"
+      ],
+      "risk_level": "medium",
+      "external_state": "conditional_write",
+      "required_human_gates": ["external_action"],
+      "validators": [
+        {
+          "path": "skills/zju-experiment-log/scripts/build_log.py",
+          "kind": "renderer",
+          "purpose": "Render a structured JSON intake into the required Markdown and YAML laboratory record while rejecting credential-like fields."
+        },
+        {
+          "path": "skills/zju-experiment-log/scripts/validate_run_manifest.py",
+          "kind": "validator",
+          "purpose": "Validate run identity, inputs, parameters, environment, outputs, hashes, status, and next decision gate."
+        }
+      ],
+      "prerequisites": ["zju-hypothesis-design"],
+      "dependencies": [],
+      "next_skills": [
+        "zju-statistics-audit",
+        "zju-scientific-figure",
+        "zju-data-availability",
+        "zju-research-integrity",
+        "zju-hypothesis-design"
+      ],
+      "fallback": {
+        "status": "partial",
+        "trigger": "Non-blocking identifiers or source facts are absent, or a prior observation is disputed.",
+        "behavior": "Use unknown for absent facts, preserve source paths, and append a timestamped amendment instead of silently overwriting the original record.",
+        "produces": ["partial_experiment_log", "amendment_template"]
+      }
+    },
+    "zju-statistics-audit": {
+      "description": "Audits design, estimands, experimental units, models, uncertainty, multiplicity, missing data, figure encodings, and numerical consistency across a research package.",
+      "role": "Design-first statistical and quantitative reporting assurance.",
+      "stages": ["analysis", "review"],
+      "accepts": [
+        "design_description",
+        "manuscript",
+        "analysis_report",
+        "data_table",
+        "analysis_output",
+        "figure_and_caption",
+        "analysis_code"
+      ],
+      "produces": [
+        "statistics_audit",
+        "analysis_audit",
+        "design_map",
+        "issue_table",
+        "repair_plan"
+      ],
+      "risk_level": "medium",
+      "external_state": "none",
+      "required_human_gates": [],
+      "validators": [
+        {
+          "path": "skills/zju-statistics-audit/scripts/scan_reporting.py",
+          "kind": "triage",
+          "purpose": "Perform an offline first-pass reporting scan; every warning remains triage_only until manually verified."
+        }
+      ],
+      "prerequisites": ["zju-experiment-log"],
+      "dependencies": [],
+      "next_skills": [
+        "zju-scientific-figure",
+        "zju-scientific-writing",
+        "zju-reviewer",
+        "zju-research-integrity"
+      ],
+      "fallback": {
+        "status": "triage",
+        "trigger": "The experimental unit, estimand, design, data, or analysis details are incomplete.",
+        "behavior": "Return an anchored issue and author-query table, label pattern findings triage_only, and do not prescribe a definitive test or invent missing analysis facts.",
+        "produces": ["statistics_triage", "author_queries"]
+      }
+    },
+    "zju-scientific-writing": {
+      "description": "Drafts or polishes Chinese or English scientific prose from an explicit evidence ledger while preserving data, numerical meaning, uncertainty, and verified citation scope.",
+      "role": "Evidence-bound manuscript composition, revision, translation, and polishing.",
+      "stages": ["communication"],
+      "accepts": [
+        "author_data",
+        "methods",
+        "outline",
+        "verified_literature",
+        "source_text",
+        "claim_evidence_ledger",
+        "writing_contract"
+      ],
+      "produces": [
+        "manuscript",
+        "manuscript_section",
+        "polished_text",
+        "claim_evidence_ledger",
+        "material_change_log"
+      ],
+      "risk_level": "medium",
+      "external_state": "none",
+      "required_human_gates": [],
+      "validators": [
+        {
+          "path": "skills/zju-scientific-writing/scripts/check_claim_ledger.py",
+          "kind": "validator",
+          "purpose": "Validate claim identifiers, support states, and traceable evidence bindings."
+        },
+        {
+          "path": "skills/zju-scientific-writing/scripts/check_writing_contract.py",
+          "kind": "validator",
+          "purpose": "Validate contribution, evidence, result-section, objection, and submission-readiness contracts."
+        }
+      ],
+      "prerequisites": [
+        "zju-evidence-synthesis",
+        "zju-statistics-audit",
+        "zju-reference-audit"
+      ],
+      "dependencies": [],
+      "next_skills": [
+        "zju-reviewer",
+        "zju-review-response",
+        "zju-data-availability",
+        "zju-research-integrity"
+      ],
+      "fallback": {
+        "status": "blocked",
+        "trigger": "The source passage, author data, or verified evidence needed for drafting or polishing is absent.",
+        "behavior": "Do not produce revised factual prose; return the selected mode, missing inputs, invariant register, pending preservation checks, and a material-change template.",
+        "produces": ["writing_intake_contract", "invariant_register"]
+      }
+    },
+    "zju-literature-monitor": {
+      "description": "Maintains versioned recurring literature profiles, source-specific queries, deduplicated state transitions, screening accounting, and authorized delivery status.",
+      "role": "Auditable literature surveillance and evidence-update detection.",
+      "stages": ["discovery"],
+      "accepts": [
+        "monitoring_profile",
+        "research_question",
+        "seed_records",
+        "prior_monitor_state",
+        "candidate_records",
+        "cadence",
+        "archive_target"
+      ],
+      "produces": [
+        "literature_monitor",
+        "monitor_update",
+        "monitoring_profile",
+        "run_ledger",
+        "deduplicated_digest"
+      ],
+      "risk_level": "medium",
+      "external_state": "conditional_write",
+      "required_human_gates": ["external_action"],
+      "validators": [
+        {
+          "path": "skills/zju-literature-monitor/scripts/update_monitor_state.py",
+          "kind": "state_updater",
+          "purpose": "Apply identifier-first record transitions while preserving history and rejecting credential-like data."
+        }
+      ],
+      "prerequisites": ["zju-literature-search"],
+      "dependencies": ["zju-fulltext-access", "zju-reference-audit"],
+      "next_skills": [
+        "zju-fulltext-access",
+        "zju-reference-audit",
+        "zju-evidence-synthesis",
+        "zju-scientific-writing"
+      ],
+      "fallback": {
+        "status": "draft",
+        "trigger": "No live run or candidate records are available.",
+        "behavior": "Return a versioned draft profile with source queries, exact deduplication order, last_run not_executed, NOT_RUN accounting, and the next review date.",
+        "produces": ["draft_monitoring_profile", "not_run_ledger"]
+      }
+    },
+    "zju-evidence-synthesis": {
+      "description": "Builds systematic, scoping, rapid, narrative, mapping, or quantitative syntheses with study-level extraction, bias assessment, certainty, and claim-level traceability.",
+      "role": "Study-to-claim evidence integration and uncertainty synthesis.",
+      "stages": ["synthesis"],
+      "accepts": [
+        "research_question",
+        "review_protocol",
+        "eligibility_criteria",
+        "search_log",
+        "study_records",
+        "reader_notes",
+        "effect_evidence_table"
+      ],
+      "produces": [
+        "evidence_synthesis",
+        "systematic_review",
+        "evidence_table",
+        "claim_evidence_matrix"
+      ],
+      "risk_level": "medium",
+      "external_state": "none",
+      "required_human_gates": [],
+      "validators": [
+        {
+          "path": "skills/zju-evidence-synthesis/scripts/validate_evidence_table.py",
+          "kind": "validator",
+          "purpose": "Validate study-outcome-time-point rows, identifiers, source anchors, effects, and uncertainty fields."
+        }
+      ],
+      "prerequisites": ["zju-literature-search", "zju-paper-reader"],
+      "dependencies": ["zju-reference-audit", "zju-statistics-audit"],
+      "next_skills": [
+        "zju-hypothesis-design",
+        "zju-proposal-writer",
+        "zju-scientific-writing",
+        "zju-statistics-audit"
+      ],
+      "fallback": {
+        "status": "partial",
+        "trigger": "The protocol, full study records, or effect data are incomplete.",
+        "behavior": "Return a protocol and explicit study-outcome table from supplied facts, use UNKNOWN and NOT_ASSESSED, define the pooling gate, and never invent effects or a second screener.",
+        "produces": ["synthesis_protocol_draft", "blank_or_partial_evidence_table"]
+      }
+    },
+    "zju-hypothesis-design": {
+      "description": "Transforms anchored observations and evidence gaps into competing mechanistic hypotheses, discriminating experiments, prospective decision rules, and stop or revise conditions.",
+      "role": "Falsifiable hypothesis formation and information-efficient experiment design.",
+      "stages": ["design"],
+      "accepts": [
+        "observations",
+        "verified_evidence",
+        "evidence_synthesis",
+        "preliminary_data",
+        "anomalous_results",
+        "system_constraints"
+      ],
+      "produces": [
+        "hypothesis_set",
+        "experiment_design",
+        "decision_rules"
+      ],
+      "risk_level": "high",
+      "external_state": "none",
+      "required_human_gates": [],
+      "validators": [
+        {
+          "path": "skills/zju-hypothesis-design/scripts/validate_hypothesis_set.py",
+          "kind": "validator",
+          "purpose": "Check structured hypotheses for stable IDs, distinct predictions, falsifiers, anchors, and prospective decision rules."
+        }
+      ],
+      "prerequisites": ["zju-evidence-synthesis"],
+      "dependencies": ["zju-statistics-audit", "zju-research-integrity"],
+      "next_skills": [
+        "zju-experiment-log",
+        "zju-statistics-audit",
+        "zju-proposal-writer",
+        "zju-research-integrity"
+      ],
+      "fallback": {
+        "status": "blocked",
+        "trigger": "The premise is inconsistent, evidence is unverified, or hazardous or governed work lacks a review path.",
+        "behavior": "Repair and label the premise, return a staged low-cost plan with explicit unknowns, and hold hazardous or human or animal work for the applicable review authority.",
+        "produces": ["premise_repair_ledger", "blocked_hypothesis_plan"]
+      }
+    },
+    "zju-scientific-figure": {
+      "description": "Designs, generates, assembles, or audits evidence-grounded quantitative figures and scientific schematics with traceable transformations and rendered QA.",
+      "role": "Publication-grade scientific visualization and panel-level evidence QA.",
+      "stages": ["communication"],
+      "accepts": [
+        "source_data",
+        "analysis_output",
+        "image_assets",
+        "panel_specification",
+        "existing_figure",
+        "export_requirements"
+      ],
+      "produces": [
+        "scientific_figure",
+        "figure_manifest",
+        "figure_source",
+        "figure_legend",
+        "figure_qa_report"
+      ],
+      "risk_level": "medium",
+      "external_state": "none",
+      "required_human_gates": [],
+      "validators": [
+        {
+          "path": "skills/zju-scientific-figure/scripts/validate_figure_manifest.py",
+          "kind": "validator",
+          "purpose": "Validate the figure claim, panel evidence mapping, source and transformation provenance, export status, and QA state."
+        }
+      ],
+      "prerequisites": ["zju-statistics-audit"],
+      "dependencies": [],
+      "next_skills": [
+        "zju-scientific-writing",
+        "zju-paper2ppt",
+        "zju-reviewer",
+        "zju-data-availability",
+        "zju-research-integrity"
+      ],
+      "fallback": {
+        "status": "blocked",
+        "trigger": "Raw values, source assets, or format-critical inputs are absent.",
+        "behavior": "Return a BLOCKED_SOURCE_REQUIRED package with one contract row per supplied group and a format-specific export and render-QA plan; never draw invented quantitative evidence.",
+        "produces": ["blocked_figure_contract", "export_qa_plan"]
+      }
+    },
+    "zju-paper2ppt": {
+      "description": "Turns a verified scientific source packet into an evidence-led Chinese or bilingual deck plan and, when feasible, a rendered and inspected PPTX.",
+      "role": "Source-anchored scientific presentation planning, generation, and visual QA.",
+      "stages": ["communication"],
+      "accepts": [
+        "full_text",
+        "paper_card",
+        "reader_notes",
+        "manuscript_packet",
+        "source_figures",
+        "deck_constraints"
+      ],
+      "produces": [
+        "presentation",
+        "pptx",
+        "deck_plan",
+        "slide_source_map",
+        "render_qa_report"
+      ],
+      "risk_level": "low",
+      "external_state": "none",
+      "required_human_gates": [],
+      "validators": [
+        {
+          "path": "skills/zju-paper2ppt/scripts/validate_deck_plan.py",
+          "kind": "validator",
+          "purpose": "Validate slide claims, timing, editable elements, notes, citations, anchors, artifact truth states, and render-QA fields."
+        }
+      ],
+      "prerequisites": ["zju-paper-reader"],
+      "dependencies": ["zju-fulltext-access"],
+      "next_skills": ["zju-reviewer", "zju-research-integrity"],
+      "fallback": {
+        "status": "blocked",
+        "trigger": "The full source packet or artifact-generation environment is unavailable.",
+        "behavior": "Return a source-required deck blueprint and separate deck_plan, pptx_generated, render_inspected, and qa_passed states; never claim an ungenerated or uninspected PPTX.",
+        "produces": ["blocked_deck_plan", "not_generated_artifact_status"]
+      }
+    },
+    "zju-reviewer": {
+      "description": "Performs bounded, evidence-grounded pre-submission review of manuscripts, proposals, methods, figures, or selected sections with stable concerns and resolution tests.",
+      "role": "Independent-quality review and structured objection discovery.",
+      "stages": ["review"],
+      "accepts": [
+        "manuscript",
+        "proposal",
+        "thesis_chapter",
+        "methods_package",
+        "figure_package",
+        "selected_sections",
+        "venue_criteria",
+        "immutable_review_packet"
+      ],
+      "produces": [
+        "peer_review",
+        "reviewer_report",
+        "concern_ledger",
+        "panel_synthesis"
+      ],
+      "risk_level": "medium",
+      "external_state": "none",
+      "required_human_gates": [],
+      "validators": [
+        {
+          "path": "skills/zju-reviewer/scripts/validate_review_report.py",
+          "kind": "validator",
+          "purpose": "Validate assessment boundaries, stable concern IDs, evidence pointers, severities, blocking states, and resolution tests."
+        }
+      ],
+      "prerequisites": [],
+      "dependencies": [
+        "zju-statistics-audit",
+        "zju-reference-audit",
+        "zju-research-integrity"
+      ],
+      "next_skills": [
+        "zju-review-response",
+        "zju-scientific-writing",
+        "zju-scientific-figure",
+        "zju-statistics-audit"
+      ],
+      "fallback": {
+        "status": "partial",
+        "trigger": "Only a partial manuscript or review packet is available, or reviewer isolation cannot be guaranteed.",
+        "behavior": "Bound all conclusions to visible evidence, list not-assessable items, and disclose the lack of isolation instead of claiming an independent panel.",
+        "produces": ["bounded_review", "not_assessable_items"]
+      }
+    },
+    "zju-review-response": {
+      "description": "Triages editor and reviewer comments into a stable master tracker and drafts reviewer-separated, evidence-verified response packages tied to exact manuscript changes.",
+      "role": "Revision correspondence, action-state truth checking, and package consistency.",
+      "stages": ["review", "communication"],
+      "accepts": [
+        "decision_packet",
+        "reviewer_reports",
+        "manuscript",
+        "redline_manuscript",
+        "response_tracker"
+      ],
+      "produces": [
+        "review_response",
+        "response_letter",
+        "master_response_tracker",
+        "manuscript_change_map",
+        "package_consistency_report"
+      ],
+      "risk_level": "medium",
+      "external_state": "none",
+      "required_human_gates": ["submission_release"],
+      "validators": [
+        {
+          "path": "skills/zju-review-response/scripts/validate_response_tracker.py",
+          "kind": "validator",
+          "purpose": "Validate stable comment IDs, reviewer boundaries, action states, evidence, exact changes, locations, and completion claims."
+        }
+      ],
+      "prerequisites": ["zju-reviewer"],
+      "dependencies": [
+        "zju-scientific-writing",
+        "zju-statistics-audit",
+        "zju-reference-audit"
+      ],
+      "next_skills": [
+        "zju-scientific-writing",
+        "zju-statistics-audit",
+        "zju-reference-audit",
+        "zju-data-availability",
+        "zju-research-integrity"
+      ],
+      "fallback": {
+        "status": "draft",
+        "trigger": "Comment text or manuscript artifacts are absent or an action remains planned or unverified.",
+        "behavior": "Return a ready-to-fill master tracker, preserve every supplied comment verbatim, and use future or conditional wording rather than claiming completion.",
+        "produces": ["response_tracker_template", "author_input_needed_list"]
+      }
+    },
+    "zju-data-availability": {
+      "description": "Maps every claim-supporting data, code, material, protocol, and environment artifact to an honest access route, repository plan, citation, and reproducibility gap.",
+      "role": "Dataset-level availability, FAIR metadata, controlled-access, and reproducibility planning.",
+      "stages": ["sharing", "review"],
+      "accepts": [
+        "manuscript_claim_map",
+        "artifact_inventory",
+        "datasets",
+        "code_and_environment",
+        "repository_records",
+        "journal_requirements",
+        "access_restrictions"
+      ],
+      "produces": [
+        "data_availability",
+        "data_statement",
+        "artifact_inventory",
+        "repository_plan",
+        "dataset_code_citations",
+        "reproducibility_gap_report"
+      ],
+      "risk_level": "high",
+      "external_state": "conditional_write",
+      "required_human_gates": ["privacy", "external_action", "submission_release"],
+      "validators": [
+        {
+          "path": "skills/zju-data-availability/scripts/validate_data_inventory.py",
+          "kind": "validator",
+          "purpose": "Validate stable artifact rows, claim links, current locations, owners, access routes, repository or identifier states, restrictions, and unresolved fields."
+        }
+      ],
+      "prerequisites": ["zju-experiment-log", "zju-scientific-writing"],
+      "dependencies": ["zju-research-integrity"],
+      "next_skills": ["zju-reviewer", "zju-research-integrity"],
+      "fallback": {
+        "status": "partial",
+        "trigger": "Artifact details, identifiers, repository deposits, licenses, or access decisions are unresolved.",
+        "behavior": "Create one inventory row per known or implied artifact with DETAILS_NOT_SUPPLIED, preserve current embargo facts, and avoid implying access, FAIRness, or reproducibility.",
+        "produces": ["partial_artifact_inventory", "unresolved_availability_statement"]
+      }
+    },
+    "zju-proposal-writer": {
+      "description": "Composes, revises, or audits evidence-grounded research proposals by aligning official call constraints, contributions, hypotheses, work packages, milestones, risks, budgets, and approvals.",
+      "role": "Call-compliant proposal architecture, drafting, and reviewer-readiness assurance.",
+      "stages": ["communication", "design"],
+      "accepts": [
+        "official_call",
+        "proposal_template",
+        "research_canon",
+        "evidence_table",
+        "preliminary_evidence",
+        "project_constraints",
+        "budget_and_schedule"
+      ],
+      "produces": [
+        "proposal",
+        "research_proposal",
+        "proposal_manifest",
+        "work_package_plan",
+        "compliance_checklist",
+        "proposal_review_scorecard"
+      ],
+      "risk_level": "high",
+      "external_state": "none",
+      "required_human_gates": ["submission_release"],
+      "validators": [
+        {
+          "path": "skills/zju-proposal-writer/scripts/validate_proposal_manifest.py",
+          "kind": "validator",
+          "purpose": "Validate call identity and limits, objective-to-work-package traceability, milestones, risks, compliance state, and unsupported claims."
+        }
+      ],
+      "prerequisites": [
+        "zju-evidence-synthesis",
+        "zju-hypothesis-design",
+        "zju-reference-audit"
+      ],
+      "dependencies": ["zju-reviewer", "zju-research-integrity"],
+      "next_skills": ["zju-reviewer", "zju-research-integrity"],
+      "fallback": {
+        "status": "draft",
+        "trigger": "The official call text or verified research canon is absent.",
+        "behavior": "Mark compliance NOT_VERIFIED, return a call-extraction table and generic objective-to-work-package scaffold, and replace unsupported novelty superlatives with bounded unresolved claims.",
+        "produces": ["proposal_scaffold", "call_extraction_table"]
+      }
+    },
+    "zju-paper-to-patent": {
+      "description": "Mines source-supported invention features and produces a Chinese technical-disclosure or claim-drafting aid with confidentiality, prior-art, inventorship, and professional-review boundaries.",
+      "role": "Source-to-feature patent drafting support, not legal or patentability advice.",
+      "stages": ["commercialization"],
+      "accepts": [
+        "paper",
+        "thesis",
+        "technical_report",
+        "source_code",
+        "figures",
+        "experiment_records",
+        "inventor_notes",
+        "disclosure_and_confidentiality_state"
+      ],
+      "produces": [
+        "patent_triage",
+        "technical_disclosure",
+        "feature_evidence_ledger",
+        "claim_set_drafting_aid",
+        "prior_art_search_ledger",
+        "professional_handoff"
+      ],
+      "risk_level": "high",
+      "external_state": "read_only",
+      "required_human_gates": ["patent_legal", "submission_release"],
+      "validators": [
+        {
+          "path": "skills/zju-paper-to-patent/scripts/validate_feature_ledger.py",
+          "kind": "validator",
+          "purpose": "Validate verbatim feature support, exact anchors, source-state labels, numeric invariants, confidentiality, and exclusion of unsupported claim features."
+        }
+      ],
+      "prerequisites": ["zju-literature-search", "zju-paper-reader"],
+      "dependencies": [
+        "zju-chemistry-databases",
+        "zju-reference-audit",
+        "zju-research-integrity"
+      ],
+      "next_skills": ["zju-research-integrity"],
+      "fallback": {
+        "status": "blocked",
+        "trigger": "The technical source, conception contributions, confidentiality state, disclosure date, or jurisdictional professional review is absent.",
+        "behavior": "Return an operational feature-evidence ledger and prior-art plan, mark absent anchors SOURCE_REQUIRED, refuse to infer inventors or legal conclusions, and hold release for professional review.",
+        "produces": ["empty_or_partial_feature_ledger", "professional_review_request"]
+      }
+    },
+    "zju-chemistry-databases": {
+      "description": "Resolves chemical identity and routes structure, property, bioactivity, reaction, spectrum, safety, literature, and patent queries across lawful public and ZJU-licensed databases.",
+      "role": "Identity-aware chemistry and materials database evidence routing.",
+      "stages": ["discovery", "analysis"],
+      "accepts": [
+        "chemical_name",
+        "chemical_structure",
+        "chemical_identifiers",
+        "property_query",
+        "bioactivity_query",
+        "reaction_query",
+        "spectrum_or_safety_query",
+        "database_constraints"
+      ],
+      "produces": [
+        "chemistry_database_record",
+        "identity_resolution_table",
+        "database_query_ledger",
+        "normalized_chemistry_records",
+        "chemistry_conflict_report"
+      ],
+      "risk_level": "medium",
+      "external_state": "read_only",
+      "required_human_gates": ["external_action"],
+      "validators": [
+        {
+          "path": "skills/zju-chemistry-databases/scripts/validate_chemistry_records.py",
+          "kind": "validator",
+          "purpose": "Validate identity resolution, provenance, stereochemistry and salt states, evidence type, units, conditions, and unresolved conflicts."
+        }
+      ],
+      "prerequisites": [],
+      "dependencies": [
+        "zju-literature-search",
+        "zju-fulltext-access",
+        "zju-reference-audit"
+      ],
+      "next_skills": [
+        "zju-literature-search",
+        "zju-reference-audit",
+        "zju-hypothesis-design",
+        "zju-paper-to-patent"
+      ],
+      "fallback": {
+        "status": "partial",
+        "trigger": "The supplied name or identifier cannot establish a unique parent, stereochemistry, isotope, charge, tautomer, or salt or solvate state.",
+        "behavior": "Preserve every token in an identity-resolution table, mark unverified cells UNKNOWN, state reconciliation rules, and provide the next lawful database route without guessing a structure.",
+        "produces": ["partial_identity_resolution_table", "next_database_route"]
+      }
+    },
+    "zju-research-integrity": {
+      "description": "Audits workflow, manuscript, data, image, code, authorship, citation, AI-use, ethics, conflict, and provenance risks while preserving evidence and formal role boundaries.",
+      "role": "Preventive integrity assurance and neutral incident triage.",
+      "stages": ["integrity", "review"],
+      "accepts": [
+        "research_workflow",
+        "manuscript",
+        "data_and_images",
+        "code_and_environment",
+        "authorship_and_contributions",
+        "citation_records",
+        "ai_use_records",
+        "ethics_and_conflict_records",
+        "provenance_manifest",
+        "incident_facts"
+      ],
+      "produces": [
+        "integrity_audit",
+        "preservation_manifest",
+        "integrity_finding_table",
+        "remediation_plan",
+        "escalation_options"
+      ],
+      "risk_level": "high",
+      "external_state": "none",
+      "required_human_gates": ["integrity"],
+      "validators": [
+        {
+          "path": "skills/zju-research-integrity/scripts/audit_provenance_manifest.py",
+          "kind": "auditor",
+          "purpose": "Audit stable artifact provenance, hashes, claim links, approvals, contributors, environment records, and unresolved documentation gaps."
+        }
+      ],
+      "prerequisites": [],
+      "dependencies": [
+        "zju-statistics-audit",
+        "zju-reference-audit",
+        "zju-scientific-figure",
+        "zju-data-availability"
+      ],
+      "next_skills": [],
+      "fallback": {
+        "status": "triage",
+        "trigger": "Evidence is incomplete, a live policy has not been freshly verified, or a suspected incident requires institutional authority.",
+        "behavior": "Preserve original evidence, separate facts from anomalies and allegations, avoid a misconduct verdict, and return the least disruptive remediation and authorized escalation options.",
+        "produces": ["neutral_integrity_triage", "evidence_preservation_plan"]
+      }
+    }
+  }
+}
+\n

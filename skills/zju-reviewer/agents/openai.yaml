@@ -1,0 +1,5 @@
+interface:
+  display_name: "ZJU Reviewer"
+  short_description: "Run grounded pre-submission peer review."
+  default_prompt: "Use $zju-reviewer to perform an evidence-grounded pre-submission review of this manuscript."
+\n

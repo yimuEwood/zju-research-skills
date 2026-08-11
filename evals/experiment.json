@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "zju-first-wave-three-arm-v1",
+  "model": "gpt-5.4-mini",
+  "rater_model": "gpt-5.5",
+  "reasoning_effort": "low",
+  "sandbox": "read-only",
+  "web_search": false,
+  "session_mode": "ephemeral",
+  "timeout_seconds": 180,
+  "comparison_arms": ["no_skill", "upstream_skill", "distilled_skill"],
+  "raters_per_response": 2,
+  "random_seed": 20260810,
+  "pilot_case_ids": ["LIT-06", "FULL-06", "REF-06", "READ-05", "LOG-06", "STAT-01", "WRITE-03"],
+  "arm_sources": {
+    "zju-literature-search": {
+      "upstream": ["nature-academic-search"],
+      "distilled": "zju-literature-search"
+    },
+    "zju-fulltext-access": {
+      "upstream": ["nature-downloader"],
+      "distilled": "zju-fulltext-access"
+    },
+    "zju-reference-audit": {
+      "upstream": ["nature-ref-verifier", "nature-citation"],
+      "distilled": "zju-reference-audit"
+    },
+    "zju-paper-reader": {
+      "upstream": ["nature-reader", "nature-paper-card"],
+      "distilled": "zju-paper-reader"
+    },
+    "zju-experiment-log": {
+      "upstream": ["nature-experiment-log"],
+      "distilled": "zju-experiment-log"
+    },
+    "zju-statistics-audit": {
+      "upstream": ["nature-statistics"],
+      "distilled": "zju-statistics-audit"
+    },
+    "zju-scientific-writing": {
+      "upstream": ["nature-writing", "nature-polishing"],
+      "distilled": "zju-scientific-writing"
+    }
+  },
+  "upstream": {
+    "repository": "https://github.com/Yuan1z0825/nature-skills",
+    "commit": "1ea82ffff20f40077bf84b74182f55eeaf3d111d",
+    "license": "Apache-2.0"
+  }
+}
+\n

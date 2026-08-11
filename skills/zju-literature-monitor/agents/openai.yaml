@@ -1,0 +1,5 @@
+interface:
+  display_name: "ZJU Literature Monitor"
+  short_description: "Track new literature with auditable alerts."
+  default_prompt: "Use $zju-literature-monitor to design an auditable literature monitoring run for my topic."
+\n

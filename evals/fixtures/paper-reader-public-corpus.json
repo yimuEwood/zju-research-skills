@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "download_policy": "Fetch from the public arXiv landing page at evaluation time; record the retrieved version and SHA-256. Do not redistribute a cached PDF from this repository.",
+  "papers": [
+    {
+      "id": "arxiv-1706.03762",
+      "title": "Attention Is All You Need",
+      "landing_url": "https://arxiv.org/abs/1706.03762",
+      "stable_identifier": "arXiv:1706.03762",
+      "features": ["multi-column layout", "equations", "architecture figure", "results tables"],
+      "required_checks": ["section coverage", "equation inventory", "figure/table anchors", "version record"]
+    },
+    {
+      "id": "arxiv-1512.03385",
+      "title": "Deep Residual Learning for Image Recognition",
+      "landing_url": "https://arxiv.org/abs/1512.03385",
+      "stable_identifier": "arXiv:1512.03385",
+      "features": ["multi-column layout", "method equations", "complex architecture figures", "benchmark tables"],
+      "required_checks": ["method reconstruction", "figure inventory", "table inventory", "limitations"]
+    },
+    {
+      "id": "arxiv-2106.09685",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "landing_url": "https://arxiv.org/abs/2106.09685",
+      "stable_identifier": "arXiv:2106.09685",
+      "features": ["multi-column layout", "equations", "multi-panel plots", "ablation tables"],
+      "required_checks": ["equation variables", "evidence chain", "ablation interpretation", "source anchors"]
+    }
+  ]
+}
+
+\n

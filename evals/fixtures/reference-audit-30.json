@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "description": "Thirty synthetic references with one planted material error each. Values are intentionally fictional and must not be treated as real citations.",
+  "records": [
+    {"audit_id":"G001","submitted":{"doi":"10.9999/wrong01","title":"Synthetic reference 01"},"canonical":{"doi":"10.9999/ref01","title":"Synthetic reference 01"},"expected_error_fields":["doi"]},
+    {"audit_id":"G002","submitted":{"doi":"10.9999/ref02","title":"Unrelated submitted title"},"canonical":{"doi":"10.9999/ref02","title":"Synthetic reference 02"},"expected_error_fields":["title"]},
+    {"audit_id":"G003","submitted":{"doi":"10.9999/ref03","authors":["Li","Wang"]},"canonical":{"doi":"10.9999/ref03","authors":["Wang","Li"]},"expected_error_fields":["authors"]},
+    {"audit_id":"G004","submitted":{"doi":"10.9999/ref04","year":2022},"canonical":{"doi":"10.9999/ref04","year":2024},"expected_error_fields":["year"]},
+    {"audit_id":"G005","submitted":{"doi":"10.9999/ref05","venue":"Wrong Journal"},"canonical":{"doi":"10.9999/ref05","venue":"Synthetic Chemistry"},"expected_error_fields":["venue"]},
+    {"audit_id":"G006","submitted":{"doi":"10.9999/ref06","volume":"8"},"canonical":{"doi":"10.9999/ref06","volume":"18"},"expected_error_fields":["volume"]},
+    {"audit_id":"G007","submitted":{"doi":"10.9999/ref07","issue":"2"},"canonical":{"doi":"10.9999/ref07","issue":"5"},"expected_error_fields":["issue"]},
+    {"audit_id":"G008","submitted":{"doi":"10.9999/ref08","pages":"110-119"},"canonical":{"doi":"10.9999/ref08","pages":"210-219"},"expected_error_fields":["pages"]},
+    {"audit_id":"G009","submitted":{"doi":"10.9999/wrong09","title":"Synthetic reference 09"},"canonical":{"doi":"10.9999/ref09","title":"Synthetic reference 09"},"expected_error_fields":["doi"]},
+    {"audit_id":"G010","submitted":{"doi":"10.9999/ref10","title":"Different biological endpoint"},"canonical":{"doi":"10.9999/ref10","title":"Synthetic reference 10"},"expected_error_fields":["title"]},
+    {"audit_id":"G011","submitted":{"doi":"10.9999/ref11","authors":["Chen","Zhao","Xu"]},"canonical":{"doi":"10.9999/ref11","authors":["Chen","Xu","Zhao"]},"expected_error_fields":["authors"]},
+    {"audit_id":"G012","submitted":{"doi":"10.9999/ref12","year":2019},"canonical":{"doi":"10.9999/ref12","year":2020},"expected_error_fields":["year"]},
+    {"audit_id":"G013","submitted":{"doi":"10.9999/ref13","venue":"Materials Letters"},"canonical":{"doi":"10.9999/ref13","venue":"Synthetic Materials"},"expected_error_fields":["venue"]},
+    {"audit_id":"G014","submitted":{"doi":"10.9999/ref14","volume":"40"},"canonical":{"doi":"10.9999/ref14","volume":"14"},"expected_error_fields":["volume"]},
+    {"audit_id":"G015","submitted":{"doi":"10.9999/ref15","issue":"7"},"canonical":{"doi":"10.9999/ref15","issue":"1"},"expected_error_fields":["issue"]},
+    {"audit_id":"G016","submitted":{"doi":"10.9999/ref16","pages":"e0016"},"canonical":{"doi":"10.9999/ref16","pages":"160-169"},"expected_error_fields":["pages"]},
+    {"audit_id":"G017","submitted":{"doi":"10.9999/wrong17","title":"Synthetic reference 17"},"canonical":{"doi":"10.9999/ref17","title":"Synthetic reference 17"},"expected_error_fields":["doi"]},
+    {"audit_id":"G018","submitted":{"doi":"10.9999/ref18","title":"Synthetic review of crop disease"},"canonical":{"doi":"10.9999/ref18","title":"Synthetic field trial of crop disease"},"expected_error_fields":["title"]},
+    {"audit_id":"G019","submitted":{"doi":"10.9999/ref19","authors":["Garcia","Smith"]},"canonical":{"doi":"10.9999/ref19","authors":["Smith","Garcia"]},"expected_error_fields":["authors"]},
+    {"audit_id":"G020","submitted":{"doi":"10.9999/ref20","year":2025},"canonical":{"doi":"10.9999/ref20","year":2023},"expected_error_fields":["year"]},
+    {"audit_id":"G021","submitted":{"doi":"10.9999/ref21","venue":"Synthetic Medicine"},"canonical":{"doi":"10.9999/ref21","venue":"Synthetic Agriculture"},"expected_error_fields":["venue"]},
+    {"audit_id":"G022","submitted":{"doi":"10.9999/ref22","volume":"12"},"canonical":{"doi":"10.9999/ref22","volume":"22"},"expected_error_fields":["volume"]},
+    {"audit_id":"G023","submitted":{"doi":"10.9999/ref23","issue":"3"},"canonical":{"doi":"10.9999/ref23","issue":"6"},"expected_error_fields":["issue"]},
+    {"audit_id":"G024","submitted":{"doi":"10.9999/ref24","pages":"24-29"},"canonical":{"doi":"10.9999/ref24","pages":"240-249"},"expected_error_fields":["pages"]},
+    {"audit_id":"G025","submitted":{"doi":"10.9999/wrong25","title":"Synthetic reference 25"},"canonical":{"doi":"10.9999/ref25","title":"Synthetic reference 25"},"expected_error_fields":["doi"]},
+    {"audit_id":"G026","submitted":{"doi":"10.9999/ref26","title":"Synthetic computational protocol"},"canonical":{"doi":"10.9999/ref26","title":"Synthetic experimental protocol"},"expected_error_fields":["title"]},
+    {"audit_id":"G027","submitted":{"doi":"10.9999/ref27","authors":["A","B","C"]},"canonical":{"doi":"10.9999/ref27","authors":["A","C","B"]},"expected_error_fields":["authors"]},
+    {"audit_id":"G028","submitted":{"doi":"10.9999/ref28","year":2018},"canonical":{"doi":"10.9999/ref28","year":2021},"expected_error_fields":["year"]},
+    {"audit_id":"G029","submitted":{"doi":"10.9999/ref29","venue":"Synthetic Physics"},"canonical":{"doi":"10.9999/ref29","venue":"Synthetic Biology"},"expected_error_fields":["venue"]},
+    {"audit_id":"G030","submitted":{"doi":"10.9999/ref30","pages":"300-309"},"canonical":{"doi":"10.9999/ref30","pages":"e030"},"expected_error_fields":["pages"]}
+  ]
+}
+
+\n

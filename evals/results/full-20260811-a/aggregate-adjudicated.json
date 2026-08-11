@@ -1,0 +1,3300 @@
+{
+  "adjudication_required": [],
+  "adjudication_resolved": [
+    {
+      "adjudicator_id": "full-judge-3",
+      "adjudicator_score": 52.5,
+      "blind_label": "C",
+      "case_id": "LIT-02",
+      "critical_failure_disagreement": true,
+      "dimension_disagreement": {
+        "evidence_traceability": 0,
+        "safety_integrity": 1,
+        "scientific_validity": 0,
+        "task_completeness": 0,
+        "usability": 0
+      },
+      "method": "dimension median and critical-failure majority over three blind ratings"
+    },
+    {
+      "adjudicator_id": "full-judge-3",
+      "adjudicator_score": 51.25,
+      "blind_label": "B",
+      "case_id": "LIT-04",
+      "critical_failure_disagreement": true,
+      "dimension_disagreement": {
+        "evidence_traceability": 0,
+        "safety_integrity": 2,
+        "scientific_validity": 1,
+        "task_completeness": 0,
+        "usability": 1
+      },
+      "method": "dimension median and critical-failure majority over three blind ratings"
+    },
+    {
+      "adjudicator_id": "full-judge-3",
+      "adjudicator_score": 67.5,
+      "blind_label": "A",
+      "case_id": "LIT-06",
+      "critical_failure_disagreement": false,
+      "dimension_disagreement": {
+        "evidence_traceability": 2,
+        "safety_integrity": 1,
+        "scientific_validity": 0,
+        "task_completeness": 1,
+        "usability": 1
+      },
+      "method": "dimension median and critical-failure majority over three blind ratings"
+    },
+    {
+      "adjudicator_id": "full-judge-3",
+      "adjudicator_score": 37.5,
+      "blind_label": "B",
+      "case_id": "LIT-08",
+      "critical_failure_disagreement": true,
+      "dimension_disagreement": {
+        "evidence_traceability": 0,
+        "safety_integrity": 2,
+        "scientific_validity": 0,
+        "task_completeness": 0,
+        "usability": 0
+      },
+      "method": "dimension median and critical-failure majority over three blind ratings"
+    },
+    {
+      "adjudicator_id": "full-judge-3",
+      "adjudicator_score": 37.5,
+      "blind_label": "C",
+      "case_id": "LIT-08",
+      "critical_failure_disagreement": true,
+      "dimension_disagreement": {
+        "evidence_traceability": 0,
+        "safety_integrity": 2,
+        "scientific_validity": 0,
+        "task_completeness": 0,
+        "usability": 0
+      },
+      "method": "dimension median and critical-failure majority over three blind ratings"
+    },
+    {
+      "adjudicator_id": "full-judge-3",
+      "adjudicator_score": 48.75,
+      "blind_label": "B",
+      "case_id": "STAT-03",
+      "critical_failure_disagreement": true,
+      "dimension_disagreement": {
+        "evidence_traceability": 1,
+        "safety_integrity": 3,
+        "scientific_validity": 0,
+        "task_completeness": 1,
+        "usability": 0
+      },
+      "method": "dimension median and critical-failure majority over three blind ratings"
+    }
+  ],
+  "complete": true,
+  "missing_ratings": [],
+  "rater_ids": [
+    "full-judge-1",
+    "full-judge-2"
+  ],
+  "release_gate_passed": true,
+  "rows": [
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "LIT-01",
+      "critical_failure": false,
+      "duration_seconds": 83.274,
+      "quality_score": 67.5,
+      "rater_scores": {
+        "full-judge-1": 67.5,
+        "full-judge-2": 67.5
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 73477
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "LIT-01",
+      "critical_failure": false,
+      "duration_seconds": 71.548,
+      "quality_score": 36.25,
+      "rater_scores": {
+        "full-judge-1": 36.25,
+        "full-judge-2": 36.25
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 47790
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "LIT-01",
+      "critical_failure": false,
+      "duration_seconds": 88.312,
+      "quality_score": 36.25,
+      "rater_scores": {
+        "full-judge-1": 36.25,
+        "full-judge-2": 36.25
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 79211
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "LIT-02",
+      "critical_failure": false,
+      "duration_seconds": 71.823,
+      "quality_score": 61.875,
+      "rater_scores": {
+        "full-judge-1": 67.5,
+        "full-judge-2": 56.25
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 55119
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "LIT-02",
+      "critical_failure": false,
+      "duration_seconds": 65.312,
+      "quality_score": 36.25,
+      "rater_scores": {
+        "full-judge-1": 36.25,
+        "full-judge-2": 36.25
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 35244
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "LIT-02",
+      "critical_failure": false,
+      "duration_seconds": 147.934,
+      "quality_score": 52.5,
+      "rater_scores": {
+        "full-judge-1": 52.5,
+        "full-judge-2": 0.0,
+        "full-judge-3": 52.5
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 229762
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "LIT-03",
+      "critical_failure": false,
+      "duration_seconds": 73.14,
+      "quality_score": 59.375,
+      "rater_scores": {
+        "full-judge-1": 56.25,
+        "full-judge-2": 62.5
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 69107
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "LIT-03",
+      "critical_failure": false,
+      "duration_seconds": 38.108,
+      "quality_score": 47.5,
+      "rater_scores": {
+        "full-judge-1": 41.25,
+        "full-judge-2": 53.75
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 34597
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "LIT-03",
+      "critical_failure": true,
+      "duration_seconds": 168.234,
+      "quality_score": 0.0,
+      "rater_scores": {
+        "full-judge-1": 0.0,
+        "full-judge-2": 0.0
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 347427
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "LIT-04",
+      "critical_failure": false,
+      "duration_seconds": 32.725,
+      "quality_score": 43.75,
+      "rater_scores": {
+        "full-judge-1": 41.25,
+        "full-judge-2": 46.25
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 34480
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "LIT-04",
+      "critical_failure": false,
+      "duration_seconds": 99.528,
+      "quality_score": 51.25,
+      "rater_scores": {
+        "full-judge-1": 51.25,
+        "full-judge-2": 0.0,
+        "full-judge-3": 51.25
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 153327
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "LIT-04",
+      "critical_failure": false,
+      "duration_seconds": 52.403,
+      "quality_score": 52.5,
+      "rater_scores": {
+        "full-judge-1": 52.5,
+        "full-judge-2": 52.5
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 74986
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "LIT-05",
+      "critical_failure": false,
+      "duration_seconds": 68.472,
+      "quality_score": 71.25,
+      "rater_scores": {
+        "full-judge-1": 62.5,
+        "full-judge-2": 80.0
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 94128
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "LIT-05",
+      "critical_failure": false,
+      "duration_seconds": 70.239,
+      "quality_score": 95.0,
+      "rater_scores": {
+        "full-judge-1": 95.0,
+        "full-judge-2": 95.0
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 56062
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "LIT-05",
+      "critical_failure": false,
+      "duration_seconds": 46.661,
+      "quality_score": 62.5,
+      "rater_scores": {
+        "full-judge-1": 62.5,
+        "full-judge-2": 62.5
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 52120
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "LIT-06",
+      "critical_failure": false,
+      "duration_seconds": 63.995,
+      "quality_score": 67.5,
+      "rater_scores": {
+        "full-judge-1": 73.75,
+        "full-judge-2": 47.5,
+        "full-judge-3": 67.5
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 73198
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "LIT-06",
+      "critical_failure": true,
+      "duration_seconds": 37.899,
+      "quality_score": 0.0,
+      "rater_scores": {
+        "full-judge-1": 0.0,
+        "full-judge-2": 0.0
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 31170
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "LIT-06",
+      "critical_failure": true,
+      "duration_seconds": 89.045,
+      "quality_score": 0.0,
+      "rater_scores": {
+        "full-judge-1": 0.0,
+        "full-judge-2": 0.0
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 157682
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "LIT-07",
+      "critical_failure": false,
+      "duration_seconds": 38.37,
+      "quality_score": 36.875,
+      "rater_scores": {
+        "full-judge-1": 42.5,
+        "full-judge-2": 31.25
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 30789
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "LIT-07",
+      "critical_failure": false,
+      "duration_seconds": 59.641,
+      "quality_score": 65.0,
+      "rater_scores": {
+        "full-judge-1": 67.5,
+        "full-judge-2": 62.5
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 75322
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "LIT-07",
+      "critical_failure": false,
+      "duration_seconds": 72.236,
+      "quality_score": 36.875,
+      "rater_scores": {
+        "full-judge-1": 42.5,
+        "full-judge-2": 31.25
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 103510
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "LIT-08",
+      "critical_failure": false,
+      "duration_seconds": 65.282,
+      "quality_score": 47.5,
+      "rater_scores": {
+        "full-judge-1": 47.5,
+        "full-judge-2": 47.5
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 68775
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "LIT-08",
+      "critical_failure": false,
+      "duration_seconds": 74.713,
+      "quality_score": 26.25,
+      "rater_scores": {
+        "full-judge-1": 0.0,
+        "full-judge-2": 26.25,
+        "full-judge-3": 37.5
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 97258
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "LIT-08",
+      "critical_failure": false,
+      "duration_seconds": 56.669,
+      "quality_score": 26.25,
+      "rater_scores": {
+        "full-judge-1": 0.0,
+        "full-judge-2": 26.25,
+        "full-judge-3": 37.5
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 52142
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "LIT-09",
+      "critical_failure": false,
+      "duration_seconds": 53.872,
+      "quality_score": 26.25,
+      "rater_scores": {
+        "full-judge-1": 26.25,
+        "full-judge-2": 26.25
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 62988
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "LIT-09",
+      "critical_failure": false,
+      "duration_seconds": 73.388,
+      "quality_score": 16.25,
+      "rater_scores": {
+        "full-judge-1": 16.25,
+        "full-judge-2": 16.25
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 106393
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "LIT-09",
+      "critical_failure": false,
+      "duration_seconds": 54.882,
+      "quality_score": 40.0,
+      "rater_scores": {
+        "full-judge-1": 40.0,
+        "full-judge-2": 40.0
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 73003
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "LIT-10",
+      "critical_failure": false,
+      "duration_seconds": 63.019,
+      "quality_score": 60.0,
+      "rater_scores": {
+        "full-judge-1": 61.25,
+        "full-judge-2": 58.75
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 67307
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "LIT-10",
+      "critical_failure": false,
+      "duration_seconds": 105.008,
+      "quality_score": 60.0,
+      "rater_scores": {
+        "full-judge-1": 61.25,
+        "full-judge-2": 58.75
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 178390
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "LIT-10",
+      "critical_failure": false,
+      "duration_seconds": 34.834,
+      "quality_score": 40.0,
+      "rater_scores": {
+        "full-judge-1": 41.25,
+        "full-judge-2": 38.75
+      },
+      "skill": "zju-literature-search",
+      "total_tokens": 31271
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "FULL-01",
+      "critical_failure": false,
+      "duration_seconds": 65.453,
+      "quality_score": 81.25,
+      "rater_scores": {
+        "full-judge-1": 82.5,
+        "full-judge-2": 80.0
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 89210
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "FULL-01",
+      "critical_failure": false,
+      "duration_seconds": 59.84,
+      "quality_score": 56.25,
+      "rater_scores": {
+        "full-judge-1": 58.75,
+        "full-judge-2": 53.75
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 81563
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "FULL-01",
+      "critical_failure": false,
+      "duration_seconds": 31.602,
+      "quality_score": 35.0,
+      "rater_scores": {
+        "full-judge-1": 35.0,
+        "full-judge-2": 35.0
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 30967
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "FULL-02",
+      "critical_failure": false,
+      "duration_seconds": 47.216,
+      "quality_score": 70.625,
+      "rater_scores": {
+        "full-judge-1": 67.5,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 49384
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "FULL-02",
+      "critical_failure": false,
+      "duration_seconds": 42.422,
+      "quality_score": 50.0,
+      "rater_scores": {
+        "full-judge-1": 52.5,
+        "full-judge-2": 47.5
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 55238
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "FULL-02",
+      "critical_failure": false,
+      "duration_seconds": 34.008,
+      "quality_score": 53.125,
+      "rater_scores": {
+        "full-judge-1": 58.75,
+        "full-judge-2": 47.5
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 34147
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "FULL-03",
+      "critical_failure": false,
+      "duration_seconds": 42.885,
+      "quality_score": 48.75,
+      "rater_scores": {
+        "full-judge-1": 48.75,
+        "full-judge-2": 48.75
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 30767
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "FULL-03",
+      "critical_failure": false,
+      "duration_seconds": 75.544,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 114444
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "FULL-03",
+      "critical_failure": false,
+      "duration_seconds": 55.736,
+      "quality_score": 68.75,
+      "rater_scores": {
+        "full-judge-1": 68.75,
+        "full-judge-2": 68.75
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 87005
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "FULL-04",
+      "critical_failure": false,
+      "duration_seconds": 45.777,
+      "quality_score": 44.375,
+      "rater_scores": {
+        "full-judge-1": 38.75,
+        "full-judge-2": 50.0
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 58476
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "FULL-04",
+      "critical_failure": false,
+      "duration_seconds": 28.601,
+      "quality_score": 88.125,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 82.5
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 31080
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "FULL-04",
+      "critical_failure": false,
+      "duration_seconds": 89.06,
+      "quality_score": 96.875,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 145984
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "FULL-05",
+      "critical_failure": false,
+      "duration_seconds": 51.685,
+      "quality_score": 10.0,
+      "rater_scores": {
+        "full-judge-1": 10.0,
+        "full-judge-2": 10.0
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 85203
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "FULL-05",
+      "critical_failure": false,
+      "duration_seconds": 40.207,
+      "quality_score": 53.125,
+      "rater_scores": {
+        "full-judge-1": 56.25,
+        "full-judge-2": 50.0
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 34003
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "FULL-05",
+      "critical_failure": false,
+      "duration_seconds": 52.887,
+      "quality_score": 85.0,
+      "rater_scores": {
+        "full-judge-1": 82.5,
+        "full-judge-2": 87.5
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 49504
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "FULL-06",
+      "critical_failure": false,
+      "duration_seconds": 34.996,
+      "quality_score": 71.875,
+      "rater_scores": {
+        "full-judge-1": 75.0,
+        "full-judge-2": 68.75
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 31119
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "FULL-06",
+      "critical_failure": false,
+      "duration_seconds": 74.556,
+      "quality_score": 96.875,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 116186
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "FULL-06",
+      "critical_failure": false,
+      "duration_seconds": 57.471,
+      "quality_score": 96.875,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 93625
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "FULL-07",
+      "critical_failure": false,
+      "duration_seconds": 43.815,
+      "quality_score": 85.0,
+      "rater_scores": {
+        "full-judge-1": 76.25,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 53565
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "FULL-07",
+      "critical_failure": false,
+      "duration_seconds": 40.917,
+      "quality_score": 57.5,
+      "rater_scores": {
+        "full-judge-1": 46.25,
+        "full-judge-2": 68.75
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 54840
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "FULL-07",
+      "critical_failure": false,
+      "duration_seconds": 32.774,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 34391
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "FULL-08",
+      "critical_failure": false,
+      "duration_seconds": 62.403,
+      "quality_score": 45.0,
+      "rater_scores": {
+        "full-judge-1": 45.0,
+        "full-judge-2": 45.0
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 57257
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "FULL-08",
+      "critical_failure": false,
+      "duration_seconds": 51.109,
+      "quality_score": 71.875,
+      "rater_scores": {
+        "full-judge-1": 76.25,
+        "full-judge-2": 67.5
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 49306
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "FULL-08",
+      "critical_failure": false,
+      "duration_seconds": 50.655,
+      "quality_score": 47.5,
+      "rater_scores": {
+        "full-judge-1": 47.5,
+        "full-judge-2": 47.5
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 63341
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "FULL-09",
+      "critical_failure": false,
+      "duration_seconds": 84.463,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 111874
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "FULL-09",
+      "critical_failure": false,
+      "duration_seconds": 74.971,
+      "quality_score": 73.75,
+      "rater_scores": {
+        "full-judge-1": 76.25,
+        "full-judge-2": 71.25
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 120589
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "FULL-09",
+      "critical_failure": false,
+      "duration_seconds": 41.677,
+      "quality_score": 67.5,
+      "rater_scores": {
+        "full-judge-1": 67.5,
+        "full-judge-2": 67.5
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 31588
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "FULL-10",
+      "critical_failure": false,
+      "duration_seconds": 59.464,
+      "quality_score": 75.625,
+      "rater_scores": {
+        "full-judge-1": 72.5,
+        "full-judge-2": 78.75
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 73008
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "FULL-10",
+      "critical_failure": true,
+      "duration_seconds": 47.408,
+      "quality_score": 0.0,
+      "rater_scores": {
+        "full-judge-1": 0.0,
+        "full-judge-2": 0.0
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 77868
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "FULL-10",
+      "critical_failure": false,
+      "duration_seconds": 33.636,
+      "quality_score": 72.5,
+      "rater_scores": {
+        "full-judge-1": 72.5,
+        "full-judge-2": 72.5
+      },
+      "skill": "zju-fulltext-access",
+      "total_tokens": 31133
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "REF-01",
+      "critical_failure": false,
+      "duration_seconds": 85.457,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 135781
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "REF-01",
+      "critical_failure": false,
+      "duration_seconds": 51.904,
+      "quality_score": 72.5,
+      "rater_scores": {
+        "full-judge-1": 76.25,
+        "full-judge-2": 68.75
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 90959
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "REF-01",
+      "critical_failure": false,
+      "duration_seconds": 26.389,
+      "quality_score": 44.375,
+      "rater_scores": {
+        "full-judge-1": 47.5,
+        "full-judge-2": 41.25
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 34016
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "REF-02",
+      "critical_failure": false,
+      "duration_seconds": 55.917,
+      "quality_score": 65.0,
+      "rater_scores": {
+        "full-judge-1": 62.5,
+        "full-judge-2": 67.5
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 91803
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "REF-02",
+      "critical_failure": false,
+      "duration_seconds": 49.343,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 53915
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "REF-02",
+      "critical_failure": false,
+      "duration_seconds": 27.361,
+      "quality_score": 62.5,
+      "rater_scores": {
+        "full-judge-1": 60.0,
+        "full-judge-2": 65.0
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 33994
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "REF-03",
+      "critical_failure": false,
+      "duration_seconds": 29.686,
+      "quality_score": 62.5,
+      "rater_scores": {
+        "full-judge-1": 73.75,
+        "full-judge-2": 51.25
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 34108
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "REF-03",
+      "critical_failure": false,
+      "duration_seconds": 56.387,
+      "quality_score": 62.5,
+      "rater_scores": {
+        "full-judge-1": 73.75,
+        "full-judge-2": 51.25
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 94224
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "REF-03",
+      "critical_failure": false,
+      "duration_seconds": 43.472,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 53845
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "REF-04",
+      "critical_failure": false,
+      "duration_seconds": 52.513,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 72500
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "REF-04",
+      "critical_failure": false,
+      "duration_seconds": 58.337,
+      "quality_score": 76.25,
+      "rater_scores": {
+        "full-judge-1": 73.75,
+        "full-judge-2": 78.75
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 91545
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "REF-04",
+      "critical_failure": false,
+      "duration_seconds": 28.872,
+      "quality_score": 58.75,
+      "rater_scores": {
+        "full-judge-1": 58.75,
+        "full-judge-2": 58.75
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 33994
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "REF-05",
+      "critical_failure": false,
+      "duration_seconds": 28.133,
+      "quality_score": 53.75,
+      "rater_scores": {
+        "full-judge-1": 48.75,
+        "full-judge-2": 58.75
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 33970
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "REF-05",
+      "critical_failure": false,
+      "duration_seconds": 61.505,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 74399
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "REF-05",
+      "critical_failure": false,
+      "duration_seconds": 55.282,
+      "quality_score": 77.5,
+      "rater_scores": {
+        "full-judge-1": 75.0,
+        "full-judge-2": 80.0
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 91949
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "REF-06",
+      "critical_failure": false,
+      "duration_seconds": 72.071,
+      "quality_score": 76.25,
+      "rater_scores": {
+        "full-judge-1": 73.75,
+        "full-judge-2": 78.75
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 119959
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "REF-06",
+      "critical_failure": false,
+      "duration_seconds": 32.756,
+      "quality_score": 70.0,
+      "rater_scores": {
+        "full-judge-1": 67.5,
+        "full-judge-2": 72.5
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 33939
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "REF-06",
+      "critical_failure": false,
+      "duration_seconds": 43.331,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 53798
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "REF-07",
+      "critical_failure": false,
+      "duration_seconds": 27.946,
+      "quality_score": 58.75,
+      "rater_scores": {
+        "full-judge-1": 48.75,
+        "full-judge-2": 68.75
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 33934
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "REF-07",
+      "critical_failure": false,
+      "duration_seconds": 66.157,
+      "quality_score": 69.375,
+      "rater_scores": {
+        "full-judge-1": 62.5,
+        "full-judge-2": 76.25
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 118708
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "REF-07",
+      "critical_failure": false,
+      "duration_seconds": 42.819,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 54042
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "REF-08",
+      "critical_failure": false,
+      "duration_seconds": 50.33,
+      "quality_score": 94.375,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 88.75
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 72340
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "REF-08",
+      "critical_failure": false,
+      "duration_seconds": 56.079,
+      "quality_score": 71.875,
+      "rater_scores": {
+        "full-judge-1": 75.0,
+        "full-judge-2": 68.75
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 94819
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "REF-08",
+      "critical_failure": false,
+      "duration_seconds": 30.534,
+      "quality_score": 48.75,
+      "rater_scores": {
+        "full-judge-1": 48.75,
+        "full-judge-2": 48.75
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 33966
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "REF-09",
+      "critical_failure": false,
+      "duration_seconds": 26.649,
+      "quality_score": 80.0,
+      "rater_scores": {
+        "full-judge-1": 80.0,
+        "full-judge-2": 80.0
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 34016
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "REF-09",
+      "critical_failure": false,
+      "duration_seconds": 80.518,
+      "quality_score": 36.25,
+      "rater_scores": {
+        "full-judge-1": 36.25,
+        "full-judge-2": 36.25
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 172620
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "REF-09",
+      "critical_failure": false,
+      "duration_seconds": 44.218,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 53956
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "REF-10",
+      "critical_failure": false,
+      "duration_seconds": 53.7,
+      "quality_score": 79.375,
+      "rater_scores": {
+        "full-judge-1": 73.75,
+        "full-judge-2": 85.0
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 91271
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "REF-10",
+      "critical_failure": true,
+      "duration_seconds": 30.087,
+      "quality_score": 0.0,
+      "rater_scores": {
+        "full-judge-1": 0.0,
+        "full-judge-2": 0.0
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 34147
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "REF-10",
+      "critical_failure": false,
+      "duration_seconds": 44.026,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-reference-audit",
+      "total_tokens": 53947
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "READ-01",
+      "critical_failure": false,
+      "duration_seconds": 33.096,
+      "quality_score": 26.25,
+      "rater_scores": {
+        "full-judge-1": 26.25,
+        "full-judge-2": 26.25
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 34343
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "READ-01",
+      "critical_failure": false,
+      "duration_seconds": 55.886,
+      "quality_score": 70.625,
+      "rater_scores": {
+        "full-judge-1": 73.75,
+        "full-judge-2": 67.5
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 73634
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "READ-01",
+      "critical_failure": false,
+      "duration_seconds": 98.648,
+      "quality_score": 77.5,
+      "rater_scores": {
+        "full-judge-1": 81.25,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 119258
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "READ-02",
+      "critical_failure": false,
+      "duration_seconds": 82.488,
+      "quality_score": 52.5,
+      "rater_scores": {
+        "full-judge-1": 52.5,
+        "full-judge-2": 52.5
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 118953
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "READ-02",
+      "critical_failure": false,
+      "duration_seconds": 65.551,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 74258
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "READ-02",
+      "critical_failure": false,
+      "duration_seconds": 48.315,
+      "quality_score": 51.25,
+      "rater_scores": {
+        "full-judge-1": 51.25,
+        "full-judge-2": 51.25
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 35307
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "READ-03",
+      "critical_failure": false,
+      "duration_seconds": 68.43,
+      "quality_score": 70.0,
+      "rater_scores": {
+        "full-judge-1": 67.5,
+        "full-judge-2": 72.5
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 92221
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "READ-03",
+      "critical_failure": false,
+      "duration_seconds": 29.044,
+      "quality_score": 61.25,
+      "rater_scores": {
+        "full-judge-1": 61.25,
+        "full-judge-2": 61.25
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 34103
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "READ-03",
+      "critical_failure": false,
+      "duration_seconds": 89.782,
+      "quality_score": 78.125,
+      "rater_scores": {
+        "full-judge-1": 75.0,
+        "full-judge-2": 81.25
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 148349
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "READ-04",
+      "critical_failure": false,
+      "duration_seconds": 46.144,
+      "quality_score": 55.625,
+      "rater_scores": {
+        "full-judge-1": 52.5,
+        "full-judge-2": 58.75
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 68944
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "READ-04",
+      "critical_failure": false,
+      "duration_seconds": 61.159,
+      "quality_score": 67.5,
+      "rater_scores": {
+        "full-judge-1": 67.5,
+        "full-judge-2": 67.5
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 91734
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "READ-04",
+      "critical_failure": false,
+      "duration_seconds": 84.952,
+      "quality_score": 61.25,
+      "rater_scores": {
+        "full-judge-1": 61.25,
+        "full-judge-2": 61.25
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 134147
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "READ-05",
+      "critical_failure": false,
+      "duration_seconds": 96.2,
+      "quality_score": 60.625,
+      "rater_scores": {
+        "full-judge-1": 53.75,
+        "full-judge-2": 67.5
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 172340
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "READ-05",
+      "critical_failure": false,
+      "duration_seconds": 73.918,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 128396
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "READ-05",
+      "critical_failure": false,
+      "duration_seconds": 28.6,
+      "quality_score": 65.0,
+      "rater_scores": {
+        "full-judge-1": 62.5,
+        "full-judge-2": 67.5
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 34123
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "READ-06",
+      "critical_failure": false,
+      "duration_seconds": 52.721,
+      "quality_score": 83.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 73367
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "READ-06",
+      "critical_failure": false,
+      "duration_seconds": 30.076,
+      "quality_score": 45.0,
+      "rater_scores": {
+        "full-judge-1": 50.0,
+        "full-judge-2": 40.0
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 34019
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "READ-06",
+      "critical_failure": false,
+      "duration_seconds": 81.55,
+      "quality_score": 70.0,
+      "rater_scores": {
+        "full-judge-1": 72.5,
+        "full-judge-2": 67.5
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 131970
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "READ-07",
+      "critical_failure": false,
+      "duration_seconds": 55.901,
+      "quality_score": 64.375,
+      "rater_scores": {
+        "full-judge-1": 61.25,
+        "full-judge-2": 67.5
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 73499
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "READ-07",
+      "critical_failure": false,
+      "duration_seconds": 91.9,
+      "quality_score": 64.375,
+      "rater_scores": {
+        "full-judge-1": 61.25,
+        "full-judge-2": 67.5
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 138972
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "READ-07",
+      "critical_failure": false,
+      "duration_seconds": 28.587,
+      "quality_score": 60.0,
+      "rater_scores": {
+        "full-judge-1": 58.75,
+        "full-judge-2": 61.25
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 34067
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "READ-08",
+      "critical_failure": false,
+      "duration_seconds": 40.139,
+      "quality_score": 82.5,
+      "rater_scores": {
+        "full-judge-1": 85.0,
+        "full-judge-2": 80.0
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 56075
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "READ-08",
+      "critical_failure": false,
+      "duration_seconds": 32.193,
+      "quality_score": 73.75,
+      "rater_scores": {
+        "full-judge-1": 70.0,
+        "full-judge-2": 77.5
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 33950
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "READ-08",
+      "critical_failure": false,
+      "duration_seconds": 85.648,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 166394
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "READ-09",
+      "critical_failure": false,
+      "duration_seconds": 62.269,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 85289
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "READ-09",
+      "critical_failure": false,
+      "duration_seconds": 30.77,
+      "quality_score": 94.375,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 88.75
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 34213
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "READ-09",
+      "critical_failure": false,
+      "duration_seconds": 53.092,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 73185
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "READ-10",
+      "critical_failure": false,
+      "duration_seconds": 48.664,
+      "quality_score": 52.5,
+      "rater_scores": {
+        "full-judge-1": 52.5,
+        "full-judge-2": 52.5
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 69182
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "READ-10",
+      "critical_failure": false,
+      "duration_seconds": 61.142,
+      "quality_score": 55.0,
+      "rater_scores": {
+        "full-judge-1": 55.0,
+        "full-judge-2": 55.0
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 91677
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "READ-10",
+      "critical_failure": false,
+      "duration_seconds": 61.153,
+      "quality_score": 52.5,
+      "rater_scores": {
+        "full-judge-1": 52.5,
+        "full-judge-2": 52.5
+      },
+      "skill": "zju-paper-reader",
+      "total_tokens": 102806
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "LOG-01",
+      "critical_failure": false,
+      "duration_seconds": 31.152,
+      "quality_score": 42.5,
+      "rater_scores": {
+        "full-judge-1": 42.5,
+        "full-judge-2": 42.5
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 34044
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "LOG-01",
+      "critical_failure": false,
+      "duration_seconds": 56.496,
+      "quality_score": 27.5,
+      "rater_scores": {
+        "full-judge-1": 27.5,
+        "full-judge-2": 27.5
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 107008
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "LOG-01",
+      "critical_failure": false,
+      "duration_seconds": 89.608,
+      "quality_score": 96.875,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 138585
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "LOG-02",
+      "critical_failure": false,
+      "duration_seconds": 65.077,
+      "quality_score": 73.75,
+      "rater_scores": {
+        "full-judge-1": 67.5,
+        "full-judge-2": 80.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 74196
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "LOG-02",
+      "critical_failure": false,
+      "duration_seconds": 70.202,
+      "quality_score": 56.875,
+      "rater_scores": {
+        "full-judge-1": 63.75,
+        "full-judge-2": 50.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 105176
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "LOG-02",
+      "critical_failure": false,
+      "duration_seconds": 78.284,
+      "quality_score": 55.0,
+      "rater_scores": {
+        "full-judge-1": 57.5,
+        "full-judge-2": 52.5
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 108018
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "LOG-03",
+      "critical_failure": false,
+      "duration_seconds": 88.065,
+      "quality_score": 48.75,
+      "rater_scores": {
+        "full-judge-1": 47.5,
+        "full-judge-2": 50.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 125760
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "LOG-03",
+      "critical_failure": false,
+      "duration_seconds": 45.354,
+      "quality_score": 45.625,
+      "rater_scores": {
+        "full-judge-1": 41.25,
+        "full-judge-2": 50.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 34022
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "LOG-03",
+      "critical_failure": false,
+      "duration_seconds": 100.649,
+      "quality_score": 82.5,
+      "rater_scores": {
+        "full-judge-1": 77.5,
+        "full-judge-2": 87.5
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 112663
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "LOG-04",
+      "critical_failure": false,
+      "duration_seconds": 58.172,
+      "quality_score": 60.0,
+      "rater_scores": {
+        "full-judge-1": 58.75,
+        "full-judge-2": 61.25
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 89495
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "LOG-04",
+      "critical_failure": false,
+      "duration_seconds": 86.657,
+      "quality_score": 79.375,
+      "rater_scores": {
+        "full-judge-1": 76.25,
+        "full-judge-2": 82.5
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 132404
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "LOG-04",
+      "critical_failure": false,
+      "duration_seconds": 33.692,
+      "quality_score": 50.0,
+      "rater_scores": {
+        "full-judge-1": 50.0,
+        "full-judge-2": 50.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 34168
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "LOG-05",
+      "critical_failure": false,
+      "duration_seconds": 32.719,
+      "quality_score": 48.75,
+      "rater_scores": {
+        "full-judge-1": 48.75,
+        "full-judge-2": 48.75
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 34017
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "LOG-05",
+      "critical_failure": false,
+      "duration_seconds": 61.485,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 72784
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "LOG-05",
+      "critical_failure": false,
+      "duration_seconds": 56.42,
+      "quality_score": 73.75,
+      "rater_scores": {
+        "full-judge-1": 73.75,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 62523
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "LOG-06",
+      "critical_failure": false,
+      "duration_seconds": 69.37,
+      "quality_score": 96.875,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 82934
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "LOG-06",
+      "critical_failure": false,
+      "duration_seconds": 24.178,
+      "quality_score": 79.375,
+      "rater_scores": {
+        "full-judge-1": 85.0,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 16976
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "LOG-06",
+      "critical_failure": false,
+      "duration_seconds": 56.712,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 87.5,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 71766
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "LOG-07",
+      "critical_failure": false,
+      "duration_seconds": 39.613,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 34186
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "LOG-07",
+      "critical_failure": false,
+      "duration_seconds": 48.095,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 53896
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "LOG-07",
+      "critical_failure": false,
+      "duration_seconds": 61.58,
+      "quality_score": 76.25,
+      "rater_scores": {
+        "full-judge-1": 76.25,
+        "full-judge-2": 76.25
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 96720
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "LOG-08",
+      "critical_failure": false,
+      "duration_seconds": 40.018,
+      "quality_score": 75.0,
+      "rater_scores": {
+        "full-judge-1": 75.0,
+        "full-judge-2": 75.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 34261
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "LOG-08",
+      "critical_failure": false,
+      "duration_seconds": 46.811,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 53899
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "LOG-08",
+      "critical_failure": false,
+      "duration_seconds": 49.162,
+      "quality_score": 75.0,
+      "rater_scores": {
+        "full-judge-1": 75.0,
+        "full-judge-2": 75.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 60637
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "LOG-09",
+      "critical_failure": false,
+      "duration_seconds": 40.635,
+      "quality_score": 35.0,
+      "rater_scores": {
+        "full-judge-1": 35.0,
+        "full-judge-2": 35.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 51468
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "LOG-09",
+      "critical_failure": false,
+      "duration_seconds": 71.889,
+      "quality_score": 80.0,
+      "rater_scores": {
+        "full-judge-1": 80.0,
+        "full-judge-2": 80.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 93117
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "LOG-09",
+      "critical_failure": false,
+      "duration_seconds": 52.906,
+      "quality_score": 57.5,
+      "rater_scores": {
+        "full-judge-1": 57.5,
+        "full-judge-2": 57.5
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 81141
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "LOG-10",
+      "critical_failure": false,
+      "duration_seconds": 41.97,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 53827
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "LOG-10",
+      "critical_failure": false,
+      "duration_seconds": 28.547,
+      "quality_score": 96.875,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 34195
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "LOG-10",
+      "critical_failure": false,
+      "duration_seconds": 36.887,
+      "quality_score": 91.25,
+      "rater_scores": {
+        "full-judge-1": 97.5,
+        "full-judge-2": 85.0
+      },
+      "skill": "zju-experiment-log",
+      "total_tokens": 56693
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "STAT-01",
+      "critical_failure": false,
+      "duration_seconds": 61.178,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 71338
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "STAT-01",
+      "critical_failure": false,
+      "duration_seconds": 27.096,
+      "quality_score": 80.0,
+      "rater_scores": {
+        "full-judge-1": 80.0,
+        "full-judge-2": 80.0
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 34088
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "STAT-01",
+      "critical_failure": false,
+      "duration_seconds": 75.885,
+      "quality_score": 71.25,
+      "rater_scores": {
+        "full-judge-1": 68.75,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 153778
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "STAT-02",
+      "critical_failure": false,
+      "duration_seconds": 57.503,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 71677
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "STAT-02",
+      "critical_failure": false,
+      "duration_seconds": 49.485,
+      "quality_score": 83.75,
+      "rater_scores": {
+        "full-judge-1": 80.0,
+        "full-judge-2": 87.5
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 76203
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "STAT-02",
+      "critical_failure": false,
+      "duration_seconds": 29.093,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 34161
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "STAT-03",
+      "critical_failure": false,
+      "duration_seconds": 44.199,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 48145
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "STAT-03",
+      "critical_failure": false,
+      "duration_seconds": 30.625,
+      "quality_score": 48.75,
+      "rater_scores": {
+        "full-judge-1": 48.75,
+        "full-judge-2": 0.0,
+        "full-judge-3": 48.75
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 34092
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "STAT-03",
+      "critical_failure": false,
+      "duration_seconds": 44.534,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 57258
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "STAT-04",
+      "critical_failure": false,
+      "duration_seconds": 27.713,
+      "quality_score": 80.0,
+      "rater_scores": {
+        "full-judge-1": 80.0,
+        "full-judge-2": 80.0
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 34117
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "STAT-04",
+      "critical_failure": false,
+      "duration_seconds": 42.78,
+      "quality_score": 82.5,
+      "rater_scores": {
+        "full-judge-1": 82.5,
+        "full-judge-2": 82.5
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 53446
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "STAT-04",
+      "critical_failure": false,
+      "duration_seconds": 49.731,
+      "quality_score": 82.5,
+      "rater_scores": {
+        "full-judge-1": 82.5,
+        "full-judge-2": 82.5
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 75996
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "STAT-05",
+      "critical_failure": false,
+      "duration_seconds": 54.668,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 72510
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "STAT-05",
+      "critical_failure": false,
+      "duration_seconds": 51.404,
+      "quality_score": 62.5,
+      "rater_scores": {
+        "full-judge-1": 65.0,
+        "full-judge-2": 60.0
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 68493
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "STAT-05",
+      "critical_failure": false,
+      "duration_seconds": 60.352,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 99324
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "STAT-06",
+      "critical_failure": false,
+      "duration_seconds": 37.103,
+      "quality_score": 78.125,
+      "rater_scores": {
+        "full-judge-1": 82.5,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 52914
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "STAT-06",
+      "critical_failure": false,
+      "duration_seconds": 29.515,
+      "quality_score": 68.125,
+      "rater_scores": {
+        "full-judge-1": 62.5,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 34021
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "STAT-06",
+      "critical_failure": false,
+      "duration_seconds": 49.222,
+      "quality_score": 79.375,
+      "rater_scores": {
+        "full-judge-1": 85.0,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 74585
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "STAT-07",
+      "critical_failure": false,
+      "duration_seconds": 68.936,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 108887
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "STAT-07",
+      "critical_failure": false,
+      "duration_seconds": 47.206,
+      "quality_score": 73.75,
+      "rater_scores": {
+        "full-judge-1": 67.5,
+        "full-judge-2": 80.0
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 62068
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "STAT-07",
+      "critical_failure": false,
+      "duration_seconds": 26.28,
+      "quality_score": 37.5,
+      "rater_scores": {
+        "full-judge-1": 35.0,
+        "full-judge-2": 40.0
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 34000
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "STAT-08",
+      "critical_failure": false,
+      "duration_seconds": 25.993,
+      "quality_score": 65.0,
+      "rater_scores": {
+        "full-judge-1": 65.0,
+        "full-judge-2": 65.0
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 33992
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "STAT-08",
+      "critical_failure": false,
+      "duration_seconds": 56.944,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 73152
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "STAT-08",
+      "critical_failure": false,
+      "duration_seconds": 60.982,
+      "quality_score": 73.75,
+      "rater_scores": {
+        "full-judge-1": 73.75,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 100977
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "STAT-09",
+      "critical_failure": false,
+      "duration_seconds": 44.055,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 53352
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "STAT-09",
+      "critical_failure": false,
+      "duration_seconds": 48.456,
+      "quality_score": 79.375,
+      "rater_scores": {
+        "full-judge-1": 76.25,
+        "full-judge-2": 82.5
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 76280
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "STAT-09",
+      "critical_failure": false,
+      "duration_seconds": 27.934,
+      "quality_score": 73.75,
+      "rater_scores": {
+        "full-judge-1": 73.75,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 31059
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "A",
+      "case_id": "STAT-10",
+      "critical_failure": false,
+      "duration_seconds": 27.933,
+      "quality_score": 57.5,
+      "rater_scores": {
+        "full-judge-1": 57.5,
+        "full-judge-2": 57.5
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 34158
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "STAT-10",
+      "critical_failure": false,
+      "duration_seconds": 70.329,
+      "quality_score": 77.5,
+      "rater_scores": {
+        "full-judge-1": 77.5,
+        "full-judge-2": 77.5
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 93985
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "STAT-10",
+      "critical_failure": false,
+      "duration_seconds": 71.334,
+      "quality_score": 75.0,
+      "rater_scores": {
+        "full-judge-1": 75.0,
+        "full-judge-2": 75.0
+      },
+      "skill": "zju-statistics-audit",
+      "total_tokens": 99304
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "WRITE-01",
+      "critical_failure": false,
+      "duration_seconds": 54.205,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 74701
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "WRITE-01",
+      "critical_failure": false,
+      "duration_seconds": 97.89,
+      "quality_score": 72.5,
+      "rater_scores": {
+        "full-judge-1": 72.5,
+        "full-judge-2": 72.5
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 171689
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "WRITE-01",
+      "critical_failure": false,
+      "duration_seconds": 53.735,
+      "quality_score": 72.5,
+      "rater_scores": {
+        "full-judge-1": 72.5,
+        "full-judge-2": 72.5
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 68985
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "WRITE-02",
+      "critical_failure": false,
+      "duration_seconds": 95.028,
+      "quality_score": 80.0,
+      "rater_scores": {
+        "full-judge-1": 80.0,
+        "full-judge-2": 80.0
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 149990
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "WRITE-02",
+      "critical_failure": false,
+      "duration_seconds": 69.65,
+      "quality_score": 76.25,
+      "rater_scores": {
+        "full-judge-1": 78.75,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 109304
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "WRITE-02",
+      "critical_failure": false,
+      "duration_seconds": 31.142,
+      "quality_score": 55.625,
+      "rater_scores": {
+        "full-judge-1": 58.75,
+        "full-judge-2": 52.5
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 31231
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "WRITE-03",
+      "critical_failure": false,
+      "duration_seconds": 96.308,
+      "quality_score": 55.625,
+      "rater_scores": {
+        "full-judge-1": 52.5,
+        "full-judge-2": 58.75
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 154685
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "WRITE-03",
+      "critical_failure": false,
+      "duration_seconds": 29.463,
+      "quality_score": 67.5,
+      "rater_scores": {
+        "full-judge-1": 67.5,
+        "full-judge-2": 67.5
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 34090
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "WRITE-03",
+      "critical_failure": false,
+      "duration_seconds": 40.831,
+      "quality_score": 87.5,
+      "rater_scores": {
+        "full-judge-1": 87.5,
+        "full-judge-2": 87.5
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 54250
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "WRITE-04",
+      "critical_failure": false,
+      "duration_seconds": 47.79,
+      "quality_score": 87.5,
+      "rater_scores": {
+        "full-judge-1": 87.5,
+        "full-judge-2": 87.5
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 54219
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "WRITE-04",
+      "critical_failure": false,
+      "duration_seconds": 26.331,
+      "quality_score": 52.5,
+      "rater_scores": {
+        "full-judge-1": 52.5,
+        "full-judge-2": 52.5
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 33991
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "WRITE-04",
+      "critical_failure": false,
+      "duration_seconds": 89.974,
+      "quality_score": 58.75,
+      "rater_scores": {
+        "full-judge-1": 58.75,
+        "full-judge-2": 58.75
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 134467
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "WRITE-05",
+      "critical_failure": false,
+      "duration_seconds": 80.994,
+      "quality_score": 73.75,
+      "rater_scores": {
+        "full-judge-1": 73.75,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 159236
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "B",
+      "case_id": "WRITE-05",
+      "critical_failure": false,
+      "duration_seconds": 41.225,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 53930
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "WRITE-05",
+      "critical_failure": false,
+      "duration_seconds": 26.211,
+      "quality_score": 73.75,
+      "rater_scores": {
+        "full-judge-1": 73.75,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 34153
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "WRITE-06",
+      "critical_failure": false,
+      "duration_seconds": 40.203,
+      "quality_score": 80.0,
+      "rater_scores": {
+        "full-judge-1": 80.0,
+        "full-judge-2": 80.0
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 53634
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "B",
+      "case_id": "WRITE-06",
+      "critical_failure": false,
+      "duration_seconds": 67.031,
+      "quality_score": 71.25,
+      "rater_scores": {
+        "full-judge-1": 71.25,
+        "full-judge-2": 71.25
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 110533
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "C",
+      "case_id": "WRITE-06",
+      "critical_failure": false,
+      "duration_seconds": 28.238,
+      "quality_score": 56.875,
+      "rater_scores": {
+        "full-judge-1": 51.25,
+        "full-judge-2": 62.5
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 34273
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "WRITE-07",
+      "critical_failure": false,
+      "duration_seconds": 41.82,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 54595
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "WRITE-07",
+      "critical_failure": true,
+      "duration_seconds": 28.14,
+      "quality_score": 0.0,
+      "rater_scores": {
+        "full-judge-1": 0.0,
+        "full-judge-2": 0.0
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 34040
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "WRITE-07",
+      "critical_failure": true,
+      "duration_seconds": 37.861,
+      "quality_score": 0.0,
+      "rater_scores": {
+        "full-judge-1": 0.0,
+        "full-judge-2": 0.0
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 58258
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "A",
+      "case_id": "WRITE-08",
+      "critical_failure": false,
+      "duration_seconds": 61.195,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 83184
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "WRITE-08",
+      "critical_failure": false,
+      "duration_seconds": 29.072,
+      "quality_score": 73.75,
+      "rater_scores": {
+        "full-judge-1": 73.75,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 34203
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "C",
+      "case_id": "WRITE-08",
+      "critical_failure": false,
+      "duration_seconds": 81.595,
+      "quality_score": 93.75,
+      "rater_scores": {
+        "full-judge-1": 93.75,
+        "full-judge-2": 93.75
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 149805
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "WRITE-09",
+      "critical_failure": false,
+      "duration_seconds": 61.219,
+      "quality_score": 85.0,
+      "rater_scores": {
+        "full-judge-1": 87.5,
+        "full-judge-2": 82.5
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 73689
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "WRITE-09",
+      "critical_failure": false,
+      "duration_seconds": 29.52,
+      "quality_score": 47.5,
+      "rater_scores": {
+        "full-judge-1": 47.5,
+        "full-judge-2": 47.5
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 34026
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "WRITE-09",
+      "critical_failure": false,
+      "duration_seconds": 87.107,
+      "quality_score": 47.5,
+      "rater_scores": {
+        "full-judge-1": 47.5,
+        "full-judge-2": 47.5
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 156507
+    },
+    {
+      "arm": "distilled_skill",
+      "blind_label": "A",
+      "case_id": "WRITE-10",
+      "critical_failure": false,
+      "duration_seconds": 41.616,
+      "quality_score": 100.0,
+      "rater_scores": {
+        "full-judge-1": 100.0,
+        "full-judge-2": 100.0
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 53912
+    },
+    {
+      "arm": "no_skill",
+      "blind_label": "B",
+      "case_id": "WRITE-10",
+      "critical_failure": false,
+      "duration_seconds": 32.892,
+      "quality_score": 73.75,
+      "rater_scores": {
+        "full-judge-1": 73.75,
+        "full-judge-2": 73.75
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 34137
+    },
+    {
+      "arm": "upstream_skill",
+      "blind_label": "C",
+      "case_id": "WRITE-10",
+      "critical_failure": false,
+      "duration_seconds": 72.845,
+      "quality_score": 63.125,
+      "rater_scores": {
+        "full-judge-1": 57.5,
+        "full-judge-2": 68.75
+      },
+      "skill": "zju-scientific-writing",
+      "total_tokens": 113991
+    }
+  ],
+  "run_id": "full-20260811-a",
+  "schema_version": "1.0",
+  "skill_results": {
+    "zju-experiment-log": {
+      "adjudication_pending": false,
+      "arms": {
+        "distilled_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 90.625,
+          "median_duration_seconds": 63.281,
+          "median_total_tokens": 73490.0
+        },
+        "no_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 62.375,
+          "median_duration_seconds": 36.653,
+          "median_total_tokens": 34177.0
+        },
+        "upstream_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 66.188,
+          "median_duration_seconds": 57.334,
+          "median_total_tokens": 86214.5
+        }
+      },
+      "duration_gain_percent": -10.373,
+      "efficiency_path_passed": false,
+      "eligible": true,
+      "no_critical_failures": true,
+      "passed": true,
+      "quality_gain_points": 24.437,
+      "quality_path_passed": true,
+      "stronger_baseline": "upstream_skill",
+      "token_gain_percent": 14.759
+    },
+    "zju-fulltext-access": {
+      "adjudication_pending": false,
+      "arms": {
+        "distilled_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 85.062,
+          "median_duration_seconds": 62.459,
+          "median_total_tokens": 81109.0
+        },
+        "no_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 62.875,
+          "median_duration_seconds": 34.502,
+          "median_total_tokens": 31360.5
+        },
+        "upstream_skill": {
+          "cases": 10,
+          "critical_failures": 1,
+          "mean_quality": 50.5,
+          "median_duration_seconds": 51.17,
+          "median_total_tokens": 79715.5
+        }
+      },
+      "duration_gain_percent": -81.03,
+      "efficiency_path_passed": false,
+      "eligible": true,
+      "no_critical_failures": true,
+      "passed": true,
+      "quality_gain_points": 22.187,
+      "quality_path_passed": true,
+      "stronger_baseline": "no_skill",
+      "token_gain_percent": -158.634
+    },
+    "zju-literature-search": {
+      "adjudication_pending": false,
+      "arms": {
+        "distilled_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 61.625,
+          "median_duration_seconds": 64.638,
+          "median_total_tokens": 71055.0
+        },
+        "no_skill": {
+          "cases": 10,
+          "critical_failures": 1,
+          "mean_quality": 35.562,
+          "median_duration_seconds": 42.516,
+          "median_total_tokens": 34920.5
+        },
+        "upstream_skill": {
+          "cases": 10,
+          "critical_failures": 2,
+          "mean_quality": 35.062,
+          "median_duration_seconds": 88.678,
+          "median_total_tokens": 129860.0
+        }
+      },
+      "duration_gain_percent": -52.032,
+      "efficiency_path_passed": false,
+      "eligible": true,
+      "no_critical_failures": true,
+      "passed": true,
+      "quality_gain_points": 26.063,
+      "quality_path_passed": true,
+      "stronger_baseline": "no_skill",
+      "token_gain_percent": -103.476
+    },
+    "zju-paper-reader": {
+      "adjudication_pending": false,
+      "arms": {
+        "distilled_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 79.25,
+          "median_duration_seconds": 61.151,
+          "median_total_tokens": 82967.5
+        },
+        "no_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 58.5,
+          "median_duration_seconds": 31.481,
+          "median_total_tokens": 34168.0
+        },
+        "upstream_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 69.312,
+          "median_duration_seconds": 83.72,
+          "median_total_tokens": 125614.0
+        }
+      },
+      "duration_gain_percent": 26.958,
+      "efficiency_path_passed": true,
+      "eligible": true,
+      "no_critical_failures": true,
+      "passed": true,
+      "quality_gain_points": 9.938,
+      "quality_path_passed": false,
+      "stronger_baseline": "upstream_skill",
+      "token_gain_percent": 33.95
+    },
+    "zju-reference-audit": {
+      "adjudication_pending": false,
+      "arms": {
+        "distilled_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 98.812,
+          "median_duration_seconds": 46.781,
+          "median_total_tokens": 53999.0
+        },
+        "no_skill": {
+          "cases": 10,
+          "critical_failures": 1,
+          "mean_quality": 53.938,
+          "median_duration_seconds": 28.502,
+          "median_total_tokens": 33994.0
+        },
+        "upstream_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 68.688,
+          "median_duration_seconds": 56.233,
+          "median_total_tokens": 93086.5
+        }
+      },
+      "duration_gain_percent": 16.809,
+      "efficiency_path_passed": true,
+      "eligible": true,
+      "no_critical_failures": true,
+      "passed": true,
+      "quality_gain_points": 30.124,
+      "quality_path_passed": true,
+      "stronger_baseline": "upstream_skill",
+      "token_gain_percent": 41.991
+    },
+    "zju-scientific-writing": {
+      "adjudication_pending": false,
+      "arms": {
+        "distilled_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 89.75,
+          "median_duration_seconds": 44.805,
+          "median_total_tokens": 54422.5
+        },
+        "no_skill": {
+          "cases": 10,
+          "critical_failures": 1,
+          "mean_quality": 57.375,
+          "median_duration_seconds": 29.267,
+          "median_total_tokens": 34113.5
+        },
+        "upstream_skill": {
+          "cases": 10,
+          "critical_failures": 1,
+          "mean_quality": 61.625,
+          "median_duration_seconds": 84.05,
+          "median_total_tokens": 142228.5
+        }
+      },
+      "duration_gain_percent": 46.692,
+      "efficiency_path_passed": true,
+      "eligible": true,
+      "no_critical_failures": true,
+      "passed": true,
+      "quality_gain_points": 28.125,
+      "quality_path_passed": true,
+      "stronger_baseline": "upstream_skill",
+      "token_gain_percent": 61.736
+    },
+    "zju-statistics-audit": {
+      "adjudication_pending": false,
+      "arms": {
+        "distilled_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 91.312,
+          "median_duration_seconds": 55.806,
+          "median_total_tokens": 71507.5
+        },
+        "no_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 66.688,
+          "median_duration_seconds": 27.934,
+          "median_total_tokens": 34090.0
+        },
+        "upstream_skill": {
+          "cases": 10,
+          "critical_failures": 0,
+          "mean_quality": 80.625,
+          "median_duration_seconds": 49.608,
+          "median_total_tokens": 76241.5
+        }
+      },
+      "duration_gain_percent": -12.494,
+      "efficiency_path_passed": false,
+      "eligible": true,
+      "no_critical_failures": true,
+      "passed": true,
+      "quality_gain_points": 10.687,
+      "quality_path_passed": true,
+      "stronger_baseline": "upstream_skill",
+      "token_gain_percent": 6.209
+    }
+  }
+}
+\n

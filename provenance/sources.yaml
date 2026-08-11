@@ -1,0 +1,154 @@
+schema_version: "1.0"
+snapshot_date: "2026-08-11"
+distillation_policy:
+  - "Write original concise workflows; do not vendor complete upstream skills."
+  - "Preserve attribution, pinned commits, and license boundaries."
+  - "Treat repository popularity as discovery evidence, not correctness evidence."
+  - "Require local tests and task evals before marking a skill stable."
+  - "Do not adapt noncommercial or share-alike material into the Apache-2.0 bundle; record it as inspected-only."
+
+sources:
+  - id: nature-skills
+    repository: "https://github.com/Yuan1z0825/nature-skills"
+    commit: "1ea82ffff20f40077bf84b74182f55eeaf3d111d"
+    license: "Apache-2.0"
+    consulted_paths:
+      - "skills/nature-academic-search/SKILL.md"
+      - "skills/nature-downloader/SKILL.md"
+      - "skills/nature-ref-verifier/SKILL.md"
+      - "skills/nature-citation/SKILL.md"
+      - "skills/nature-reader/SKILL.md"
+      - "skills/nature-paper-card/SKILL.md"
+      - "skills/nature-experiment-log/SKILL.md"
+      - "skills/nature-statistics/SKILL.md"
+      - "skills/nature-writing/SKILL.md"
+      - "skills/nature-polishing/SKILL.md"
+      - "skills/nature-literature-pipeline/SKILL.md"
+      - "skills/nature-figure/SKILL.md"
+      - "skills/nature-paper2ppt/SKILL.md"
+      - "skills/nature-reviewer/SKILL.md"
+      - "skills/nature-response/SKILL.md"
+      - "skills/nature-data/SKILL.md"
+      - "skills/nature-proposal-writer/SKILL.md"
+      - "skills/nature-paper-to-patent/SKILL.md"
+    adaptation: "Chinese-first task boundaries, research routing, source anchors, progressive disclosure, and scientific-integrity red lines."
+
+  - id: k-dense-scientific-agent-skills
+    repository: "https://github.com/K-Dense-AI/scientific-agent-skills"
+    commit: "7eb9c23c32ecf7f8c19cb45ded3150534ccefe6a"
+    license: "MIT; verify per-skill metadata before reuse"
+    consulted_paths:
+      - "skills/paper-lookup/SKILL.md"
+      - "skills/statistical-analysis/SKILL.md"
+      - "skills/scientific-writing/SKILL.md"
+      - "skills/citation-management/SKILL.md"
+    adaptation: "Provenance-rich records, assumption checks, effect-size reporting, claim ledgers, database routing, and offline deterministic helpers."
+
+  - id: sciagent-skills
+    repository: "https://github.com/jaechang-hits/SciAgent-Skills"
+    commit: "0d18706fe1a51239f12b395f046c8aa30fe632b4"
+    license: "CC-BY-4.0"
+    consulted_paths:
+      - "skills/biostatistics/statistical-analysis/SKILL.md"
+      - "skills/scientific-writing/literature-review/SKILL.md"
+      - "skills/scientific-writing/scientific-literature-search/SKILL.md"
+    adaptation: "Life-science task coverage and benchmark-oriented evaluation concepts."
+
+  - id: yorke-scientific-skills
+    repository: "https://github.com/yorkeccak/scientific-skills"
+    commit: "20b3d503700656f847e6de873753335bf90e63e3"
+    license: "MIT"
+    consulted_paths:
+      - "skills/literature-search/SKILL.md"
+      - "skills/chembl-search/SKILL.md"
+      - "skills/biomedical-search/SKILL.md"
+    adaptation: "Natural-language literature and chemistry routing concepts only; no proprietary service dependency is copied."
+
+  - id: agent-skills-spec
+    repository: "https://github.com/agentskills/agentskills"
+    commit: "main as inspected 2026-08-10"
+    license: "Apache-2.0"
+    consulted_paths: ["docs/specification.mdx"]
+    adaptation: "Portable SKILL.md directory structure and progressive disclosure."
+
+  - id: agentic-awesome-skills
+    repository: "https://github.com/sickn33/agentic-awesome-skills"
+    commit: "bbcd6ef752784f7de0b67dee3d26ed30fae55960"
+    license: "MIT"
+    consulted_paths: ["README.md"]
+    adaptation: "Portfolio capability inventory, immutable selection manifests, evidence sidecars, and separation of popularity from quality."
+
+  - id: academic-research-skills
+    repository: "https://github.com/Imbad0202/academic-research-skills"
+    commit: "22745fcc5e33ffb6baac66e24bde03b10c3e04f9"
+    license: "CC-BY-NC-4.0"
+    consulted_paths: ["academic-pipeline/SKILL.md", "academic-paper/SKILL.md", "academic-paper-reviewer/SKILL.md"]
+    adaptation: "None. Inspected only for capability comparison; noncommercial terms are not compatible with this Apache-2.0 distribution target."
+
+  - id: auto-claude-code-research-in-sleep
+    repository: "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep"
+    commit: "bab594e8216cbc2944c4184c4e4389e8f3fc1fb2"
+    license: "MIT"
+    consulted_paths: ["skills/research-refine-pipeline/SKILL.md", "skills/shared-references/injection-hygiene.md", "skills/experiment-bridge/SKILL.md", "tools/provenance.py", "tools/review_gate.py"]
+    adaptation: "Untrusted-content isolation, experiment handoff, decision gates, and provenance-first workflow composition."
+
+  - id: claude-scholar
+    repository: "https://github.com/Galaxy-Dawn/claude-scholar"
+    commit: "2f7766fd541a723d4ddc6230b3277f948d61b093"
+    license: "MIT"
+    consulted_paths: ["skills/skill-quality-reviewer/SKILL.md", "skills/skill-quality-reviewer/references/scoring-criteria.md"]
+    adaptation: "Portfolio quality scorecard, progressive-disclosure checks, and remediation-oriented review."
+
+  - id: supervisor-skills
+    repository: "https://github.com/HKUSTDial/Supervisor-Skills"
+    commit: "aff5de9e5b902df0ef51e955d4c78b22793d763a"
+    license: "CC-BY-NC-SA-4.0"
+    consulted_paths: ["README.md", "skills/paper-writer/SKILL.md", "skills/pre-submission-reviewer/SKILL.md"]
+    adaptation: "None. Inspected only for capability comparison; no text, templates, or workflow expression is incorporated."
+
+  - id: paperspine
+    repository: "https://github.com/WUBING2023/PaperSpine"
+    commit: "66dfbf0d620e00735274ce699eaf93ab4518da1e"
+    license: "MIT"
+    consulted_paths: ["src/skill/SKILL.md", "src/scripts/contribution_check.py", "src/scripts/results_validation_check.py", "src/scripts/reviewer_audit_check.py"]
+    adaptation: "Contribution-first contracts, results-to-contribution mapping, reviewer objections, and resumable stage gates."
+
+zju_authoritative_sources:
+  - title: "浙江大学图书馆校外访问"
+    url: "https://libweb.zju.edu.cn/56334/list.htm"
+    last_live_verified: "2026-08-11"
+    purpose: "Current routing among WebVPN, CARSI, and RVPN."
+  - title: "浙江大学图书馆电子资源使用管理办法（试行）"
+    url: "https://libweb.zju.edu.cn/2016/1014/c55987a2245977/page.htm"
+    last_live_verified: "2026-08-11"
+    purpose: "Credential-sharing, automated-access, and bulk-download restrictions."
+  - title: "浙江大学学术道德行为规范及管理办法"
+    url: "https://pi.zju.edu.cn/2019/0920/c66998a2550400/page.htm"
+    last_live_verified: "2026-08-11"
+    purpose: "Research-integrity principles and institutional routing boundary."
+
+targets:
+  zju-literature-search: [nature-skills, k-dense-scientific-agent-skills, sciagent-skills, yorke-scientific-skills, auto-claude-code-research-in-sleep]
+  zju-fulltext-access: [nature-skills]
+  zju-reference-audit: [nature-skills, k-dense-scientific-agent-skills]
+  zju-paper-reader: [nature-skills, auto-claude-code-research-in-sleep]
+  zju-experiment-log: [nature-skills, auto-claude-code-research-in-sleep]
+  zju-statistics-audit: [nature-skills, k-dense-scientific-agent-skills, sciagent-skills]
+  zju-scientific-writing: [nature-skills, k-dense-scientific-agent-skills, paperspine]
+  zju-literature-monitor: [nature-skills, auto-claude-code-research-in-sleep]
+  zju-evidence-synthesis: [nature-skills, k-dense-scientific-agent-skills, sciagent-skills]
+  zju-hypothesis-design: [paperspine]
+  zju-scientific-figure: [nature-skills]
+  zju-paper2ppt: [nature-skills]
+  zju-reviewer: [nature-skills, paperspine]
+  zju-review-response: [nature-skills]
+  zju-data-availability: [nature-skills]
+  zju-proposal-writer: [nature-skills, paperspine]
+  zju-paper-to-patent: [nature-skills]
+  zju-chemistry-databases: [k-dense-scientific-agent-skills, yorke-scientific-skills]
+  zju-research-integrity: [auto-claude-code-research-in-sleep, paperspine]
+  zju-research-director: [agent-skills-spec, agentic-awesome-skills, auto-claude-code-research-in-sleep, claude-scholar, paperspine]
+
+portfolio_governance_sources: [agent-skills-spec, agentic-awesome-skills, claude-scholar]
+inspected_only_sources: [academic-research-skills, supervisor-skills]
+\n

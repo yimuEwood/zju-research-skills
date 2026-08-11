@@ -1,0 +1,5 @@
+interface:
+  display_name: "ZJU Data Availability"
+  short_description: "Plan FAIR and compliant research-data sharing."
+  default_prompt: "Use $zju-data-availability to audit and draft this manuscript data availability package."
+\n

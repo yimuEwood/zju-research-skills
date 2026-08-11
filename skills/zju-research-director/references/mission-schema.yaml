@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "format_note": "This file uses JSON syntax, which is valid YAML 1.2, so validators require only the Python standard library.",
+  "mission_schema_version": "1.0",
+  "required_fields": [
+    "schema_version",
+    "mission_id",
+    "research_question",
+    "domain",
+    "objectives",
+    "constraints",
+    "requested_deliverables",
+    "current_stage",
+    "status"
+  ],
+  "list_fields": [
+    "objectives",
+    "requested_deliverables",
+    "evidence_records",
+    "claims",
+    "hypotheses",
+    "experiments",
+    "artifacts",
+    "decisions",
+    "risks",
+    "open_loops",
+    "gate_ledger",
+    "route"
+  ],
+  "id_fields": {
+    "objectives": "objective_id",
+    "evidence_records": "evidence_id",
+    "claims": "claim_id",
+    "hypotheses": "hypothesis_id",
+    "experiments": "run_id",
+    "artifacts": "artifact_id",
+    "decisions": "decision_id",
+    "risks": "risk_id",
+    "open_loops": "loop_id",
+    "gate_ledger": "gate_event_id",
+    "route": "step_id"
+  },
+  "enums": {
+    "domains": ["general", "chemistry", "materials", "biomedicine", "agriculture", "clinical", "ai-computational", "interdisciplinary"],
+    "stages": ["framing", "discovery", "access", "reading", "synthesis", "design", "execution", "analysis", "communication", "review", "sharing", "commercialization", "integrity"],
+    "mission_statuses": ["draft", "planned", "active", "blocked", "completed", "cancelled"],
+    "route_statuses": ["planned", "ready", "running", "blocked", "completed", "skipped"],
+    "autonomy_levels": ["L0", "L1", "L2", "L3", "L4"],
+    "claim_statuses": ["proposed", "supported", "contradicted", "uncertain", "withdrawn", "not_verified"],
+    "artifact_statuses": ["planned", "created", "validated", "blocked", "superseded"],
+    "decision_statuses": ["proposed", "approved", "rejected", "deferred"],
+    "risk_severities": ["low", "medium", "high", "critical"],
+    "risk_statuses": ["open", "mitigated", "accepted", "closed"],
+    "open_loop_statuses": ["open", "blocked", "resolved", "deferred"],
+    "gate_statuses": ["passed", "blocked", "requires_human_review"],
+    "gates": ["intake", "fulltext", "evidence", "data", "analysis", "reference", "claim", "artifact", "ethics", "privacy", "external_action", "patent_legal", "integrity", "reproducibility", "submission_release"]
+  },
+  "cross_reference_rules": {
+    "supported_claims_require_existing_evidence_ids": true,
+    "supported_claims_require_source_anchor": true,
+    "route_dependencies_require_existing_step_ids": true,
+    "route_must_be_acyclic": true,
+    "step_autonomy_must_not_exceed_ceiling": true,
+    "artifact_replacement_requires_new_id_and_supersedes": true
+  }
+}
+\n
