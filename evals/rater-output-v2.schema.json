@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yimuEwood/zju-research-skills/evals/rater-output-v2.schema.json",
+  "title": "Blind rater output for evaluation protocol v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "case_id",
+    "rater_id",
+    "rater_role",
+    "call_id",
+    "model",
+    "rated_at",
+    "rubric_sha256",
+    "ratings"
+  ],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"const": "2.0"},
+    "case_id": {"type": "string"},
+    "rater_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"},
+    "rater_role": {"enum": ["primary", "adjudicator"]},
+    "call_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"},
+    "model": {"type": "string", "minLength": 1},
+    "rated_at": {"type": "string", "minLength": 1},
+    "rubric_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "ratings": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "blind_label",
+          "response_sha256",
+          "scores",
+          "critical_failure",
+          "failure_reason",
+          "gold_checks",
+          "rationale"
+        ],
+        "properties": {
+          "blind_label": {"enum": ["A", "B", "C"]},
+          "response_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "scores": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "task_completeness",
+              "evidence_traceability",
+              "scientific_validity",
+              "safety_integrity",
+              "usability"
+            ],
+            "properties": {
+              "task_completeness": {"type": "integer", "minimum": 0, "maximum": 4},
+              "evidence_traceability": {"type": "integer", "minimum": 0, "maximum": 4},
+              "scientific_validity": {"type": "integer", "minimum": 0, "maximum": 4},
+              "safety_integrity": {"type": "integer", "minimum": 0, "maximum": 4},
+              "usability": {"type": "integer", "minimum": 0, "maximum": 4}
+            }
+          },
+          "critical_failure": {"type": "boolean"},
+          "failure_reason": {"type": "string"},
+          "gold_checks": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["check_id", "met", "evidence"],
+              "properties": {
+                "check_id": {"type": "string"},
+                "met": {"type": "boolean"},
+                "evidence": {"type": "string", "minLength": 1}
+              }
+            }
+          },
+          "rationale": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

@@ -47,21 +47,24 @@
   },
   "skills": {
     "zju-literature-search": {
-      "description": "Designs and records reproducible multi-source scholarly searches, then normalizes, deduplicates, and screens the resulting metadata evidence set.",
-      "role": "Reproducible evidence discovery and study-set construction.",
+      "description": "Decomposes research questions into domain-aware multi-source searches, expands seed records through citation links, measures discovery saturation, and builds a stable study set.",
+      "role": "Reproducible, convergent evidence discovery and study-set construction.",
       "stages": ["discovery"],
       "accepts": [
         "research_question",
         "eligibility_criteria",
         "seed_records",
         "database_constraints",
-        "metadata_export"
+        "metadata_export",
+        "prior_search_map"
       ],
       "produces": [
         "search_protocol",
         "literature_set",
         "evidence_table",
-        "screening_flow"
+        "screening_flow",
+        "search_map",
+        "search_saturation_report"
       ],
       "risk_level": "low",
       "external_state": "read_only",
@@ -71,6 +74,11 @@
           "path": "skills/zju-literature-search/scripts/normalize_records.py",
           "kind": "normalizer",
           "purpose": "Normalize JSON or JSONL records and deduplicate them with stable identifier and title-year fallbacks."
+        },
+        {
+          "path": "skills/zju-literature-search/scripts/assess_search_saturation.py",
+          "kind": "validator",
+          "purpose": "Measure query-view coverage, evidence gaps, marginal unique yield, and whether the documented search may stop or should expand."
         }
       ],
       "prerequisites": [],
@@ -101,13 +109,15 @@
         "pmid",
         "title",
         "metadata_record",
-        "access_request"
+        "access_request",
+        "search_map"
       ],
       "produces": [
         "full_text",
         "full_text_access_plan",
         "supplementary_material_status",
-        "access_note"
+        "access_note",
+        "source_package"
       ],
       "risk_level": "medium",
       "external_state": "read_only",
@@ -191,13 +201,15 @@
         "pdf",
         "supplementary_material",
         "source_metadata",
-        "reader_mode"
+        "reader_mode",
+        "source_package"
       ],
       "produces": [
         "paper_card",
         "bilingual_reader",
         "reader_notes",
-        "source_anchor_inventory"
+        "source_anchor_inventory",
+        "paper_spine"
       ],
       "risk_level": "low",
       "external_state": "none",
@@ -234,13 +246,17 @@
         "audio_transcript",
         "instrument_export",
         "structured_intake",
-        "run_manifest"
+        "run_manifest",
+        "hypothesis_plan",
+        "discriminating_experiment",
+        "design_analysis_handoff"
       ],
       "produces": [
         "experiment_log",
         "run_manifest",
         "source_manifest",
-        "amendment_record"
+        "amendment_record",
+        "design_analysis_handoff"
       ],
       "risk_level": "medium",
       "external_state": "conditional_write",
@@ -284,14 +300,21 @@
         "data_table",
         "analysis_output",
         "figure_and_caption",
-        "analysis_code"
+        "analysis_code",
+        "design_analysis_handoff",
+        "analysis_contract",
+        "result_registry"
       ],
       "produces": [
         "statistics_audit",
         "analysis_audit",
         "design_map",
         "issue_table",
-        "repair_plan"
+        "repair_plan",
+        "analysis_contract",
+        "result_registry",
+        "result_use_manifest",
+        "cross_artifact_consistency_report"
       ],
       "risk_level": "medium",
       "external_state": "none",
@@ -301,6 +324,21 @@
           "path": "skills/zju-statistics-audit/scripts/scan_reporting.py",
           "kind": "triage",
           "purpose": "Perform an offline first-pass reporting scan; every warning remains triage_only until manually verified."
+        },
+        {
+          "path": "skills/zju-statistics-audit/scripts/validate_analysis_contract.py",
+          "kind": "validator",
+          "purpose": "Validate that experimental units, outcomes, estimands, models, multiplicity, missing-data handling, and decision rules form an executable analysis contract."
+        },
+        {
+          "path": "skills/zju-statistics-audit/scripts/reconcile_result_registry.py",
+          "kind": "comparator",
+          "purpose": "Bind canonical results to the analysis contract and reconcile every rendered value against the registry."
+        },
+        {
+          "path": "skills/zju-statistics-audit/scripts/validate_result_handoff.py",
+          "kind": "validator",
+          "purpose": "Check result, claim, evidence, analysis, and artifact identifiers across writing, figures, review, and data-sharing consumers."
         }
       ],
       "prerequisites": ["zju-experiment-log"],
@@ -329,7 +367,9 @@
         "verified_literature",
         "source_text",
         "claim_evidence_ledger",
-        "writing_contract"
+        "writing_contract",
+        "analysis_contract",
+        "result_registry"
       ],
       "produces": [
         "manuscript",
@@ -383,14 +423,18 @@
         "prior_monitor_state",
         "candidate_records",
         "cadence",
-        "archive_target"
+        "archive_target",
+        "claim_targets",
+        "gap_targets",
+        "hypothesis_targets"
       ],
       "produces": [
         "literature_monitor",
         "monitor_update",
         "monitoring_profile",
         "run_ledger",
-        "deduplicated_digest"
+        "deduplicated_digest",
+        "evidence_linked_action_queue"
       ],
       "risk_level": "medium",
       "external_state": "conditional_write",
@@ -428,13 +472,16 @@
         "search_log",
         "study_records",
         "reader_notes",
-        "effect_evidence_table"
+        "effect_evidence_table",
+        "search_map",
+        "paper_spine"
       ],
       "produces": [
         "evidence_synthesis",
         "systematic_review",
         "evidence_table",
-        "claim_evidence_matrix"
+        "claim_evidence_matrix",
+        "conflict_matrix"
       ],
       "risk_level": "medium",
       "external_state": "none",
@@ -444,6 +491,11 @@
           "path": "skills/zju-evidence-synthesis/scripts/validate_evidence_table.py",
           "kind": "validator",
           "purpose": "Validate study-outcome-time-point rows, identifiers, source anchors, effects, and uncertainty fields."
+        },
+        {
+          "path": "skills/zju-evidence-synthesis/scripts/build_conflict_matrix.py",
+          "kind": "comparator",
+          "purpose": "Construct claim-level direction, null-disagreement, heterogeneity, risk-of-bias, and directness strata without flattening conflicts."
         }
       ],
       "prerequisites": ["zju-literature-search", "zju-paper-reader"],
@@ -469,6 +521,7 @@
         "observations",
         "verified_evidence",
         "evidence_synthesis",
+        "conflict_matrix",
         "preliminary_data",
         "anomalous_results",
         "system_constraints"
@@ -476,7 +529,9 @@
       "produces": [
         "hypothesis_set",
         "experiment_design",
-        "decision_rules"
+        "decision_rules",
+        "hypothesis_readiness_ranking",
+        "experiment_discrimination_ranking"
       ],
       "risk_level": "high",
       "external_state": "none",
@@ -510,6 +565,8 @@
       "accepts": [
         "source_data",
         "analysis_output",
+        "analysis_contract",
+        "result_registry",
         "image_assets",
         "panel_specification",
         "existing_figure",
@@ -520,7 +577,8 @@
         "figure_manifest",
         "figure_source",
         "figure_legend",
-        "figure_qa_report"
+        "figure_qa_report",
+        "result_linked_figure_manifest"
       ],
       "risk_level": "medium",
       "external_state": "none",
@@ -645,14 +703,16 @@
         "reviewer_reports",
         "manuscript",
         "redline_manuscript",
-        "response_tracker"
+        "response_tracker",
+        "result_registry"
       ],
       "produces": [
         "review_response",
         "response_letter",
         "master_response_tracker",
         "manuscript_change_map",
-        "package_consistency_report"
+        "package_consistency_report",
+        "concern_resolution_map"
       ],
       "risk_level": "medium",
       "external_state": "none",
@@ -695,7 +755,8 @@
         "code_and_environment",
         "repository_records",
         "journal_requirements",
-        "access_restrictions"
+        "access_restrictions",
+        "result_registry"
       ],
       "produces": [
         "data_availability",
@@ -703,7 +764,8 @@
         "artifact_inventory",
         "repository_plan",
         "dataset_code_citations",
-        "reproducibility_gap_report"
+        "reproducibility_gap_report",
+        "result_family_reproducibility_package"
       ],
       "risk_level": "high",
       "external_state": "conditional_write",
@@ -734,6 +796,8 @@
         "proposal_template",
         "research_canon",
         "evidence_table",
+        "conflict_matrix",
+        "hypothesis_plan",
         "preliminary_evidence",
         "project_constraints",
         "budget_and_schedule"
@@ -744,7 +808,10 @@
         "proposal_manifest",
         "work_package_plan",
         "compliance_checklist",
-        "proposal_review_scorecard"
+        "proposal_review_scorecard",
+        "objective_work_package_map",
+        "milestone_decision_tree",
+        "feasibility_matrix"
       ],
       "risk_level": "high",
       "external_state": "none",
@@ -781,6 +848,9 @@
         "source_code",
         "figures",
         "experiment_records",
+        "paper_spine",
+        "result_registry",
+        "artifact_inventory",
         "inventor_notes",
         "disclosure_and_confidentiality_state"
       ],
@@ -790,7 +860,8 @@
         "feature_evidence_ledger",
         "claim_set_drafting_aid",
         "prior_art_search_ledger",
-        "professional_handoff"
+        "professional_handoff",
+        "research_to_invention_map"
       ],
       "risk_level": "high",
       "external_state": "read_only",
@@ -835,7 +906,8 @@
         "identity_resolution_table",
         "database_query_ledger",
         "normalized_chemistry_records",
-        "chemistry_conflict_report"
+        "chemistry_conflict_report",
+        "condition_aware_evidence_matrix"
       ],
       "risk_level": "medium",
       "external_state": "read_only",
@@ -845,6 +917,11 @@
           "path": "skills/zju-chemistry-databases/scripts/validate_chemistry_records.py",
           "kind": "validator",
           "purpose": "Validate identity resolution, provenance, stereochemistry and salt states, evidence type, units, conditions, and unresolved conflicts."
+        },
+        {
+          "path": "skills/zju-chemistry-databases/scripts/build_evidence_matrix.py",
+          "kind": "comparator",
+          "purpose": "Group chemistry evidence by entity, endpoint, unit, basis, conditions, method, and evidence stratum before comparison."
         }
       ],
       "prerequisites": [],

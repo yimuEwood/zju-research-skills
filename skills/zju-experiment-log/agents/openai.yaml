@@ -1,4 +1,4 @@
 interface:
   display_name: "浙大实验日志"
-  short_description: "Create traceable experiment log records"
-  default_prompt: "Use $zju-experiment-log to turn these notes and files into a traceable experiment record."
+  short_description: "Log experiments with analysis-ready design handoff"
+  default_prompt: "Use $zju-experiment-log to turn these notes and files into a traceable experiment record with design, outcome, artifact-lineage, and analysis-contract handoff."

@@ -1,7 +1,9 @@
 {
   "schema_version": "1.0",
   "format_note": "This file uses JSON syntax, which is valid YAML 1.2, so validators require only the Python standard library.",
-  "mission_schema_version": "1.0",
+  "mission_schema_version": "1.1",
+  "legacy_mission_schema_versions": ["1.0"],
+  "artifact_envelope_schema_version": "1.0",
   "required_fields": [
     "schema_version",
     "mission_id",
@@ -25,7 +27,8 @@
     "risks",
     "open_loops",
     "gate_ledger",
-    "route"
+    "route",
+    "migration_history"
   ],
   "id_fields": {
     "objectives": "objective_id",
@@ -61,6 +64,11 @@
     "route_dependencies_require_existing_step_ids": true,
     "route_must_be_acyclic": true,
     "step_autonomy_must_not_exceed_ceiling": true,
-    "artifact_replacement_requires_new_id_and_supersedes": true
+    "artifact_replacement_requires_new_id_and_supersedes": true,
+    "artifact_provenance_must_match_mission": true,
+    "validated_artifact_requires_content_bound_validation": true,
+    "registered_producer_must_declare_artifact_type": true,
+    "release_route_contract_must_be_derived_from_requested_deliverables": true,
+    "route_contract_sha256_must_match": true
   }
 }

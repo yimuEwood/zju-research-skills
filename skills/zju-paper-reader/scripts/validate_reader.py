@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate structural coverage of a saved paper-reader Markdown file."""
+"""Validate structural and anchor coverage of a saved paper-reader Markdown file."""
 
 from __future__ import annotations
 
@@ -19,8 +19,13 @@ COMMON_PATTERNS = {
 MODE_PATTERNS = {
     "paper-card": {
         "research_question": r"(?im)^#+\s*(research question|研究问题)",
-        "evidence_chain": r"(?im)^#+\s*(evidence chain|证据链)",
+        "argument_spine": r"(?im)^#+\s*(argument spine|论证主线|论文脊柱)",
+        "claim_evidence_map": r"(?im)^#+\s*(claim[- ]evidence map|主张[-— ]证据(?:矩阵|图谱))",
+        "methods": r"(?im)^#+\s*(methods|决定解释的关键方法|关键方法)",
+        "quantitative_findings": r"(?im)^#+\s*(primary quantitative findings|主要定量结果)",
+        "alternatives": r"(?im)^#+\s*(robustness.*alternative|contradictions.*alternative|稳健性.*替代解释|矛盾.*替代解释)",
         "limitations": r"(?im)^#+\s*(limitations|局限|边界条件)",
+        "synthesis_handoff": r"(?im)^#+\s*(evidence[- ]synthesis handoff|证据综合交接)",
     },
     "bilingual-reader": {
         "english_content": r"(?im)^#+\s*(english|英文|original)",
@@ -36,9 +41,21 @@ def validate(content: str, mode: str) -> dict[str, object]:
     lower = content.casefold()
     checks["figure_inventory"] = "figure" in lower or "图" in content
     checks["table_inventory"] = "table" in lower or "表" in content
-    checks["equation_inventory"] = "equation" in lower or "公式" in content or "equation_not_applicable" in lower
+    checks["equation_inventory"] = (
+        "equation" in lower or "公式" in content or "equation_not_applicable" in lower
+    )
+    anchors = re.findall(COMMON_PATTERNS["page_anchor"], content)
+    claim_rows = len(re.findall(r"(?im)^\s*(?:[-*]\s*)?(?:claim[_ -]?id|主张\s*id)\s*[:：]", content))
     missing = [name for name, passed in checks.items() if not passed]
-    return {"mode": mode, "valid": not missing, "checks": checks, "missing": missing}
+    return {
+        "mode": mode,
+        "valid": not missing,
+        "checks": checks,
+        "missing": missing,
+        "anchor_mentions": len(anchors),
+        "claim_rows_detected": claim_rows,
+        "note": "This validator checks structure and anchors; it does not judge scientific correctness.",
+    }
 
 
 def main() -> int:

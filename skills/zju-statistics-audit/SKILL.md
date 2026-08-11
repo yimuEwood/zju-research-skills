@@ -1,6 +1,6 @@
 ---
 name: zju-statistics-audit
-description: Audit experimental design, statistical analysis, figures, captions, and cross-section numerical consistency in manuscripts and reports. Use to check experimental units, biological versus technical replicates, sample size, effect sizes, confidence intervals, model assumptions, multiplicity, missing data, figure encodings, and statistical wording. This is a structured audit, not a substitute for domain or clinical statistical responsibility.
+description: Design or audit experiment-linked statistical analyses and reconcile numerical results across manuscripts, figures, tables, supplements, and reviewer responses. Use to create an analysis contract; choose methods for hierarchical, repeated, clustered, missing, censored, high-dimensional, agricultural, chemical, materials, or biomedical data; check experimental units, replicates, effect sizes, uncertainty, diagnostics, multiplicity, robustness, and result consistency. This is a structured workflow, not a substitute for domain or clinical statistical responsibility.
 ---
 
 # ZJU Statistics Audit
@@ -9,14 +9,29 @@ Start from the design and estimand, not from a preferred test. Trace every repor
 
 ## Workflow
 
-1. Define the scientific question, outcome, estimand, experimental unit, assignment mechanism, grouping structure, repeated measures, and analysis population. If these are missing, flag them before judging tests.
+1. Define the scientific question, outcome, estimand, experimental unit, assignment mechanism, grouping structure, repeated measures, and analysis population. If these are missing, flag them before judging tests. Consume the design handoff from `$zju-experiment-log` when available.
 2. Read `references/audit-checklist.md`. Map biological and technical replicates, independence, clustering, pairing, exclusions, missingness, stopping rules, and sample-size rationale.
-3. Reconstruct each primary analysis: variables, preprocessing, model/test, covariates, interactions, assumptions, multiplicity family, effect estimate, uncertainty, and software/version.
-4. Check whether assumptions were evaluated and whether the method matches scale, design, nesting, repeated measures, censoring, and distribution. Recommend alternatives conditionally; do not prescribe a test without sufficient design information.
-5. Audit effect sizes, confidence intervals, exact sample counts, exact or bounded P values, multiple-comparison control, sensitivity analyses, and missing-data handling.
-6. Cross-check abstract, methods, results, tables, figures, captions, supplement, and data/code for number, direction, denominator, unit, label, and significance consistency.
-7. Use `scripts/scan_reporting.py` only as a first-pass offline triage. Manually verify every warning and inspect issues the pattern scanner cannot detect.
-8. Report critical, major, and minor findings using `references/reporting-template.md`, with evidence anchor, consequence, and specific repair.
+3. For planning or reanalysis, read `references/analysis-decision-map.md` and create a versioned analysis contract. Separate primary, secondary, exploratory, QC, and sensitivity analyses. Validate it with:
+
+   `python scripts/validate_analysis_contract.py --input analysis-contract.json --output analysis-contract-report.json`
+
+4. Reconstruct each analysis: variables, preprocessing, model, covariates, interactions, dependence terms, assumptions, multiplicity family, effect estimate, uncertainty, software/version, diagnostics and their consequences, missing-data strategy, and sensitivity analyses.
+5. Check whether the method represents the estimand, outcome scale, design, nesting, repeated measures, censoring, distribution, and domain-specific measurement process. Recommend alternatives conditionally; do not prescribe a test without sufficient design information.
+6. Audit effect sizes, confidence intervals, experimental-unit and observation counts, exact or bounded P values, multiple-comparison control, diagnostic results, sensitivity analyses, and missing-data assumptions.
+7. Read `references/result-registry.md`. Register each reportable result once with a stable `result_id`, then map every figure, table, Abstract/Results statement, supplement, and reviewer response back to it. Reconcile all rendered values with:
+
+   `python scripts/reconcile_result_registry.py --input result-registry.json --analysis-contract analysis-contract.json --output consistency-report.json`
+
+   When outputs can use templates, render values directly rather than copying them:
+
+   `python scripts/render_result_tokens.py --registry result-registry.json --template results-template.md --output results.md --uses-output rendered-uses.json`
+
+   For a manuscript package, validate the shared claim/result/evidence IDs across writing, figure, review, and data inventories with:
+
+   `python scripts/validate_result_handoff.py --input result-handoff.json --output result-handoff-report.json`
+
+8. Use `scripts/scan_reporting.py` only as a first-pass offline triage. Manually verify every warning and inspect issues the pattern scanner cannot detect.
+9. Report critical, major, and minor findings using `references/reporting-template.md`, with evidence anchor, consequence, smallest valid repair, and required reanalysis or sensitivity check.
 
 Always emit an explicit severity for each finding. Classify pseudoreplication, wrong experimental unit, fabricated or impossible values, undisclosed outcome switching, and analysis-population errors that can reverse the primary conclusion as `critical`; explain when context lowers the severity. A correct diagnosis without severity and repair is incomplete.
 
@@ -30,4 +45,4 @@ Always emit an explicit severity for each finding. Classify pseudoreplication, w
 
 ## Output Contract
 
-Return: design map, analysis inventory, issue table, cross-section consistency table, required author queries, and a prioritized repair plan. Keep automated heuristic findings labeled `triage_only` until manually confirmed.
+Return: design map, validated analysis contract or reconstruction, canonical result registry, diagnostic/sensitivity matrix, issue table, cross-artifact consistency report, required author queries, and a prioritized repair plan. Keep automated heuristic findings labeled `triage_only` until manually confirmed.

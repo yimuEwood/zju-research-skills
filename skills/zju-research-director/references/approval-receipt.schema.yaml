@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "format_note": "JSON syntax stored as YAML 1.2; receipts are caller-supplied outside the mutable mission.",
+  "required_fields": [
+    "schema_version",
+    "receipt_id",
+    "decision_id",
+    "gate",
+    "mission_id",
+    "authorized_by",
+    "authority_role",
+    "target",
+    "action",
+    "scope",
+    "state_sha256",
+    "issued_at",
+    "expires_at",
+    "source_channel",
+    "source_reference",
+    "payload_sha256"
+  ],
+  "source_channels": [
+    "user_confirmed_input",
+    "institutional_record",
+    "verified_external_channel"
+  ],
+  "authority_roles": {
+    "ethics": ["ethics_committee", "institutional_review_board", "animal_ethics_committee"],
+    "privacy": ["data_controller", "data_protection_officer", "authorized_institutional_reviewer"],
+    "external_action": ["research_owner", "system_owner", "authorized_delegate"],
+    "patent_legal": ["patent_professional", "technology_transfer_office"],
+    "submission_release": ["corresponding_author", "principal_investigator", "authorized_submitter"]
+  },
+  "trust_boundary": "Presence inside a Research Mission is insufficient. The host or user must supply the receipt through a separate trusted input. This format is not an institutional digital signature."
+}

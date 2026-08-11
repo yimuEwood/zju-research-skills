@@ -27,14 +27,14 @@ Read `references/figure-contract.md` before drawing and `references/qa-checklist
 ## Workflow
 
 1. Write one bounded conclusion for the figure and map each panel to the evidence needed for that conclusion.
-2. Inventory source files, hashes, variables, units, experimental units, exclusions, transformations, image adjustments, and statistical outputs. Preserve raw data and never overwrite it.
+2. Inventory source files, hashes, variables, units, experimental units, exclusions, transformations, image adjustments, analysis IDs, and canonical result IDs. Preserve raw data and never overwrite it.
 3. Choose the figure archetype and panel order. Match plot type to data structure; show individual observations when useful and represent dependence or repeated measures correctly.
-4. Define uncertainty and statistical annotations from the analysis, not from visual appearance. Route design/reporting uncertainty to `$zju-statistics-audit`.
+4. Define uncertainty and statistical annotations from the analysis, not from visual appearance. Bind every plotted estimate, interval, sample count, and significance annotation to the canonical result registry maintained by `$zju-statistics-audit`.
 5. Build a terminology, unit, color, and symbol ledger. Use color-blind-safe encodings, redundant markers where needed, readable type at final physical size, and no decorative 3D effects.
 6. Generate the figure reproducibly. Keep data transformations in code or a transformation ledger. Use consistent axes and disclose truncation, normalization, smoothing, contrast adjustment, or representative-image selection.
-7. Assemble panels with stable IDs and write a legend that identifies samples, `n`, uncertainty, statistical tests, scale bars, abbreviations, and source boundaries.
+7. Assemble panels with stable IDs and write a legend that identifies samples, `n`, uncertainty, statistical tests, scale bars, abbreviations, source boundaries, and the internal result IDs used to generate it. Keep result IDs in the manifest even when omitted from the published legend.
 8. Export editable vector output where appropriate plus the journal-required raster/vector formats. Do not claim a specific journal requirement without checking the current author instructions supplied by the user or an authoritative source.
-9. Run `scripts/validate_figure_manifest.py`, inspect every panel and the full figure at target size, then fix clipping, collisions, illegible labels, inconsistent encodings, and unsupported annotations.
+9. Run `$zju-statistics-audit/scripts/reconcile_result_registry.py` to compare every rendered panel/legend value with its result ID, then run `$zju-statistics-audit/scripts/validate_result_handoff.py` to verify that each quantitative panel's analysis/result IDs resolve to the same contract and registry. Finally run `scripts/validate_figure_manifest.py`, inspect every panel and the full figure at target size, and fix clipping, collisions, illegible labels, inconsistent encodings, and unsupported annotations.
 
 ## Incomplete-Input Fallback
 
@@ -52,9 +52,9 @@ When raw values or assets are missing, do not draw or invent a quantitative pane
 
 Return:
 
-1. `Figure contract` and panel evidence map.
-2. `Source/transformation manifest`.
+1. `Figure contract` and panel evidence/result map.
+2. `Source/transformation manifest` with analysis and result IDs.
 3. Reproducible plotting or assembly source.
 4. Exported figure files and dimensions.
 5. Complete legend and accessibility note.
-6. `QA report` with blockers resolved or explicitly open.
+6. `QA report` with result-registry reconciliation and blockers resolved or explicitly open.

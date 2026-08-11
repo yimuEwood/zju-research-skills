@@ -12,6 +12,17 @@ Recommended section logic:
 - Results: observation first, magnitude and uncertainty, figure/table anchor, no unsupported mechanism.
 - Discussion: interpretation, comparison with verified literature, alternatives, limitations, and bounded implication.
 
+## Revise mode
+
+Use revise mode for substantive reorganization or changed scientific reasoning. Before editing, make a change plan with source section, destination section, claim IDs, result IDs, intended scope change, and all dependent artifacts. After editing, report:
+
+- before/after claim wording and whether certainty, causality, novelty, or generalization changed;
+- result IDs and citations added, removed, or moved;
+- Methods, figure/table, supplement, Abstract, and reviewer-response edits still required;
+- contradictions or duplicated conclusions introduced or resolved.
+
+A revision is not complete while a changed result remains inconsistent elsewhere in the package.
+
 ## Polish mode invariants
 
 Before editing extract all numbers, units, inequalities, P values, confidence intervals, sample counts, group labels, directions, time points, gene/protein/species notation, citation keys, figure/table references, and modal strength. Compare after editing.

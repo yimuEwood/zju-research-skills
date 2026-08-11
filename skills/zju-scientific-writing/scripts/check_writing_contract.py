@@ -37,6 +37,8 @@ def validate(data: dict[str, Any]) -> dict[str, Any]:
         issues.append(finding("reviewer_objections", "Must be a list."))
 
     contribution_by_id: dict[str, dict[str, Any]] = {}
+    workflow_v2 = str(data.get("workflow_version")) == "2.0"
+    known_result_ids = set(map(str, data.get("known_result_ids", []))) if isinstance(data.get("known_result_ids"), list) else set()
     for index, item in enumerate(contributions):
         path = f"contributions[{index}]"
         if not isinstance(item, dict):
@@ -74,6 +76,15 @@ def validate(data: dict[str, Any]) -> dict[str, Any]:
         if not isinstance(evidence_ids, list) or not evidence_ids:
             issues.append(finding(path + ".evidence_ids", "Map the section to observed evidence."))
             evidence_ids = []
+        result_ids = item.get("result_ids")
+        if workflow_v2 and (not isinstance(result_ids, list) or not result_ids):
+            issues.append(finding(path + ".result_ids", "Workflow 2.0 Results sections require canonical result IDs."))
+            result_ids = []
+        elif not isinstance(result_ids, list):
+            result_ids = []
+        for result_id in map(str, result_ids):
+            if known_result_ids and result_id not in known_result_ids:
+                issues.append(finding(path + ".result_ids", f"Unknown canonical result ID: {result_id}"))
         for contribution_id in contribution_ids:
             contribution_id = str(contribution_id)
             if contribution_id not in contribution_by_id:
@@ -111,6 +122,7 @@ def validate(data: dict[str, Any]) -> dict[str, Any]:
         "contributions": len(contributions),
         "results_sections": len(sections),
         "reviewer_objections": len(objections),
+        "workflow_version": str(data.get("workflow_version") or "1.0"),
         "issues": issues,
     }
 

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "format_note": "JSON syntax stored as YAML 1.2. The file containing attestations is supplied outside mutable mission state.",
+  "required_fields": [
+    "schema_version",
+    "attestation_id",
+    "runner_id",
+    "runner_version",
+    "trust_domain",
+    "source_channel",
+    "mission_id",
+    "artifact_id",
+    "artifact_type",
+    "producer",
+    "producer_step_id",
+    "content_sha256",
+    "validation_receipt_id",
+    "validator",
+    "validator_version",
+    "command",
+    "command_sha256",
+    "exit_code",
+    "report_sha256",
+    "checked_at",
+    "attested_at",
+    "valid",
+    "payload_sha256"
+  ],
+  "source_channels": ["trusted_ci_runner", "isolated_validation_runner"],
+  "rules": {
+    "validation_method_must_be_deterministic": true,
+    "runner_must_differ_from_producer_and_validator": true,
+    "artifact_content_command_and_report_hashes_must_match": true,
+    "exit_code_must_be_integer_zero": true,
+    "valid_must_be_boolean_true": true,
+    "payload_sha256_must_match_canonical_attestation": true,
+    "embedded_mission_or_artifact_attestations_are_ignored": true,
+    "caller_authenticates_runner_channel": true
+  }
+}

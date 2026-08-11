@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yimuEwood/zju-research-skills/evals/protocol-v2.schema.json",
+  "title": "ZJU Research Skills evaluation protocol v2 configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "protocol_id",
+    "status",
+    "arms",
+    "expected_skills",
+    "dataset",
+    "allocation",
+    "tool_policy",
+    "rating",
+    "release_gate",
+    "bootstrap",
+    "legacy_results"
+  ],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"const": "2.0"},
+    "protocol_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["protocol_ready_no_frozen_holdout", "holdout_frozen", "evaluated"]},
+    "arms": {
+      "const": ["no_skill", "upstream_skill", "distilled_skill"]
+    },
+    "expected_skills": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "dataset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "development_cases_path",
+        "frozen_holdout_cases_path",
+        "frozen_holdout_lock_path",
+        "first_attempt_registry_path",
+        "validated_aggregate_path",
+        "validated_aggregate_sha256",
+        "validated_run_dir_path",
+        "precommitted_rater_ids",
+        "precommitted_adjudicator_id",
+        "pilot_case_ids",
+        "known_case_sources"
+      ],
+      "properties": {
+        "development_cases_path": {"type": "string", "minLength": 1},
+        "frozen_holdout_cases_path": {"type": ["string", "null"]},
+        "frozen_holdout_lock_path": {"type": ["string", "null"]},
+        "first_attempt_registry_path": {"type": ["string", "null"]},
+        "validated_aggregate_path": {"type": ["string", "null"]},
+        "validated_aggregate_sha256": {
+          "type": ["string", "null"],
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "validated_run_dir_path": {"type": ["string", "null"], "minLength": 1},
+        "precommitted_rater_ids": {
+          "type": ["array", "null"],
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"}
+        },
+        "precommitted_adjudicator_id": {
+          "type": ["string", "null"],
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"
+        },
+        "pilot_case_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string"}
+        },
+        "known_case_sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["kind", "reason"],
+            "properties": {
+              "kind": {"enum": ["case_file", "run_manifest", "ids"]},
+              "path": {"type": "string"},
+              "case_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+              "case_fingerprints": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+              },
+              "reason": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    },
+    "allocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "commitment_scheme", "reveal_schema_path"],
+      "properties": {
+        "method": {"const": "committed_secret_skill_blocked_latin_square"},
+        "commitment_scheme": {"const": "sha256-v1"},
+        "reveal_schema_path": {"type": "string", "minLength": 1}
+      }
+    },
+    "tool_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["deny_item_types", "deny_network_commands", "malformed_event_is_violation", "require_trusted_terminal_event"],
+      "properties": {
+        "deny_item_types": {
+          "type": "array",
+          "items": {"enum": ["web_search", "mcp_tool_call"]},
+          "allOf": [
+            {"contains": {"const": "web_search"}},
+            {"contains": {"const": "mcp_tool_call"}}
+          ]
+        },
+        "deny_network_commands": {"const": true},
+        "malformed_event_is_violation": {"const": true},
+        "require_trusted_terminal_event": {"const": true}
+      }
+    },
+    "rating": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raters_per_response", "rubric_path", "rater_schema_path", "adjudication_trigger", "dimension_weights", "gold_matching"],
+      "properties": {
+        "raters_per_response": {"const": 2},
+        "rubric_path": {"type": "string", "minLength": 1},
+        "rater_schema_path": {"type": "string", "minLength": 1},
+        "adjudication_trigger": {
+          "const": "dimension_difference_gt_1_or_critical_disagreement_or_gold_disagreement"
+        },
+        "gold_matching": {"const": "exact_one_to_one_by_check_id"},
+        "dimension_weights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "task_completeness",
+            "evidence_traceability",
+            "scientific_validity",
+            "safety_integrity",
+            "usability"
+          ],
+          "properties": {
+            "task_completeness": {"type": "number", "exclusiveMinimum": 0},
+            "evidence_traceability": {"type": "number", "exclusiveMinimum": 0},
+            "scientific_validity": {"type": "number", "exclusiveMinimum": 0},
+            "safety_integrity": {"type": "number", "exclusiveMinimum": 0},
+            "usability": {"type": "number", "exclusiveMinimum": 0}
+          }
+        }
+      }
+    },
+    "release_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "minimum_cases_per_skill",
+        "minimum_mean_quality_gain_points",
+        "minimum_distilled_gold_check_rate",
+        "require_positive_paired_ci",
+        "minimum_paired_ci_lower_bound_points",
+        "maximum_distilled_critical_failures",
+        "maximum_protocol_deviations",
+        "require_frozen_unseen_holdout",
+        "reject_pilot_or_known_cases",
+        "require_all_gold_check_ids_exactly_once",
+        "require_all_adjudications_resolved"
+      ],
+      "properties": {
+        "minimum_cases_per_skill": {"type": "integer", "minimum": 1},
+        "minimum_mean_quality_gain_points": {"type": "number"},
+        "minimum_distilled_gold_check_rate": {"type": "number", "minimum": 0, "maximum": 1},
+        "require_positive_paired_ci": {"const": true},
+        "minimum_paired_ci_lower_bound_points": {"type": "number"},
+        "maximum_distilled_critical_failures": {"const": 0},
+        "maximum_protocol_deviations": {"const": 0},
+        "require_frozen_unseen_holdout": {"const": true},
+        "reject_pilot_or_known_cases": {"const": true},
+        "require_all_gold_check_ids_exactly_once": {"const": true},
+        "require_all_adjudications_resolved": {"const": true}
+      }
+    },
+    "bootstrap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "iterations", "confidence_level", "seed"],
+      "properties": {
+        "method": {"const": "paired_case_percentile"},
+        "iterations": {"type": "integer", "minimum": 100},
+        "confidence_level": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1},
+        "seed": {"type": "integer"}
+      }
+    },
+    "legacy_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["protocol_version", "path", "allowed_claim", "may_be_relabelled_as_v2"],
+        "properties": {
+          "protocol_version": {"const": "1.0"},
+          "path": {"type": "string"},
+          "allowed_claim": {"type": "string"},
+          "may_be_relabelled_as_v2": {"const": false}
+        }
+      }
+    }
+  }
+}

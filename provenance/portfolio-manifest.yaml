@@ -1,11 +1,36 @@
-schema_version: "1.0"
-plugin_version: "0.4.0"
+schema_version: "1.1"
+plugin_version: "0.5.0-beta.1"
 snapshot_date: "2026-08-11"
 total_skills: 20
+portfolio_status: beta
+stable_promotion_suspended: true
 
-stable_first_wave:
+current_release_engineering:
+  release: "0.5.0-beta.1"
+  mission_schema: "1.1"
+  artifact_contract: "local file, containment, SHA-256, producer step, supported format, and bound receipt"
+  human_gate_contract: "mission decision plus caller-supplied state-bound approval receipt"
+  evaluation_status: "protocol v2 core ready; frozen holdout and new score absent"
+
+current_capability_upgrade:
+  focus: "deeper research reasoning and cross-skill handoffs, not additional skill count"
+  discovery_chain: "five-view query design, domain templates, citation expansion, saturation assessment, source packages, argument spines, conflict matrices, and discriminating hypotheses"
+  analysis_chain: "design-analysis handoff, domain decision maps, canonical result registry, and result-linked writing, figures, data statements, review, and response"
+  translation_chain: "evidence-to-work-package proposal compilation and research-to-invention mapping"
+  domain_depth: "condition-aware chemistry evidence comparison"
+
+legacy_first_wave_beta:
+  status: beta
+  evidence_class: "legacy-v1-internal-model-judged"
   evaluation_run: "full-20260811-a"
   evidence: "evals/results/full-20260811-a/aggregate-adjudicated.json"
+  historical_v1_internal_gate_passed: true
+  current_stable_promotion: "suspended-pending-protocol-v2"
+  known_limitations:
+    pilot_cases_reused: 7
+    arm_positions_balanced: false
+    tool_policy_executor_enforced: false
+    complete_raw_records_public: false
   skills:
     - zju-literature-search
     - zju-fulltext-access
@@ -18,18 +43,24 @@ stable_first_wave:
 beta_expansion:
   local_evidence:
     quick_validate: "20/20 passed"
-    structural_audit: "20 A grades"
-    unit_tests: "52 passed"
-    security_scan: "28 scripts, zero findings"
-  task_evaluation_status: passed
+    structural_conformance: "20 A/100 scores; structural and instructional checks only"
+    structural_score_dimensions: "description 25, organization 30, style 20, structure 25; dimension weights reference the Claude Scholar scorecard"
+    unit_tests: "103 passed including one discovery-to-publication cross-skill integration chain"
+    security_scan: "39 Skill scripts, zero findings under current static rules"
+  task_evaluation_status: "post-remediation-development-regression-passed"
+  stable_promotion_passed: false
   task_evaluation:
     run: "expansion-full-20260811-a"
     evidence: "evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json"
+    evaluation_class: "post-remediation-development-regression"
     cases: 120
+    base_run_records_in_final_aggregate: 49
+    remediation_or_amendment_records_in_final_aggregate: 71
     mean_primary_score: 84.385
     gold_check_rate: 0.8458
     critical_failures: 0
-    all_skills_passed: true
+    held_out: false
+    external_baseline_comparison: false
   skills:
     - zju-literature-monitor
     - zju-evidence-synthesis
@@ -52,19 +83,38 @@ beta_director:
   routing_evaluation:
     run: "director-routing-20260811-a"
     evidence: "evals/results/director-routing-20260811-a.json"
+    evaluation_class: "deterministic-routing-assertions"
     cases: 20
     domains: 5
     specialist_skills_covered: 19
-    passed: 20
-    critical_failures: 0
+    routing_assertions_passed: 20
+    score_scope: "Routing and gate assertions only; not scientific answer quality."
   forward_test:
     run: "director-forward-20260811-a"
     evidence: "evals/results/director-forward-20260811-a.json"
     fresh_context_cases: 3
     passed: 3
-    critical_failures: 0
   release_status: beta
   stable_promotion_boundary: "Requires a blinded head-to-head comparison against the strongest available source orchestration baseline or equivalent independent longitudinal use evidence."
+
+comparison_boundary:
+  direct_head_to_head:
+    scope: "First seven skills only"
+    baseline: "Nature Skills pinned by evals/upstream-lock.json"
+    evidence_class: "legacy-v1-internal-model-judged"
+  other_source_projects: "Source, capability, and architecture comparison only; no direct performance claim."
+
+evaluation_protocol_v2:
+  target_release: "v0.5.0-beta.1"
+  status: "protocol_ready_no_frozen_holdout"
+  rerun_completed: false
+  stable_decision_available: false
+  required_before_stable:
+    - "Frozen untouched held-out set"
+    - "Blocked and balanced arm positions"
+    - "Executor-enforced identical tool policy"
+    - "Public reproducible redacted run records"
+    - "Uncertainty, agreement, and independent review"
 
 installation:
   plugin_manifest: ".codex-plugin/plugin.json"

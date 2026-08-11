@@ -1,7 +1,7 @@
 {
   "name": "zju-research-skills",
-  "version": "0.4.0",
-  "description": "A traceable Research OS that plans and executes evidence-grounded workflows for Zhejiang University researchers.",
+  "version": "0.5.0-beta.1",
+  "description": "A Chinese-first Research OS that connects literature discovery, evidence synthesis, experiment design, analysis, publication, and research translation for Zhejiang University researchers.",
   "author": {
     "name": "ZJU Research Skills Project"
   },
@@ -17,8 +17,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "ZJU Research OS",
-    "shortDescription": "A gated, traceable research operating system for ZJU.",
-    "longDescription": "Twenty evidence-grounded skills with one Research Director coordinating literature discovery and monitoring, lawful full-text access, reading and synthesis, hypothesis design, experiment logging, statistics, writing, figures, presentations, review and response, data sharing, proposals, patents, chemistry databases, and research integrity through a shared mission protocol.",
+    "shortDescription": "Connect discovery, experiments, analysis, and publication.",
+    "longDescription": "Twenty evidence-grounded skills with one Research Director connecting multi-source discovery, full-text source packages, argument spines, conflict synthesis, discriminating hypotheses, experiment-to-analysis handoffs, canonical results, writing, figures, review, data sharing, proposals, patents, and condition-aware chemistry comparison through a shared mission protocol.",
     "developerName": "ZJU Research Skills Project",
     "category": "Productivity",
     "capabilities": [
@@ -26,9 +26,9 @@
       "Write"
     ],
     "defaultPrompt": [
-      "把这个研究目标规划成可执行、可追溯的跨阶段 Research Mission。",
-      "继续这个科研项目，检查闸门后执行下一个可运行阶段。",
-      "审计这项研究从证据、实验到投稿的完整性与复现性。"
+      "把这个研究问题推进成从检索、证据综合、判别实验到论文交付的完整 Research Mission。",
+      "继续这个科研项目，从当前证据和实验状态执行下一个最有信息增益的阶段。",
+      "核对同一分析结果在论文、图件、答审和数据交付中的一致性。"
     ]
   }
 }

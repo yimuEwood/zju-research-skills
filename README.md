@@ -4,7 +4,7 @@
 
 ![ZJU Research OS 项目概览](docs/assets/hero.png)
 
-当前版本为 **v0.4.0 Beta**。这是社区开源项目，不是浙江大学官方产品或服务。
+当前版本为 **v0.5.0-beta.1**。20 个 Skills 仍全部是 Beta；这是社区开源项目，不是浙江大学官方产品或服务。
 
 ## 它解决什么问题
 
@@ -18,25 +18,58 @@
 
 ![Director 与 19 个专业 Skills 的协作架构](docs/assets/architecture.png)
 
+## v0.5.0-beta.1 本轮升级
+
+- **文献发现从“搜一遍”升级为可收敛的发现循环**：按概念、机制、方法、对象和约束拆解问题，内置化学、材料、生医、农业模板；沿种子论文做前向、后向和相似工作扩展，并用覆盖缺口与新增率判断是否继续搜索。
+- **阅读、综合与假设真正连成一条证据链**：Paper Spine 保留“问题—主张—方法—证据—论证—边界”；冲突矩阵区分方向冲突、空结果分歧、异质性与偏倚；候选假设按可证伪性、信息增益和实验区分度排序。
+- **实验到论文共享同一套分析事实**：实验日志显式交接实验单位、重复、随机化、层级、结局指标与数据谱系；统计 Skill 产出规范化结果注册表，写作、图件、数据开放和答审通过 `analysis_id` / `result_id` 引用同一结果，减少跨章节数值漂移。
+- **科研转化不再从空白模板起步**：基金申请可把证据、竞争假设和判别实验编译为目标、工作包、依赖顺序、三分支里程碑与能力矩阵；专利披露可从论文和实验记录构建问题—方案—效果、特征—证据、权利要求依赖和现有技术查询映射。
+- **化学比较进入条件感知模式**：化合物、终点、单位、测量基准、实验条件、方法和证据层级共同参与对齐，避免把不同条件下的数值直接横向比较。
+- **跨 Skill 接口经过反向贯通**：文献 `record_id` 不再随输入顺序漂移；Evidence 的支持/反对关系与行级角色双向核对；Hypothesis 可无损进入 Proposal 和 Experiment Log 2.0；Result Registry 反查 Analysis Contract，并统一驱动正文、图件、答审和数据包。仓库新增一条发现→论文的集成链回归。
+- **工程底座同步升级**：Director 现在校验真实交付物与跨阶段路由，旧跑分明确标记为 `legacy-v1`，协议 v2 核心已就位。**尚未运行新的 v2 留出集，因此没有拿本轮功能升级冒充新性能分数。**
+
+完整的发现、修复和剩余边界见 [`docs/iteration-review-v0.5.md`](docs/iteration-review-v0.5.md)，评测口径见 [`docs/evaluation-methodology.md`](docs/evaluation-methodology.md)。
+
+核心能力不是 20 个互不相干的入口，而是两条可循环的研究链：
+
+```mermaid
+flowchart LR
+  Q[研究问题] --> S[Search Map]
+  S --> F[Source Package]
+  F --> P[Paper Spine]
+  P --> C[Conflict Matrix]
+  C --> H[竞争假设与判别实验]
+  H --> E[Experiment Log]
+  E --> A[Analysis Contract]
+  A --> R[Result Registry]
+  R --> W[论文与图件]
+  R --> V[评审与答审]
+  R --> D[数据与复现包]
+  C --> G[基金工作包]
+  E --> I[专利披露图谱]
+  H --> M[持续监测]
+  M --> C
+```
+
 ## 能力与状态
 
 | 层级 | Skills | 当前状态 | 已有证据 |
 |---|---|---:|---|
-| 统一入口 | [`zju-research-director`](skills/zju-research-director/) | Beta | 20/20 跨领域路由案例；3/3 新上下文前向测试 |
-| 文献入口闭环 | [`literature-search`](skills/zju-literature-search/)、[`fulltext-access`](skills/zju-fulltext-access/)、[`reference-audit`](skills/zju-reference-audit/)、[`paper-reader`](skills/zju-paper-reader/) | Stable | 70 案例、210 份回答的三臂盲测 |
-| 实验到论文 | [`experiment-log`](skills/zju-experiment-log/)、[`statistics-audit`](skills/zju-statistics-audit/)、[`scientific-writing`](skills/zju-scientific-writing/) | Stable | 同一三臂盲测，7/7 通过发布门槛 |
+| 统一入口 | [`zju-research-director`](skills/zju-research-director/) | Beta | 20/20 确定性路由断言；3/3 新上下文前向测试 |
+| 文献入口闭环 | [`literature-search`](skills/zju-literature-search/)、[`fulltext-access`](skills/zju-fulltext-access/)、[`reference-audit`](skills/zju-reference-audit/)、[`paper-reader`](skills/zju-paper-reader/) | Beta（legacy-v1） | v0.4 内部模型评测；Stable 晋级暂停 |
+| 实验到论文 | [`experiment-log`](skills/zju-experiment-log/)、[`statistics-audit`](skills/zju-statistics-audit/)、[`scientific-writing`](skills/zju-scientific-writing/) | Beta（legacy-v1） | 同一内部评测；等待 v2 冻结留出集 |
 | 证据与研究设计 | [`literature-monitor`](skills/zju-literature-monitor/)、[`evidence-synthesis`](skills/zju-evidence-synthesis/)、[`hypothesis-design`](skills/zju-hypothesis-design/) | Beta | 每项 10 个任务级金标准案例 |
 | 交流与同行评审 | [`scientific-figure`](skills/zju-scientific-figure/)、[`paper2ppt`](skills/zju-paper2ppt/)、[`reviewer`](skills/zju-reviewer/)、[`review-response`](skills/zju-review-response/) | Beta | 每项 10 个任务级金标准案例 |
 | 共享、立项与转化 | [`data-availability`](skills/zju-data-availability/)、[`proposal-writer`](skills/zju-proposal-writer/)、[`paper-to-patent`](skills/zju-paper-to-patent/) | Beta | 每项 10 个任务级金标准案例 |
 | 专业数据库与治理 | [`chemistry-databases`](skills/zju-chemistry-databases/)、[`research-integrity`](skills/zju-research-integrity/) | Beta | 每项 10 个任务级金标准案例 |
 
-## 量化结果
+## 量化结果与证据边界
 
-![ZJU Research OS 评测看板](docs/assets/benchmark.png)
+> 以下数字是 **2026-08-11 的 v0.4 legacy 内部模型评测快照**，不是第三方认证、科学正确率或已完成的 v0.5 结果。完整方法、局限和 v2 状态见 [`docs/evaluation-methodology.md`](docs/evaluation-methodology.md)。`benchmark.png` 已永久标记为 legacy，只用于解释历史证据。
 
-### 首批 7 项：正式三臂盲测
+### 首批 7 项：legacy-v1 三臂内部模型评测
 
-在相同模型设置下运行 70 个案例，每个案例分别使用“无 Skill”“固定版本 Nature Skills 上游 Skill”“ZJU 蒸馏版”，共得到 210 份回答，再由盲评员评分并处理分歧。
+在固定模型设置下运行 70 个仓库内案例，每例分别使用“无 Skill”“固定版本 Nature Skills 上游 Skill”“ZJU 蒸馏版”，共得到 210 份回答。A/B/C 标签对评分调用隐藏，但评分主体是 GPT-5.5 的两次调用及分歧时的第三次调用，不是独立人类专家。
 
 | 评测臂 | 平均质量分（0–100） | 单任务中位耗时 | 单任务 Token 中位数 | 关键失败 |
 |---|---:|---:|---:|---:|
@@ -44,9 +77,9 @@
 | 固定 Nature 上游 | 61.714 | 61.924 秒 | 96,989 | 4/70 |
 | ZJU 蒸馏版 | **85.205** | **57.224 秒** | **72,893.5** | **0/70** |
 
-ZJU 蒸馏版相对固定 Nature 上游平均质量高 **23.491 分**，同时中位耗时降低 **7.59%**、Token 降低 **24.84%**；相对无 Skill 平均质量高 **28.446 分**。无 Skill 的确更快、更省 Token，但质量明显较低，且出现 3 次关键失败。逐项与“无 Skill / 上游 Skill 中质量更高者”相比：
+在这套 legacy-v1 rubric 下，ZJU 蒸馏版相对固定 Nature 上游平均分高 **23.491 分**，中位耗时低 **7.59%**、Token 低 **24.84%**；相对无 Skill 平均分高 **28.446 分**。这些是内部加权分和观察值，不是准确率或因果效应。尤其是工具协议没有被执行器严格强制，效率差异应谨慎解读。逐项与“无 Skill / 上游 Skill 中内部得分较高者”相比：
 
-| Skill | 质量提升（百分点） | 发布路径 |
+| Skill | legacy-v1 内部分差 | 当时内部门槛路径 |
 |---|---:|---|
 | Literature Search | +26.063 | 质量 |
 | Full-text Access | +22.187 | 质量 |
@@ -56,42 +89,45 @@ ZJU 蒸馏版相对固定 Nature 上游平均质量高 **23.491 分**，同时�
 | Statistics Audit | +10.687 | 质量 |
 | Scientific Writing | +28.125 | 质量 |
 
+这轮结果有四个会影响解释的已知限制：70 例包含已用于 pilot 的 7 例；A/B/C 位置未做区组均衡；日志出现配置之外的 3 次 Web 搜索和 17 次学术 MCP 调用；公开仓库只有聚合结果，没有完整回答、事件与逐条评分原始记录。因此，“当时内部门槛通过”不再自动等于 Stable，首批 7 项现已回调为 Beta（legacy-v1），等待协议 v2 的全新冻结留出集。
+
 ### 扩展能力与 Director
 
 | 范围 | 案例 | 结果 | 证据边界 |
 |---|---:|---|---|
-| 12 个扩展 Skills | 120 | 平均 84.385/100；金标准检查命中率 84.58%；严重失败 0；12/12 通过 | 任务级内部评测，不是与其他仓库的对照试验 |
-| Director 路由 | 20 | 5 个领域、覆盖 19 个专业 Skills，20/20 通过，严重失败 0 | 确定性路由基准，不是模型质量盲测 |
-| Director 新上下文测试 | 3 | 3/3 通过，严重失败 0 | 前向压力测试，不是跨项目 head-to-head |
-| 本地工程验证 | — | 20/20 格式校验；20 项结构审计为 A；52 个单元测试通过；28 个脚本规则扫描零发现 | 规则范围内的工程检查，不等于形式化安全证明 |
+| 12 个扩展 Skills | 120 | 整改后开发集回归：平均 84.385/100；gold-check 命中率 84.58%；严重失败 0 | 最终聚合含 49 条基础运行和 71 条整改/修订记录；不是 held-out 或外部对照 |
+| Director 路由 | 20 | 5 个领域、覆盖 19 个专业 Skills，20/20 路由断言通过 | 确定性路由回归，不是科研答案质量分 |
+| Director 新上下文测试 | 3 | 3/3 断言通过 | 前向压力测试；原始结果没有独立的“严重失败”字段，也不是跨项目 head-to-head |
+| 本地工程验证 | — | 20/20 格式校验；20 项结构一致性审计为 A/100；103 个单元测试通过（含 1 条发现→论文跨 Skill 集成链）；39 个离线处理/验证脚本通过当前静态规则检查 | 结构分的 25/30/20/25 维度权重参考 Claude Scholar；不评价科学正确性，也不等于形式化安全证明 |
 
-原始结果见 [`provenance/release-status.yaml`](provenance/release-status.yaml)、[`evals/results/full-20260811-a/aggregate-adjudicated.json`](evals/results/full-20260811-a/aggregate-adjudicated.json)、[`evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json`](evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json) 和 [`evals/results/director-forward-20260811-a.json`](evals/results/director-forward-20260811-a.json)。
+公开的**聚合结果**见 [`provenance/release-status.yaml`](provenance/release-status.yaml)、[`evals/results/full-20260811-a/aggregate-adjudicated.json`](evals/results/full-20260811-a/aggregate-adjudicated.json)、[`evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json`](evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json) 和 [`evals/results/director-forward-20260811-a.json`](evals/results/director-forward-20260811-a.json)。完整 raw responses、事件和逐条评分尚未公开，因此当前不能仅凭 GitHub 完整复算 v1。
 
-评测生成模型为 GPT-5.4-mini，评分模型为 GPT-5.5；首批采用双盲评审并对分歧案例裁决。所有数字均是 2026-08-11 固定快照的仓库内结果，不应外推为所有模型、学科或真实场景的保证。
+评测生成模型为 GPT-5.4-mini，评分模型为 GPT-5.5；首批使用匿名 arm 标签、两次同模型评分调用并对分歧案例进行第三次调用裁决。协议 v2 的验证核心已实现，但全新留出集、首次运行登记和新回答仍未配置，因而 **没有 v2 新分数**。所有历史数字均是 2026-08-11 固定快照的仓库内结果，不应外推为所有模型、学科或真实场景的保证。
 
 ## 与其他科研 Skills 的区别
 
-这不是排行榜。下表说明本项目从各开源项目吸收了什么，以及进一步做了什么；除首批 7 项与固定 Nature Skills 上游的三臂盲测外，**没有**宣称对其他项目取得 head-to-head 优势。
+这不是排行榜。下表说明本项目从各开源项目吸收了什么，以及进一步做了什么；除首批 7 项与固定 Nature Skills 上游的 legacy-v1 匿名三臂内部模型评测外，**没有**宣称对其他项目取得 head-to-head 优势。
 
 ![与其他科研 Skills 的能力取舍](docs/assets/comparison.png)
 
 | 参考项目 | 借鉴的长处 | ZJU Research OS 的进一步取舍 | 比较证据 |
 |---|---|---|---|
-| [Nature Skills](https://github.com/Yuan1z0825/nature-skills) | 中文科研流程、写作、获取、图表、答审等主骨架 | 新增共享 Research Mission、Director 路由、跨阶段状态与显式人类闸门；压缩营销和安装上下文 | 首批 7 项有固定 commit 三臂盲测 |
-| [K-Dense Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 数据库广度、统计、引用管理、确定性脚本 | 将这些模式放进中文优先、依赖最小化、可追溯的 ZJU 工作流，并限制网络行为 | 架构与功能对照，无 head-to-head |
+| [Nature Skills](https://github.com/Yuan1z0825/nature-skills) | 中文科研流程、写作、获取、图表、答审等主骨架 | 增加五视角检索、引文追踪与饱和停止、全文组件包、Paper Spine、冲突矩阵和稳定 ID 交接 | 首批 7 项有固定 commit 的 legacy-v1 内部直接对照 |
+| [K-Dense Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 数据库广度、统计、引用管理、确定性脚本 | 将多库与统计能力重写成四领域检索模板、设计优先分析契约、规范化结果注册表和跨产物一致性检查 | 架构与功能对照，无 head-to-head |
 | [Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep) | 自动科研流水线、实验交接、来源与评审闸门 | 采用 L0–L4 有界自治、预算/停止条件和外部操作人工闸门，不默认无人值守写入 | 架构与安全边界对照 |
-| [Claude Scholar](https://github.com/Galaxy-Dawn/claude-scholar) | Skill 质量评分、渐进披露、整改清单 | 把质量治理落到全仓库结构审计、单测、安全扫描与分级发布状态 | 工程检查；无模型对照 |
-| [PaperSpine](https://github.com/WUBING2023/PaperSpine) | 贡献契约、结果验证、审稿异议与阶段恢复 | 从论文流程扩展到检索—实验—分析—投稿—共享—专利，同时保持专业 Skill 可独立调用 | 能力覆盖对照 |
+| [Claude Scholar](https://github.com/Galaxy-Dawn/claude-scholar) | Skill 质量评分、渐进披露、整改清单 | 四个结构维度及 25/30/20/25 权重参考其 scorecard，再按 Codex validator、引用路径和输出契约重写检查项 | 结构一致性检查；无模型对照 |
+| [PaperSpine](https://github.com/WUBING2023/PaperSpine) | 贡献契约、结果验证、审稿异议与阶段恢复 | 落地 argument spine，并扩展到跨论文冲突、竞争假设、判别实验、结果注册表和科研转化 | 能力覆盖对照 |
 | [Agentic Awesome Skills](https://github.com/sickn33/agentic-awesome-skills) 等 | 能力目录、选择清单、流水线与导师式审查 | 只蒸馏与科研闭环相关且许可证兼容的模式；`academic-research-skills` 与 `Supervisor-Skills` 因许可边界仅检查、不改编 | 来源与采用范围审计 |
 
 完整来源、固定 commit、许可证与采用范围见 [`provenance/sources.yaml`](provenance/sources.yaml) 和 [`NOTICE`](NOTICE)。
 
 ## 对浙大师生的具体优势
 
+- **学科问题可直接落地**：化学、材料、生医、农业和通用/计算研究都有查询分解、证据判断与统计决策模板，不必先把中文问题翻译成通用提示词。
+- **中文与双语产物连续交接**：检索图、精读卡、实验设计、统计结果、论文段落、图注和答审可保持同一组稳定 ID，适合课题组协作、组会和论文迭代。
+- **化学与材料场景更细**：SciFinder、Reaxys 等候选资源不仅作为入口提示，化学比较还会同时对齐终点、单位、测量基准、条件、方法与证据层级。
 - **校外访问路径本地化**：按浙江大学图书馆当前页面在 WebVPN、CARSI、RVPN 与人工馆员路径之间路由；候选数据库包括 CNKI、Web of Science、Scopus、SciFinder 和 Reaxys，但每次以图书馆实时可用性为准。
-- **中文科研语境**：中文输入、中文或双语交付，并覆盖化学、材料、生医、农业和通用/计算科研模板。
-- **合规边界写进工作流**：不保存统一身份认证密码、Cookie 或 Token，不绕过付费墙，不做违规批量下载；涉及伦理、隐私、专利、外部提交时停止并请求相应人工审核。
-- **校内规范可追溯**：访问与科研诚信路由引用浙江大学权威页面，并记录核验日期；制度文本计划按季度复核。
+- **资源与制度边界集中维护**：不保存统一身份认证密码、Cookie 或 Token，不绕过付费墙或违规批量下载；校内访问与科研诚信页面记录核验日期并计划按季度复核。
 - **不覆盖现有工具**：可以保留已有 `nature-*` Skills，在项目范围内并行试用和对照。
 
 权威入口：[浙江大学图书馆校外访问](https://libweb.zju.edu.cn/56334/list.htm) · [电子资源使用管理办法](https://libweb.zju.edu.cn/2016/1014/c55987a2245977/page.htm) · [学术道德行为规范及管理办法](https://pi.zju.edu.cn/2019/0920/c66998a2550400/page.htm)
@@ -124,6 +160,6 @@ ZJU 蒸馏版相对固定 Nature 上游平均质量高 **23.491 分**，同时�
 - 本项目代码与原创工作流按 [Apache-2.0](LICENSE) 发布；第三方归属见 [`NOTICE`](NOTICE)。
 - 非商业或 Share-Alike 来源只用于能力比较，未把其文本、模板或工作流表达并入本发行包。
 - Star 数用于发现候选项目，不作为科学正确性或安全性的证据。
-- 7 个首批 Skills 为 Stable；12 个扩展 Skills 与 Director 为 Beta。Director 在完成强编排基线盲测或等价的长期独立验证前不会升级为 Stable。
+- 20 个 Skills 当前均为 Beta。首批 7 项保留 `legacy-v1` 内部评测记录，但 Stable 晋级已暂停；扩展项与 Director 也不会在协议 v2 的冻结留出集、工具约束和独立验证完成前升级。
 
-评测是固定模型、固定案例和固定日期的仓库内证据，不代表所有模型、学科或真实科研场景。欢迎提交可复现案例、失败样本和改进建议。
+评测是固定模型、固定案例和固定日期的仓库内证据，不代表所有模型、学科或真实科研场景。v2 协议核心已实现，但留出集尚未配置或重跑。欢迎提交可复现案例、失败样本和改进建议。

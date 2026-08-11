@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yimuEwood/zju-research-skills/evals/holdout-cases-v2.schema.json",
+  "title": "Frozen holdout cases for evaluation protocol v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "split", "cases"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"const": "2.0"},
+    "split": {"const": "frozen_holdout"},
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "skill",
+          "domain",
+          "prompt",
+          "fixture",
+          "evaluation_status",
+          "gold_checks"
+        ],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[A-Z][A-Z0-9_-]{2,63}$"},
+          "skill": {"type": "string", "minLength": 1},
+          "domain": {"type": "string", "minLength": 1},
+          "prompt": {"type": "string", "minLength": 1},
+          "fixture": {"type": "object"},
+          "evaluation_status": {"const": "unseen_holdout"},
+          "gold_checks": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["id", "criterion"],
+              "properties": {
+                "id": {"type": "string", "pattern": "^[A-Z][A-Z0-9_.-]{1,63}$"},
+                "criterion": {"type": "string", "minLength": 1}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

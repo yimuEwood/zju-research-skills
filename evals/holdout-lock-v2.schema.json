@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yimuEwood/zju-research-skills/evals/holdout-lock-v2.schema.json",
+  "title": "Frozen holdout lock for evaluation protocol v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "protocol_id",
+    "freeze_id",
+    "split",
+    "frozen_at",
+    "sealed_before_first_run",
+    "case_document_sha256",
+    "case_ids_sha256",
+    "case_fingerprints_sha256",
+    "case_count",
+    "case_ids",
+    "case_fingerprints",
+    "allocation_commitment_sha256",
+    "first_attempt_only",
+    "attempt_registry_genesis_sha256",
+    "exclusion_evidence"
+  ],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"const": "2.0"},
+    "protocol_id": {"type": "string", "minLength": 1},
+    "freeze_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$"},
+    "split": {"const": "frozen_holdout"},
+    "frozen_at": {"type": "string", "format": "date-time"},
+    "sealed_before_first_run": {"const": true},
+    "case_document_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "case_ids_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "case_fingerprints_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "case_count": {"type": "integer", "minimum": 1},
+    "case_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "case_fingerprints": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+    },
+    "allocation_commitment_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "first_attempt_only": {"const": true},
+    "attempt_registry_genesis_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "exclusion_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "known_case_count_at_freeze",
+        "pilot_case_count_at_freeze",
+        "development_case_count_at_freeze",
+        "overlap_count",
+        "known_fingerprint_count_at_freeze",
+        "development_fingerprint_count_at_freeze",
+        "fingerprint_overlap_count"
+      ],
+      "properties": {
+        "known_case_count_at_freeze": {"type": "integer", "minimum": 0},
+        "pilot_case_count_at_freeze": {"type": "integer", "minimum": 0},
+        "development_case_count_at_freeze": {"type": "integer", "minimum": 0},
+        "overlap_count": {"const": 0},
+        "known_fingerprint_count_at_freeze": {"type": "integer", "minimum": 0},
+        "development_fingerprint_count_at_freeze": {"type": "integer", "minimum": 0},
+        "fingerprint_overlap_count": {"const": 0}
+      }
+    }
+  }
+}

@@ -25,6 +25,8 @@ Parallelize steps only when neither consumes the other's outputs. Keep explicit 
 
 These are starting recipes. Skip an upstream step only when its required artifact is supplied and validated; record the reused artifact ID. Add chemistry database routing, monitoring, data availability, or integrity review only when the mission requires them.
 
+`plan_mission.py` freezes the normative portion of this policy into a canonical `route_contract` and `route_contract_sha256`. Release rederives that contract from `requested_deliverables`; editing the live route, required output groups, gates, step states, or produced artifact IDs invalidates any earlier release authorization. A skipped required step still needs trusted-validated reused artifacts for every canonical output group.
+
 ## Capability selection
 
 1. Match requested deliverables to the `produces` fields in `capability-registry.yaml`.
@@ -44,8 +46,8 @@ Pass only the task-local subset needed by a specialist:
 - constraints, autonomy ceiling, human gates, and stop conditions;
 - known risks and unresolved inputs that affect this step.
 
-Freeze specialist outputs before downstream use. Merge new artifacts by stable ID, retain provenance and hashes when available, and use a new ID plus `supersedes` for a revision.
+Freeze specialist outputs before downstream use. Every cross-skill handoff must satisfy `artifact-envelope.schema.yaml`: merge by stable ID, bind validation to the exact content SHA-256, require mission-matching provenance and a producer-declared output type, and use a new ID plus `supersedes` for a revision. Local report consistency is not execution proof. Release-quality handoffs additionally require the separate trusted-runner attestation contract; an attestation copied into mutable mission state is ignored.
 
 ## Resume semantics
 
-Validate the whole mission, preserve completed/failed history, recalculate readiness from dependency and gate state, then select the earliest ready incomplete step. Never restart completed work unless its input was superseded or a correction/retraction invalidated it.
+For a schema `1.0` mission, first run `migrate_mission.py` with an explicit timezone-aware migration timestamp. The migration preserves old validation metadata only as `legacy_validation.effective: false`, downgrades its active status, and does not read files or create hashes. Then validate the whole `1.1` mission, preserve completed/failed history, recalculate readiness from dependency and gate state, and select the earliest ready incomplete step. Never restart completed work unless its input was superseded or a correction/retraction invalidated it.

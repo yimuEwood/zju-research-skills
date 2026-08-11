@@ -22,10 +22,12 @@ from director_common import (  # noqa: E402
     stable_hash,
     write_document,
 )
+from artifact_contract import validate_artifact  # noqa: E402
 from validate_mission import validate  # noqa: E402
 
 
-PLANNER_VERSION = "1.0"
+PLANNER_VERSION = "1.1"
+ROUTE_CONTRACT_VERSION = "1.0"
 STAGE_ORDER = {
     "framing": 0,
     "discovery": 1,
@@ -160,26 +162,31 @@ DELIVERABLE_ALIASES = {
     "experiment_plan": "experiment_design",
 }
 
-SKILL_OUTPUT_TYPES = {
-    "zju-literature-search": {"search_protocol", "literature_set", "evidence_table"},
-    "zju-literature-monitor": {"literature_monitor", "monitor_update"},
-    "zju-fulltext-access": {"full_text", "fulltext_pdf"},
-    "zju-reference-audit": {"reference_audit"},
-    "zju-paper-reader": {"paper_card", "bilingual_reader", "reader_notes"},
-    "zju-evidence-synthesis": {"evidence_synthesis", "systematic_review"},
-    "zju-hypothesis-design": {"hypothesis_set", "experiment_design"},
-    "zju-experiment-log": {"experiment_log", "run_manifest"},
-    "zju-statistics-audit": {"statistics_audit", "analysis_audit"},
-    "zju-scientific-figure": {"scientific_figure", "figure_manifest"},
-    "zju-scientific-writing": {"manuscript", "manuscript_section"},
-    "zju-paper2ppt": {"presentation", "pptx", "deck_plan"},
-    "zju-reviewer": {"peer_review", "reviewer_report"},
-    "zju-review-response": {"review_response", "response_letter"},
-    "zju-data-availability": {"data_availability", "data_statement"},
-    "zju-proposal-writer": {"proposal", "research_proposal"},
-    "zju-paper-to-patent": {"patent_triage", "technical_disclosure"},
-    "zju-chemistry-databases": {"chemistry_database_record"},
-    "zju-research-integrity": {"integrity_audit"},
+DELIVERABLE_OUTPUT_REQUIREMENTS = {
+    "research_plan": {
+        "zju-hypothesis-design": [["hypothesis_set"], ["experiment_design"]],
+    },
+    "failed_experiment_redesign": {
+        "zju-hypothesis-design": [["experiment_design"], ["decision_rules"]],
+    },
+    "raw_data_to_manuscript": {
+        "zju-scientific-writing": [["manuscript"]],
+    },
+    "presentation": {
+        "zju-paper2ppt": [["pptx"], ["render_qa_report"]],
+    },
+    "scientific_figure": {
+        "zju-scientific-figure": [["scientific_figure"], ["figure_manifest"], ["figure_qa_report"]],
+    },
+    "submission_package": {
+        "zju-statistics-audit": [["statistics_audit", "analysis_audit"]],
+        "zju-reference-audit": [["reference_audit"]],
+        "zju-scientific-figure": [["scientific_figure"], ["figure_manifest"], ["figure_qa_report"]],
+        "zju-scientific-writing": [["manuscript"]],
+        "zju-reviewer": [["reviewer_report", "peer_review"]],
+        "zju-data-availability": [["data_availability", "data_statement"]],
+        "zju-research-integrity": [["integrity_audit"]],
+    },
 }
 
 GATE_ALIASES = {
@@ -221,12 +228,26 @@ def _normalize_objectives(values: Any, question: str) -> list[dict[str, Any]]:
     return result
 
 
-def _validated_artifact_types(mission: dict[str, Any]) -> set[str]:
-    return {
-        _token(str(artifact.get("artifact_type", "")))
-        for artifact in mission.get("artifacts", [])
-        if isinstance(artifact, dict) and artifact.get("status") == "validated"
-    }
+def _validated_artifact_types(
+    mission: dict[str, Any],
+    base_dir: str | Path | None = None,
+) -> set[str]:
+    result = set()
+    for artifact in mission.get("artifacts", []):
+        if not isinstance(artifact, dict) or artifact.get("status") != "validated":
+            continue
+        contract = validate_artifact(
+            artifact,
+            mission_id=mission.get("mission_id"),
+            base_dir=base_dir,
+        )
+        if (
+            contract["valid"]
+            and contract["content_verified"]
+            and contract["validation_receipt_verified"]
+        ):
+            result.add(_token(str(artifact.get("artifact_type", ""))))
+    return result
 
 
 def _registry_output_index(registry: dict[str, dict[str, Any]]) -> dict[str, str]:
@@ -238,6 +259,262 @@ def _registry_output_index(registry: dict[str, dict[str, Any]]) -> dict[str, str
             elif isinstance(output, dict) and isinstance(output.get("type"), str):
                 index.setdefault(_token(output["type"]), skill)
     return index
+
+
+def _declared_outputs(entry: dict[str, Any]) -> list[str]:
+    outputs = []
+    for output in entry.get("produces", []):
+        value = output.get("type") if isinstance(output, dict) else output
+        if isinstance(value, str) and _token(value):
+            outputs.append(_token(value))
+    return list(dict.fromkeys(outputs))
+
+
+def _required_output_groups(
+    skill: str,
+    entry: dict[str, Any],
+    deliverable_types: list[str],
+) -> list[list[str]]:
+    declared = _declared_outputs(entry)
+    declared_set = set(declared)
+    groups: list[list[str]] = []
+    for deliverable in deliverable_types:
+        special = DELIVERABLE_OUTPUT_REQUIREMENTS.get(deliverable, {}).get(skill, [])
+        if special:
+            groups.extend([[_token(item) for item in group] for group in special])
+        elif deliverable in declared_set:
+            groups.append([deliverable])
+    if not groups and declared:
+        groups.append(declared)
+    unique: list[list[str]] = []
+    seen: set[tuple[str, ...]] = set()
+    for group in groups:
+        normalized = tuple(dict.fromkeys(item for item in group if item in declared_set))
+        if normalized and normalized not in seen:
+            unique.append(list(normalized))
+            seen.add(normalized)
+    return unique
+
+
+def required_release_output_groups(requested_deliverables: Any) -> list[list[str]]:
+    """Derive release payload groups from requested deliverables, never from self-reported IDs."""
+
+    if not isinstance(requested_deliverables, list):
+        return []
+    groups: list[list[str]] = []
+    for requested in requested_deliverables:
+        deliverable = _deliverable_type(requested)
+        specialized = DELIVERABLE_OUTPUT_REQUIREMENTS.get(deliverable, {})
+        if specialized:
+            for skill_groups in specialized.values():
+                groups.extend([[_token(item) for item in group] for group in skill_groups])
+        elif deliverable:
+            groups.append([deliverable])
+    unique: list[list[str]] = []
+    seen: set[tuple[str, ...]] = set()
+    for group in groups:
+        normalized = tuple(dict.fromkeys(item for item in group if item))
+        if normalized and normalized not in seen:
+            unique.append(list(normalized))
+            seen.add(normalized)
+    return unique
+
+
+def _canonical_route_gates(
+    skill: str,
+    entry: dict[str, Any],
+    mission: dict[str, Any],
+    deliverable_types: list[str],
+) -> list[str]:
+    constraints = mission.get("constraints", {}) if isinstance(mission.get("constraints"), dict) else {}
+    gates = list(SKILL_GATES.get(skill, []))
+    release_intent = bool(constraints.get("release_intent")) or "submission_package" in deliverable_types
+    for registered_gate in entry.get("required_human_gates", []):
+        if not isinstance(registered_gate, str):
+            continue
+        normalized_gate = _normalize_gate(registered_gate)
+        triggered = (
+            normalized_gate in {"patent_legal", "integrity"}
+            or (
+                normalized_gate == "external_action"
+                and bool(constraints.get("credentialed_access") or constraints.get("external_mutation"))
+            )
+            or (normalized_gate == "submission_release" and release_intent)
+            or (
+                normalized_gate == "privacy"
+                and bool(constraints.get("sensitive_data") or constraints.get("personal_data"))
+            )
+            or (
+                normalized_gate == "ethics"
+                and bool(constraints.get("ethics_required") or constraints.get("human_or_animal_subjects"))
+            )
+        )
+        if triggered:
+            gates.append(normalized_gate)
+    if constraints.get("ethics_required") or constraints.get("human_or_animal_subjects"):
+        gates.append("ethics")
+    if constraints.get("sensitive_data") or constraints.get("personal_data"):
+        gates.append("privacy")
+    external_state = entry.get("external_state", False)
+    if external_state not in (False, None, "none", "read_only") and constraints.get("external_mutation"):
+        gates.append("external_action")
+    if release_intent and skill in {
+        "zju-paper2ppt",
+        "zju-data-availability",
+        "zju-paper-to-patent",
+        "zju-research-integrity",
+    }:
+        gates.append("submission_release")
+    return list(dict.fromkeys(gates))
+
+
+def _contract_dependency_map(selected: set[str], mission: dict[str, Any]) -> dict[str, set[str]]:
+    dependencies = {
+        skill: {dependency for dependency in SKILL_DEPENDENCIES.get(skill, []) if dependency in selected}
+        for skill in selected
+    }
+    constraints = mission.get("constraints", {}) if isinstance(mission.get("constraints"), dict) else {}
+    archetype = str(mission.get("archetype", ""))
+    if "failed-experiment" in archetype:
+        if "zju-experiment-log" in selected and "zju-evidence-synthesis" in selected:
+            dependencies["zju-evidence-synthesis"].add("zju-experiment-log")
+        if "zju-statistics-audit" in selected and "zju-hypothesis-design" in selected:
+            dependencies["zju-hypothesis-design"].add("zju-statistics-audit")
+    if "retraction" in archetype or constraints.get("retraction_or_correction"):
+        for upstream in ("zju-literature-monitor", "zju-reference-audit"):
+            if upstream in selected and "zju-evidence-synthesis" in selected:
+                dependencies["zju-evidence-synthesis"].add(upstream)
+    if (
+        constraints.get("unattended_loop_requested")
+        and "zju-literature-monitor" in selected
+        and "zju-evidence-synthesis" in selected
+    ):
+        dependencies["zju-evidence-synthesis"].add("zju-literature-monitor")
+    if "zju-chemistry-databases" in selected:
+        for downstream in ("zju-evidence-synthesis", "zju-hypothesis-design", "zju-paper-to-patent"):
+            if downstream in selected:
+                dependencies[downstream].add("zju-chemistry-databases")
+    if "zju-reference-audit" in selected and not (
+        "retraction" in archetype or constraints.get("retraction_or_correction")
+    ):
+        for upstream in ("zju-scientific-writing", "zju-proposal-writer", "zju-review-response"):
+            if upstream in selected:
+                dependencies["zju-reference-audit"].add(upstream)
+    return dependencies
+
+
+def derive_route_contract(
+    mission: dict[str, Any],
+    registry_path: str | Path | None = None,
+) -> dict[str, Any]:
+    """Derive immutable release requirements from user intent and repository policy."""
+
+    registry = load_registry(registry_path)
+    registry_outputs = _registry_output_index(registry)
+    deliverable_types = [
+        _deliverable_type(item)
+        for item in mission.get("requested_deliverables", [])
+        if _deliverable_type(item)
+    ]
+    deliverable_types = list(dict.fromkeys(deliverable_types))
+    selected: set[str] = set()
+    unresolved: list[str] = []
+    constraints = mission.get("constraints", {}) if isinstance(mission.get("constraints"), dict) else {}
+    required = mission.get("required_skills", constraints.get("required_skills", []))
+    explicit_required = isinstance(required, list) and bool(required)
+    for deliverable in deliverable_types:
+        if deliverable in ROUTE_RECIPES:
+            selected.update(ROUTE_RECIPES[deliverable])
+        elif deliverable in registry_outputs:
+            selected.add(registry_outputs[deliverable])
+        elif not explicit_required:
+            unresolved.append(deliverable)
+    if isinstance(required, list):
+        selected.update(skill for skill in required if skill in registry)
+    forbidden = mission.get("forbidden_skills", constraints.get("forbidden_skills", []))
+    if isinstance(forbidden, list):
+        selected.difference_update(forbidden)
+    selected.intersection_update(registry)
+    dependency_map = _contract_dependency_map(selected, mission)
+    order = _topological_order(selected, dependency_map)
+    step_id_by_skill = {skill: f"S{index:02d}" for index, skill in enumerate(order, 1)}
+    required_steps: list[dict[str, Any]] = []
+    for skill in order:
+        entry = registry[skill]
+        required_steps.append(
+            {
+                "step_id": step_id_by_skill[skill],
+                "skill": skill,
+                "stage": SKILL_STAGE.get(skill, entry.get("stages", ["integrity"])[0]),
+                "prerequisites": sorted(
+                    step_id_by_skill[dependency]
+                    for dependency in dependency_map.get(skill, set())
+                    if dependency in step_id_by_skill
+                ),
+                "expected_outputs": _declared_outputs(entry),
+                "required_output_groups": _required_output_groups(skill, entry, deliverable_types),
+                "required_gates": _canonical_route_gates(skill, entry, mission, deliverable_types),
+            }
+        )
+    return {
+        "schema_version": ROUTE_CONTRACT_VERSION,
+        "policy_version": PLANNER_VERSION,
+        "requested_deliverables": deliverable_types,
+        "unresolved_deliverables": unresolved,
+        "required_steps": required_steps,
+        "required_release_output_groups": required_release_output_groups(
+            mission.get("requested_deliverables", [])
+        ),
+    }
+
+
+def audit_route_contract(
+    mission: dict[str, Any],
+    registry_path: str | Path | None = None,
+) -> dict[str, Any]:
+    """Fail closed when a stored or live route differs from canonical policy."""
+
+    expected = derive_route_contract(mission, registry_path)
+    expected_hash = stable_hash(expected)
+    issues: list[str] = []
+    stored = mission.get("route_contract")
+    if stored != expected:
+        issues.append("stored route_contract does not match requested_deliverables and canonical routing policy")
+    if mission.get("route_contract_sha256") != expected_hash:
+        issues.append("route_contract_sha256 does not match the canonical route contract")
+    if expected["unresolved_deliverables"]:
+        issues.append(
+            "canonical routing policy cannot produce requested deliverables: "
+            + ", ".join(expected["unresolved_deliverables"])
+        )
+    route = mission.get("route", [])
+    if not isinstance(route, list):
+        issues.append("mission.route must be a list")
+        route = []
+    elif any(not isinstance(step, dict) for step in route):
+        issues.append("mission.route contains a non-object step")
+    structural_fields = (
+        "step_id",
+        "skill",
+        "stage",
+        "prerequisites",
+        "expected_outputs",
+        "required_output_groups",
+        "required_gates",
+    )
+    actual_structure = [
+        {field: step.get(field) for field in structural_fields}
+        for step in route
+        if isinstance(step, dict)
+    ]
+    if actual_structure != expected["required_steps"]:
+        issues.append("mission.route structure differs from the canonical route contract")
+    return {
+        "valid": not issues,
+        "route_contract_sha256": expected_hash,
+        "expected": expected,
+        "issues": issues,
+    }
 
 
 def _topological_order(selected: set[str], dependencies: dict[str, set[str]]) -> list[str]:
@@ -286,7 +563,11 @@ def _normalize_gate(gate: str) -> str:
     return GATE_ALIASES.get(token, token)
 
 
-def plan_mission(mission: dict[str, Any], registry_path: str | Path | None = None) -> dict[str, Any]:
+def plan_mission(
+    mission: dict[str, Any],
+    registry_path: str | Path | None = None,
+    base_dir: str | Path | None = None,
+) -> dict[str, Any]:
     if not isinstance(mission, dict):
         raise ValueError("Mission root must be an object")
     planned = copy.deepcopy(mission)
@@ -299,7 +580,7 @@ def plan_mission(mission: dict[str, Any], registry_path: str | Path | None = Non
         or planned.get("prompt")
         or "TO_BE_FRAMED"
     ).strip()
-    planned.setdefault("schema_version", "1.0")
+    planned.setdefault("schema_version", "1.1")
     planned.setdefault("mission_id", "MISSION-UNASSIGNED")
     planned["research_question"] = question
     planned.setdefault("domain", "general")
@@ -386,41 +667,25 @@ def plan_mission(mission: dict[str, Any], registry_path: str | Path | None = Non
         planning_errors.append({"code": "registry_gap", "message": f"Selected skill is absent from capability registry: {skill}"})
         selected.remove(skill)
 
-    reused_artifacts: list[dict[str, str]] = []
-    available_types = _validated_artifact_types(planned)
+    reused_artifacts: list[dict[str, Any]] = []
+    available_types = _validated_artifact_types(planned, base_dir=base_dir)
     reusable_skills = set()
     if constraints.get("reuse_validated_artifacts", True):
         for skill in selected:
-            matching = sorted(SKILL_OUTPUT_TYPES.get(skill, set()) & available_types)
-            if matching:
+            required_groups = _required_output_groups(skill, registry[skill], deliverable_types)
+            matching = [sorted(set(group) & available_types) for group in required_groups]
+            if required_groups and all(matches for matches in matching):
                 reusable_skills.add(skill)
-                reused_artifacts.append({"skill": skill, "artifact_type": matching[0]})
+                reused_artifacts.append(
+                    {
+                        "skill": skill,
+                        "artifact_types": [matches[0] for matches in matching],
+                        "satisfied_required_output_groups": copy.deepcopy(required_groups),
+                    }
+                )
     selected -= reusable_skills
 
-    dependency_map = {
-        skill: {dependency for dependency in SKILL_DEPENDENCIES.get(skill, []) if dependency in selected}
-        for skill in selected
-    }
-    archetype = str(planned.get("archetype", ""))
-    if "failed-experiment" in archetype:
-        if "zju-experiment-log" in selected and "zju-evidence-synthesis" in selected:
-            dependency_map["zju-evidence-synthesis"].add("zju-experiment-log")
-        if "zju-statistics-audit" in selected and "zju-hypothesis-design" in selected:
-            dependency_map["zju-hypothesis-design"].add("zju-statistics-audit")
-    if "retraction" in archetype or constraints.get("retraction_or_correction"):
-        for upstream in ("zju-literature-monitor", "zju-reference-audit"):
-            if upstream in selected and "zju-evidence-synthesis" in selected:
-                dependency_map["zju-evidence-synthesis"].add(upstream)
-    if constraints.get("unattended_loop_requested") and "zju-literature-monitor" in selected and "zju-evidence-synthesis" in selected:
-        dependency_map["zju-evidence-synthesis"].add("zju-literature-monitor")
-    if "zju-chemistry-databases" in selected:
-        for downstream in ("zju-evidence-synthesis", "zju-hypothesis-design", "zju-paper-to-patent"):
-            if downstream in selected:
-                dependency_map[downstream].add("zju-chemistry-databases")
-    if "zju-reference-audit" in selected and not ("retraction" in archetype or constraints.get("retraction_or_correction")):
-        for upstream in ("zju-scientific-writing", "zju-proposal-writer", "zju-review-response"):
-            if upstream in selected:
-                dependency_map["zju-reference-audit"].add(upstream)
+    dependency_map = _contract_dependency_map(selected, planned)
     order = _topological_order(selected, dependency_map)
     step_id_by_skill = {skill: f"S{index:02d}" for index, skill in enumerate(order, 1)}
     ceiling = constraints.get("autonomy_ceiling", "L2")
@@ -443,12 +708,6 @@ def plan_mission(mission: dict[str, Any], registry_path: str | Path | None = Non
     if constraints.get("unattended_loop_requested") and not bounded_l4:
         planning_errors.append({"code": "l4_controls", "message": "Unattended execution requires explicit budgets, stop rules, checkpoint preservation, and independent review"})
 
-    context_gates: list[str] = []
-    if constraints.get("ethics_required") or constraints.get("human_or_animal_subjects"):
-        context_gates.append("ethics")
-    if constraints.get("sensitive_data") or constraints.get("personal_data"):
-        context_gates.append("privacy")
-    release_intent = bool(constraints.get("release_intent")) or "submission_package" in deliverable_types
     mission_required_gates = planned.get("required_gates", [])
     if not isinstance(mission_required_gates, list):
         mission_required_gates = []
@@ -468,27 +727,7 @@ def plan_mission(mission: dict[str, Any], registry_path: str | Path | None = Non
         dependencies.sort()
         for dependency in dependencies:
             edges.append({"from": dependency, "to": step_id_by_skill[skill]})
-        gates = list(SKILL_GATES.get(skill, []))
-        for registered_gate in entry.get("required_human_gates", []):
-            if not isinstance(registered_gate, str):
-                continue
-            normalized_gate = _normalize_gate(registered_gate)
-            triggered = (
-                normalized_gate in {"patent_legal", "integrity"}
-                or (normalized_gate == "external_action" and bool(constraints.get("credentialed_access") or constraints.get("external_mutation")))
-                or (normalized_gate == "submission_release" and release_intent)
-                or (normalized_gate == "privacy" and bool(constraints.get("sensitive_data") or constraints.get("personal_data")))
-                or (normalized_gate == "ethics" and bool(constraints.get("ethics_required") or constraints.get("human_or_animal_subjects")))
-            )
-            if triggered:
-                gates.append(normalized_gate)
-        gates.extend(context_gates)
-        external_state = entry.get("external_state", False)
-        if external_state not in (False, None, "none", "read_only") and constraints.get("external_mutation"):
-            gates.append("external_action")
-        if release_intent and skill in {"zju-paper2ppt", "zju-data-availability", "zju-paper-to-patent", "zju-research-integrity"}:
-            gates.append("submission_release")
-        gates = list(dict.fromkeys(gates))
+        gates = _canonical_route_gates(skill, entry, planned, deliverable_types)
         validators = entry.get("validators", [])
         if not validators:
             validators = [{"type": "manual", "path": None, "note": "Use the specialist output contract and gate ledger"}]
@@ -499,13 +738,18 @@ def plan_mission(mission: dict[str, Any], registry_path: str | Path | None = Non
             skill_autonomy = "L3"
             gates.append("external_action")
             gates = list(dict.fromkeys(gates))
+        declared_outputs = _declared_outputs(entry)
+        required_output_groups = _required_output_groups(skill, entry, deliverable_types)
+        required_members = {item for group in required_output_groups for item in group}
         step = {
             "step_id": step_id_by_skill[skill],
             "stage": SKILL_STAGE.get(skill, entry.get("stages", ["integrity"])[0]),
             "skill": skill,
             "objective_ids": [item["objective_id"] for item in planned["objectives"] if isinstance(item, dict) and item.get("objective_id")],
             "accepted_inputs": entry.get("accepts", []),
-            "expected_outputs": entry.get("produces", []),
+            "expected_outputs": declared_outputs,
+            "required_output_groups": required_output_groups,
+            "optional_outputs": [item for item in declared_outputs if item not in required_members],
             "prerequisites": dependencies,
             "required_gates": gates,
             "autonomy_level": skill_autonomy,
@@ -543,6 +787,8 @@ def plan_mission(mission: dict[str, Any], registry_path: str | Path | None = Non
                 planned["human_checkpoints"].append(checkpoint)
     planned["reused_validated_artifacts"] = reused_artifacts
     planned["planner_version"] = PLANNER_VERSION
+    planned["route_contract"] = derive_route_contract(planned, registry_path)
+    planned["route_contract_sha256"] = stable_hash(planned["route_contract"])
     planned.setdefault("revision", 1)
     planned["planning_errors"] = planning_errors
     planned["unresolved_deliverables"] = unresolved
@@ -563,7 +809,7 @@ def plan_mission(mission: dict[str, Any], registry_path: str | Path | None = Non
     hash_input.pop("plan_hash", None)
     hash_input.pop("planning_validation", None)
     planned["plan_hash"] = stable_hash(hash_input)
-    planned["planning_validation"] = validate(planned)
+    planned["planning_validation"] = validate(planned, base_dir=base_dir)
     if not planned["planning_validation"]["valid"]:
         planned["status"] = "blocked"
     return planned
@@ -574,8 +820,14 @@ def main() -> int:
     parser.add_argument("--input", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--registry", type=Path)
+    parser.add_argument("--base-dir", type=Path)
     args = parser.parse_args()
-    planned = plan_mission(load_document(args.input), args.registry)
+    input_path = args.input.resolve()
+    planned = plan_mission(
+        load_document(input_path),
+        args.registry,
+        base_dir=args.base_dir or input_path.parent,
+    )
     write_document(args.output, planned)
     return 0 if planned["planning_validation"]["valid"] and not planned["planning_errors"] else 1
 

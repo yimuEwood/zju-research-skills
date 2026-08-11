@@ -1,6 +1,6 @@
 ---
 name: zju-scientific-writing
-description: Draft or polish evidence-bound scientific manuscripts in Chinese or English while preserving the author's data, numerical meaning, uncertainty, and verified citations. Use for section drafting, argument construction, restructuring, translation, concision, journal-style polishing, or claim-by-claim consistency checks. Always select explicit draft or polish mode; never introduce an untraceable fact or reference.
+description: Draft, substantively revise, or language-polish evidence-bound scientific manuscripts in Chinese or English while preserving the author's data, numerical meaning, uncertainty, and verified citations. Use for section drafting, argument construction, restructuring, revision, translation, concision, journal-style polishing, claim-by-claim checks, or keeping Abstract, Results, figures, tables, supplements, and reviewer responses aligned to a canonical result registry. Always select explicit draft, revise, or polish mode; never introduce an untraceable fact or reference.
 ---
 
 # ZJU Scientific Writing
@@ -10,6 +10,7 @@ Write from an evidence ledger. Improve reasoning and language without manufactur
 ## Select a Mode
 
 - `draft`: construct a section or manuscript from author-supplied data, methods, outline, and verified literature.
+- `revise`: change scientific organization, argument, scope, or interpretation in an existing manuscript; record claim and result impacts explicitly.
 - `polish`: improve existing prose while preserving scientific meaning, numeric values, direction, uncertainty, and citation scope.
 
 State the mode at the start. If a request mixes them, separate the drafted passages from edits to supplied text. Read `references/writing-modes.md` and `references/claim-evidence-ledger.md`.
@@ -17,7 +18,7 @@ State the mode at the start. If a request mixes them, separate the drafted passa
 ## Workflow
 
 1. Define document type, audience/journal, language, section, word limit, terminology, and allowed evidence. Identify required information that is absent.
-2. Build or validate a claim-evidence ledger before prose. Each factual claim must bind to author data, a method/protocol, or a verified source. Run the local ledger checker when JSON is available:
+2. Build or validate a claim-evidence ledger before prose. Each factual claim must bind to author data, a method/protocol, or a verified source. Author-result claims must bind to stable `result_id` values from `$zju-statistics-audit`, not only to a nearby figure label. Run the local ledger checker when JSON is available:
 
    `python scripts/check_claim_ledger.py --input claims.json --output ledger-report.json`
 
@@ -26,10 +27,13 @@ State the mode at the start. If a request mixes them, separate the drafted passa
    `python scripts/check_writing_contract.py --input writing-contract.json --output writing-contract-report.json`
 
 4. In `draft` mode, build the argument in this order: question/gap, approach, result with magnitude and uncertainty, interpretation within design, limitation, implication. Keep methods reproducible and results separate from discussion. A metric-only Results subsection without a contribution/evidence mapping remains incomplete.
-5. In `polish` mode, create an invariant list for numbers, units, group labels, direction, statistical qualifiers, gene/protein/chemical notation, and citations. Edit against those invariants and report any substantive change separately.
-6. Audit every sentence for evidence, scope, causality, statistical wording, and citation placement. Invoke `$zju-reference-audit` for unresolved references and `$zju-statistics-audit` for statistical claims.
-7. Before using `submission_ready`, create a reviewer-objection register covering novelty, validity, scope, reproducibility, statistics, and editorial fit. All objections must be resolved, accepted as bounded limitations, or explicitly open; open objections block the readiness label.
-8. Return the revised text plus a change/evidence report. Mark placeholders such as `[AUTHOR DATA REQUIRED]` rather than filling gaps plausibly.
+5. In `revise` mode, make a section-level change plan, record which claim/result IDs each move affects, revise the argument, and emit before/after claim scope plus follow-up edits required in the Abstract, figures/tables, Methods, supplement, and response letter.
+6. In `polish` mode, create an invariant list for numbers, units, group labels, direction, statistical qualifiers, gene/protein/chemical notation, and citations. Edit against those invariants and report any substantive change separately.
+7. Reconcile every numerical use against the canonical result registry with `$zju-statistics-audit/scripts/reconcile_result_registry.py`. Never independently retype a rounded value into the Abstract, Results, legend, table, supplement, or response letter.
+   When figure, review, or data-package artifacts are present, also run `$zju-statistics-audit/scripts/validate_result_handoff.py` so claim, evidence, and result IDs resolve across the package.
+8. Audit every sentence for evidence, scope, causality, statistical wording, and citation placement. Invoke `$zju-reference-audit` for unresolved references and `$zju-statistics-audit` for statistical claims.
+9. Before using `submission_ready`, create a reviewer-objection register covering novelty, validity, scope, reproducibility, statistics, and editorial fit. All objections must be resolved, accepted as bounded limitations, or explicitly open; open objections block the readiness label.
+10. Return the revised text plus a change/evidence report. Mark placeholders such as `[AUTHOR DATA REQUIRED]` rather than filling gaps plausibly.
 
 ## Missing-Text Fallback
 
@@ -45,4 +49,4 @@ If the source passage or author data is absent, do not produce revised prose and
 
 ## Output Contract
 
-Return: mode and scope, evidence-bound text, contribution-to-results map when applicable, unresolved placeholders, claim-evidence exceptions, reviewer-readiness status when requested, and material-change log. For polish mode, explicitly confirm whether numbers, direction, significance, units, and citations were preserved.
+Return: mode and scope, evidence-bound text, contribution-to-results map, claim-to-`result_id` map, cross-artifact follow-up map for revise mode, unresolved placeholders, claim-evidence exceptions, result-registry consistency status, reviewer-readiness status when requested, and material-change log. For polish mode, explicitly confirm whether numbers, direction, significance, units, and citations were preserved.

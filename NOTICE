@@ -31,5 +31,24 @@ HKUSTDial/Supervisor-Skills (CC BY-NC-SA 4.0) were inspected only to compare
 capability coverage. No protected text, templates, or workflow expression from
 those repositories is incorporated into this Apache-2.0 distribution.
 
+SciAgent-Skills attribution required by CC BY 4.0:
+
+- Original project: SciAgent-Skills, Copyright (c) 2024 jaechang-hits.
+- Source: https://github.com/jaechang-hits/SciAgent-Skills at commit
+  0d18706fe1a51239f12b395f046c8aa30fe632b4.
+- License: Creative Commons Attribution 4.0 International,
+  https://creativecommons.org/licenses/by/4.0/.
+- Changes: this project independently rewrites and adapts life-science task
+  coverage and benchmark-design concepts into its own workflows and tests; it
+  does not redistribute the upstream skill files verbatim.
+
+K-Dense Scientific Agent Skills attribution:
+
+- Copyright (c) 2025 K-Dense Inc.
+- Source: https://github.com/K-Dense-AI/scientific-agent-skills at commit
+  7eb9c23c32ecf7f8c19cb45ded3150534ccefe6a.
+- License: MIT. The repository license and `license: MIT` metadata of every
+  consulted skill were rechecked at the pinned commit on 2026-08-11.
+
 Zhejiang University names, links, and policies are referenced for navigation
 and compliance. This project is not an official Zhejiang University service.

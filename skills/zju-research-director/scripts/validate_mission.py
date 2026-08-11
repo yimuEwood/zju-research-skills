@@ -20,8 +20,10 @@ from director_common import (  # noqa: E402
     load_document,
     load_json_yaml,
     load_registry,
+    stable_hash,
     write_document,
 )
+from artifact_contract import validate_artifact  # noqa: E402
 
 
 def _finding(code: str, path: str, message: str) -> dict[str, str]:
@@ -51,9 +53,16 @@ def _has_cycle(steps: dict[str, dict[str, Any]]) -> bool:
     return any(visit(step_id) for step_id in steps if state.get(step_id, 0) == 0)
 
 
-def validate(mission: Any, schema_path: str | Path | None = None) -> dict[str, Any]:
+def validate(
+    mission: Any,
+    schema_path: str | Path | None = None,
+    base_dir: str | Path | None = None,
+) -> dict[str, Any]:
     schema_target = Path(schema_path) if schema_path else DEFAULT_SCHEMA_PATH
     schema = load_json_yaml(schema_target)
+    registry_path = schema_target.parent / "capability-registry.yaml"
+    if not registry_path.exists():
+        registry_path = DEFAULT_REGISTRY_PATH
     errors: list[dict[str, str]] = []
     warnings: list[dict[str, str]] = []
 
@@ -72,8 +81,18 @@ def validate(mission: Any, schema_path: str | Path | None = None) -> dict[str, A
         if field not in mission or mission[field] is None or mission[field] == "":
             errors.append(_finding("required", field, "Required field is missing"))
 
-    if mission.get("schema_version") != schema.get("mission_schema_version"):
-        errors.append(_finding("schema_version", "schema_version", "Unsupported mission schema version"))
+    mission_version = mission.get("schema_version")
+    if mission_version != schema.get("mission_schema_version"):
+        if mission_version in schema.get("legacy_mission_schema_versions", []):
+            errors.append(
+                _finding(
+                    "migration_required",
+                    "schema_version",
+                    "Legacy mission must be migrated with migrate_mission.py before validation or resume",
+                )
+            )
+        else:
+            errors.append(_finding("schema_version", "schema_version", "Unsupported mission schema version"))
     if not _nonempty(mission.get("mission_id")):
         errors.append(_finding("value", "mission_id", "mission_id must be a non-empty string"))
     if not _nonempty(mission.get("research_question")):
@@ -167,13 +186,28 @@ def validate(mission: Any, schema_path: str | Path | None = None) -> dict[str, A
     for index, artifact in enumerate(mission.get("artifacts", [])):
         if not isinstance(artifact, dict):
             continue
-        artifact_status = artifact.get("status")
-        if artifact_status not in enums.get("artifact_statuses", []):
-            errors.append(_finding("enum", f"artifacts[{index}].status", f"Unknown artifact status: {artifact_status}"))
-        if not _nonempty(artifact.get("artifact_type")):
-            errors.append(_finding("required", f"artifacts[{index}].artifact_type", "artifact_type is required"))
-        if not artifact.get("provenance"):
-            warnings.append(_finding("provenance", f"artifacts[{index}].provenance", "Artifact provenance is not declared"))
+        contract = validate_artifact(
+            artifact,
+            mission_id=mission.get("mission_id"),
+            registry_path=registry_path,
+            base_dir=base_dir,
+        )
+        for finding in contract["errors"]:
+            errors.append(
+                _finding(
+                    f"artifact_{finding['code']}",
+                    f"artifacts[{index}].{finding['path']}",
+                    finding["message"],
+                )
+            )
+        for finding in contract["warnings"]:
+            warnings.append(
+                _finding(
+                    f"artifact_{finding['code']}",
+                    f"artifacts[{index}].{finding['path']}",
+                    finding["message"],
+                )
+            )
 
     for index, risk in enumerate(mission.get("risks", [])):
         if not isinstance(risk, dict):
@@ -197,6 +231,20 @@ def validate(mission: Any, schema_path: str | Path | None = None) -> dict[str, A
         if unknown_mission_gates:
             errors.append(_finding("unknown_gate", "mission_required_gates", "Unknown gates: " + ", ".join(unknown_mission_gates)))
 
+    route_contract = mission.get("route_contract")
+    route_contract_sha256 = mission.get("route_contract_sha256")
+    if route_contract is not None or route_contract_sha256 is not None:
+        if not isinstance(route_contract, dict):
+            errors.append(_finding("type", "route_contract", "route_contract must be an object"))
+        elif route_contract_sha256 != stable_hash(route_contract):
+            errors.append(
+                _finding(
+                    "route_contract_hash_mismatch",
+                    "route_contract_sha256",
+                    "route_contract_sha256 does not match the stored route_contract",
+                )
+            )
+
     for index, loop in enumerate(mission.get("open_loops", [])):
         if not isinstance(loop, dict):
             continue
@@ -211,9 +259,6 @@ def validate(mission: Any, schema_path: str | Path | None = None) -> dict[str, A
         if event.get("status") not in enums.get("gate_statuses", []):
             errors.append(_finding("enum", f"gate_ledger[{index}].status", "Unknown gate status"))
 
-    registry_path = schema_target.parent / "capability-registry.yaml"
-    if not registry_path.exists():
-        registry_path = DEFAULT_REGISTRY_PATH
     try:
         allowed_skills = set(load_registry(registry_path))
     except ValueError as error:
@@ -251,6 +296,38 @@ def validate(mission: Any, schema_path: str | Path | None = None) -> dict[str, A
                 unknown_gates = [gate for gate in gates if gate not in enums.get("gates", [])]
                 if unknown_gates:
                     errors.append(_finding("unknown_gate", f"route[{index}].required_gates", "Unknown gates: " + ", ".join(unknown_gates)))
+            expected_outputs = step.get("expected_outputs", [])
+            required_output_groups = step.get("required_output_groups", [])
+            optional_outputs = step.get("optional_outputs", [])
+            if not isinstance(expected_outputs, list):
+                errors.append(_finding("type", f"route[{index}].expected_outputs", "expected_outputs must be a list"))
+                expected_outputs = []
+            expected_tokens = {
+                str(item.get("type") if isinstance(item, dict) else item).lower().replace("-", "_")
+                for item in expected_outputs
+            }
+            if not isinstance(required_output_groups, list):
+                errors.append(_finding("type", f"route[{index}].required_output_groups", "required_output_groups must be a list"))
+            else:
+                for group_index, group in enumerate(required_output_groups):
+                    if not isinstance(group, list) or not group:
+                        errors.append(_finding("type", f"route[{index}].required_output_groups[{group_index}]", "Each required output group must be a non-empty list"))
+                        continue
+                    unknown_outputs = [
+                        item
+                        for item in group
+                        if str(item).lower().replace("-", "_") not in expected_tokens
+                    ]
+                    if unknown_outputs:
+                        errors.append(
+                            _finding(
+                                "unknown_output",
+                                f"route[{index}].required_output_groups[{group_index}]",
+                                "Required outputs are not declared by the step: " + ", ".join(str(item) for item in unknown_outputs),
+                            )
+                        )
+            if not isinstance(optional_outputs, list):
+                errors.append(_finding("type", f"route[{index}].optional_outputs", "optional_outputs must be a list"))
 
     for step_id, step in steps.items():
         for dependency in step.get("prerequisites", []):
@@ -260,6 +337,31 @@ def validate(mission: Any, schema_path: str | Path | None = None) -> dict[str, A
                 errors.append(_finding("self_dependency", f"route.{step_id}.prerequisites", "A step cannot depend on itself"))
     if steps and _has_cycle(steps):
         errors.append(_finding("cycle", "route", "Route dependency graph contains a cycle"))
+
+    for index, artifact in enumerate(mission.get("artifacts", [])):
+        if not isinstance(artifact, dict):
+            continue
+        provenance = artifact.get("provenance") if isinstance(artifact.get("provenance"), dict) else {}
+        producer = provenance.get("producer")
+        producer_step_id = provenance.get("producer_step_id")
+        if producer not in allowed_skills:
+            continue
+        if producer_step_id not in steps:
+            errors.append(
+                _finding(
+                    "unknown_producer_step",
+                    f"artifacts[{index}].provenance.producer_step_id",
+                    f"Artifact producer step is absent from route: {producer_step_id}",
+                )
+            )
+        elif steps[producer_step_id].get("skill") != producer:
+            errors.append(
+                _finding(
+                    "producer_step_mismatch",
+                    f"artifacts[{index}].provenance.producer_step_id",
+                    f"Route step {producer_step_id} belongs to {steps[producer_step_id].get('skill')}, not {producer}",
+                )
+            )
 
     counts = {
         field: len(mission.get(field, []))
@@ -280,9 +382,15 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", required=True, type=Path)
     parser.add_argument("--schema", type=Path)
+    parser.add_argument("--base-dir", type=Path)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    result = validate(load_document(args.input), args.schema)
+    input_path = args.input.resolve()
+    result = validate(
+        load_document(input_path),
+        args.schema,
+        base_dir=args.base_dir or input_path.parent,
+    )
     if args.output:
         write_document(args.output, result)
     else:

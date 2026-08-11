@@ -36,7 +36,7 @@ sources:
   - id: k-dense-scientific-agent-skills
     repository: "https://github.com/K-Dense-AI/scientific-agent-skills"
     commit: "7eb9c23c32ecf7f8c19cb45ded3150534ccefe6a"
-    license: "MIT; verify per-skill metadata before reuse"
+    license: "MIT (repository license and consulted skill metadata verified at the pinned commit)"
     consulted_paths:
       - "skills/paper-lookup/SKILL.md"
       - "skills/statistical-analysis/SKILL.md"
@@ -66,7 +66,7 @@ sources:
 
   - id: agent-skills-spec
     repository: "https://github.com/agentskills/agentskills"
-    commit: "main as inspected 2026-08-10"
+    commit: "69ef37e9424c0a7ea9dd2293b559e43ec8176379"
     license: "Apache-2.0"
     consulted_paths: ["docs/specification.mdx"]
     adaptation: "Portable SKILL.md directory structure and progressive disclosure."

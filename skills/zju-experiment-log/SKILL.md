@@ -1,6 +1,6 @@
 ---
 name: zju-experiment-log
-description: Convert experiment notes, image metadata, audio transcripts, and mixed local inputs into a traceable Markdown laboratory record with parseable YAML frontmatter. Use for experiment logging, daily lab notes, instrument-run records, sample tracking, or reconstructing a record from raw files. Obsidian and Feishu are optional destinations, never prerequisites.
+description: Convert experiment notes, image metadata, audio transcripts, and mixed local inputs into a traceable Markdown laboratory record with parseable YAML frontmatter, explicit study-design fields, and an analysis handoff. Use for experiment logging, daily lab notes, instrument-run records, sample tracking, reconstructing a record from raw files, or carrying experimental units, outcomes, deviations, and artifact lineage into statistical analysis. Obsidian and Feishu are optional destinations, never prerequisites.
 ---
 
 # ZJU Experiment Log
@@ -12,17 +12,21 @@ Create an immutable-source, traceable experiment record. Preserve uncertainty an
 1. Inventory all supplied text, images, audio/transcripts, instrument exports, and related files. Do not move, rename, modify, or delete originals unless explicitly requested.
 2. Extract observable facts with source paths and timestamps. For images, record the file and visible observation; for audio, retain the transcript and mark uncertain words with timestamps when possible.
 3. Ask only for blocking identifiers such as experiment ID, date, operator, project, or sample mapping. Leave non-blocking unknowns as `unknown`; never guess.
-4. Read `references/log-schema.md` and create Markdown with parseable YAML. `scripts/build_log.py` can deterministically render a structured JSON intake:
+4. Read `references/design-analysis-handoff.md`. Record the experimental and observational units, biological versus technical replicates, groups/controls, assignment, blocking/nesting, repeated measures, stable outcome IDs, exclusions, missingness, and whether the analysis was prospective, frozen, amended, or retrospective.
+5. Read `references/log-schema.md` and create Markdown with parseable YAML. `scripts/build_log.py` can deterministically render a structured JSON intake:
 
    `python scripts/build_log.py --input intake.json --output 2026-08-10-exp-001.md`
 
-5. Separate objective, protocol, deviations, raw observations, derived results, interpretation, anomalies, and next actions. Preserve units and instrument settings.
-6. Add source-file paths and SHA-256 hashes when the files are accessible. A hash establishes file identity, not scientific validity.
-7. For an instrument, simulation, analysis, or code run, also read `references/run-manifest.md`. Record inputs, parameters, software/environment, outputs, hashes, status, and the next decision gate. Validate structured JSON with:
+   With `schema_version: "2.0"`, the builder preserves the complete design/analysis handoff in both YAML and a machine-readable Markdown block and rejects incomplete unit, replicate, hierarchy, outcome, lineage, or analysis-contract structure.
+
+6. Separate objective, protocol, deviations, raw observations, derived results, interpretation, anomalies, and next actions. Preserve units and instrument settings.
+7. Add source-file paths and SHA-256 hashes when the files are accessible. Assign artifact IDs and roles, then record `derived_from` lineage so downstream analyses can distinguish raw, processed, QC, and output artifacts.
+8. For an instrument, simulation, analysis, or code run, also read `references/run-manifest.md`. Record inputs, parameters, software/environment, outputs, hashes, design snapshot, analysis-contract link, status, and the next decision gate. Validate structured JSON with:
 
    `python scripts/validate_run_manifest.py --input run-manifest.json --output run-manifest-report.json`
 
-8. Validate confidentiality and destination rules using `references/privacy-safety.md`. Write to a Feishu or Obsidian adapter only when the user selects and authorizes it.
+9. Validate the linked analysis contract with `$zju-statistics-audit/scripts/validate_analysis_contract.py`. Do not describe a retrospectively reconstructed analysis as prespecified.
+10. Validate confidentiality and destination rules using `references/privacy-safety.md`. Write to a Feishu or Obsidian adapter only when the user selects and authorizes it.
 
 ## Correction Fallback
 
@@ -37,4 +41,4 @@ If asked to overwrite or erase an earlier observation, refuse the silent change 
 
 ## Output Contract
 
-Return the saved record path, experiment identity, missing required fields, source manifest, run-manifest status when applicable, next decision gate, and unresolved ambiguities. The Markdown body must include Objective, Materials and samples, Procedure, Deviations, Observations, Results, Interpretation, Anomalies, and Next actions.
+Return the saved record path, experiment identity, design snapshot, outcome IDs, missing required fields, source/lineage manifest, analysis-contract status, run-manifest status when applicable, next decision gate, and unresolved ambiguities. The Markdown body must include Objective, Materials and samples, Procedure, Deviations, Observations, Results, Interpretation, Anomalies, and Next actions.

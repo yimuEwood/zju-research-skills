@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "format_note": "JSON syntax stored as YAML 1.2 so the contract can be validated with the Python standard library.",
+  "required_fields": [
+    "schema_version",
+    "artifact_id",
+    "artifact_type",
+    "status",
+    "created_at",
+    "provenance"
+  ],
+  "locator_fields": ["path", "uri", "content_ref"],
+  "statuses": ["planned", "created", "validated", "blocked", "superseded"],
+  "validation_methods": ["deterministic", "manual", "human_review"],
+  "allowed_unregistered_producers": ["research_owner", "external_tool", "legacy_unknown"],
+  "provenance_required_fields": ["mission_id", "producer"],
+  "validated_required_fields": ["content_sha256", "validation"],
+  "validation_required_fields": [
+    "status",
+    "method",
+    "validator",
+    "validator_version",
+    "receipt_id",
+    "command",
+    "command_sha256",
+    "exit_code",
+    "report_path",
+    "report_sha256",
+    "checked_at",
+    "content_sha256"
+  ],
+  "validation_status": "passed",
+  "rules": {
+    "created_or_validated_requires_locator": true,
+    "mission_id_must_match_parent": true,
+    "registered_producer_requires_producer_step_id": true,
+    "registered_producer_must_declare_artifact_type": true,
+    "validated_artifact_requires_existing_local_path": true,
+    "local_artifact_and_report_paths_must_stay_within_base_dir": true,
+    "validated_content_hash_must_match_local_file": true,
+    "validation_command_sha256_must_match_canonical_argument_array": true,
+    "deterministic_validator_must_be_registered_for_producer": true,
+    "validation_report_must_bind_all_receipt_fields_and_pass": true,
+    "local_report_is_not_execution_proof": true,
+    "release_requires_separate_trusted_deterministic_attestation": true,
+    "superseded_artifact_requires_supersedes": true
+  }
+}

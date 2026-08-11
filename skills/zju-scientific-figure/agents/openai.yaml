@@ -1,4 +1,4 @@
 interface:
   display_name: "ZJU Scientific Figure"
   short_description: "Design and audit publication-ready figures."
-  default_prompt: "Use $zju-scientific-figure to plan and validate a publication-ready scientific figure."
+  default_prompt: "Use $zju-scientific-figure to build a reproducible scientific figure whose panels, legend values, source data, and transformations resolve to canonical result IDs."

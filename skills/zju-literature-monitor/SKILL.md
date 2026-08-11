@@ -1,6 +1,6 @@
 ---
 name: zju-literature-monitor
-description: Maintain auditable recurring literature alerts for a defined research topic, seed set, author, venue, identifier, or citation neighborhood. Use when a Zhejiang University researcher wants weekly or monthly monitoring, novelty alerts, saved-query maintenance, deduplicated digests, or a reproducible handoff to Zotero or a local archive. Do not use for a one-off search; route that to zju-literature-search.
+description: Maintain evidence-linked recurring literature monitoring for a research topic, seed citation neighborhood, synthesis claim/gap, hypothesis discriminator, trial, dataset, or code release. Use when a Zhejiang University researcher wants weekly or monthly updates, decision-changing evidence alerts, preprint/publication/correction tracking, saved-query maintenance, deduplicated digests, or a reproducible research-map refresh. Do not use for a one-off search; route that to zju-literature-search.
 ---
 
 # ZJU Literature Monitor
@@ -28,18 +28,18 @@ When a fixture supplies any of these values, reproduce them exactly. When it doe
 
 Collect the research question, seed records, included concepts, exclusions, databases, date window, cadence, languages, expected volume, and delivery/archive target. If the topic is underspecified, create a draft profile and label it `needs_confirmation` instead of silently choosing a broad query.
 
-Read `references/monitoring-profile.md` when creating or changing a profile. Read `references/alert-and-dedup.md` before scoring or archiving a run.
+Read `references/monitoring-profile.md` when creating or changing a profile. Read `references/alert-and-dedup.md` before scoring or archiving a run. Read `references/evidence-linked-monitoring.md` when importing claim/gap/hypothesis IDs or prioritizing decision-changing updates.
 
 ## Workflow
 
-1. Assign a stable `profile_id` and version the topic statement, concepts, exclusions, source routes, and query strings. Never overwrite the previous query definition.
-2. Run each versioned query through the lawful routes in `$zju-literature-search`. Record `query_id`, database, execution time, coverage window, result count, and any degraded source.
+1. Assign a stable `profile_id` and version the topic statement, concepts, exclusions, source routes, and query strings. Import upstream seed-record, claim, gap, and hypothesis IDs as typed watch targets; never flatten them into keywords only.
+2. Run a bounded portfolio through `$zju-literature-search`: frozen core queries, forward/related citation neighborhoods for seeds, version/notice checks, gap-targeted queries, hypothesis prediction-signature queries, and a contradiction-oriented query. Record `query_id`, database, execution time, coverage window, result count, and any degraded source.
 3. Normalize stable identifiers. Deduplicate DOI first, then PMID, arXiv/OpenAlex identifiers, then a flagged title-year fallback. Run `scripts/update_monitor_state.py` when records are available as JSON.
 4. Separate `new`, `updated`, `duplicate`, and `unresolved_identity` records. An online-first to version-of-record transition is an update, not a new study.
-5. Screen against the frozen profile. Give each included record a reason, source level (`metadata`, `abstract`, or `full_text`), relevance dimensions, and uncertainty. Do not infer results from titles.
-6. Create a compact digest with stable identifiers, source links, why-now rationale, and explicit evidence limits. Route records needing full text or metadata verification to `$zju-fulltext-access` or `$zju-reference-audit`.
+5. Screen against the frozen profile. Give each included record a reason, source level (`metadata`, `abstract`, or `full_text`), matched watch-target IDs, and the decision it might change. Do not infer results from titles.
+6. Create a compact digest ordered by downstream effect: notices affecting active claims; matches to prespecified hypothesis discriminators; important gap-closing evidence; substantive replication/contradiction; enabling data/code; then general relevance. Route records through `$zju-fulltext-access` and `$zju-paper-reader` before changing synthesis certainty.
 7. Write only to the user-approved archive or adapter. Do not create a recurring automation, send a message, modify Zotero, or overwrite a knowledge base unless the user explicitly authorizes that action.
-8. Close the run with counts, failures, query drift, unresolved items, and the next review date. Review search terms after major scope changes or repeated low-yield runs.
+8. Close the run with counts, failures, query drift, unresolved items, a prioritized handoff queue, and the next review date. Feed validated new paper spines back to `$zju-evidence-synthesis`; reopen hypotheses only when their prospective decision rule is affected.
 
 ## Incomplete-Input Fallback
 
@@ -59,7 +59,8 @@ Return:
 
 1. `Monitor profile` with profile/query versions and scope.
 2. `Run ledger` with source coverage and failure states.
-3. `New or changed records` with identifiers, anchors, and inclusion reasons.
-4. `Evidence limits` and unresolved identity/full-text items.
-5. `Delivery/archive plan` marked `executed` or `not_executed`.
-6. `Next run and profile-review date`.
+3. `New or changed records` with identifiers, matched claim/gap/hypothesis IDs, and inclusion reasons.
+4. `Decision-changing handoff queue` with urgency, downstream action, and target skill.
+5. `Evidence limits` and unresolved identity/full-text items.
+6. `Delivery/archive plan` marked `executed` or `not_executed`.
+7. `Next run and profile-review date`.

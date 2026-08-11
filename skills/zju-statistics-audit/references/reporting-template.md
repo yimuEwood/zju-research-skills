@@ -20,3 +20,7 @@ Capture outcome, estimand, groups, experimental unit, observational unit, hierar
 ## Consistency row
 
 Track metric, location A/value, location B/value, expected relation, status, and resolution. Compare group labels, units, denominators, direction, effect estimate, interval, P value, and significance symbol.
+
+## Analysis and robustness row
+
+Track `analysis_id`, `result_id`, estimand, analysis population, model/dependence structure, diagnostics with consequence, missing-data assumption, primary estimate/interval, sensitivity estimate/interval, conclusion stability, and remaining vulnerability.

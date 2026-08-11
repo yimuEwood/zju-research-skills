@@ -16,6 +16,7 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from director_common import canonical_json, load_document, stable_hash, write_document  # noqa: E402
+from artifact_contract import validate_artifact  # noqa: E402
 
 
 def _artifact_list(value: Any) -> list[Any]:
@@ -26,7 +27,11 @@ def _artifact_list(value: Any) -> list[Any]:
     raise ValueError("Artifacts input must be a list or an object containing an artifacts list")
 
 
-def merge(mission: dict[str, Any], artifacts: Any) -> dict[str, Any]:
+def merge(
+    mission: dict[str, Any],
+    artifacts: Any,
+    base_dir: str | Path | None = None,
+) -> dict[str, Any]:
     if not isinstance(mission, dict):
         raise ValueError("Mission root must be an object")
     incoming = _artifact_list(artifacts)
@@ -48,6 +53,21 @@ def merge(mission: dict[str, Any], artifacts: Any) -> dict[str, Any]:
     for index, artifact in enumerate(incoming):
         if not isinstance(artifact, dict):
             errors.append({"code": "type", "index": index, "message": "Artifact must be an object"})
+            continue
+        contract = validate_artifact(
+            artifact,
+            mission_id=mission.get("mission_id"),
+            base_dir=base_dir,
+        )
+        if not contract["valid"]:
+            errors.append(
+                {
+                    "code": "artifact_contract",
+                    "index": index,
+                    "artifact_id": artifact.get("artifact_id"),
+                    "findings": contract["errors"],
+                }
+            )
             continue
         artifact_id = artifact.get("artifact_id")
         if not isinstance(artifact_id, str) or not artifact_id.strip():
@@ -122,8 +142,14 @@ def main() -> int:
     parser.add_argument("--mission", required=True, type=Path)
     parser.add_argument("--artifacts", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--base-dir", type=Path)
     args = parser.parse_args()
-    result = merge(load_document(args.mission), load_document(args.artifacts))
+    mission_path = args.mission.resolve()
+    result = merge(
+        load_document(mission_path),
+        load_document(args.artifacts),
+        base_dir=args.base_dir or mission_path.parent,
+    )
     write_document(args.output, result["mission"] if result["valid"] else result)
     if result["valid"]:
         print(json.dumps({key: result[key] for key in ("valid", "merged_ids", "duplicate_ids")}, ensure_ascii=False, indent=2))

@@ -19,14 +19,15 @@ Read `references/data-routing.md` for access routes and `references/statement-co
 
 ## Workflow
 
-1. Assign stable IDs to every claim-supporting dataset/code/material artifact and link them to manuscript sections, figures, tables, and claims.
+1. Assign stable IDs to every claim-supporting dataset/code/material artifact and link them to manuscript sections, figures, tables, claims, analysis IDs, and result IDs.
 2. Record controller/owner, sensitivity, consent/ethics constraints, third-party terms, file formats, size, software needs, checksums, and current location. Do not copy credentials or restricted data into the inventory.
 3. Choose one primary route for each artifact: public repository, discipline repository, controlled access, within article/supplement, reused public source, third-party restricted, justified request, or not applicable.
 4. Select repository, persistent identifier, version, license, metadata, and embargo strategy before drafting. Verify current ZJU and journal options from authoritative pages; do not invent a repository or accession.
-5. Prepare files with nonproprietary formats where feasible, documentation, data dictionary, code environment, provenance, and checksums. Separate raw, processed, and analysis outputs.
+5. Prepare files with nonproprietary formats where feasible, documentation, data dictionary, code environment, provenance, and checksums. Separate raw, processed, QC, analysis, result-registry, figure-source, table-source, and final presentation artifacts while recording `derived_from` lineage.
 6. For sensitive data, describe eligibility, request procedure, decision authority, review criteria, expected response time, and legal/ethical limits without promising access that cannot be granted.
-7. Draft a dataset-to-location statement and formal dataset/code citations. Treat “available upon reasonable request” as unresolved unless a specific justified mechanism is supplied.
-8. Run `scripts/validate_data_inventory.py`; reconcile the statement with manuscript claims, methods, repository records, supplementary files, and author contributions.
+7. Build one reproducibility package per computational result family: entrypoint, environment, ordered input artifact IDs, expected output/result IDs, random seeds when relevant, and a verification record. Do not equate file presence with a reproduced result.
+8. Draft a dataset-to-location statement and formal dataset/code citations. Treat “available upon reasonable request” as unresolved unless a specific justified mechanism is supplied.
+9. Run `scripts/validate_data_inventory.py` and `$zju-statistics-audit/scripts/validate_result_handoff.py`; reconcile every `supports_claims`, `supports_results`, reproducibility-package output, and statement with the canonical claim/result registries, methods, figure/table source files, repository records, supplementary files, and author contributions.
 
 ## Red Lines
 
@@ -39,9 +40,9 @@ Read `references/data-routing.md` for access routes and `references/statement-co
 
 Return:
 
-1. `Artifact inventory and claim map`.
+1. `Artifact inventory and claim/result map` with derivation lineage.
 2. `Access-route and repository plan`.
-3. `FAIR/metadata and reproducibility gaps`.
+3. `FAIR/metadata and reproducibility packages/gaps`, including result coverage.
 4. Ready-to-paste data/code availability statement.
 5. Dataset/code citation list.
 6. `Unresolved identifiers, restrictions, and owner decisions`.

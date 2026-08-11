@@ -11,6 +11,7 @@ from typing import Any
 
 def validate(payload: dict[str, Any]) -> dict[str, Any]:
     findings: list[dict[str, str]] = []
+    workflow_v2 = str(payload.get("workflow_version")) == "2.0"
     if not payload.get("assessment_boundary"):
         findings.append({"severity": "error", "field": "assessment_boundary", "message": "assessment boundary required"})
     concerns = payload.get("concerns", [])
@@ -27,10 +28,18 @@ def validate(payload: dict[str, Any]) -> dict[str, Any]:
             findings.append({"severity": "error", "field": f"concerns[{index}].severity", "message": "invalid severity"})
         if concern.get("severity") == "minor" and concern.get("blocking"):
             findings.append({"severity": "error", "field": f"concerns[{index}].blocking", "message": "minor concern cannot be blocking"})
+        if workflow_v2:
+            for field in ("claim_ids", "evidence_ids", "result_ids", "requested_evidence", "action_options"):
+                if not isinstance(concern.get(field), list):
+                    findings.append({"severity": "error", "field": f"concerns[{index}].{field}", "message": "workflow 2.0 requires a list"})
+            if not concern.get("requested_evidence"):
+                findings.append({"severity": "error", "field": f"concerns[{index}].requested_evidence", "message": "state the evidence needed to resolve or bound the concern"})
+            if not concern.get("action_options"):
+                findings.append({"severity": "error", "field": f"concerns[{index}].action_options", "message": "provide at least one feasible response action"})
     if payload.get("mode") == "panel_review" and payload.get("mutually_blind") and not payload.get("immutable_packet_sha256"):
         findings.append({"severity": "error", "field": "immutable_packet_sha256", "message": "blind panel needs immutable packet hash"})
     errors = [item for item in findings if item["severity"] == "error"]
-    return {"valid": not errors, "concerns": len(concerns), "findings": findings}
+    return {"valid": not errors, "workflow_version": str(payload.get("workflow_version") or "1.0"), "concerns": len(concerns), "response_handoff_ready": bool(concerns) and workflow_v2 and not errors, "findings": findings}
 
 
 def main() -> int:

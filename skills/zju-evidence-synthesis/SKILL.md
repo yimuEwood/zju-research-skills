@@ -1,6 +1,6 @@
 ---
 name: zju-evidence-synthesis
-description: Plan, execute, audit, or update a systematic, scoping, rapid, narrative, or quantitative evidence synthesis with study-level traceability. Use for literature reviews, evidence maps, meta-analysis preparation, conflicting-study reconciliation, certainty assessment, and Chinese or English review writing when conclusions must remain tied to verified records and extracted evidence.
+description: Plan, execute, audit, or update a systematic, scoping, rapid, narrative, or quantitative evidence synthesis with study-level traceability, claim-level evidence strength, heterogeneity analysis, and explicit conflict reconciliation. Use for literature reviews, evidence maps, meta-analysis preparation, contradictory-study analysis, certainty assessment, research-gap extraction, and Chinese or English review writing when conclusions must remain tied to verified records and extracted evidence.
 ---
 
 # ZJU Evidence Synthesis
@@ -11,20 +11,20 @@ Synthesize studies without collapsing study quality, design, and uncertainty int
 
 Choose `systematic`, `scoping`, `rapid`, `narrative`, `evidence_map`, or `quantitative`. State why the mode fits the decision. If the user requests a systematic review but supplies no protocol or reproducible search, return a protocol draft and label the synthesis incomplete.
 
-Read `references/synthesis-protocol.md` before screening. Read `references/evidence-table.md` before extraction or certainty grading.
+Read `references/synthesis-protocol.md` before screening. Read `references/evidence-table.md` before extraction or certainty grading. Read `references/conflict-analysis.md` when studies disagree or when producing a hypothesis/monitor handoff.
 
 ## Workflow
 
 1. Freeze the review question, eligibility criteria, outcomes, time point, unit of analysis, language/date limits, and synthesis mode. Register deviations with a reason and timestamp.
 2. Use `$zju-literature-search` for reproducible retrieval and `$zju-reference-audit` for study identity. Record deduplication and screening counts; do not call an abstract-only set comprehensive.
 3. Screen independently when the protocol requires it. Preserve exclusion reasons at full-text stage and never invent a second screener.
-4. Extract one row per study-outcome-time point with a source anchor, design, sample, intervention/exposure, comparator, result, uncertainty, and risk-of-bias judgment. Run `scripts/validate_evidence_table.py` on JSON tables.
+4. Import `record_id`, `study_id`, `claim_id`, and anchors from search maps and paper spines. Extract one row per study-outcome-time point with a source anchor, design, sample, intervention/exposure, comparator, effect measure, result, uncertainty, evidence role, directness, and risk-of-bias judgment. Run `scripts/validate_evidence_table.py` on JSON evidence maps.
 5. Keep multiple reports from the same study linked under one `study_id`. Do not double count cohorts or trial arms.
 6. Assess bias with a design-appropriate tool. Separate reporting quality from underlying study validity. Mark unassessable domains rather than guessing.
 7. Decide whether pooling is scientifically defensible before calculating it. Check effect-measure compatibility, experimental unit, dependence, heterogeneity, and missing data. Do not manufacture an effect estimate from prose.
-8. Synthesize direction, magnitude, precision, consistency, applicability, and limitations. Explain contradictory evidence using prespecified moderators where possible.
+8. Synthesize direction, magnitude, precision, consistency, directness, applicability, and limitations by claim. Run `scripts/build_conflict_matrix.py` before calling evidence merely “mixed”; separate direction conflict, contextual heterogeneity, and evidence-strength imbalance.
 9. Grade certainty separately for each important outcome and record every downgrade or upgrade reason. Keep confidence in evidence distinct from confidence in a proposed mechanism.
-10. Produce claim-level conclusions linked to study IDs and anchors. Route statistical pooling to `$zju-statistics-audit` and prose drafting to `$zju-scientific-writing` only after the ledger is complete.
+10. Produce `evidence-map.json` with claim-level conclusions, supporting and contradicting study IDs, heterogeneity axes, certainty reasons, and stable gap IDs. Hand unresolved alternatives/gaps to `$zju-hypothesis-design` and persistent gap/claim/seed IDs to `$zju-literature-monitor`. Route statistical pooling to `$zju-statistics-audit` only after the ledger is complete.
 
 ## Incomplete-Input Fallback
 
@@ -48,4 +48,6 @@ Return:
 4. `Risk of bias and applicability`.
 5. `Synthesis by outcome` with heterogeneity and certainty.
 6. `Claim-to-evidence matrix`.
-7. `Unresolved evidence gaps and update trigger`.
+7. `Conflict and heterogeneity matrix`.
+8. `Unresolved evidence gaps and update trigger`.
+9. `Hypothesis and monitoring handoff` with stable claim/gap/seed IDs.

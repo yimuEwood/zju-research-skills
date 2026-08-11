@@ -14,6 +14,7 @@ STATUSES = {"open", "in_progress", "verified_complete", "disagreed_with", "autho
 
 def validate(payload: dict[str, Any]) -> dict[str, Any]:
     findings: list[dict[str, str]] = []
+    workflow_v2 = str(payload.get("workflow_version")) == "2.0"
     items = payload.get("items", [])
     ids: set[str] = set()
     for index, item in enumerate(items, 1):
@@ -32,9 +33,31 @@ def validate(payload: dict[str, Any]) -> dict[str, Any]:
                     findings.append({"severity": "error", "field": f"items[{index}].{field}", "message": "verified item lacks response, change, or location"})
             if item.get("evidence_status") != "verified":
                 findings.append({"severity": "error", "field": f"items[{index}].evidence_status", "message": "verified-complete item lacks verified evidence"})
+            if workflow_v2:
+                for field in ("concern_id", "action_id"):
+                    if not item.get(field):
+                        findings.append({"severity": "error", "field": f"items[{index}].{field}", "message": "workflow 2.0 requires stable concern and action IDs"})
+                if not isinstance(item.get("evidence_ids"), list) or not item.get("evidence_ids"):
+                    findings.append({"severity": "error", "field": f"items[{index}].evidence_ids", "message": "verified action must link evidence artifacts"})
+                diff = item.get("manuscript_diff")
+                if not isinstance(diff, dict) or any(diff.get(field) in (None, "") for field in ("before", "after")):
+                    findings.append({"severity": "error", "field": f"items[{index}].manuscript_diff", "message": "verified action requires exact before and after manuscript text"})
+                elif not isinstance(diff.get("dependent_artifacts"), list):
+                    findings.append({"severity": "error", "field": f"items[{index}].manuscript_diff.dependent_artifacts", "message": "list every manuscript/package surface invalidated by the change"})
+                if item.get("action_type") == "new_analysis" and (not isinstance(item.get("result_ids"), list) or not item.get("result_ids")):
+                    findings.append({"severity": "error", "field": f"items[{index}].result_ids", "message": "completed new analysis requires canonical result IDs"})
+                if item.get("action_type") == "new_analysis":
+                    reconciliation = item.get("result_reconciliation")
+                    if not isinstance(reconciliation, dict) or reconciliation.get("status") != "passed" or not reconciliation.get("registry_version"):
+                        findings.append({"severity": "error", "field": f"items[{index}].result_reconciliation", "message": "completed new analysis requires a passed cross-artifact result reconciliation and registry version"})
+        if item.get("status") == "disagreed_with":
+            for field in ("response_text", "disagreement_rationale"):
+                if not item.get(field):
+                    findings.append({"severity": "error", "field": f"items[{index}].{field}", "message": "disagreement requires a response and evidence-based rationale"})
     unresolved = sum(item.get("status") not in {"verified_complete", "disagreed_with"} for item in items)
     errors = [item for item in findings if item["severity"] == "error"]
-    return {"valid": bool(items) and not errors, "ready": bool(items) and not errors and unresolved == 0, "unresolved": unresolved, "findings": findings}
+    evidence_linked = sum(bool(item.get("evidence_ids")) for item in items if isinstance(item, dict))
+    return {"valid": bool(items) and not errors, "ready": bool(items) and not errors and unresolved == 0, "workflow_version": str(payload.get("workflow_version") or "1.0"), "unresolved": unresolved, "evidence_linked_items": evidence_linked, "findings": findings}
 
 
 def main() -> int:

@@ -3,6 +3,7 @@
 Minimum study-outcome row:
 
 ```yaml
+record_id: REC-00001
 study_id: S001
 report_id: R001
 citation_id: DOI-or-PMID
@@ -20,6 +21,8 @@ risk_of_bias: low | some_concerns | high | not_assessable
 source_anchor: "page/table/figure/section"
 extractor_note: ""
 ```
+
+`record_id` must be the unchanged identifier from `search-map.json` / `paper-spine.json`; do not mint a new study-local replacement. In an evidence-map bundle, add `claim_id`, `evidence_role`, and `directness`, and keep each claim's supporting/contradicting/contextual study-ID lists exactly aligned with row roles.
 
 Use `not_reported` rather than an empty string when the source was checked. Distinguish `not_applicable` from `not_reported`. Store converted values alongside the original value and conversion rule.
 

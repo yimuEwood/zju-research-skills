@@ -15,7 +15,7 @@ Build the case, evidence, and executable plan before writing persuasive paragrap
 
 Choose `compose`, `revise`, or `audit`. Obtain the current official call/template, scheme, language, page/word limits, evaluation criteria, deadline, applicant role, project period, budget rules, and required attachments. Treat the supplied official call as authoritative; never improvise current funding rules.
 
-Read `references/proposal-contract.md` before drafting and `references/scheme-routing.md` for mode, stage, and compliance routing.
+Read `references/proposal-contract.md` before drafting and `references/scheme-routing.md` for mode, stage, and compliance routing. When evidence or hypothesis artifacts are available, read `references/evidence-to-execution.md` and preserve their IDs through the proposal.
 
 ## Workflow
 
@@ -23,13 +23,13 @@ Read `references/proposal-contract.md` before drafting and `references/scheme-ro
 2. Build a research canon containing verified facts, preliminary evidence, constraints, available resources, and unresolved claims. Route literature gaps to `$zju-evidence-synthesis` and references to `$zju-reference-audit`.
    A count of verified sources without their records is not a usable canon: return numbered `SOURCE_RECORD_REQUIRED` rows and a claim-source schema rather than generic literature claims.
 3. State the unmet need or knowledge gap without relying on vague novelty language. Link each gap to evidence and distinguish absence of evidence from evidence of absence.
-4. Define the central question, bounded contribution, competing hypotheses, objectives, and measurable success criteria. Ensure objectives are logically necessary and achievable within the period.
-5. Create work packages with inputs, methods, experimental unit, outputs, dependencies, milestones, owners, decision gates, and fallback paths. Keep methods proportional to the claim.
-6. Map preliminary evidence and team/resources to feasibility. Never invent pilot results, collaborations, equipment, approvals, letters, or institutional commitments.
+4. Define the central question, bounded contribution, competing hypotheses, objectives, and measurable success criteria. Preserve predictions, falsifiers, and uncertainty from `$zju-hypothesis-design`; do not flatten competing hypotheses into one preferred narrative.
+5. Convert each discriminating experiment into a work package with inputs, methods, experimental unit, outputs, dependencies, milestones, owners, and three-way `success / inconclusive / failure` decision branches. Keep methods proportional to the claim and order packages by information gained and explicit dependencies.
+6. Map each work package to evidence-backed capabilities, preliminary evidence, resource constraints, and mitigation in a feasibility matrix. Distinguish scientific feasibility from resource availability and schedule feasibility; never invent pilot results, collaborations, equipment, approvals, letters, or institutional commitments.
 7. Build risk, ethics, biosafety/chemical safety, data management, intellectual-property, and reproducibility plans. Flag approvals that must precede work.
 8. Align schedule, budget, personnel, facilities, and deliverables. Use the official budget categories and limits supplied for the scheme.
 9. Draft section contracts, then prose. Bind every literature claim to a verified citation and every project claim to the research canon. Preserve uncertainty and avoid promising guaranteed outcomes.
-10. Run `scripts/validate_proposal_manifest.py`; conduct reviewer-style checks for significance, logic, feasibility, differentiation, and compliance before formatting the final document.
+10. For a structured evidence/hypothesis handoff, run `python scripts/validate_proposal_manifest.py handoff.json --compile-handoff` to generate the manifest, objective-WP map, milestone decision tree, and feasibility matrix. Validate the compiled manifest, then conduct reviewer-style checks for significance, discrimination, feasibility, differentiation, and compliance before formatting prose.
 
 ## Incomplete-Input Fallback
 
@@ -49,7 +49,7 @@ Return:
 1. `Call/scheme and scope contract`.
 2. `Research canon and evidence table`.
 3. `Gap, contribution, hypothesis, and objective map`.
-4. `Work packages, milestones, decision gates, and risks`.
+4. `Objective-to-WP map, ordered work packages, milestone decision tree, feasibility matrix, and risks`.
 5. Draft proposal in the requested structure.
 6. `Compliance and unresolved-field checklist`.
 7. `Review scorecard and next revision action`.

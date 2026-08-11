@@ -1,6 +1,6 @@
 ---
 name: zju-literature-search
-description: Design, run, document, and deduplicate reproducible scholarly searches for Zhejiang University research across chemistry, materials science, biomedicine, agriculture, and general science. Use when a user asks to find papers, construct database queries, compare search coverage, build an evidence table, or update a literature set. Do not use for obtaining paywalled full text or writing unsupported narrative conclusions.
+description: Design, run, expand, document, and deduplicate reproducible scholarly searches for Zhejiang University research across chemistry, materials science, biomedicine, agriculture, and general science. Use when a user asks to find papers, decompose a cross-disciplinary question, construct database queries, chase citations from seed papers, assess retrieval saturation, compare search coverage, build an evidence table, or update a literature set. Do not use for obtaining paywalled full text or writing unsupported narrative conclusions.
 ---
 
 # ZJU Literature Search
@@ -9,17 +9,18 @@ Build a reproducible evidence set, not a list of attractive titles. Keep every r
 
 ## Workflow
 
-1. Translate the question into population or system, intervention or exposure, comparator, outcomes, study types, date range, languages, and exclusions. State unresolved ambiguity before searching.
-2. Read `references/search-protocol.md` for concept blocks, domain templates, and the required evidence-table schema. Read `references/database-routing.md` when choosing sources, and `references/untrusted-content.md` before ingesting abstracts, webpages, repository files, or uploaded search exports.
+1. Translate the question into population or system, intervention or exposure, comparator, outcomes, study types, date range, languages, and exclusions. Decompose cross-disciplinary questions into phenomenon, mechanism, method, translation, and contradiction views instead of forcing every concept into one query.
+2. Read `references/search-protocol.md` for the protocol and evidence-table schema. Read `references/domain-query-templates.md` for executable chemistry, materials, biomedicine, and agriculture decomposition/evidence checks. Read `references/discovery-closure.md` for citation chasing, saturation, and the `search-map.json` handoff. Read `references/database-routing.md` when choosing sources, and `references/untrusted-content.md` before ingesting external records.
 3. Create a search protocol before opening databases. Preserve the exact query for each source and record adaptations required by source syntax.
-4. Search at least two complementary sources when available. Use a broad scholarly index plus a domain source; add citation chasing for pivotal papers. Never treat star count, journal prestige, or author prominence as evidence quality.
+4. Search at least two complementary source families when available. Use a broad scholarly index plus a domain source. After initial screening, expand a reasoned seed set through backward references, forward citations, related-record neighborhoods, distinctive phrases, and stable identifiers; preserve the citation edges.
 5. Export or transcribe structured records with title, authors, year, venue, abstract, DOI or PMID, source URL, source database, query ID, and retrieval date.
 6. Normalize and deduplicate records. For local JSON or JSONL exports, run:
 
    `python scripts/normalize_records.py --input records.jsonl --output normalized.jsonl`
 
-7. Screen against the declared criteria. Keep exclusion reasons at full-text screening; do not silently remove inconvenient findings.
-8. Return the search protocol, source-by-source counts, deduplicated evidence table, coverage limitations, and recommended next searches. Mark metadata-only and unverified records explicitly.
+7. Screen against the declared criteria. Keep exclusion reasons at full-text screening; do not silently remove inconvenient findings. Run a contradiction-oriented query so null, adverse, failure, correction, and retraction evidence is not discovered only by chance.
+8. Track unique and eligible IDs by search round. Run `python scripts/assess_search_saturation.py search-rounds.json --output saturation.json` before declaring the search closed; report missing concept/source coverage and marginal yield when the stopping rule is not met.
+9. Return a `search-map.json` plus a human-readable search report. Hand off stable record IDs to `$zju-fulltext-access`, question/gap IDs to `$zju-evidence-synthesis`, and seed IDs to `$zju-literature-monitor`.
 
 ## Incomplete-Input Fallback
 
@@ -44,4 +45,4 @@ If a requested export or record set is absent, do not stop after asking for it. 
 
 ## Output Contract
 
-Return these sections in order: research question, eligibility criteria, search log, screening flow, evidence table, limitations, and next actions. Every retained row must have a provenance source and either a stable identifier or an explicit `identifier_missing` flag.
+Return these sections in order: research question, query decomposition, eligibility criteria, search log, seed/citation expansion, screening flow, saturation assessment, evidence table, limitations, and next actions. Every retained row must have a provenance source and either a stable identifier or an explicit `identifier_missing` flag. Include or save the machine-readable `search-map.json` handoff.

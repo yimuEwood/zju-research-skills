@@ -9,6 +9,8 @@ Create a run manifest whenever an experiment log represents an instrument run, s
 - `parameters`: supplied settings and units; use `unknown` instead of guessing
 - `software`: program, version, environment or instrument firmware when known
 - `outputs`: expected and observed artifacts with path, identifier, and hash when accessible
+- `design_snapshot`: experimental unit, observational unit, group/control structure, outcome IDs, repeated-measure or clustering structure, and count flow
+- `analysis_contract`: contract ID, path, SHA-256, status, freeze time, and amendment IDs
 - `decision_gate`: criterion, observed value or status, decision, actor, and timestamp
 
 Allowed run status: `planned`, `running`, `completed`, `failed`, or `partial`. Allowed decision: `pending`, `continue`, `repeat`, `revise`, or `stop`.
@@ -20,3 +22,5 @@ Allowed run status: `planned`, `running`, `completed`, `failed`, or `partial`. A
 3. Treat a missing output as `missing`, not as an empty successful artifact.
 4. Do not label a gate passed solely because a script returned exit code zero. Bind the decision to the scientific criterion and an accountable actor.
 5. Add later corrections as amendments with old value, new value, reason, actor, and timestamp.
+6. Assign every input/output a stable `artifact_id`, scientific role, and `derived_from` lineage. Link analysis outputs to stable `result_id` values in the canonical result registry.
+7. Label an analysis `retrospective` whenever its contract was created after outcome inspection; a later timestamp does not make the analysis invalid, but it changes the strength of confirmatory language.

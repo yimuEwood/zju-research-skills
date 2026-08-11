@@ -12,10 +12,11 @@
 
 - Match outcome scale and distribution to the model.
 - Check transformations, normalization, covariates, interactions, time structure, censoring, and model hierarchy.
-- Check residual/model assumptions and what was done when they failed.
+- Check residual/model assumptions, record diagnostic results, and state what changed when an assumption was consequential.
 - Define the multiplicity family and correction/control method.
 - Audit missing data, exclusions, outliers, and sensitivity analyses.
 - Require effect estimate, direction, units, and uncertainty; P values alone are incomplete.
+- Compare primary conclusions with prespecified robustness analyses and identify which assumptions remain decision-relevant.
 
 ## Reporting
 
@@ -23,6 +24,7 @@
 - Define center and error bars in every figure.
 - State test/model, sidedness, multiplicity method, software/version, and exact or bounded P values.
 - Keep abstract, methods, results, figures, captions, tables, and supplement consistent.
+- Bind repeated values to stable `result_id` entries instead of maintaining independent copies.
 - Distinguish statistical, practical, and scientific importance.
 
 ## Common critical defects

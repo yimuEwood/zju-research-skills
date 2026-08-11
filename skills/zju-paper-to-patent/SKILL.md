@@ -15,7 +15,7 @@ Preserve technical support and confidentiality before drafting claims. Patent pr
 
 Choose `invention_mining`, `technical_disclosure`, `claim_set`, `draft_audit`, or `paper_patent_comparison`. Confirm source confidentiality/publication state, target jurisdiction/language, intended applicants/inventors as user-provided facts, filing timeline, existing disclosures, and attorney/technology-transfer handoff. Do not upload unpublished material to external services without authorization.
 
-Read `references/source-to-claim.md` before invention mining and `references/disclosure-structure.md` before drafting.
+Read `references/source-to-claim.md` before invention mining and `references/disclosure-structure.md` before drafting. When using Paper Cards or experiment records, read `references/research-to-invention-map.md` and preserve their source, artifact, run, and result IDs.
 
 ## Workflow
 
@@ -24,12 +24,13 @@ Read `references/source-to-claim.md` before invention mining and `references/dis
    Before interpretation, copy every supplied number, unit, range, condition, and anchor verbatim into the ledger and perform a digit-by-digit invariant check against the source excerpt. A changed duration, concentration, dimension, performance value, or condition is a blocking integrity failure.
 3. Build a terminology ledger and feature-evidence matrix. Exclude `unsupported` features from formal claims; keep questions outside claims as `[TO CONFIRM: ...]`.
    Do not add a mechanism, effect, component, or design option merely because it is plausible. Author-stated speculation stays `needs_confirmation`; agent-generated possibilities stay `unsupported` and out of invention concepts and claims.
-4. Separate scientific contribution from potentially protectable technical solution. Identify technical effect, implementation sequence, required features, optional embodiments, and realistic design-arounds without asserting novelty.
-5. Plan prior-art searching across literature and patent sources with dates, jurisdictions, classifications, queries, and stable identifiers. Distinguish located documents from verified legal status and from professional novelty/inventive-step conclusions.
-6. Draft the independent claim concept first, then dependent features, specification/disclosure, embodiments, figures, and abstract so terminology and step order agree. Preserve formula meaning and define every symbol.
-7. Generate claim-aligned flowcharts and diagrams from supported steps. Illustrations must not add components absent from the source/evidence ledger.
-8. Run `scripts/validate_feature_ledger.py`; check support, antecedent basis, terminology, units, ranges, claim/specification alignment, figure references, and unresolved confidential facts.
-9. Deliver a clearly labelled `drafting aid` to the inventor, ZJU technology-transfer/patent office route, or patent professional. Do not promise filing success, scope, freedom to operate, or noninfringement.
+4. Build four linked maps: problem-solution-effect, feature-evidence, claim dependency, and prior-art queries. Separate scientific contribution from the proposed technical solution; bind every asserted effect to tested conditions and evidence IDs.
+5. Develop source-supported alternative embodiments by stating the replaced feature, alternative feature, retained target effect, and discriminating evidence. Keep unsupported alternatives as inventor questions outside claim candidates.
+6. Generate prior-art query blocks from problem, solution, effect, synonym, and classification terms with dates and target sources. Distinguish a search hit from verified document facts and from professional novelty/inventive-step conclusions.
+7. Draft the independent claim concept first, then dependent features, specification/disclosure, embodiments, figures, and abstract so terminology and step order agree. Preserve formula meaning and define every symbol. Treat the dependency graph as a drafting outline, not a legal determination of claim scope.
+8. Generate claim-aligned flowcharts and diagrams from supported steps. Illustrations must not add components absent from the source/evidence ledger.
+9. Run `scripts/validate_feature_ledger.py`; for `workflow_version: "2.0"`, inspect the returned four maps, dependency order, query coverage, embodiment evidence gaps, and `invention_map_ready` before drafting.
+10. Deliver a clearly labelled `drafting aid` to the inventor, ZJU technology-transfer/patent office route, or patent professional. Do not promise filing success, scope, freedom to operate, or noninfringement.
 
 ## Incomplete-Input Fallback
 
@@ -52,8 +53,9 @@ Return:
 
 1. `Source and confidentiality inventory`.
 2. `Feature/evidence ledger` with support states.
-3. `Invention concepts and unresolved inventor questions`.
-4. `Prior-art search ledger`, not a legal conclusion.
-5. Chinese technical disclosure or structured claim/specification draft as requested.
-6. Claim-aligned figure/formula plan.
-7. `Support and consistency audit` plus professional-review handoff.
+3. `Problem-solution-effect map` and source-supported alternative embodiments.
+4. `Claim-dependency drafting map` and unresolved inventor questions.
+5. `Prior-art query map and search ledger`, not a legal conclusion.
+6. Chinese technical disclosure or structured claim/specification draft as requested.
+7. Claim-aligned figure/formula plan.
+8. `Support, discrimination, and consistency audit` plus professional-review handoff.

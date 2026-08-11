@@ -17,7 +17,7 @@ Do not confirm a contribution solely because it sounds novel. Check prior work a
 
 ## Results as validation
 
-For every major Results subsection, record `section_id`, `contribution_ids`, and `evidence_ids`. Every confirmed contribution must be validated by at least one Results subsection, and every major Results subsection must serve at least one contribution. The cited evidence for the subsection must overlap the evidence promised by that contribution.
+For every major Results subsection, record `section_id`, `contribution_ids`, `evidence_ids`, and reportable `result_ids`. Every confirmed contribution must be validated by at least one Results subsection, and every major Results subsection must serve at least one contribution. The cited evidence for the subsection must overlap the evidence promised by that contribution; every numerical statement must resolve to the canonical result registry.
 
 ## Reviewer-objection register
 

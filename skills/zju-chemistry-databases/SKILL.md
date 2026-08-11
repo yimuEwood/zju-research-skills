@@ -9,7 +9,7 @@ Resolve chemical identity and evidence type before comparing values across datab
 
 ## Route Gate
 
-Classify the task as `identity`, `structure`, `property`, `bioactivity`, `reaction`, `spectrum`, `safety`, `literature`, `patent`, or `supplier`. Read `references/database-routing.md` for source selection and `references/chemical-identity.md` before merging records.
+Classify the task as `identity`, `structure`, `property`, `bioactivity`, `reaction`, `spectrum`, `safety`, `literature`, `patent`, or `supplier`. Read `references/database-routing.md` for source selection and `references/chemical-identity.md` before merging records. For any cross-record ranking or quantitative comparison, also read `references/comparison-playbook.md`.
 
 For ZJU-licensed interfaces such as SciFinder or Reaxys, use `$zju-fulltext-access` and the current library route. Authentication stays interactive; never store credentials or automate prohibited bulk extraction.
 
@@ -21,7 +21,7 @@ For ZJU-licensed interfaces such as SciFinder or Reaxys, use `$zju-fulltext-acce
 3. Select databases by task rather than popularity. Record query syntax or structure mode, filters, database/version, execution time, result count, and access limitations.
 4. Retrieve through lawful APIs or interactive licensed interfaces. Respect rate limits, terms, export limits, and ZJU credential rules. Do not use a literature identifier as proof of a chemical identity match.
 5. Normalize records without erasing provenance. Keep experimental, curated, submitted, computed, predicted, vendor, and regulatory values separate; retain units, conditions, methods, uncertainty, and source anchors.
-6. Resolve conflicts using identity specificity, primary-source quality, measurement conditions, version/date, and independent corroboration. Do not average incompatible values.
+6. Resolve conflicts using identity specificity, primary-source quality, measurement conditions, version/date, and independent corroboration. Run `scripts/build_evidence_matrix.py` when comparing values; it separates records by entity, endpoint, unit/basis, conditions, method and evidence stratum. Do not average incompatible values.
 7. For bioactivity, preserve target organism/protein, assay type, endpoint, units, relation operators, construct, and confidence. For reactions, preserve substrates/products, stoichiometry, conditions, yield type, and primary source.
 8. Run `scripts/validate_chemistry_records.py`. Route citation verification to `$zju-reference-audit` and hazardous experimental planning to appropriate institutional safety review.
 
@@ -48,6 +48,6 @@ Return:
 1. `Identity resolution table`.
 2. `Database/query ledger`.
 3. `Normalized evidence records` with stable IDs, conditions, type, and anchors.
-4. `Conflict and uncertainty report`.
+4. `Condition-aware comparison groups` and `Conflict and uncertainty report`.
 5. `Access or export limitations`.
 6. `Recommended verification or next database route`.

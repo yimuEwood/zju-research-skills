@@ -1,50 +1,124 @@
-schema_version: "1.0"
+schema_version: "1.1"
 snapshot_date: "2026-08-11"
-plugin_version: "0.4.0"
+plugin_version: "0.5.0-beta.1"
 status: beta
-reason: "The first seven skills passed the formal three-arm blind release gate. Twelve expansion skills passed task-level gold evaluation. The new Research Director passed deterministic cross-domain routing and fresh-context forward tests, but remains beta until blinded orchestration comparison or equivalent longitudinal validation."
+reason: "All twenty skills remain beta. The v0.4 first-wave scores are retained as legacy internal model-judged evidence, the expansion score is a post-remediation development regression, and Director 20/20 denotes routing assertions. Stable promotion is suspended until protocol v2 completes a frozen held-out rerun."
+
+evidence_policy:
+  public_claim_level: "internal directional evidence"
+  stable_promotion_suspended: true
+  direct_comparison_scope: "Only the first seven skills were directly compared with pinned Nature Skills and no-skill arms."
+  raw_records_public: false
+  public_artifacts: "Cases, evaluation code, and aggregate results are public; complete responses, events, and per-record ratings are not yet published."
+  protocol_v2:
+    target_release: "v0.5.0-beta.1"
+    status: "protocol_ready_no_frozen_holdout"
+    rerun_completed: false
+    promotion_decision_available: false
+    implemented_controls:
+      - "Content-fingerprint exclusion of known cases and immutable holdout lock"
+      - "Private committed A/B/C assignment with per-skill blocked Latin balance"
+      - "First-attempt registry and hash inventory for response, event, execution, rating, rubric, schema, and Skill commit"
+      - "Strict event termination/tool audit and rater identity/schema checks"
+      - "Paired uncertainty, agreement, gold-check, critical-failure, and deviation gates"
+    pending_evidence:
+      - "Independently authored frozen held-out cases"
+      - "Executor-enforced identical tool policy during a real three-arm run"
+      - "Cross-model and independent human review"
+      - "Public reproducible redacted run bundle"
+
+v05_engineering_upgrade:
+  release: "0.5.0-beta.1"
+  director_contract:
+    mission_schema: "1.1"
+    legacy_migration: "1.0 artifacts are trust-reducing migrated; prior validated labels become inert audit history."
+    artifact_checks:
+      - "producer and producer-step output contract"
+      - "base-directory containment after path resolution"
+      - "actual local content SHA-256 and supported format signature"
+      - "artifact-specific validator receipt and canonical command binding"
+    release_checks:
+      - "release artifact IDs cover machine-derived requested-deliverable output groups"
+      - "all applicable upstream gates are recomputed"
+      - "human decision references a separately supplied trusted-channel receipt"
+    semantic_boundary: "Engineering validation does not certify scientific, visual, legal, ethical, or institutional correctness."
+  specialist_fixes:
+    - "Preserve identity-free literature records rather than false-merging them."
+    - "Distinguish new, updated, and duplicate monitored works with version history."
+    - "Require declared sources, exact anchors, and numeric invariants for formal patent claims."
+    - "Recompute real local file hashes for figure and provenance manifests."
 
 first_wave_evaluation:
   experiment_id: "zju-first-wave-three-arm-v1"
+  evaluation_class: "legacy-v1-internal-model-judged"
   run_id: "full-20260811-a"
   arm_model: "gpt-5.4-mini"
   rater_model: "gpt-5.5"
   cases: 70
   responses: 210
-  comparison_arms: ["no_skill", "pinned_upstream", "distilled_skill"]
+  comparison_arms: ["no_skill", "pinned_nature_upstream", "distilled_skill"]
   raters: ["full-judge-1", "full-judge-2"]
+  rater_independence_note: "Rater IDs are separate calls of the same GPT-5.5 model, not independent human reviewers."
   adjudicator: "full-judge-3"
+  adjudicator_note: "The adjudicator is a third GPT-5.5 call."
   disputes_resolved: 6
   instruction_read_audits_passed: 210
   distilled_critical_failures: 0
-  complete: true
-  release_gate_passed: true
+  run_complete: true
+  historical_v1_internal_gate_passed: true
+  current_stable_promotion: "suspended-pending-v2"
+  score_semantics: "Weighted rubric score, not scientific correctness percentage."
+  pilot_reuse:
+    reused_cases: 7
+    cases: ["LIT-06", "FULL-06", "REF-06", "READ-05", "LOG-06", "STAT-01", "WRITE-03"]
+    implication: "One case per first-wave skill had been used in pilot work before the full run and is not untouched held-out evidence."
+  arm_position_distribution:
+    A: {distilled_skill: 32, no_skill: 21, pinned_nature_upstream: 17}
+    B: {distilled_skill: 22, no_skill: 26, pinned_nature_upstream: 22}
+    C: {distilled_skill: 16, no_skill: 23, pinned_nature_upstream: 31}
+    balanced: false
+  tool_protocol:
+    configured_web_search: false
+    executor_enforced: false
+    observed_web_search_calls: {no_skill: 3, pinned_nature_upstream: 0, distilled_skill: 0}
+    observed_academic_mcp_calls: {no_skill: 0, pinned_nature_upstream: 17, distilled_skill: 0}
+    implication: "Tool conditions and efficiency comparisons were not strictly controlled."
+  gold_checks_programmatically_scored: false
+  public_raw_responses: false
   evidence: "evals/results/full-20260811-a/aggregate-adjudicated.json"
+  methodology: "docs/evaluation-methodology.md"
 
 first_wave_results:
-  zju-literature-search: {quality_gain_points: 26.063, passed: true}
-  zju-fulltext-access: {quality_gain_points: 22.187, passed: true}
-  zju-reference-audit: {quality_gain_points: 30.124, passed: true}
-  zju-paper-reader: {quality_gain_points: 9.938, duration_gain_percent: 26.958, token_gain_percent: 33.950, efficiency_path_passed: true, passed: true}
-  zju-experiment-log: {quality_gain_points: 24.437, passed: true}
-  zju-statistics-audit: {quality_gain_points: 10.687, passed: true}
-  zju-scientific-writing: {quality_gain_points: 28.125, passed: true}
+  zju-literature-search: {legacy_internal_gain_points: 26.063, historical_v1_internal_gate: passed}
+  zju-fulltext-access: {legacy_internal_gain_points: 22.187, historical_v1_internal_gate: passed}
+  zju-reference-audit: {legacy_internal_gain_points: 30.124, historical_v1_internal_gate: passed}
+  zju-paper-reader: {legacy_internal_gain_points: 9.938, duration_gain_percent: 26.958, token_gain_percent: 33.950, historical_v1_internal_gate: passed_via_efficiency}
+  zju-experiment-log: {legacy_internal_gain_points: 24.437, historical_v1_internal_gate: passed}
+  zju-statistics-audit: {legacy_internal_gain_points: 10.687, historical_v1_internal_gate: passed}
+  zju-scientific-writing: {legacy_internal_gain_points: 28.125, historical_v1_internal_gate: passed}
 
 expansion_evaluation:
   experiment_id: "zju-expansion-distilled-task-validation-v1"
+  evaluation_class: "post-remediation-development-regression"
   base_run_id: "expansion-full-20260811-a"
   response_model: "gpt-5.4-mini"
   rater_model: "gpt-5.5"
   rater_id: "expansion-full-judge-1"
+  comparison_arms: ["distilled_skill_only"]
   cases: 120
   cases_per_skill: 10
   effective_responses: 120
+  base_run_records_in_final_aggregate: 49
+  remediation_or_amendment_records_in_final_aggregate: 71
   instruction_read_audits_passed: 120
   mean_primary_score: 84.385
   gold_check_rate: 0.8458
   critical_failures: 0
-  complete: true
-  release_gate_passed: true
+  aggregate_complete: true
+  development_regression_gate_passed: true
+  stable_promotion_passed: false
+  held_out: false
+  external_baseline_comparison: false
   safety_amendment: "HYP-09=expansion-amendment-20260811-a"
   remediation_runs:
     - "expansion-remediation-20260811-a"
@@ -52,34 +126,35 @@ expansion_evaluation:
   evidence: "evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json"
 
 expansion_results:
-  zju-literature-monitor: {mean_primary_score: 90.625, gold_check_rate: 0.850, passed: true}
-  zju-evidence-synthesis: {mean_primary_score: 82.000, gold_check_rate: 0.825, passed: true}
-  zju-hypothesis-design: {mean_primary_score: 83.250, gold_check_rate: 0.900, passed: true}
-  zju-scientific-figure: {mean_primary_score: 85.125, gold_check_rate: 0.900, passed: true}
-  zju-paper2ppt: {mean_primary_score: 84.000, gold_check_rate: 0.925, passed: true}
-  zju-reviewer: {mean_primary_score: 83.500, gold_check_rate: 0.800, passed: true}
-  zju-review-response: {mean_primary_score: 83.500, gold_check_rate: 0.875, passed: true}
-  zju-data-availability: {mean_primary_score: 87.750, gold_check_rate: 0.800, passed: true}
-  zju-proposal-writer: {mean_primary_score: 89.125, gold_check_rate: 0.900, passed: true}
-  zju-paper-to-patent: {mean_primary_score: 82.500, gold_check_rate: 0.800, passed: true}
-  zju-chemistry-databases: {mean_primary_score: 77.375, gold_check_rate: 0.750, passed: true}
-  zju-research-integrity: {mean_primary_score: 83.875, gold_check_rate: 0.825, passed: true}
+  zju-literature-monitor: {mean_primary_score: 90.625, gold_check_rate: 0.850, development_regression_passed: true}
+  zju-evidence-synthesis: {mean_primary_score: 82.000, gold_check_rate: 0.825, development_regression_passed: true}
+  zju-hypothesis-design: {mean_primary_score: 83.250, gold_check_rate: 0.900, development_regression_passed: true}
+  zju-scientific-figure: {mean_primary_score: 85.125, gold_check_rate: 0.900, development_regression_passed: true}
+  zju-paper2ppt: {mean_primary_score: 84.000, gold_check_rate: 0.925, development_regression_passed: true}
+  zju-reviewer: {mean_primary_score: 83.500, gold_check_rate: 0.800, development_regression_passed: true}
+  zju-review-response: {mean_primary_score: 83.500, gold_check_rate: 0.875, development_regression_passed: true}
+  zju-data-availability: {mean_primary_score: 87.750, gold_check_rate: 0.800, development_regression_passed: true}
+  zju-proposal-writer: {mean_primary_score: 89.125, gold_check_rate: 0.900, development_regression_passed: true}
+  zju-paper-to-patent: {mean_primary_score: 82.500, gold_check_rate: 0.800, development_regression_passed: true}
+  zju-chemistry-databases: {mean_primary_score: 77.375, gold_check_rate: 0.750, development_regression_passed: true}
+  zju-research-integrity: {mean_primary_score: 83.875, gold_check_rate: 0.825, development_regression_passed: true}
 
 director_evaluation:
   suite_id: "zju-research-director-routing-v1"
+  evaluation_class: "deterministic-routing-assertions"
   run_id: "director-routing-20260811-a"
   cases: 20
   domains: ["chemistry", "materials", "biomedicine", "agriculture", "ai-computational"]
   cases_per_domain: 4
   specialist_skills_covered: 19
-  deterministic_route_passed: 20
+  routing_assertions_passed: 20
   route_failures: 0
-  critical_failures: 0
+  score_semantics: "Pass count for deterministic routing assertions, not scientific answer quality."
   forward_test_run: "director-forward-20260811-a"
   fresh_context_forward_cases: 3
   fresh_context_forward_passed: 3
   complete: true
-  release_gate_passed: true
+  routing_regression_passed: true
   stable_promotion_passed: false
   evidence:
     - "evals/results/director-routing-20260811-a.json"
@@ -87,20 +162,26 @@ director_evaluation:
 
 local_verification:
   quick_validate_passed: 20
-  portfolio_grade_a_count: 20
-  unit_tests_passed: 52
-  scripts_scanned: 28
+  structural_conformance:
+    grade_a_count: 20
+    score_100_count: 20
+    score_scope: "Structural and instructional conformance only; not scientific task quality."
+    dimensions_and_weights: {description: 25, organization: 30, style: 20, structure: 25}
+    scorecard_reference: "Claude Scholar skill-quality-reviewer scoring criteria at commit 2f7766fd541a723d4ddc6230b3277f948d61b093; project-specific checks were rewritten."
+  unit_tests_passed: 103
+  scripts_scanned: 39
   security_findings: 0
+  security_scope_note: "Zero findings under the current static rules is not a formal security proof."
   official_zju_pages_live_checked_at: "2026-08-11"
 
 skills:
-  zju-literature-search: stable
-  zju-fulltext-access: stable
-  zju-reference-audit: stable
-  zju-paper-reader: stable
-  zju-experiment-log: stable
-  zju-statistics-audit: stable
-  zju-scientific-writing: stable
+  zju-literature-search: beta
+  zju-fulltext-access: beta
+  zju-reference-audit: beta
+  zju-paper-reader: beta
+  zju-experiment-log: beta
+  zju-statistics-audit: beta
+  zju-scientific-writing: beta
   zju-literature-monitor: beta
   zju-evidence-synthesis: beta
   zju-hypothesis-design: beta
@@ -115,11 +196,18 @@ skills:
   zju-research-integrity: beta
   zju-research-director: beta
 
+first_wave_promotion_requirements:
+  - "Treat v0.4 scores as legacy internal evidence, not a current Stable release gate."
+  - "Complete protocol v2 on a frozen held-out set with blocked arm assignment and executor-enforced tool parity."
+  - "Publish reproducible redacted raw responses, ratings, adjudications, tool logs, and uncertainty estimates."
+  - "Require independent domain review or equivalent external validation before Stable promotion."
+
 expansion_promotion_requirements:
-  - "Keep at least 10 maintained gold cases per expansion skill and re-run them after material instruction changes."
-  - "Do not mark an expansion skill stable without blind comparison or equivalent independent validation."
+  - "Keep at least 10 maintained development-regression cases per expansion skill and rerun them after material instruction changes."
+  - "Add frozen held-out evaluation; a post-remediation development regression alone is insufficient for Stable."
+  - "Do not mark an expansion skill Stable without blind comparison or equivalent independent validation."
 
 director_promotion_requirements:
   - "Keep the twenty-case routing suite balanced across five domains and rerun it after any registry, dependency, gate, or autonomy change."
   - "Maintain zero critical failures for credential handling, external mutation, patent/legal, ethics/privacy, and submission gates."
-  - "Do not mark zju-research-director stable without blinded comparison against a strong orchestration baseline or equivalent independent longitudinal evidence."
+  - "Do not mark zju-research-director Stable without blinded comparison against a strong orchestration baseline or equivalent independent longitudinal evidence."
