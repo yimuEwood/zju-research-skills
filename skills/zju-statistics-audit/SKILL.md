@@ -1,6 +1,6 @@
 ---
 name: zju-statistics-audit
-description: Design or audit experiment-linked statistical analyses and reconcile numerical results across manuscripts, figures, tables, supplements, and reviewer responses. Use to create an analysis contract; choose methods for hierarchical, repeated, clustered, missing, censored, high-dimensional, agricultural, chemical, materials, or biomedical data; check experimental units, replicates, effect sizes, uncertainty, diagnostics, multiplicity, robustness, and result consistency. This is a structured workflow, not a substitute for domain or clinical statistical responsibility.
+description: Design, run a bounded supported core of, or audit experiment-linked statistical analyses and reconcile results across manuscripts, figures, tables, supplements, and reviewer responses. Use to create an analysis contract; run prespecified Welch or paired t tests, Pearson correlation, or simple OLS from local tables; choose methods for hierarchical, repeated, clustered, missing, censored, high-dimensional, agricultural, chemical, materials, or biomedical data; or check experimental units, replicates, effect sizes, uncertainty, diagnostics, multiplicity, robustness, and numerical consistency. This workflow does not replace domain or clinical statistical responsibility.
 ---
 
 # ZJU Statistics Audit
@@ -15,7 +15,13 @@ Start from the design and estimand, not from a preferred test. Trace every repor
 
    `python scripts/validate_analysis_contract.py --input analysis-contract.json --output analysis-contract-report.json`
 
-4. Reconstruct each analysis: variables, preprocessing, model, covariates, interactions, dependence terms, assumptions, multiplicity family, effect estimate, uncertainty, software/version, diagnostics and their consequences, missing-data strategy, and sensitivity analyses.
+   When the frozen contract maps to the shipped execution core, add an `execution` object as defined in `references/execution-contract.md`, then execute the local table rather than hand-copying model output:
+
+   `python scripts/execute_analysis.py --data measurements.csv --contract analysis-contract.json --output-dir analysis-output`
+
+   The shipped executor currently supports `welch_ttest`, `paired_ttest`, `pearson_correlation`, and `simple_ols`. It emits `analysis-run.json` and a canonical `result-registry.json`, binds both input hashes and the executor hash, applies declared Holm or Benjamini-Hochberg correction for multi-test families, and rejects unsupported models explicitly. Do not silently simplify a mixed, clustered, survival, count, multivariate, Bayesian, omics, or other unsupported model into this core.
+
+4. Reconstruct or inspect each executed analysis: variables, preprocessing, model, covariates, interactions, dependence terms, assumptions, multiplicity family, effect estimate, uncertainty, software/version, diagnostics and their consequences, missing-data strategy, and sensitivity analyses. A numerically successful run is not evidence that the model matches the design.
 5. Check whether the method represents the estimand, outcome scale, design, nesting, repeated measures, censoring, distribution, and domain-specific measurement process. Recommend alternatives conditionally; do not prescribe a test without sufficient design information.
 6. Audit effect sizes, confidence intervals, experimental-unit and observation counts, exact or bounded P values, multiple-comparison control, diagnostic results, sensitivity analyses, and missing-data assumptions.
 7. Read `references/result-registry.md`. Register each reportable result once with a stable `result_id`, then map every figure, table, Abstract/Results statement, supplement, and reviewer response back to it. Reconcile all rendered values with:
@@ -45,4 +51,4 @@ Always emit an explicit severity for each finding. Classify pseudoreplication, w
 
 ## Output Contract
 
-Return: design map, validated analysis contract or reconstruction, canonical result registry, diagnostic/sensitivity matrix, issue table, cross-artifact consistency report, required author queries, and a prioritized repair plan. Keep automated heuristic findings labeled `triage_only` until manually confirmed.
+Return: design map, validated analysis contract or reconstruction, `analysis-run.json` when the shipped core was executed, canonical result registry, diagnostic/sensitivity matrix, issue table, cross-artifact consistency report, required author queries, and a prioritized repair plan. Keep automated heuristic findings labeled `triage_only` until manually confirmed.

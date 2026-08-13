@@ -1,8 +1,26 @@
 schema_version: "1.1"
-snapshot_date: "2026-08-11"
-plugin_version: "0.5.0-beta.1"
+snapshot_date: "2026-08-13"
+plugin_version: "0.6.0-beta.1"
 status: beta
-reason: "All twenty skills remain beta. The v0.4 first-wave scores are retained as legacy internal model-judged evidence, the expansion score is a post-remediation development regression, and Director 20/20 denotes routing assertions. Stable promotion is suspended until protocol v2 completes a frozen held-out rerun."
+reason: "All twenty skills remain beta. v0.6 adds deterministic execution and real-file tests but no new blinded model-quality score. The v0.4 first-wave scores remain legacy internal model-judged evidence, and Stable promotion remains suspended until protocol v2 completes a frozen held-out rerun."
+
+v06_capability_upgrade:
+  release: "0.6.0-beta.1"
+  scope:
+    - "JSON/JSONL, CSV/TSV, RIS, BibTeX, and NBIB literature import into the existing stable-ID deduplication pipeline"
+    - "Offline PDF and UTF-8 text extraction into page-anchored reader source bundles with hashes, coverage, and navigation inventories"
+    - "Bounded Welch and paired t tests, Pearson correlation, and simple OLS execution into the canonical result registry"
+    - "Real PNG, SVG, and PDF export for supported group, paired, and scatter/OLS panels"
+    - "Platform-neutral execution-provider registry and deterministic host-inventory resolver"
+  evidence_boundary: "These are deterministic execution and artifact tests, not a new scientific-answer quality score or external benchmark."
+  executable_artifact_tests:
+    tests: 13
+    scope: "Four PDF/text source-preparation tests plus nine CSV-to-analysis/result/figure-chain tests, including real group/paired/OLS exports and partial-family, wrong-data, and wrong-column rejection."
+  capability_and_contract_tests:
+    total_unit_tests_passed: 131
+    shipped_scripts_scanned: 43
+    real_export_formats_checked: [pdf_source, png, svg, pdf_figure]
+  ci: "Windows and Ubuntu matrix for Python 3.11 and 3.13 is defined in .github/workflows/ci.yml; remote run status is not claimed until GitHub executes it."
 
 evidence_policy:
   public_claim_level: "internal directional evidence"
@@ -168,8 +186,8 @@ local_verification:
     score_scope: "Structural and instructional conformance only; not scientific task quality."
     dimensions_and_weights: {description: 25, organization: 30, style: 20, structure: 25}
     scorecard_reference: "Claude Scholar skill-quality-reviewer scoring criteria at commit 2f7766fd541a723d4ddc6230b3277f948d61b093; project-specific checks were rewritten."
-  unit_tests_passed: 103
-  scripts_scanned: 39
+  unit_tests_passed: 131
+  scripts_scanned: 43
   security_findings: 0
   security_scope_note: "Zero findings under the current static rules is not a formal security proof."
   official_zju_pages_live_checked_at: "2026-08-11"

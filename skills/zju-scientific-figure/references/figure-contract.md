@@ -21,3 +21,5 @@ Each quantitative panel needs a panel ID, question, source anchor, plot/image ty
 Tables follow the same contract: generate the table body and footnotes from result IDs, retain a machine-readable table-source artifact, and reconcile displayed rounding separately from the underlying machine-readable value.
 
 For generated schematics, list every depicted entity, relation, certainty state, and source. Use visual conventions to distinguish observed, inferred, hypothetical, and planned elements.
+
+For supported one-panel data figures, `references/executable-figure-spec.md` is the machine-readable implementation of this contract. Preserve the generated `figure-manifest.json`; do not detach the exported files from their source hashes and canonical `result_id`.

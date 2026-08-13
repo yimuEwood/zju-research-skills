@@ -35,6 +35,39 @@ These are starting recipes. Skip an upstream step only when its required artifac
 4. Prefer the narrowest specialist. The director owns state, dependencies, and gates; it does not replace specialist reasoning.
 5. Each step must declare expected output types, prerequisite step IDs, required gates, autonomy level, and validation route.
 
+## Execution-provider binding
+
+Keep mission routing separate from host execution. The capability registry decides *which ZJU specialist* owns a stage; `executor-registry.yaml` describes optional concrete providers for eight logical runtime capabilities. Do not write Codex-, Claude Code-, or OpenCode-specific command syntax into a mission.
+
+Before a ready specialist calls a host capability, obtain an explicit inventory such as:
+
+```json
+{
+  "platform": "codex",
+  "available": [
+    "script.zju.paper_reader.prepare_source",
+    "tool.document.pdf"
+  ]
+}
+```
+
+Resolve one or more requirements with `scripts/resolve_executor.py`. A structured requirement may constrain accepted inputs or required outputs:
+
+```json
+{
+  "requirements": [
+    {
+      "requirement_id": "REQ-PDF-01",
+      "capability": "pdf_extraction",
+      "accepts": ["local_pdf"],
+      "produces": ["reader_source_bundle"]
+    }
+  ]
+}
+```
+
+Selection is deterministic: reject unavailable, platform-incompatible, and I/O-incompatible candidates; prefer a narrow compatible provider over a generic provider, then use descending priority and provider ID as tie-breakers. The resolver does not inspect the machine or execute anything. An unavailable or unknown capability remains `unresolved`; do not silently replace it with prose generation. After host execution, apply the selected provider's output adapter and validate the resulting artifact through the normal stage contract.
+
 ## State transfer packet
 
 Pass only the task-local subset needed by a specialist:

@@ -32,9 +32,15 @@ Read `references/figure-contract.md` before drawing and `references/qa-checklist
 4. Define uncertainty and statistical annotations from the analysis, not from visual appearance. Bind every plotted estimate, interval, sample count, and significance annotation to the canonical result registry maintained by `$zju-statistics-audit`.
 5. Build a terminology, unit, color, and symbol ledger. Use color-blind-safe encodings, redundant markers where needed, readable type at final physical size, and no decorative 3D effects.
 6. Generate the figure reproducibly. Keep data transformations in code or a transformation ledger. Use consistent axes and disclose truncation, normalization, smoothing, contrast adjustment, or representative-image selection.
+
+   For a supported one-panel quantitative figure, read `references/executable-figure-spec.md` and render directly from the source table plus a verified canonical result:
+
+   `python scripts/render_from_registry.py --data measurements.csv --registry result-registry.json --spec figure-spec.json --output-dir figure-output`
+
+   The shipped renderer supports raw-point group comparisons with mean and 95% CI, paired comparisons with within-unit lines, and scatter/OLS panels. It exports a requested subset of PNG, SVG, and PDF with file hashes and a validator-compatible manifest. Route unsupported multi-panel, image, survival, heatmap, spatial, network, omics, or domain-specialized plots to an appropriate plotting provider rather than forcing them into these archetypes.
 7. Assemble panels with stable IDs and write a legend that identifies samples, `n`, uncertainty, statistical tests, scale bars, abbreviations, source boundaries, and the internal result IDs used to generate it. Keep result IDs in the manifest even when omitted from the published legend.
 8. Export editable vector output where appropriate plus the journal-required raster/vector formats. Do not claim a specific journal requirement without checking the current author instructions supplied by the user or an authoritative source.
-9. Run `$zju-statistics-audit/scripts/reconcile_result_registry.py` to compare every rendered panel/legend value with its result ID, then run `$zju-statistics-audit/scripts/validate_result_handoff.py` to verify that each quantitative panel's analysis/result IDs resolve to the same contract and registry. Finally run `scripts/validate_figure_manifest.py`, inspect every panel and the full figure at target size, and fix clipping, collisions, illegible labels, inconsistent encodings, and unsupported annotations.
+9. Run `$zju-statistics-audit/scripts/reconcile_result_registry.py` to compare every rendered panel/legend value with its result ID, then run `$zju-statistics-audit/scripts/validate_result_handoff.py` to verify that each quantitative panel's analysis/result IDs resolve to the same contract and registry. Finally run `scripts/validate_figure_manifest.py`, inspect every panel and the full figure at target size, and fix clipping, collisions, illegible labels, inconsistent encodings, and unsupported annotations. Deterministic export validation does not replace visual inspection or a data-to-mark audit.
 
 ## Incomplete-Input Fallback
 

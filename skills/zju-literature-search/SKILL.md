@@ -14,9 +14,9 @@ Build a reproducible evidence set, not a list of attractive titles. Keep every r
 3. Create a search protocol before opening databases. Preserve the exact query for each source and record adaptations required by source syntax.
 4. Search at least two complementary source families when available. Use a broad scholarly index plus a domain source. After initial screening, expand a reasoned seed set through backward references, forward citations, related-record neighborhoods, distinctive phrases, and stable identifiers; preserve the citation edges.
 5. Export or transcribe structured records with title, authors, year, venue, abstract, DOI or PMID, source URL, source database, query ID, and retrieval date.
-6. Normalize and deduplicate records. For local JSON or JSONL exports, run:
+6. Normalize and deduplicate records. The importer accepts JSON/JSONL, CSV/TSV, RIS, BibTeX, and PubMed NBIB exports, maps their common bibliographic fields into one schema, preserves unmapped source fields, then performs identifier-first deduplication. Run:
 
-   `python scripts/normalize_records.py --input records.jsonl --output normalized.jsonl`
+   `python scripts/normalize_records.py --input records.ris --output normalized.jsonl`
 
 7. Screen against the declared criteria. Keep exclusion reasons at full-text screening; do not silently remove inconvenient findings. Run a contradiction-oriented query so null, adverse, failure, correction, and retraction evidence is not discovered only by chance.
 8. Track unique and eligible IDs by search round. Run `python scripts/assess_search_saturation.py search-rounds.json --output saturation.json` before declaring the search closed; report missing concept/source coverage and marginal yield when the stopping rule is not met.
@@ -24,7 +24,7 @@ Build a reproducible evidence set, not a list of attractive titles. Keep every r
 
 ## Incomplete-Input Fallback
 
-If a requested export or record set is absent, do not stop after asking for it. State that no merge or count was executed, then return an executable intake and processing scaffold containing: accepted JSON/JSONL/CSV/RIS/BibTeX fields; DOI normalization and DOI-first matching; PMID/PMCID mapping; normalized title-plus-year fallback; preservation of every source database and query ID; `identifier_missing`; and pending input, unique, and duplicate counts. Use placeholders such as `pending_input`, never invented records or counts.
+If a requested export or record set is absent, do not stop after asking for it. State that no merge or count was executed, then return an executable intake and processing scaffold containing: accepted JSON/JSONL/CSV/TSV/RIS/BibTeX/NBIB fields; DOI normalization and DOI-first matching; PMID/PMCID mapping; normalized title-plus-year-author fallback; preservation of every source database and query ID; `identifier_missing`; and pending input, unique, and duplicate counts. Use placeholders such as `pending_input`, never invented records or counts.
 
 ## Domain Routing
 

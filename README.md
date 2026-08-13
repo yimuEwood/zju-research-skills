@@ -4,7 +4,7 @@
 
 ![ZJU Research OS 项目概览](docs/assets/hero.png)
 
-项目当前版本是 **v0.5.0-beta.1**，20 个 Skills 都处于 Beta 阶段。这是社区开源项目，与浙江大学官方无关。
+项目当前版本是 **v0.6.0-beta.1**，20 个 Skills 都处于 Beta 阶段。这是社区开源项目，与浙江大学官方无关。
 
 ## 为什么做这个项目
 
@@ -21,6 +21,19 @@
 - 涉及账号、伦理、专利、外部上传或投稿时，仍然交给有权限的人确认。
 
 ![Director 与 19 个专业 Skills 的协作架构](docs/assets/architecture.png)
+
+## v0.6：从工作流走向可执行闭环
+
+v0.5 把检索、实验、统计、写作和交付的契约接了起来；v0.6 继续补最实际的一层——让几条核心链可以直接处理真实文件，而不只给出步骤和检查表。
+
+- 文献导入现在可以直接读取 JSON/JSONL、CSV/TSV、RIS、BibTeX 和 PubMed NBIB，并进入同一套 DOI/PMID/题名去重与稳定 ID 流程。
+- Paper Reader 新增离线源准备器。它会从真实 PDF 或 UTF-8 文本提取逐页内容，记录文件哈希、页码锚点、章节、图表/公式提及、覆盖率和可能需要 OCR 的页面，再交给 Paper Card 或双语精读。
+- Statistics 不再只有审计。对于已经冻结的简单分析契约，可以直接运行 Welch t 检验、配对 t 检验、Pearson 相关和一元 OLS；结果会写入原有 Result Registry，并绑定数据、契约、代码和软件版本。
+- Scientific Figure 可以从源数据与已核验的 `result_id` 生成真实 PNG、SVG 和 PDF。首批覆盖组间原始点、配对连线和散点/OLS 图，导出文件与输入都会写入带哈希的 manifest。
+- Director 增加了独立的执行器注册表。ZJU Skill 继续负责科研工作流，具体 PDF、统计、制图、Zotero、文献库或化学数据库能力由当前 Agent 环境按清单解析，缺失时明确返回 unresolved。
+- 测试新增真实多页 PDF 和 CSV→统计→Result Registry→PNG/SVG/PDF 链，并增加 Windows/Linux、Python 3.11/3.13 的 GitHub Actions 配置。
+
+这轮没有给项目增加新的模型跑分。新增的量化结果是确定性的工程与数值测试，不能替代盲测或专家评审。
 
 ## v0.5 主要改了什么
 
@@ -109,7 +122,8 @@ flowchart LR
 | 12 个扩展 Skills | 120 | 整改后开发集回归：平均 84.385/100；gold-check 命中率 84.58%；严重失败 0 | 最终聚合含 49 条基础运行和 71 条整改/修订记录；不是 held-out，也没有外部项目对照 |
 | Director 路由 | 20 | 5 个领域，覆盖 19 个专业 Skills，20/20 路由断言通过 | 只测试路由和阶段安排，不是科研答案质量分 |
 | Director 新上下文测试 | 3 | 3/3 断言通过 | 前向压力测试，不是跨项目 head-to-head |
-| 本地工程检查 | — | 20/20 格式校验；20 项结构一致性审计为 A/100；103 个单元测试通过，其中包含 1 条发现→论文的跨 Skill 集成链；39 个离线处理/验证脚本通过当前静态规则检查 | 结构审计使用的 25/30/20/25 权重参考 Claude Scholar；不评价科学正确性 |
+| 本地工程检查 | — | 20/20 格式校验；20 项结构一致性审计为 A/100；131 个单元测试通过；43 个离线处理/执行/验证脚本通过当前静态规则检查 | 结构审计使用的 25/30/20/25 权重参考 Claude Scholar；不评价科学正确性 |
+| v0.6 真实产物链 | 13 项核心执行测试 | 4 项 PDF/文本解析测试；9 项 CSV→统计→Registry→PNG/SVG/PDF 测试，覆盖组间、配对和 OLS 真图，数值与 SciPy 容差核对，并拒绝不完整多重比较家族、错误数据文件和错误变量绑定 | 确定性本地测试，不是模型回答质量或科研正确率 |
 
 聚合结果保存在 [`provenance/release-status.yaml`](provenance/release-status.yaml)、[`evals/results/full-20260811-a/aggregate-adjudicated.json`](evals/results/full-20260811-a/aggregate-adjudicated.json)、[`evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json`](evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json) 和 [`evals/results/director-forward-20260811-a.json`](evals/results/director-forward-20260811-a.json)。由于 v1 的完整原始记录还没有公开，仅凭当前仓库不能完整复算当时的所有评分。
 
@@ -123,8 +137,8 @@ ZJU Research OS 不是从零开始的。中文科研工作流的主骨架来自 
 
 | 参考项目 | 主要借鉴 | 在本项目中的改写 |
 |---|---|---|
-| [Nature Skills](https://github.com/Yuan1z0825/nature-skills) | 中文科研流程、写作、全文获取、图表和答审 | 增加五视角检索、引文追踪、搜索停止判断、全文组件包、Paper Spine、冲突矩阵和稳定 ID 交接；首批 7 项有固定 commit 的 legacy-v1 内部对照 |
-| [K-Dense Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 数据库覆盖、统计、引用管理和确定性脚本 | 改写成四领域检索模板、设计优先的分析契约、结果注册表和跨产物一致性检查；没有 head-to-head 测试 |
+| [Nature Skills](https://github.com/Yuan1z0825/nature-skills) | 中文科研流程、写作、全文获取、图表和答审 | 增加五视角检索、引文追踪、搜索停止判断、全文组件包、Paper Spine、冲突矩阵和稳定 ID 交接；v0.6 进一步吸收其页级 PDF 准备思路并独立重写；首批 7 项有固定 commit 的 legacy-v1 内部对照 |
+| [K-Dense Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 数据库覆盖、统计、引用管理和确定性脚本 | 改写成四领域检索模板、设计优先的分析契约、结果注册表、窄范围统计执行器和多格式科研成图；没有 head-to-head 测试 |
 | [Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep) | 长流程执行、实验交接、来源和评审节点 | 使用可暂停的 Research Mission、预算和停止条件，并保留外部操作的人工确认；属于架构对照 |
 | [Claude Scholar](https://github.com/Galaxy-Dawn/claude-scholar) | Skill 质量评分、渐进披露和整改清单 | 结构检查的四个维度与 25/30/20/25 权重参考其 scorecard，再按 Codex validator、引用路径和输出契约改写；没有模型对照 |
 | [PaperSpine](https://github.com/WUBING2023/PaperSpine) | 贡献契约、结果验证、审稿异议和阶段恢复 | 保留 argument spine 的思路，并扩展到跨论文冲突、竞争假设、判别实验、结果注册表和科研转化 |

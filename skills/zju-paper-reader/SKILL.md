@@ -17,16 +17,21 @@ If the user does not choose, use `paper-card` for analysis requests and `bilingu
 ## Workflow
 
 1. Import the upstream `record_id` and `source-pack.json` when present. Verify title, authors, venue, year, DOI or another stable identifier, exact document version, inspected supplements, and source path/URL. Use `$zju-fulltext-access` if the needed package is incomplete.
-2. Inspect the complete document structure before writing. Inventory sections, references, equations, figures, tables, supplements, and extraction gaps.
-3. Read in argument order: problem and prior gap; bounded claim; design and assumptions; evidence and warrant; robustness and uncertainty; alternatives and contradictions; boundaries and next discriminating test.
-4. Attach an anchor to every major note: page plus section, equation, figure, table, or supplement identifier. When PDF pagination and printed pagination differ, record both when possible.
-5. Distinguish author claims, reported results, and your interpretation. Preserve reported units, uncertainty, direction, and statistical qualifiers.
-6. In Paper Card mode, build a stable-ID argument spine and claim-evidence map. Do not merge multiple panels, outcomes, or time points into one evidence item when they support different claims.
-7. Produce the selected schema. Run the offline structural check when saving Markdown:
+2. Prepare a deterministic source bundle before close reading. For a local PDF or UTF-8 text source, run:
+
+   `python scripts/prepare_source.py --input paper.pdf --output reader-source-bundle.json`
+
+   Use its page anchors, section detection, figure/table/equation mentions, source hash, and coverage metrics as the reading index. Pages listed under `ocr_required_pages` remain unread until they are inspected visually or processed with an appropriate OCR tool; extracted emptiness is not evidence that the page is blank.
+3. Inspect the complete document structure before writing. Reconcile the bundle's automated inventory against visible references, equations, figures, tables, supplements, and extraction gaps. Automated mentions are navigation aids, not proof that an object was inspected.
+4. Read in argument order: problem and prior gap; bounded claim; design and assumptions; evidence and warrant; robustness and uncertainty; alternatives and contradictions; boundaries and next discriminating test.
+5. Attach an anchor to every major note: page plus section, equation, figure, table, or supplement identifier. When PDF pagination and printed pagination differ, record both when possible.
+6. Distinguish author claims, reported results, and your interpretation. Preserve reported units, uncertainty, direction, and statistical qualifiers.
+7. In Paper Card mode, build a stable-ID argument spine and claim-evidence map. Do not merge multiple panels, outcomes, or time points into one evidence item when they support different claims.
+8. Produce the selected schema. Run the offline structural check when saving Markdown:
 
    `python scripts/validate_reader.py --input reader.md --mode paper-card`
 
-8. Finish with extraction limitations and a `paper-spine.json` handoff: evidence rows for `$zju-evidence-synthesis`, candidate gaps/alternatives for `$zju-hypothesis-design`, and terms/citations/source components that need another discovery or access pass.
+9. Finish with extraction limitations and a `paper-spine.json` handoff: evidence rows for `$zju-evidence-synthesis`, candidate gaps/alternatives for `$zju-hypothesis-design`, and terms/citations/source components that need another discovery or access pass. Preserve `reader-source-bundle.json` beside those outputs so downstream users can verify the exact source bytes and page anchors.
 
 For abstract-only or metadata-only input, explicitly request lawful full text through `$zju-fulltext-access` and name suitable routes such as an open repository, publisher access, or the Zhejiang University library. Still provide the partial-reader schema and coverage table; label every unavailable section rather than implying it was read.
 
@@ -41,4 +46,4 @@ For abstract-only or metadata-only input, explicitly request lawful full text th
 
 ## Output Contract
 
-Begin with source identity, mode, and coverage. Then provide section-aligned content, an argument spine, claim-evidence map, equation/figure/table inventories, evidence-anchored findings, contradictions, limitations, and reusable questions. Include `Evidence-synthesis handoff` and `Source anchors` sections, and save `paper-spine.json` when files are being produced.
+Begin with source identity, mode, and coverage. Then provide section-aligned content, an argument spine, claim-evidence map, equation/figure/table inventories, evidence-anchored findings, contradictions, limitations, and reusable questions. Include `Evidence-synthesis handoff` and `Source anchors` sections. When files are being produced, save `reader-source-bundle.json` and `paper-spine.json`; the former records what was actually extractable, while the latter records the scientific interpretation.

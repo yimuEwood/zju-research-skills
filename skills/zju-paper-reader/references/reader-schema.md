@@ -1,8 +1,24 @@
 # Full-paper reader schema
 
+## Reader source bundle
+
+Before interpretation, prepare `reader-source-bundle.json` from the exact local source. The deterministic bundle uses `schema_version: 1.0` and `bundle_type: reader-source-bundle`, and records:
+
+- source filename, media type, byte count, and SHA-256;
+- parser name/version and text-normalization rule;
+- stable page IDs (`page-0001`) and anchors (`[p. 1]`) with extracted text and character counts;
+- detected headings with page ranges and line-level anchors;
+- figure, table, and equation mentions as navigation cues;
+- pages that need OCR because little or no text was extractable;
+- page, character, structure, and inventory coverage metrics.
+
+Create it with `python scripts/prepare_source.py --input paper.pdf --output reader-source-bundle.json`. PDF extraction prefers PyMuPDF and falls back to pdfplumber when available. UTF-8 `.txt`, `.md`, and `.markdown` inputs are also accepted as one-page sources.
+
+The bundle is an extraction record, not a reading result. Heading and object detection are heuristic. Confirm figures, tables, equations, captions, printed pagination, and OCR-required pages against the visible source before making claims from them.
+
 ## Source identity
 
-Record title, authors, venue, year, DOI or stable identifier, version, local path or lawful URL, access date, PDF pages, and extraction method.
+Record title, authors, venue, year, DOI or stable identifier, version, local path or lawful URL, access date, PDF pages, extraction method, and the bundle's source SHA-256. If the source bytes change, prepare a new bundle rather than reusing old anchors.
 
 ## Coverage table
 

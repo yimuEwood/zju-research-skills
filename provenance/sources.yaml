@@ -1,5 +1,5 @@
-schema_version: "1.0"
-snapshot_date: "2026-08-11"
+schema_version: "1.1"
+snapshot_date: "2026-08-13"
 distillation_policy:
   - "Write original concise workflows; do not vendor complete upstream skills."
   - "Preserve attribution, pinned commits, and license boundaries."
@@ -19,6 +19,7 @@ sources:
       - "skills/nature-citation/SKILL.md"
       - "skills/nature-reader/SKILL.md"
       - "skills/nature-paper-card/SKILL.md"
+      - "skills/nature-paper-card/scripts/prepare_paper.py"
       - "skills/nature-experiment-log/SKILL.md"
       - "skills/nature-statistics/SKILL.md"
       - "skills/nature-writing/SKILL.md"
@@ -40,9 +41,11 @@ sources:
     consulted_paths:
       - "skills/paper-lookup/SKILL.md"
       - "skills/statistical-analysis/SKILL.md"
+      - "skills/scientific-visualization/SKILL.md"
+      - "skills/scientific-visualization/scripts/figure_export.py"
       - "skills/scientific-writing/SKILL.md"
       - "skills/citation-management/SKILL.md"
-    adaptation: "Provenance-rich records, assumption checks, effect-size reporting, claim ledgers, database routing, and offline deterministic helpers."
+    adaptation: "Provenance-rich records, assumption checks, effect-size reporting, claim ledgers, database routing, color-accessible multi-format figure export, and offline deterministic helpers. The new executors are original narrow implementations, not vendored upstream scripts."
 
   - id: sciagent-skills
     repository: "https://github.com/jaechang-hits/SciAgent-Skills"
@@ -138,7 +141,7 @@ targets:
   zju-literature-monitor: [nature-skills, auto-claude-code-research-in-sleep]
   zju-evidence-synthesis: [nature-skills, k-dense-scientific-agent-skills, sciagent-skills]
   zju-hypothesis-design: [paperspine]
-  zju-scientific-figure: [nature-skills]
+  zju-scientific-figure: [nature-skills, k-dense-scientific-agent-skills]
   zju-paper2ppt: [nature-skills]
   zju-reviewer: [nature-skills, paperspine]
   zju-review-response: [nature-skills]

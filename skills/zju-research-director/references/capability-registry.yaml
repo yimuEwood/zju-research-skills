@@ -5,7 +5,7 @@
     "prerequisites": "Default upstream skills in an end-to-end route; an already validated artifact with the same output type may satisfy a prerequisite.",
     "dependencies": "Conditional supporting skills named by the specialist workflow; they are invoked only when their evidence or artifact is needed.",
     "external_state": "Whether normal use reads or may conditionally mutate a remote system; local workspace artifacts do not count as external state.",
-    "validators": "Only shipped deterministic scripts are listed. Their kind distinguishes validation from transformation or triage."
+    "validators": "The legacy validators field lists shipped deterministic operators. Their kind distinguishes execution, extraction, transformation, validation, comparison, rendering, and triage."
   },
   "allowed_enums": {
     "stages": [
@@ -41,7 +41,9 @@
       "renderer",
       "state_updater",
       "triage",
-      "auditor"
+      "auditor",
+      "extractor",
+      "executor"
     ],
     "fallback_statuses": ["draft", "partial", "blocked", "manual_route", "triage", "not_assessed"]
   },
@@ -204,8 +206,9 @@
         "reader_mode",
         "source_package"
       ],
-      "produces": [
-        "paper_card",
+        "produces": [
+          "reader_source_bundle",
+          "paper_card",
         "bilingual_reader",
         "reader_notes",
         "source_anchor_inventory",
@@ -214,8 +217,13 @@
       "risk_level": "low",
       "external_state": "none",
       "required_human_gates": [],
-      "validators": [
-        {
+        "validators": [
+          {
+            "path": "skills/zju-paper-reader/scripts/prepare_source.py",
+            "kind": "extractor",
+            "purpose": "Extract page-anchored PDF or UTF-8 text into a deterministic reader source bundle with hashes, coverage, and navigation inventories."
+          },
+          {
           "path": "skills/zju-paper-reader/scripts/validate_reader.py",
           "kind": "validator",
           "purpose": "Check saved Markdown for the required mode-specific structure and source-anchor section."
@@ -290,8 +298,8 @@
       }
     },
     "zju-statistics-audit": {
-      "description": "Audits design, estimands, experimental units, models, uncertainty, multiplicity, missing data, figure encodings, and numerical consistency across a research package.",
-      "role": "Design-first statistical and quantitative reporting assurance.",
+        "description": "Executes a bounded supported statistical core and audits design, estimands, experimental units, models, uncertainty, multiplicity, missing data, figure encodings, and numerical consistency across a research package.",
+        "role": "Design-first statistical execution and quantitative reporting assurance.",
       "stages": ["analysis", "review"],
       "accepts": [
         "design_description",
@@ -302,8 +310,9 @@
         "figure_and_caption",
         "analysis_code",
         "design_analysis_handoff",
-        "analysis_contract",
-        "result_registry"
+          "analysis_contract",
+          "execution_spec",
+          "result_registry"
       ],
       "produces": [
         "statistics_audit",
@@ -311,16 +320,22 @@
         "design_map",
         "issue_table",
         "repair_plan",
-        "analysis_contract",
-        "result_registry",
+          "analysis_contract",
+          "analysis_run",
+          "result_registry",
         "result_use_manifest",
         "cross_artifact_consistency_report"
       ],
       "risk_level": "medium",
       "external_state": "none",
       "required_human_gates": [],
-      "validators": [
-        {
+        "validators": [
+          {
+            "path": "skills/zju-statistics-audit/scripts/execute_analysis.py",
+            "kind": "executor",
+            "purpose": "Execute prespecified Welch or paired t tests, Pearson correlation, or simple OLS from local tabular data and emit a hashed analysis run plus canonical result registry."
+          },
+          {
           "path": "skills/zju-statistics-audit/scripts/scan_reporting.py",
           "kind": "triage",
           "purpose": "Perform an offline first-pass reporting scan; every warning remains triage_only until manually verified."
@@ -381,8 +396,13 @@
       "risk_level": "medium",
       "external_state": "none",
       "required_human_gates": [],
-      "validators": [
-        {
+        "validators": [
+          {
+            "path": "skills/zju-scientific-figure/scripts/render_from_registry.py",
+            "kind": "renderer",
+            "purpose": "Render supported result-bound one-panel figures to real PNG, SVG, and PDF exports with hashes and a figure manifest."
+          },
+          {
           "path": "skills/zju-scientific-writing/scripts/check_claim_ledger.py",
           "kind": "validator",
           "purpose": "Validate claim identifiers, support states, and traceable evidence bindings."
