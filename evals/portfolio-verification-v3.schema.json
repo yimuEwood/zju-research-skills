@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "portfolio-verification-v3.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "verification_id", "verified_at", "verifier_id", "verification_key_id",
+    "run_manifest", "holdout_lock", "first_attempt_registry",
+    "allocation_reveal", "administration_attestation", "verification_signature_ed25519"
+  ],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"const": "3.0"},
+    "verification_id": {"type": "string", "minLength": 3},
+    "verified_at": {"type": "string", "format": "date-time"},
+    "verifier_id": {"type": "string", "minLength": 3},
+    "verification_key_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"},
+    "verification_signature_ed25519": {"type": "string", "pattern": "^[0-9a-f]{128}$"},
+    "run_manifest": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "run_id", "skill_commit", "protocol_sha256", "capability_matrix_sha256",
+        "baseline_selection_sha256", "rater_precommit_sha256", "holdout_lock_sha256",
+        "first_attempt_registry_sha256", "allocation_commitment_sha256", "execution_started_at"
+      ],
+      "properties": {
+        "run_id": {"type": "string"},
+        "skill_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "protocol_sha256": {"$ref": "#/$defs/sha256"},
+        "capability_matrix_sha256": {"$ref": "#/$defs/sha256"},
+        "baseline_selection_sha256": {"$ref": "#/$defs/sha256"},
+        "rater_precommit_sha256": {"$ref": "#/$defs/sha256"},
+        "holdout_lock_sha256": {"$ref": "#/$defs/sha256"},
+        "first_attempt_registry_sha256": {"$ref": "#/$defs/sha256"},
+        "allocation_commitment_sha256": {"$ref": "#/$defs/sha256"},
+        "execution_started_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "holdout_lock": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "freeze_id", "frozen_at", "sealed_before_first_run", "case_document_sha256",
+        "case_fingerprints", "allocation_commitment_sha256",
+        "attempt_registry_genesis_sha256", "known_fingerprint_overlap_count"
+      ],
+      "properties": {
+        "freeze_id": {"type": "string", "minLength": 3},
+        "frozen_at": {"type": "string", "format": "date-time"},
+        "sealed_before_first_run": {"const": true},
+        "case_document_sha256": {"$ref": "#/$defs/sha256"},
+        "case_fingerprints": {
+          "type": "object", "minProperties": 1,
+          "propertyNames": {"pattern": "^zju-[a-z0-9-]+::[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"},
+          "additionalProperties": {"$ref": "#/$defs/sha256"}
+        },
+        "allocation_commitment_sha256": {"$ref": "#/$defs/sha256"},
+        "attempt_registry_genesis_sha256": {"$ref": "#/$defs/sha256"},
+        "known_fingerprint_overlap_count": {"const": 0}
+      }
+    },
+    "first_attempt_registry": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "freeze_id", "genesis_sha256", "registered_at", "registered_before_execution",
+        "attempt_number", "run_id", "case_fingerprints"
+      ],
+      "properties": {
+        "freeze_id": {"type": "string"},
+        "genesis_sha256": {"$ref": "#/$defs/sha256"},
+        "registered_at": {"type": "string", "format": "date-time"},
+        "registered_before_execution": {"const": true},
+        "attempt_number": {"const": 1},
+        "run_id": {"type": "string"},
+        "case_fingerprints": {
+          "type": "object", "minProperties": 1,
+          "additionalProperties": {"$ref": "#/$defs/sha256"}
+        }
+      }
+    },
+    "allocation_reveal": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "freeze_id", "secret", "nonce", "allocation_commitment_sha256",
+        "ratings_completed_at", "revealed_at", "revealed_after_all_ratings", "assignments"
+      ],
+      "properties": {
+        "freeze_id": {"type": "string"},
+        "secret": {"type": "string", "minLength": 32},
+        "nonce": {"type": "string", "minLength": 16},
+        "allocation_commitment_sha256": {"$ref": "#/$defs/sha256"},
+        "ratings_completed_at": {"type": "string", "format": "date-time"},
+        "revealed_at": {"type": "string", "format": "date-time"},
+        "revealed_after_all_ratings": {"const": true},
+        "assignments": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["skill_id", "case_id", "arm", "blind_label"],
+            "properties": {
+              "skill_id": {"type": "string", "pattern": "^zju-[a-z0-9-]+$"},
+              "case_id": {"type": "string"},
+              "arm": {"enum": ["no_skill", "strongest_open_source_baseline", "distilled_skill"]},
+              "blind_label": {"enum": ["A", "B", "C"]}
+            }
+          }
+        }
+      }
+    },
+    "administration_attestation": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "run_id", "attestor_id", "independent_of_skill_authors",
+        "first_attempt_confirmed", "tool_policy_parity_verified", "evidence_bundle_sha256"
+      ],
+      "properties": {
+        "run_id": {"type": "string"},
+        "attestor_id": {"type": "string", "minLength": 3},
+        "independent_of_skill_authors": {"const": true},
+        "first_attempt_confirmed": {"const": true},
+        "tool_policy_parity_verified": {"const": true},
+        "evidence_bundle_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

@@ -1,0 +1,67 @@
+schema_version: "3.0"
+snapshot_date: "2026-08-14"
+protocol: "evals/portfolio-protocol-v3.json"
+capability_matrix: "evals/skill-evaluation-matrix-v3.json"
+current_evidence_declaration: "evals/current-portfolio-evidence-v3.json"
+current_status: beta
+official_portfolio_score: null
+official_score_reason: "Protocol v3 has not run a frozen, unseen, independently administered first-attempt holdout for all twenty skills."
+
+current_layer_evidence:
+  L1_contract_conformance:
+    status: complete
+    skills: 20
+    checks_per_skill: 6
+    passed_records: 120
+    total_records: 120
+    input_files_hashed: 153
+    evidence: "evals/l1-contract-census-v3.json"
+    interpretation: "Engineering conformance only; no capability score."
+  L2_deterministic_function: {status: incomplete, official_score_contribution: null}
+  L3_controlled_task_capability: {status: incomplete, official_score_contribution: null}
+  L4_frozen_holdout_generalization: {status: incomplete, official_score_contribution: null}
+
+local_regression_snapshot:
+  unit_tests_passed: 185
+  skill_scripts_scanned: 46
+  static_findings: 0
+  adversarial_release_gate_tests: 7
+
+historical_evidence_audit:
+  first_wave:
+    skills: 7
+    evidence_class: "legacy internal three-arm development benchmark"
+    cases_per_skill: 10
+    limitations:
+      - "One pilot case per skill was reused."
+      - "Arm positions and tool conditions were not strictly balanced."
+      - "The evidence is not an unseen protocol-v3 holdout."
+  expansion:
+    skills: 12
+    evidence_class: "post-remediation single-arm development regression"
+    cases_per_skill: 10
+    limitations:
+      - "Cases were used during remediation."
+      - "No paired no-skill or strongest-open-source baseline arm was run."
+      - "The evidence is not held out."
+  research_director:
+    skills: 1
+    evidence_class: "deterministic routing and limited fresh-context forward tests"
+    routing_cases: 20
+    limitations:
+      - "Routing correctness is not end-to-end scientific task quality."
+      - "No blinded comparison against a strong orchestration baseline was run."
+
+protocol_v3_requirement:
+  expected_skills: 20
+  four_layers: [L1_contract_conformance, L2_deterministic_function, L3_controlled_task_capability, L4_frozen_holdout_generalization]
+  minimum_case_or_check_units_per_skill: 53
+  minimum_portfolio_units_before_arm_replication: 1060
+  minimum_arm_level_records_for_complete_portfolio: 2140
+  stable_policy: "Every skill must independently pass every layer and the frozen-holdout gate. No portfolio average can hide an untested or failing skill."
+
+claim_boundary:
+  - "Structural or validator results are engineering readiness, not capability points."
+  - "Development results may guide distillation but may not be labelled unseen or Stable evidence."
+  - "Missing layers remain not_run and are never imputed."
+  - "A failed first-attempt holdout remains a failed holdout; repaired cases move to development and require new unseen cases for another release."

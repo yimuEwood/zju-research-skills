@@ -1,0 +1,3101 @@
+{
+  "schema_version": "3.0-l1-census",
+  "protocol_id": "zju-portfolio-twenty-skill-v3",
+  "evidence_id": "zju-l1-contract-census-v3",
+  "evidence_class": "release_census",
+  "scope": "repository_worktree_inputs",
+  "skill_commit": null,
+  "input_tree_sha256": "20b605b87981880da5afea3a9cf772e7e370edef9b0744b7f05354a27b1d5de2",
+  "claim_boundary": "Engineering conformance only. These records cannot supply L2, L3, or L4 evidence, an official capability score, or Stable promotion.",
+  "required_check_ids": [
+    "skill_format",
+    "trigger_boundary",
+    "resource_resolution",
+    "output_contract",
+    "provenance_license",
+    "evaluation_mapping"
+  ],
+  "summary": {
+    "expected_skills": 20,
+    "observed_skills": 20,
+    "expected_records": 120,
+    "observed_records": 120,
+    "passed_records": 120,
+    "failed_records": 0,
+    "complete_skills": 20
+  },
+  "records": [
+    {
+      "skill_id": "zju-literature-search",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-literature-search",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-literature-search",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-literature-search",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-literature-search",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-literature-search",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-fulltext-access",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-fulltext-access",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-fulltext-access",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-fulltext-access",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-fulltext-access",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-fulltext-access",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-reference-audit",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-reference-audit",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-reference-audit",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-reference-audit",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-reference-audit",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-reference-audit",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper-reader",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper-reader",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper-reader",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper-reader",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper-reader",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper-reader",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-experiment-log",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-experiment-log",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-experiment-log",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-experiment-log",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-experiment-log",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-experiment-log",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-statistics-audit",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-statistics-audit",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-statistics-audit",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-statistics-audit",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-statistics-audit",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-statistics-audit",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-scientific-writing",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-scientific-writing",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-scientific-writing",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-scientific-writing",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-scientific-writing",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-scientific-writing",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-literature-monitor",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-literature-monitor",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-literature-monitor",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-literature-monitor",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-literature-monitor",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-literature-monitor",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-evidence-synthesis",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-evidence-synthesis",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-evidence-synthesis",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-evidence-synthesis",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-evidence-synthesis",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-evidence-synthesis",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-hypothesis-design",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-hypothesis-design",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-hypothesis-design",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-hypothesis-design",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-hypothesis-design",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-hypothesis-design",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-scientific-figure",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-scientific-figure",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-scientific-figure",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-scientific-figure",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-scientific-figure",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-scientific-figure",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper2ppt",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper2ppt",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper2ppt",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper2ppt",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper2ppt",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper2ppt",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-reviewer",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-reviewer",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-reviewer",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-reviewer",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-reviewer",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-reviewer",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-review-response",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-review-response",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-review-response",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-review-response",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-review-response",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-review-response",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-data-availability",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-data-availability",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-data-availability",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-data-availability",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-data-availability",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-data-availability",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-proposal-writer",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-proposal-writer",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-proposal-writer",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-proposal-writer",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-proposal-writer",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-proposal-writer",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper-to-patent",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper-to-patent",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper-to-patent",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper-to-patent",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper-to-patent",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-paper-to-patent",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-chemistry-databases",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-chemistry-databases",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-chemistry-databases",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-chemistry-databases",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-chemistry-databases",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-chemistry-databases",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-research-integrity",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-research-integrity",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-research-integrity",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-research-integrity",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-research-integrity",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-research-integrity",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-research-director",
+      "layer": "L1_contract_conformance",
+      "case_id": "skill_format",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-research-director",
+      "layer": "L1_contract_conformance",
+      "case_id": "trigger_boundary",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-research-director",
+      "layer": "L1_contract_conformance",
+      "case_id": "resource_resolution",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-research-director",
+      "layer": "L1_contract_conformance",
+      "case_id": "output_contract",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-research-director",
+      "layer": "L1_contract_conformance",
+      "case_id": "provenance_license",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    },
+    {
+      "skill_id": "zju-research-director",
+      "layer": "L1_contract_conformance",
+      "case_id": "evaluation_mapping",
+      "stratum": "release_census",
+      "capability_ids": [],
+      "passed": true,
+      "critical_failure": false
+    }
+  ],
+  "observations": [
+    {
+      "skill_id": "zju-literature-search",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-literature-search/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-literature-search",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-literature-search/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-literature-search",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-literature-search/SKILL.md",
+        "skills/zju-literature-search/agents/openai.yaml",
+        "skills/zju-literature-search/references/database-routing.md",
+        "skills/zju-literature-search/references/discovery-closure.md",
+        "skills/zju-literature-search/references/domain-query-templates.md",
+        "skills/zju-literature-search/references/search-protocol.md",
+        "skills/zju-literature-search/references/untrusted-content.md",
+        "skills/zju-literature-search/scripts/assess_search_saturation.py",
+        "skills/zju-literature-search/scripts/normalize_records.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-literature-search",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-literature-search/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-literature-search",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-literature-search",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-fulltext-access",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-fulltext-access/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-fulltext-access",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-fulltext-access/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-fulltext-access",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-fulltext-access/SKILL.md",
+        "skills/zju-fulltext-access/agents/openai.yaml",
+        "skills/zju-fulltext-access/references/access-routes.md",
+        "skills/zju-fulltext-access/references/source-package.md",
+        "skills/zju-fulltext-access/references/zju-library-access.md",
+        "skills/zju-fulltext-access/scripts/classify_access.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-fulltext-access",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-fulltext-access/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-fulltext-access",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-fulltext-access",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-reference-audit",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-reference-audit/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-reference-audit",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-reference-audit/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-reference-audit",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-reference-audit/SKILL.md",
+        "skills/zju-reference-audit/agents/openai.yaml",
+        "skills/zju-reference-audit/references/audit-protocol.md",
+        "skills/zju-reference-audit/references/support-assessment.md",
+        "skills/zju-reference-audit/scripts/compare_metadata.py",
+        "skills/zju-reference-audit/scripts/validate_status_freshness.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-reference-audit",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-reference-audit/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-reference-audit",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-reference-audit",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper-reader",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-paper-reader/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper-reader",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-paper-reader/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper-reader",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-paper-reader/SKILL.md",
+        "skills/zju-paper-reader/agents/openai.yaml",
+        "skills/zju-paper-reader/references/argument-spine.md",
+        "skills/zju-paper-reader/references/paper-card.md",
+        "skills/zju-paper-reader/references/reader-schema.md",
+        "skills/zju-paper-reader/scripts/prepare_source.py",
+        "skills/zju-paper-reader/scripts/validate_reader.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper-reader",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-paper-reader/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper-reader",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper-reader",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-experiment-log",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-experiment-log/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-experiment-log",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-experiment-log/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-experiment-log",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-experiment-log/SKILL.md",
+        "skills/zju-experiment-log/agents/openai.yaml",
+        "skills/zju-experiment-log/references/design-analysis-handoff.md",
+        "skills/zju-experiment-log/references/log-schema.md",
+        "skills/zju-experiment-log/references/privacy-safety.md",
+        "skills/zju-experiment-log/references/run-manifest.md",
+        "skills/zju-experiment-log/scripts/build_log.py",
+        "skills/zju-experiment-log/scripts/validate_run_manifest.py",
+        "skills/zju-statistics-audit/scripts/validate_analysis_contract.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-experiment-log",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-experiment-log/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-experiment-log",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-experiment-log",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-statistics-audit",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-statistics-audit/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-statistics-audit",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-statistics-audit/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-statistics-audit",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-statistics-audit/SKILL.md",
+        "skills/zju-statistics-audit/agents/openai.yaml",
+        "skills/zju-statistics-audit/references/analysis-decision-map.md",
+        "skills/zju-statistics-audit/references/audit-checklist.md",
+        "skills/zju-statistics-audit/references/execution-contract.md",
+        "skills/zju-statistics-audit/references/reporting-template.md",
+        "skills/zju-statistics-audit/references/result-registry.md",
+        "skills/zju-statistics-audit/scripts/execute_analysis.py",
+        "skills/zju-statistics-audit/scripts/reconcile_result_registry.py",
+        "skills/zju-statistics-audit/scripts/render_result_tokens.py",
+        "skills/zju-statistics-audit/scripts/scan_reporting.py",
+        "skills/zju-statistics-audit/scripts/validate_analysis_contract.py",
+        "skills/zju-statistics-audit/scripts/validate_result_handoff.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-statistics-audit",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-statistics-audit/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-statistics-audit",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-statistics-audit",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-scientific-writing",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-scientific-writing/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-scientific-writing",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-scientific-writing/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-scientific-writing",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-scientific-writing/SKILL.md",
+        "skills/zju-scientific-writing/agents/openai.yaml",
+        "skills/zju-scientific-writing/references/claim-evidence-ledger.md",
+        "skills/zju-scientific-writing/references/contribution-contract.md",
+        "skills/zju-scientific-writing/references/writing-modes.md",
+        "skills/zju-scientific-writing/scripts/check_claim_ledger.py",
+        "skills/zju-scientific-writing/scripts/check_writing_contract.py",
+        "skills/zju-statistics-audit/scripts/reconcile_result_registry.py",
+        "skills/zju-statistics-audit/scripts/validate_result_handoff.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-scientific-writing",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-scientific-writing/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-scientific-writing",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-scientific-writing",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-literature-monitor",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-literature-monitor/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-literature-monitor",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-literature-monitor/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-literature-monitor",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-literature-monitor/SKILL.md",
+        "skills/zju-literature-monitor/agents/openai.yaml",
+        "skills/zju-literature-monitor/references/alert-and-dedup.md",
+        "skills/zju-literature-monitor/references/evidence-linked-monitoring.md",
+        "skills/zju-literature-monitor/references/monitoring-profile.md",
+        "skills/zju-literature-monitor/scripts/update_monitor_state.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-literature-monitor",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-literature-monitor/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-literature-monitor",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-literature-monitor",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-evidence-synthesis",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-evidence-synthesis/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-evidence-synthesis",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-evidence-synthesis/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-evidence-synthesis",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-evidence-synthesis/SKILL.md",
+        "skills/zju-evidence-synthesis/agents/openai.yaml",
+        "skills/zju-evidence-synthesis/references/conflict-analysis.md",
+        "skills/zju-evidence-synthesis/references/evidence-table.md",
+        "skills/zju-evidence-synthesis/references/synthesis-protocol.md",
+        "skills/zju-evidence-synthesis/scripts/build_conflict_matrix.py",
+        "skills/zju-evidence-synthesis/scripts/pool_effects.py",
+        "skills/zju-evidence-synthesis/scripts/validate_evidence_table.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-evidence-synthesis",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-evidence-synthesis/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-evidence-synthesis",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-evidence-synthesis",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-hypothesis-design",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-hypothesis-design/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-hypothesis-design",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-hypothesis-design/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-hypothesis-design",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-hypothesis-design/SKILL.md",
+        "skills/zju-hypothesis-design/agents/openai.yaml",
+        "skills/zju-hypothesis-design/references/experiment-discrimination.md",
+        "skills/zju-hypothesis-design/references/hypothesis-canvas.md",
+        "skills/zju-hypothesis-design/references/ranking-and-information-gain.md",
+        "skills/zju-hypothesis-design/scripts/select_experiment_portfolio.py",
+        "skills/zju-hypothesis-design/scripts/validate_hypothesis_set.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-hypothesis-design",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-hypothesis-design/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-hypothesis-design",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-hypothesis-design",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-scientific-figure",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-scientific-figure/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-scientific-figure",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-scientific-figure/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-scientific-figure",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-scientific-figure/SKILL.md",
+        "skills/zju-scientific-figure/agents/openai.yaml",
+        "skills/zju-scientific-figure/references/executable-figure-spec.md",
+        "skills/zju-scientific-figure/references/figure-contract.md",
+        "skills/zju-scientific-figure/references/qa-checklist.md",
+        "skills/zju-scientific-figure/scripts/render_from_registry.py",
+        "skills/zju-scientific-figure/scripts/validate_figure_manifest.py",
+        "skills/zju-statistics-audit/scripts/reconcile_result_registry.py",
+        "skills/zju-statistics-audit/scripts/validate_result_handoff.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-scientific-figure",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-scientific-figure/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-scientific-figure",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-scientific-figure",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper2ppt",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-paper2ppt/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper2ppt",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-paper2ppt/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper2ppt",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-paper2ppt/SKILL.md",
+        "skills/zju-paper2ppt/agents/openai.yaml",
+        "skills/zju-paper2ppt/references/deck-spec.md",
+        "skills/zju-paper2ppt/references/slide-qa.md",
+        "skills/zju-paper2ppt/scripts/validate_deck_plan.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper2ppt",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-paper2ppt/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper2ppt",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper2ppt",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-reviewer",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-reviewer/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-reviewer",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-reviewer/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-reviewer",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-reviewer/SKILL.md",
+        "skills/zju-reviewer/agents/openai.yaml",
+        "skills/zju-reviewer/references/report-contract.md",
+        "skills/zju-reviewer/references/review-axes.md",
+        "skills/zju-reviewer/scripts/validate_review_report.py",
+        "skills/zju-statistics-audit/scripts/validate_result_handoff.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-reviewer",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-reviewer/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-reviewer",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-reviewer",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-review-response",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-review-response/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-review-response",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-review-response/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-review-response",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-review-response/SKILL.md",
+        "skills/zju-review-response/agents/openai.yaml",
+        "skills/zju-review-response/references/package-consistency.md",
+        "skills/zju-review-response/references/response-tracker.md",
+        "skills/zju-review-response/scripts/validate_response_tracker.py",
+        "skills/zju-statistics-audit/scripts/reconcile_result_registry.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-review-response",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-review-response/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-review-response",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-review-response",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-data-availability",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-data-availability/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-data-availability",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-data-availability/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-data-availability",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-data-availability/SKILL.md",
+        "skills/zju-data-availability/agents/openai.yaml",
+        "skills/zju-data-availability/references/data-routing.md",
+        "skills/zju-data-availability/references/statement-contract.md",
+        "skills/zju-data-availability/scripts/build_release_manifest.py",
+        "skills/zju-data-availability/scripts/validate_data_inventory.py",
+        "skills/zju-statistics-audit/scripts/validate_result_handoff.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-data-availability",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-data-availability/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-data-availability",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-data-availability",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-proposal-writer",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-proposal-writer/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-proposal-writer",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-proposal-writer/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-proposal-writer",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-proposal-writer/SKILL.md",
+        "skills/zju-proposal-writer/agents/openai.yaml",
+        "skills/zju-proposal-writer/references/evidence-to-execution.md",
+        "skills/zju-proposal-writer/references/proposal-contract.md",
+        "skills/zju-proposal-writer/references/scheme-routing.md",
+        "skills/zju-proposal-writer/scripts/validate_proposal_manifest.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-proposal-writer",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-proposal-writer/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-proposal-writer",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-proposal-writer",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper-to-patent",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-paper-to-patent/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper-to-patent",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-paper-to-patent/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper-to-patent",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-paper-to-patent/SKILL.md",
+        "skills/zju-paper-to-patent/agents/openai.yaml",
+        "skills/zju-paper-to-patent/references/disclosure-structure.md",
+        "skills/zju-paper-to-patent/references/research-to-invention-map.md",
+        "skills/zju-paper-to-patent/references/source-to-claim.md",
+        "skills/zju-paper-to-patent/scripts/validate_feature_ledger.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper-to-patent",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-paper-to-patent/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper-to-patent",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-paper-to-patent",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-chemistry-databases",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-chemistry-databases/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-chemistry-databases",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-chemistry-databases/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-chemistry-databases",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-chemistry-databases/SKILL.md",
+        "skills/zju-chemistry-databases/agents/openai.yaml",
+        "skills/zju-chemistry-databases/references/chemical-identity.md",
+        "skills/zju-chemistry-databases/references/comparison-playbook.md",
+        "skills/zju-chemistry-databases/references/database-routing.md",
+        "skills/zju-chemistry-databases/scripts/build_evidence_matrix.py",
+        "skills/zju-chemistry-databases/scripts/validate_chemistry_records.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-chemistry-databases",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-chemistry-databases/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-chemistry-databases",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-chemistry-databases",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-research-integrity",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-research-integrity/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-research-integrity",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-research-integrity/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-research-integrity",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-research-integrity/SKILL.md",
+        "skills/zju-research-integrity/agents/openai.yaml",
+        "skills/zju-research-integrity/references/incident-triage.md",
+        "skills/zju-research-integrity/references/integrity-checklist.md",
+        "skills/zju-research-integrity/references/zju-policy-routing.md",
+        "skills/zju-research-integrity/scripts/audit_provenance_manifest.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-research-integrity",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-research-integrity/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-research-integrity",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-research-integrity",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-research-director",
+      "check_id": "skill_format",
+      "passed": true,
+      "criteria": "SKILL.md is UTF-8, has only name and description in frontmatter, matches its canonical directory name, and has a concise instruction body.",
+      "evidence_paths": [
+        "skills/zju-research-director/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-research-director",
+      "check_id": "trigger_boundary",
+      "passed": true,
+      "criteria": "The activation description states when to use the skill, and the skill declares at least one negative, fallback, or routing boundary.",
+      "evidence_paths": [
+        "skills/zju-research-director/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-research-director",
+      "check_id": "resource_resolution",
+      "passed": true,
+      "criteria": "Every disclosed local or cross-skill resource resolves inside the repository, and Codex interface metadata invokes the correct skill.",
+      "evidence_paths": [
+        "skills/zju-research-director/SKILL.md",
+        "skills/zju-research-director/agents/openai.yaml",
+        "skills/zju-research-director/references/artifact-envelope.schema.yaml",
+        "skills/zju-research-director/references/autonomy-levels.md",
+        "skills/zju-research-director/references/capability-registry.yaml",
+        "skills/zju-research-director/references/executor-registry.yaml",
+        "skills/zju-research-director/references/gate-matrix.md",
+        "skills/zju-research-director/references/mission-schema.yaml",
+        "skills/zju-research-director/references/routing-policy.md",
+        "skills/zju-research-director/references/trusted-validation-attestation.schema.yaml",
+        "skills/zju-research-director/scripts/advance_mission.py",
+        "skills/zju-research-director/scripts/check_stage_gate.py",
+        "skills/zju-research-director/scripts/merge_artifacts.py",
+        "skills/zju-research-director/scripts/migrate_mission.py",
+        "skills/zju-research-director/scripts/plan_mission.py",
+        "skills/zju-research-director/scripts/resolve_executor.py",
+        "skills/zju-research-director/scripts/validate_artifact.py",
+        "skills/zju-research-director/scripts/validate_mission.py"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-research-director",
+      "check_id": "output_contract",
+      "passed": true,
+      "criteria": "A non-empty Output Contract names concrete returned content or artifacts instead of relying on an implicit prose response.",
+      "evidence_paths": [
+        "skills/zju-research-director/SKILL.md"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-research-director",
+      "check_id": "provenance_license",
+      "passed": true,
+      "criteria": "The skill maps to at least one declared upstream source with repository, pinned commit, and license, while the distribution provides LICENSE and NOTICE.",
+      "evidence_paths": [
+        "LICENSE",
+        "NOTICE",
+        "provenance/sources.yaml"
+      ],
+      "failures": []
+    },
+    {
+      "skill_id": "zju-research-director",
+      "check_id": "evaluation_mapping",
+      "passed": true,
+      "criteria": "Exactly one protocol-v3 row declares at least five unique operational capability criteria and at least one open-source baseline candidate.",
+      "evidence_paths": [
+        "evals/skill-evaluation-matrix-v3.json"
+      ],
+      "failures": []
+    }
+  ],
+  "input_manifest": [
+    {
+      "path": "LICENSE",
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "19de29cc98926dbb86a476be30117c08613f42a8487c8bd5baf7e0fb124e6829"
+    },
+    {
+      "path": "evals/generate_l1_census_v3.py",
+      "sha256": "90b6c37bc3493ab580a875be5271cdc609febaa9023ae715f981b00617a4f974"
+    },
+    {
+      "path": "evals/skill-evaluation-matrix-v3.json",
+      "sha256": "aa1e2c75734e71a926f55ac6102e1dad26a717aee44f4c46997ea87df1cb776a"
+    },
+    {
+      "path": "provenance/sources.yaml",
+      "sha256": "3da632272fd147faabed1784f6af9539cd26fc66b4fad9de0431ca97b785d740"
+    },
+    {
+      "path": "skills/zju-chemistry-databases/SKILL.md",
+      "sha256": "76b7dd4c82cfc3bc2ab5eb17a0b5a355a8ef2e1a52f52299960fc675ef73d9b5"
+    },
+    {
+      "path": "skills/zju-chemistry-databases/agents/openai.yaml",
+      "sha256": "65d30b80dfc1c24b197c32e35440127058c2c8e7ec3f1158ed745505eb0790bd"
+    },
+    {
+      "path": "skills/zju-chemistry-databases/references/chemical-identity.md",
+      "sha256": "e1f44d7967fe5ec937aae8dee2eb0af0ae441fab476bf94ed1c3c213d49ec5e6"
+    },
+    {
+      "path": "skills/zju-chemistry-databases/references/comparison-playbook.md",
+      "sha256": "1c4fd79ff92b44b8ba77fb1f3b01a822f0fa781d7332707addeaae46916593e9"
+    },
+    {
+      "path": "skills/zju-chemistry-databases/references/database-routing.md",
+      "sha256": "d6c54e914efc30bb98f2843578e0fcef27c784772a519e6c67f3e502977bb7f2"
+    },
+    {
+      "path": "skills/zju-chemistry-databases/scripts/build_evidence_matrix.py",
+      "sha256": "bf0a02600336f3ad8a4541ccc9a8d70576bf3ab34eafb9189e57255d5f141724"
+    },
+    {
+      "path": "skills/zju-chemistry-databases/scripts/validate_chemistry_records.py",
+      "sha256": "22a9df0f23bbc5193b34e1f2501e67a3934c1610456e546fe715c5e12e9e8717"
+    },
+    {
+      "path": "skills/zju-data-availability/SKILL.md",
+      "sha256": "957e8334bd964fe04989adbf1bf87dcd26c3c289d5bda6952db69e04aa9c64c6"
+    },
+    {
+      "path": "skills/zju-data-availability/agents/openai.yaml",
+      "sha256": "3f93cf93e711c4c805c9d8cd0ac4371c989932d77fecdf75ed96a8e1ed4215c5"
+    },
+    {
+      "path": "skills/zju-data-availability/references/data-routing.md",
+      "sha256": "2f3ea22b7421d63d94fc1eb2b57e958ca88355925a14d8e49bea9a5420e33ed8"
+    },
+    {
+      "path": "skills/zju-data-availability/references/statement-contract.md",
+      "sha256": "96d7bef686469fe990ea949bb542d148f763bd343743d279785cc3399cc69078"
+    },
+    {
+      "path": "skills/zju-data-availability/scripts/build_release_manifest.py",
+      "sha256": "21d63fe5e8f73a43848283c286d4c20ca9be69f25d4703af0a166382037d5bee"
+    },
+    {
+      "path": "skills/zju-data-availability/scripts/validate_data_inventory.py",
+      "sha256": "f6a944d80ffc24a8fba922def2deb0f6bb723a91eb8d1d5c5f6cc048e3af1edb"
+    },
+    {
+      "path": "skills/zju-evidence-synthesis/SKILL.md",
+      "sha256": "bb703aa24b4367e49a01ae6416ec3aefb90366f25549adc621628fba9af11c83"
+    },
+    {
+      "path": "skills/zju-evidence-synthesis/agents/openai.yaml",
+      "sha256": "edb14d5424da3429b8dff9c409e5a4bf35d655b62fec0d797e33e162846ee0cd"
+    },
+    {
+      "path": "skills/zju-evidence-synthesis/references/conflict-analysis.md",
+      "sha256": "503804d1f7f82047a7ce8f0906e807a6ec3a97ca9ac4410809b5fb785a378caa"
+    },
+    {
+      "path": "skills/zju-evidence-synthesis/references/evidence-table.md",
+      "sha256": "5c7c7cb388e992b704ce441aaf1eaa3ea2ba046221f69c3ddbb432d6ec929c94"
+    },
+    {
+      "path": "skills/zju-evidence-synthesis/references/synthesis-protocol.md",
+      "sha256": "c64e21a1de3aa1337c258f1c3630364860cef6f3a3d7ba16c0ad101f4fa608d9"
+    },
+    {
+      "path": "skills/zju-evidence-synthesis/scripts/build_conflict_matrix.py",
+      "sha256": "0f8035e474233c2acb701cc527d174c61112471c80f2986c3b01e845c19ce444"
+    },
+    {
+      "path": "skills/zju-evidence-synthesis/scripts/pool_effects.py",
+      "sha256": "c52d859561e0da822214a3de4cdfc9fd6c93f92f71a0ed1a82c6787c5d312cd2"
+    },
+    {
+      "path": "skills/zju-evidence-synthesis/scripts/validate_evidence_table.py",
+      "sha256": "e2af27daac333487419c3f4cf665193da214919cb1357592183bcdcd42e7d907"
+    },
+    {
+      "path": "skills/zju-experiment-log/SKILL.md",
+      "sha256": "d36acc2f276f0f4627fee1626de0cad9d4f0ca431e40b4b33d2beb3eea162c37"
+    },
+    {
+      "path": "skills/zju-experiment-log/agents/openai.yaml",
+      "sha256": "7aeb427949688ed68d3858353d30281bbd2954a7035b129d92b069cf18cd717a"
+    },
+    {
+      "path": "skills/zju-experiment-log/references/design-analysis-handoff.md",
+      "sha256": "4a7e04702fcd8bc8792fb982ba993dedc87efdaa6b6da7f5ae75ddfeb9777986"
+    },
+    {
+      "path": "skills/zju-experiment-log/references/log-schema.md",
+      "sha256": "a939d1f10cff6a2bd3834046e93c380ee83ee919998585173648e22e0d3da4c5"
+    },
+    {
+      "path": "skills/zju-experiment-log/references/privacy-safety.md",
+      "sha256": "88082f631daa280055b47b86f4e91021a6a315668404ae7574c78f47040d326c"
+    },
+    {
+      "path": "skills/zju-experiment-log/references/run-manifest.md",
+      "sha256": "7db1fc4e16ace4661d273f78681cd08606f10d0b59287db03bde0d44e1db4a14"
+    },
+    {
+      "path": "skills/zju-experiment-log/scripts/build_log.py",
+      "sha256": "7090ea6a8ccc218c085918573949d423a2a24d1f772747f5fde8a8746f4e2d91"
+    },
+    {
+      "path": "skills/zju-experiment-log/scripts/validate_run_manifest.py",
+      "sha256": "56485850a7f37acbc96728f7f4585b75c27eda7d77905a64fbaf2d820ed00870"
+    },
+    {
+      "path": "skills/zju-fulltext-access/SKILL.md",
+      "sha256": "94a6f3a2ce6bcdc18a8265bdbbd5e84a518bbf8156608547c73d3bb0038def21"
+    },
+    {
+      "path": "skills/zju-fulltext-access/agents/openai.yaml",
+      "sha256": "691b716d11afe3003b35641f3e16a5d6c31166fab0fd52179e9b703f45fee6fa"
+    },
+    {
+      "path": "skills/zju-fulltext-access/references/access-routes.md",
+      "sha256": "2cb38ea3e49d03015572d389826d170fe734cbc3a783656c018b1730d2f1be06"
+    },
+    {
+      "path": "skills/zju-fulltext-access/references/source-package.md",
+      "sha256": "201a7b933a18beb764b1d237716307fb5bf0d4f6e5b976c089059479ddf65732"
+    },
+    {
+      "path": "skills/zju-fulltext-access/references/zju-library-access.md",
+      "sha256": "636ac1aa020f050e326c6f20b572477ac26e353d253c8b9eb1717cfe68e77b9f"
+    },
+    {
+      "path": "skills/zju-fulltext-access/scripts/classify_access.py",
+      "sha256": "44342df2ebf71be0206afaeb448e36854f86520a7913fbb4bf7b3f9308ff9ffe"
+    },
+    {
+      "path": "skills/zju-hypothesis-design/SKILL.md",
+      "sha256": "6c6c1a18181046f464e3cd17126e6de860bdbaf809291a1ade6174c2d7ff4375"
+    },
+    {
+      "path": "skills/zju-hypothesis-design/agents/openai.yaml",
+      "sha256": "772f8c864dfb142e6956bb725aa0e5904b58e37629d243afbceb9acdf7d0cf64"
+    },
+    {
+      "path": "skills/zju-hypothesis-design/references/experiment-discrimination.md",
+      "sha256": "b66151391ebae8936e274c79846f390e4f1a134e7bd77f9a01d3af2895d243c7"
+    },
+    {
+      "path": "skills/zju-hypothesis-design/references/hypothesis-canvas.md",
+      "sha256": "6a29c7e0d0dd450c3e570dccd9dafdee307824a8c64c21b22f9f591cb80b389c"
+    },
+    {
+      "path": "skills/zju-hypothesis-design/references/ranking-and-information-gain.md",
+      "sha256": "e1e720c51c47dd494157e2764e26a99282a65e8a4c339f5f7e207d650a19c2c6"
+    },
+    {
+      "path": "skills/zju-hypothesis-design/scripts/select_experiment_portfolio.py",
+      "sha256": "a2c1bdb77184676ea024b761f12ed2e1c67f2dfda9c6d7f22f1c0d349c7b2fcd"
+    },
+    {
+      "path": "skills/zju-hypothesis-design/scripts/validate_hypothesis_set.py",
+      "sha256": "7621c74c0c4c69042e7576a34c7559c3ec1f6d96f9ff244aa984e5610c057bb4"
+    },
+    {
+      "path": "skills/zju-literature-monitor/SKILL.md",
+      "sha256": "ee6b10dd8f35a52fa5d728f4eecf8b137072d06013c9ef363d31434b42296874"
+    },
+    {
+      "path": "skills/zju-literature-monitor/agents/openai.yaml",
+      "sha256": "4bc13e300c05bf88bcba2bb42965d592bddf59894e16475958f57572dbfbdf2f"
+    },
+    {
+      "path": "skills/zju-literature-monitor/references/alert-and-dedup.md",
+      "sha256": "cbd7542fea30ec6d6b5ae20ba9ff548b75de5ba77ea4457c5c9c72c411d63eb2"
+    },
+    {
+      "path": "skills/zju-literature-monitor/references/evidence-linked-monitoring.md",
+      "sha256": "406935f842f1331f806472f0273f3d82710b2e1465531b8c37cefee1dcbed0a9"
+    },
+    {
+      "path": "skills/zju-literature-monitor/references/monitoring-profile.md",
+      "sha256": "5a1e997bf35e770aec004638ba6468cfcf8f3fb74453023c4f67a5f108ff7a75"
+    },
+    {
+      "path": "skills/zju-literature-monitor/scripts/update_monitor_state.py",
+      "sha256": "c119659aa1e829bf7ec76f65aea9790786dd2e454c6e240128e131ab89317305"
+    },
+    {
+      "path": "skills/zju-literature-search/SKILL.md",
+      "sha256": "2e541e90d77dfc05b5405986913e3c3e2b44522288f1036302eb4e35f7740068"
+    },
+    {
+      "path": "skills/zju-literature-search/agents/openai.yaml",
+      "sha256": "69a265d6dd9b19cfcf0b4b19a9db2b4e6b271823bc86d210985c6dd05c85fe49"
+    },
+    {
+      "path": "skills/zju-literature-search/references/database-routing.md",
+      "sha256": "c85af9dc0688a06754df7785173f78d8f27a29562100db97ac1017c91c19cc95"
+    },
+    {
+      "path": "skills/zju-literature-search/references/discovery-closure.md",
+      "sha256": "b1b829b30472e6c2e849899e28ec62c3db0ef316e353ac8093f8534a3a0cd74c"
+    },
+    {
+      "path": "skills/zju-literature-search/references/domain-query-templates.md",
+      "sha256": "fbd2a40d6ea18314bd9e87c8edf771cf4cb018fedc167b6bccd2cb271d12656e"
+    },
+    {
+      "path": "skills/zju-literature-search/references/search-protocol.md",
+      "sha256": "bac397bf3e48fde4f0929ff2a3c8a859634fbd5f9b31e8c330e180148e0e4a88"
+    },
+    {
+      "path": "skills/zju-literature-search/references/untrusted-content.md",
+      "sha256": "e82f25731f55ed12a43e23f2828deceed4a7bfc41c9225ecefff3676181a26ec"
+    },
+    {
+      "path": "skills/zju-literature-search/scripts/assess_search_saturation.py",
+      "sha256": "b3eae0ab948bf48f23a519c35dce9a03680588bb643452613640926a21ed8080"
+    },
+    {
+      "path": "skills/zju-literature-search/scripts/normalize_records.py",
+      "sha256": "6fd8defb52bbb6881bcba81816675acd57b17620c1ae92b49992723163d358dc"
+    },
+    {
+      "path": "skills/zju-paper-reader/SKILL.md",
+      "sha256": "f9edd4229c88dfa6982ec47e76c6b98e27d80a853338cca2d162d507ff597701"
+    },
+    {
+      "path": "skills/zju-paper-reader/agents/openai.yaml",
+      "sha256": "6241184feb85d17f8818d022b90b7dafbf341f22b60ec11a5ebfbcf85dd81985"
+    },
+    {
+      "path": "skills/zju-paper-reader/references/argument-spine.md",
+      "sha256": "9b73109d5dffecd58c7002e2bdf285611d2fee645d75fb56952a3cc1e890d027"
+    },
+    {
+      "path": "skills/zju-paper-reader/references/paper-card.md",
+      "sha256": "e79142ce06da87e024511bd71a053a303df0dd785e57df62b4f603a8d968e40d"
+    },
+    {
+      "path": "skills/zju-paper-reader/references/reader-schema.md",
+      "sha256": "1c3b9a394ce71f6479794edba21cd393ac7654805ba393d79ad0132f90d7c739"
+    },
+    {
+      "path": "skills/zju-paper-reader/scripts/prepare_source.py",
+      "sha256": "381ea8c2b90fe4053ff92afda6fa5d7c504c70a2e83fa7f8601d3375a37b831e"
+    },
+    {
+      "path": "skills/zju-paper-reader/scripts/validate_reader.py",
+      "sha256": "52763ec9960d2923c42336d271de1eadc87c3b666139064b72aaa4c62c09cfba"
+    },
+    {
+      "path": "skills/zju-paper-to-patent/SKILL.md",
+      "sha256": "1771c147786fcdcdc3b087d0007c40a161a9f00ade458e70d54dd26e2e5a4446"
+    },
+    {
+      "path": "skills/zju-paper-to-patent/agents/openai.yaml",
+      "sha256": "4eae9b310a90ccc2eeeee53a5e7a4c6b396654d80e97fe788e96545246ccca38"
+    },
+    {
+      "path": "skills/zju-paper-to-patent/references/disclosure-structure.md",
+      "sha256": "45c5af21f3aab1dfcf78dbb2cfc785aeb06435d765a6e2c2227f23d2c1a931ec"
+    },
+    {
+      "path": "skills/zju-paper-to-patent/references/research-to-invention-map.md",
+      "sha256": "748f5529fc449b7344529ceca486970f914491745984e7993ff694475dcac330"
+    },
+    {
+      "path": "skills/zju-paper-to-patent/references/source-to-claim.md",
+      "sha256": "0ea62d8eacbecf0d17d9fc56e702086daf6286e2d05723cf5b46e57e82e57cac"
+    },
+    {
+      "path": "skills/zju-paper-to-patent/scripts/validate_feature_ledger.py",
+      "sha256": "1de790019b61aead7334d5033cec39359cc015149757b31b4cf1ed3379798f12"
+    },
+    {
+      "path": "skills/zju-paper2ppt/SKILL.md",
+      "sha256": "b4daa9f8ec4dc79604ef1e00596a1121daba6506dfc460564a397ee02da41378"
+    },
+    {
+      "path": "skills/zju-paper2ppt/agents/openai.yaml",
+      "sha256": "5e59ac4fa0a2eeff9eec9c88d681c0543260cd9584ff9da737dbf152cc26a1bd"
+    },
+    {
+      "path": "skills/zju-paper2ppt/references/deck-spec.md",
+      "sha256": "a545077dec45502a519ec8a23e2f04a1c4d91dc562aa1a3c988294aa11c613bc"
+    },
+    {
+      "path": "skills/zju-paper2ppt/references/slide-qa.md",
+      "sha256": "c634ea96af427b7369009730bae9545c5d4c1ae2cd3867d47703e7c50d43e258"
+    },
+    {
+      "path": "skills/zju-paper2ppt/scripts/validate_deck_plan.py",
+      "sha256": "c6c87d2907efc9b27b952ed1eb284bb77e3d2b150bbeef7747745cc4025a2133"
+    },
+    {
+      "path": "skills/zju-proposal-writer/SKILL.md",
+      "sha256": "0076d898eff913c9b5f23200e068c98fe32799a896a28db65112a47a8dd7297a"
+    },
+    {
+      "path": "skills/zju-proposal-writer/agents/openai.yaml",
+      "sha256": "0f492bc94eef7dcd562dcc758739dcfee87efce835d937c73a7ee85e594064ce"
+    },
+    {
+      "path": "skills/zju-proposal-writer/references/evidence-to-execution.md",
+      "sha256": "71a4f1801aa23829544677b7a4f3de5b652bbc207ceda3bc5a927899d90fe7d7"
+    },
+    {
+      "path": "skills/zju-proposal-writer/references/proposal-contract.md",
+      "sha256": "c90bad0175e673c0729ab23bb89519871a6b8cdcae906a204e745b6865c6751c"
+    },
+    {
+      "path": "skills/zju-proposal-writer/references/scheme-routing.md",
+      "sha256": "4e86af094c4ad94afa937ecdb07be49fe43d2a825f9df29894a5e6f2f31c5641"
+    },
+    {
+      "path": "skills/zju-proposal-writer/scripts/validate_proposal_manifest.py",
+      "sha256": "46bcec4aad26b51158908031345df1b642d53d20ddb771bede7e2e1c5d265f41"
+    },
+    {
+      "path": "skills/zju-reference-audit/SKILL.md",
+      "sha256": "9242f3eeb46ea7dd0d6958fc3cae18095b6876a7b6a197a0470461f5fa936188"
+    },
+    {
+      "path": "skills/zju-reference-audit/agents/openai.yaml",
+      "sha256": "3775cb2004084252ac41486c0adbb6510ed61363b979e122c9ff48134077588b"
+    },
+    {
+      "path": "skills/zju-reference-audit/references/audit-protocol.md",
+      "sha256": "35455d57749c71b3b2c9a4ba15d15da32d747cb39b0930af2978dc6a76d5429e"
+    },
+    {
+      "path": "skills/zju-reference-audit/references/support-assessment.md",
+      "sha256": "514f24eaa3c719bddea98ae57c263eeb30edd39e7d530664a5127c1b2b85bbc3"
+    },
+    {
+      "path": "skills/zju-reference-audit/scripts/compare_metadata.py",
+      "sha256": "42c052ea441dfa0b76dfed097ab7a50c745bb8a0cdcae0427ddee743d7b1c831"
+    },
+    {
+      "path": "skills/zju-reference-audit/scripts/validate_status_freshness.py",
+      "sha256": "0c4fd112ff0e4339bd8ce3be2f3836455f4b9bf673fc1ee7c2035510a34203bd"
+    },
+    {
+      "path": "skills/zju-research-director/SKILL.md",
+      "sha256": "5cbb5fa00310ca213f554192dffb3f7964afeb0df8565c9f6bed8f0ad369ee7d"
+    },
+    {
+      "path": "skills/zju-research-director/agents/openai.yaml",
+      "sha256": "1e1f7393769f8e3770c6297ddf9ca9d763d0403a3c95f910cd8a16e4279da8b4"
+    },
+    {
+      "path": "skills/zju-research-director/references/artifact-envelope.schema.yaml",
+      "sha256": "88bf95da921d17b1e5ce1147f9bf2761afdd5ee0ec0cc5cf0eb2535bd107df62"
+    },
+    {
+      "path": "skills/zju-research-director/references/autonomy-levels.md",
+      "sha256": "7771df4e04aee934d047c4ee8308ca966defc468fa5d7e364a4a4b9b4d5572bb"
+    },
+    {
+      "path": "skills/zju-research-director/references/capability-registry.yaml",
+      "sha256": "2138efae46408db0f7cef256690fa6e5bf73ebe85c4c97ff2d8b10ed6d04fb45"
+    },
+    {
+      "path": "skills/zju-research-director/references/executor-registry.yaml",
+      "sha256": "818157060b7f32ecc73a869602de234b033b1a56fc45c899cdae87f4f2865cc8"
+    },
+    {
+      "path": "skills/zju-research-director/references/gate-matrix.md",
+      "sha256": "553d13367ee67bcd33f446f13095d818a5ae6273711da96b87b2fa728f34748d"
+    },
+    {
+      "path": "skills/zju-research-director/references/mission-schema.yaml",
+      "sha256": "44f802d1b5244e2bacdd05fcd3d6754a0cb08b50486b5c6ed18644f1301799a5"
+    },
+    {
+      "path": "skills/zju-research-director/references/routing-policy.md",
+      "sha256": "ace08d6c262cd5419890416358e1daec252185732e45dcc84c5de147fccca35e"
+    },
+    {
+      "path": "skills/zju-research-director/references/trusted-validation-attestation.schema.yaml",
+      "sha256": "21e127d35d13eec597799da932f8423f21b062a4bcaeed93ee9961fac6c0048e"
+    },
+    {
+      "path": "skills/zju-research-director/scripts/advance_mission.py",
+      "sha256": "c2c1ef138e55de3349b84b37fd7cfb76ad04aac8ce42e57d4437c7dd0788471b"
+    },
+    {
+      "path": "skills/zju-research-director/scripts/check_stage_gate.py",
+      "sha256": "c506986b1cf59cd1eb30899b8f6f6a4ee5cda0d19cfe44343fd70b097d455eee"
+    },
+    {
+      "path": "skills/zju-research-director/scripts/merge_artifacts.py",
+      "sha256": "bc64035f1be498336a4c460afe1bab7ba370a87f7c905712162aa8db2fe18163"
+    },
+    {
+      "path": "skills/zju-research-director/scripts/migrate_mission.py",
+      "sha256": "2f5484881a538464e94ad7431f3709c0f8e2bc5de83994c6e13fd0764cd2508e"
+    },
+    {
+      "path": "skills/zju-research-director/scripts/plan_mission.py",
+      "sha256": "2461b81cce5c5a8929068f7e0a92f8988516cd4fd6a3a80f65625def52871c1b"
+    },
+    {
+      "path": "skills/zju-research-director/scripts/resolve_executor.py",
+      "sha256": "871b7ca0ba287d6ff04bd968f698befcfdb5417627264cc115ee6a7d003b573f"
+    },
+    {
+      "path": "skills/zju-research-director/scripts/validate_artifact.py",
+      "sha256": "61fc735c9c4a563f53a2b327c991f68f578135ceb94cc635b5d0aca6512e7558"
+    },
+    {
+      "path": "skills/zju-research-director/scripts/validate_mission.py",
+      "sha256": "c10124d19d1072e489dfa2c199fc0c3318d2c7e7e03122d30d7182c9b8331f72"
+    },
+    {
+      "path": "skills/zju-research-integrity/SKILL.md",
+      "sha256": "bcc567f13689f64e42014fd1996951feb91a82b4b37013ce6c15bd57327a1ce1"
+    },
+    {
+      "path": "skills/zju-research-integrity/agents/openai.yaml",
+      "sha256": "b6acb293b5b30db7c8c5cbf794776e3a14c774adee2061060dc87c56148763c1"
+    },
+    {
+      "path": "skills/zju-research-integrity/references/incident-triage.md",
+      "sha256": "4dda53732db57a052963359ca8845369e68c4233cb4d1be419e5772e46949dfa"
+    },
+    {
+      "path": "skills/zju-research-integrity/references/integrity-checklist.md",
+      "sha256": "571825d6955cd11e5fdb213ef57a3b8bbcd16ba5e04657671dd19964a98d470d"
+    },
+    {
+      "path": "skills/zju-research-integrity/references/zju-policy-routing.md",
+      "sha256": "3b97bf6646e82e8314d0365004eba95e2b3c58967dc932aa86c964170b3be128"
+    },
+    {
+      "path": "skills/zju-research-integrity/scripts/audit_provenance_manifest.py",
+      "sha256": "be2d8be1d8fc465cb2b12ea146e9ccef103e3a0497abf7dd6b9be64beea59822"
+    },
+    {
+      "path": "skills/zju-review-response/SKILL.md",
+      "sha256": "3826db20345066e010267a8c2451f83d20f051a2a26e6d9fb43cfd2a6f19feb2"
+    },
+    {
+      "path": "skills/zju-review-response/agents/openai.yaml",
+      "sha256": "d7400c19d4ccbd1ab91c0e6f9c676bb751ae22529ec99f4f452aeb805bd30c74"
+    },
+    {
+      "path": "skills/zju-review-response/references/package-consistency.md",
+      "sha256": "e0b11576705d2e9bc10e233dc69e5551d69d90e302ec64f4c7d7358947e512bd"
+    },
+    {
+      "path": "skills/zju-review-response/references/response-tracker.md",
+      "sha256": "830c4c68975a3ecf74ab5ca523a852779cffd000b4844834d43f40bf7c840193"
+    },
+    {
+      "path": "skills/zju-review-response/scripts/validate_response_tracker.py",
+      "sha256": "7e38b83243b51845441ae325703cd0db6cfe4bc3c8fc324e954eded4e9b47cda"
+    },
+    {
+      "path": "skills/zju-reviewer/SKILL.md",
+      "sha256": "f7027891c9391f07057bd6cb251bafcd3db6de0731ff8855bf043d4fd16ee73a"
+    },
+    {
+      "path": "skills/zju-reviewer/agents/openai.yaml",
+      "sha256": "d147e96d888b0214b3146f0dce67d226874e2b235b5b3f15138bbd6848f1bc9e"
+    },
+    {
+      "path": "skills/zju-reviewer/references/report-contract.md",
+      "sha256": "d72841ca1be339438804b4375fbd40ab48b8ea078bc8408ec2738e8be5ee839a"
+    },
+    {
+      "path": "skills/zju-reviewer/references/review-axes.md",
+      "sha256": "caac229ca562d5af7383dbd3ad336ee1518d0f0ba84cd326ec78211711a552bc"
+    },
+    {
+      "path": "skills/zju-reviewer/scripts/validate_review_report.py",
+      "sha256": "109774d9604e218a5717edd88f6844e0d0756de99cc9349d8488776292298c40"
+    },
+    {
+      "path": "skills/zju-scientific-figure/SKILL.md",
+      "sha256": "9ff028367fd806857d539989b9e098b2d129c6c3ee7ee053583ff77df9231c34"
+    },
+    {
+      "path": "skills/zju-scientific-figure/agents/openai.yaml",
+      "sha256": "93deab310b0040dd679792eb0c4a526cc96051f5d6aa270e773e5d0719ea46ae"
+    },
+    {
+      "path": "skills/zju-scientific-figure/references/executable-figure-spec.md",
+      "sha256": "2dae2970b89e7c051cee949ecfb4bbed39e028efd82ee0cc8cfa3a7f2f8a10c1"
+    },
+    {
+      "path": "skills/zju-scientific-figure/references/figure-contract.md",
+      "sha256": "55bbb480897fcace2d3657bc46342b081ef23da524256c1f9a4e368f52183f99"
+    },
+    {
+      "path": "skills/zju-scientific-figure/references/qa-checklist.md",
+      "sha256": "b406814de2a21b4f9848a8684e1f13e9808dec74a7ca1f39847155b21ed48845"
+    },
+    {
+      "path": "skills/zju-scientific-figure/scripts/render_from_registry.py",
+      "sha256": "398c34c8298e6596883dcf167a71811873f209989f158607cf8105ccb4f3edba"
+    },
+    {
+      "path": "skills/zju-scientific-figure/scripts/validate_figure_manifest.py",
+      "sha256": "fc5cd2f6a942982a77b4db933d000376d31e6d901eaf9dfa72963e8246195193"
+    },
+    {
+      "path": "skills/zju-scientific-writing/SKILL.md",
+      "sha256": "e6f55d2de55dfa576769b09a2577975cf813e06b6c4abb30631b0345f67dc01d"
+    },
+    {
+      "path": "skills/zju-scientific-writing/agents/openai.yaml",
+      "sha256": "9c4d763c7df142a6ba617d3e19ec8da74e0fb7745b5db5d4a31e401557a70dfa"
+    },
+    {
+      "path": "skills/zju-scientific-writing/references/claim-evidence-ledger.md",
+      "sha256": "9334ffade343c0d121a59d56d1d8fa10f49d85286a841fe5ff4cb4e6376315b2"
+    },
+    {
+      "path": "skills/zju-scientific-writing/references/contribution-contract.md",
+      "sha256": "654b0bfe98bc1a0d5fe53e97fbd621fb5fe26a243da367b450db9cbfec917304"
+    },
+    {
+      "path": "skills/zju-scientific-writing/references/writing-modes.md",
+      "sha256": "f09997886127746163cc43afab193cb088d422f8eff3cafd0339d2ce31ff903a"
+    },
+    {
+      "path": "skills/zju-scientific-writing/scripts/check_claim_ledger.py",
+      "sha256": "0ac76cc174b041fd03ec267f335235f4d699f7197b9e1fa854de1fe3dfba7968"
+    },
+    {
+      "path": "skills/zju-scientific-writing/scripts/check_writing_contract.py",
+      "sha256": "020660adc97f7073f9bd717d40e3030887f6eb1334ea5c19d46e4c04de47b67c"
+    },
+    {
+      "path": "skills/zju-statistics-audit/SKILL.md",
+      "sha256": "78881d3dd866650c6b90ed2de0111364707b65e663ca9aec74bbdd5c0de0da94"
+    },
+    {
+      "path": "skills/zju-statistics-audit/agents/openai.yaml",
+      "sha256": "3adb187d3c701b70774d18b795ad132b3fcac213a6a88904601ebd06e89ab902"
+    },
+    {
+      "path": "skills/zju-statistics-audit/references/analysis-decision-map.md",
+      "sha256": "69748e99d46d5acb6cd70869130eceeec116f1436f4f8ca817dcaf922a470a93"
+    },
+    {
+      "path": "skills/zju-statistics-audit/references/audit-checklist.md",
+      "sha256": "b55ec91629204afc54a6e801a96ea4e0f7cd75b7b0bbc757d0a5bea23b198d45"
+    },
+    {
+      "path": "skills/zju-statistics-audit/references/execution-contract.md",
+      "sha256": "213466ded6882e11a22b9a8a6cea5059b2db3101ef6007db62a385b4277467e0"
+    },
+    {
+      "path": "skills/zju-statistics-audit/references/reporting-template.md",
+      "sha256": "976321a6d216f34e70fddf687124cfa2d3a20ab71f6373ffa5e86a61c34ebe39"
+    },
+    {
+      "path": "skills/zju-statistics-audit/references/result-registry.md",
+      "sha256": "90566689f1aa4b4099e4b6906ebdee0de33df9a3c833eee730f1f0da26e0c658"
+    },
+    {
+      "path": "skills/zju-statistics-audit/scripts/execute_analysis.py",
+      "sha256": "efcfc971d4fb75cad759a8df3788e56e1414538db760c98f1d8ff104ced1169b"
+    },
+    {
+      "path": "skills/zju-statistics-audit/scripts/reconcile_result_registry.py",
+      "sha256": "adbc494d0e203bc4c10901f13a3e8cb7d98042b7593b149ad27419e3f1537d5b"
+    },
+    {
+      "path": "skills/zju-statistics-audit/scripts/render_result_tokens.py",
+      "sha256": "98ebfe2ea35dc537791295bceb6a86ab3d42330e1a40676888590f937195e40c"
+    },
+    {
+      "path": "skills/zju-statistics-audit/scripts/scan_reporting.py",
+      "sha256": "eb0175cf0351ad125fe5f2b9f6cbc94c318a2a140d54889904171168eddd402e"
+    },
+    {
+      "path": "skills/zju-statistics-audit/scripts/validate_analysis_contract.py",
+      "sha256": "0a3511fe8c22b8e593f4d6205517e84816be10c63f07aad846e7c7f00a6b004c"
+    },
+    {
+      "path": "skills/zju-statistics-audit/scripts/validate_result_handoff.py",
+      "sha256": "0630ee5be4af1b52e4135c6f9aed4916c5313be646d47c84e3e38c6dfed997cc"
+    }
+  ]
+}

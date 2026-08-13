@@ -37,3 +37,14 @@ jobs:
         run: python evals/audit_skill_portfolio.py --minimum 80
       - name: Validate evaluation suites
         run: python evals/validate_suite.py
+      - name: Rebuild the twenty-skill L1 census
+        run: |
+          python evals/generate_l1_census_v3.py --output evals/l1-contract-census-v3.json
+          git diff --exit-code -- evals/l1-contract-census-v3.json
+      - name: Verify current portfolio gate remains fail-closed
+        shell: bash
+        run: |
+          set +e
+          python evals/score_portfolio_v3.py --results evals/current-portfolio-evidence-v3.json --output portfolio-v3-current-score.json
+          status=$?
+          test "$status" -eq 2

@@ -1,5 +1,6 @@
 {
   "schema_version": "1.0",
+  "consumption_status": "design_fixture_requires_evaluator_supplied_binary_inputs",
   "fixtures": [
     {"id":"text-only","inputs":[{"type":"text","content":"Sample A changed from clear to pale yellow after 10 min."}],"missing":["operator"],"gold_checks":["unknown operator","observation preserved","no inferred mechanism"]},
     {"id":"image-only","inputs":[{"type":"image","path":"fixtures/raw/plate-before.png"},{"type":"image","path":"fixtures/raw/plate-after.png"}],"gold_checks":["paths retained","hash if accessible","visible facts only"]},

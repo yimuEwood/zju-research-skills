@@ -1,0 +1,228 @@
+{
+  "$schema": "skill-evaluation-matrix-v3.schema.json",
+  "schema_version": "3.0",
+  "matrix_id": "zju-twenty-skill-checklist-v3",
+  "checklist_rule": "Every capability ID must occur in deterministic cases where applicable and in both controlled and frozen task suites. Case authors may add stricter checks but may not delete these.",
+  "skills": [
+    {
+      "skill_id": "zju-literature-search",
+      "strongest_open_source_baseline_candidates": ["nature-academic-search", "K-Dense paper-lookup"],
+      "capabilities": [
+        {"id": "query_design", "criterion": "Decompose the question into reproducible source-specific queries and eligibility criteria."},
+        {"id": "multi_source_recall", "criterion": "Use complementary source families and disclose coverage limitations."},
+        {"id": "identity_dedup", "criterion": "Preserve stable identifiers, provenance, and identifier-first deduplication."},
+        {"id": "screening_saturation", "criterion": "Account for screening, exclusions, citation expansion, contradictions, and stopping evidence."},
+        {"id": "search_handoff", "criterion": "Produce a traceable search map suitable for access, synthesis, and monitoring."}
+      ]
+    },
+    {
+      "skill_id": "zju-fulltext-access",
+      "strongest_open_source_baseline_candidates": ["nature-downloader"],
+      "capabilities": [
+        {"id": "target_identity", "criterion": "Resolve the exact work, version, supplement, correction, and retraction family."},
+        {"id": "lawful_route", "criterion": "Rank OA, official API, licensed ZJU, and manual routes without overstating entitlement."},
+        {"id": "source_package", "criterion": "Record obtained and missing components with stable identity and access status."},
+        {"id": "failure_recovery", "criterion": "Return an executable manual or library path after automation failure."},
+        {"id": "access_boundary", "criterion": "Reject credential persistence, paywall bypass, and prohibited bulk retrieval while preserving a useful path."}
+      ]
+    },
+    {
+      "skill_id": "zju-reference-audit",
+      "strongest_open_source_baseline_candidates": ["nature-ref-verifier", "nature-citation", "K-Dense citation-management"],
+      "capabilities": [
+        {"id": "field_identity", "criterion": "Compare DOI, authors, title, dates, venue, volume, issue, and pages field by field."},
+        {"id": "status_version", "criterion": "Detect correction, retraction, expression-of-concern, and version relationships with dated evidence."},
+        {"id": "claim_support", "criterion": "Judge the exact cited claim separately from bibliographic identity and within study-design limits."},
+        {"id": "conflict_uncertainty", "criterion": "Preserve source conflicts and unassessable claims without guessing."},
+        {"id": "repair_actions", "criterion": "Return usable citation and Zotero corrections with human-confirmation boundaries."}
+      ]
+    },
+    {
+      "skill_id": "zju-paper-reader",
+      "strongest_open_source_baseline_candidates": ["nature-reader", "nature-paper-card"],
+      "capabilities": [
+        {"id": "coverage_anchors", "criterion": "Cover the full available document and anchor claims to pages, sections, and objects."},
+        {"id": "object_reading", "criterion": "Interpret equations, figures, tables, supplements, and extraction gaps without invention."},
+        {"id": "argument_spine", "criterion": "Reconstruct question, design, evidence, warrant, alternatives, and boundary conditions."},
+        {"id": "claim_separation", "criterion": "Separate author claims, reported observations, and reader interpretation."},
+        {"id": "reader_handoff", "criterion": "Emit source-bound paper-spine records for synthesis and hypothesis work."}
+      ]
+    },
+    {
+      "skill_id": "zju-experiment-log",
+      "strongest_open_source_baseline_candidates": ["nature-experiment-log"],
+      "capabilities": [
+        {"id": "mixed_input_capture", "criterion": "Capture text, image, audio/transcript, instrument, and file facts without changing originals."},
+        {"id": "parseable_record", "criterion": "Produce parseable YAML/Markdown with required experiment fields and explicit unknowns."},
+        {"id": "design_handoff", "criterion": "Preserve experimental units, replicates, hierarchy, outcomes, exclusions, and analysis status."},
+        {"id": "lineage_hashes", "criterion": "Link raw and derived artifacts by paths, hashes, roles, and derivation."},
+        {"id": "append_only_correction", "criterion": "Represent corrections and retrospective reconstruction without overwriting or backdating observations."}
+      ]
+    },
+    {
+      "skill_id": "zju-statistics-audit",
+      "strongest_open_source_baseline_candidates": ["nature-statistics", "K-Dense statistical-analysis"],
+      "capabilities": [
+        {"id": "design_estimand", "criterion": "Identify the estimand, experimental unit, dependence, analysis population, and design defects."},
+        {"id": "method_execution", "criterion": "Execute supported methods faithfully and reject unsupported design simplifications."},
+        {"id": "effect_uncertainty", "criterion": "Report effect sizes, intervals, exact sample accounting, diagnostics, and sensitivity."},
+        {"id": "multiplicity_missingness", "criterion": "Handle families, missingness, exclusions, and analysis changes transparently."},
+        {"id": "result_reconciliation", "criterion": "Bind canonical result IDs across manuscript, figure, table, supplement, and response."}
+      ]
+    },
+    {
+      "skill_id": "zju-scientific-writing",
+      "strongest_open_source_baseline_candidates": ["nature-writing", "nature-polishing", "K-Dense scientific-writing"],
+      "capabilities": [
+        {"id": "mode_fidelity", "criterion": "Distinguish draft, revise, and polish behavior and preserve the requested scope."},
+        {"id": "claim_evidence", "criterion": "Bind every material claim to author data, methods, or verified literature."},
+        {"id": "numeric_invariants", "criterion": "Preserve numbers, direction, significance, units, terminology, and citation scope."},
+        {"id": "argument_quality", "criterion": "Build a coherent question-to-evidence argument with bounded interpretation and limitations."},
+        {"id": "cross_artifact_consistency", "criterion": "Keep claims and result IDs aligned across all manuscript surfaces."}
+      ]
+    },
+    {
+      "skill_id": "zju-literature-monitor",
+      "strongest_open_source_baseline_candidates": ["nature-literature-pipeline"],
+      "capabilities": [
+        {"id": "profile_versioning", "criterion": "Version the monitoring question, source queries, cadence, and watch targets."},
+        {"id": "state_transition", "criterion": "Distinguish new, updated, duplicate, unresolved, corrected, and retracted records."},
+        {"id": "run_accounting", "criterion": "Preserve source-specific counts, failures, screening, and query drift without false zeros."},
+        {"id": "decision_priority", "criterion": "Prioritize records by their effect on claims, gaps, hypotheses, data, and code."},
+        {"id": "bounded_delivery", "criterion": "Keep archive and notification actions explicit, authorized, bounded, and resumable."}
+      ]
+    },
+    {
+      "skill_id": "zju-evidence-synthesis",
+      "strongest_open_source_baseline_candidates": ["nature-literature-pipeline", "K-Dense literature-review"],
+      "capabilities": [
+        {"id": "protocol_selection", "criterion": "Choose and freeze an appropriate synthesis mode, eligibility frame, and deviations."},
+        {"id": "study_outcome_table", "criterion": "Extract anchored study-outcome-timepoint records without double counting studies."},
+        {"id": "bias_applicability", "criterion": "Assess design-appropriate bias, directness, and applicability with explicit unknowns."},
+        {"id": "pooling_conflict", "criterion": "Gate pooling and distinguish direction conflict, heterogeneity, and evidence-strength imbalance."},
+        {"id": "certainty_handoff", "criterion": "Grade certainty by outcome and preserve claim, gap, and study IDs downstream."}
+      ]
+    },
+    {
+      "skill_id": "zju-hypothesis-design",
+      "strongest_open_source_baseline_candidates": ["PaperSpine", "Supervisor-Skills idea-evaluation"],
+      "capabilities": [
+        {"id": "evidence_assumption", "criterion": "Separate observations, verified evidence, assumptions, and speculation."},
+        {"id": "competing_mechanisms", "criterion": "Generate materially different alternatives including null or artifact explanations."},
+        {"id": "predictions_falsifiers", "criterion": "Give prospective outcome signatures, boundaries, and falsifiers for each hypothesis."},
+        {"id": "causal_design", "criterion": "Map causal structure, confounding, controls, and experimental units."},
+        {"id": "discrimination_rules", "criterion": "Rank staged experiments by discrimination and write pre-result decision and stop rules."}
+      ]
+    },
+    {
+      "skill_id": "zju-scientific-figure",
+      "strongest_open_source_baseline_candidates": ["nature-figure", "K-Dense scientific-visualization"],
+      "capabilities": [
+        {"id": "claim_data_binding", "criterion": "Bind panel claims, variables, units, experimental units, and result IDs to source artifacts."},
+        {"id": "visual_encoding", "criterion": "Choose marks that represent design, dependence, uncertainty, and sample structure correctly."},
+        {"id": "transformation_provenance", "criterion": "Record transformations and image adjustments without altering scientific content."},
+        {"id": "reproducible_export", "criterion": "Generate editable source and correct requested vector/raster artifacts."},
+        {"id": "visual_qa", "criterion": "Inspect target-size rendering, accessibility, legend completeness, and data-to-mark consistency."}
+      ]
+    },
+    {
+      "skill_id": "zju-paper2ppt",
+      "strongest_open_source_baseline_candidates": ["nature-paper2ppt"],
+      "capabilities": [
+        {"id": "evidence_arc", "criterion": "Build a time-bounded audience-appropriate narrative from the paper's evidence."},
+        {"id": "slide_source_map", "criterion": "Anchor every slide claim, number, visual, and equation to the source."},
+        {"id": "terminology_notes", "criterion": "Maintain terminology, equation explanation, timing, and speaker-note support."},
+        {"id": "pptx_artifact", "criterion": "Create an actual inspectable PPTX when requested and distinguish plan from generated artifact."},
+        {"id": "render_qa", "criterion": "Render and inspect every slide for clipping, fonts, glyphs, resolution, and readability."}
+      ]
+    },
+    {
+      "skill_id": "zju-reviewer",
+      "strongest_open_source_baseline_candidates": ["nature-reviewer", "Supervisor-Skills pre-submission-reviewer"],
+      "capabilities": [
+        {"id": "claim_reconstruction", "criterion": "Reconstruct central claims, contribution, evidence chain, and assessment boundary."},
+        {"id": "validity_review", "criterion": "Evaluate scientific validity, statistics, reproducibility, reporting, and domain objections."},
+        {"id": "actionable_concerns", "criterion": "Give stable, evidence-anchored concerns with consequence and feasible resolution tests."},
+        {"id": "severity_fairness", "criterion": "Separate blocking, major, minor, and not-assessable items without a concern quota."},
+        {"id": "panel_integrity", "criterion": "Preserve reviewer isolation and disclose when independent panel conditions are unavailable."}
+      ]
+    },
+    {
+      "skill_id": "zju-review-response",
+      "strongest_open_source_baseline_candidates": ["nature-response"],
+      "capabilities": [
+        {"id": "comment_ledger", "criterion": "Preserve verbatim editor/reviewer items, boundaries, stable IDs, owners, and status."},
+        {"id": "action_truth", "criterion": "Never describe planned or unverified work as completed."},
+        {"id": "evidence_diff", "criterion": "Link each response to evidence, result IDs, exact manuscript changes, and locations."},
+        {"id": "scientific_disagreement", "criterion": "Handle disagreement respectfully with evidence, clarification, and bounded alternatives."},
+        {"id": "package_consistency", "criterion": "Keep reviewer-separated letters, manuscript, redline, figures, supplement, and numbers aligned."}
+      ]
+    },
+    {
+      "skill_id": "zju-data-availability",
+      "strongest_open_source_baseline_candidates": ["nature-data"],
+      "capabilities": [
+        {"id": "artifact_inventory", "criterion": "Map every claim-supporting data, code, material, and environment artifact by stable ID."},
+        {"id": "access_restrictions", "criterion": "Represent public, controlled, embargoed, third-party, and unavailable routes truthfully."},
+        {"id": "identifier_license", "criterion": "Verify repositories, versions, identifiers, licenses, metadata, and citation details."},
+        {"id": "reproducibility_package", "criterion": "Specify inputs, environment, entrypoint, seeds, expected outputs, lineage, and verification."},
+        {"id": "statement_consistency", "criterion": "Keep the polished statement consistent with the inventory and unresolved owner decisions."}
+      ]
+    },
+    {
+      "skill_id": "zju-proposal-writer",
+      "strongest_open_source_baseline_candidates": ["nature-proposal-writer", "PaperSpine"],
+      "capabilities": [
+        {"id": "call_compliance", "criterion": "Extract and enforce the supplied current call, limits, criteria, eligibility, and attachments."},
+        {"id": "research_canon", "criterion": "Separate verified evidence, preliminary facts, resources, assumptions, and unresolved claims."},
+        {"id": "gap_objectives", "criterion": "Connect bounded gaps and competing hypotheses to measurable objectives and contributions."},
+        {"id": "work_packages", "criterion": "Create dependency-aware work packages with units, outputs, milestones, and success/inconclusive/failure branches."},
+        {"id": "feasibility_risk", "criterion": "Align evidence, resources, schedule, budget, ethics, data, risk, and reproducibility without invention."}
+      ]
+    },
+    {
+      "skill_id": "zju-paper-to-patent",
+      "strongest_open_source_baseline_candidates": ["nature-paper-to-patent"],
+      "capabilities": [
+        {"id": "confidentiality_disclosure", "criterion": "Preserve confidentiality and exact disclosure facts before drafting."},
+        {"id": "feature_support", "criterion": "Bind every feature, number, condition, effect, and alternative to exact source anchors and support states."},
+        {"id": "claim_maps", "criterion": "Build problem-solution-effect, feature-evidence, dependency, and embodiment maps without unsupported broadening."},
+        {"id": "prior_art_separation", "criterion": "Separate query plans, search hits, verified facts, and professional legal conclusions."},
+        {"id": "inventorship_legal_boundary", "criterion": "Avoid inventorship and patentability conclusions and prepare a usable professional handoff."}
+      ]
+    },
+    {
+      "skill_id": "zju-chemistry-databases",
+      "strongest_open_source_baseline_candidates": ["K-Dense chemistry database skills", "yorke scientific-skills"],
+      "capabilities": [
+        {"id": "chemical_identity", "criterion": "Resolve parent, salt, stereochemistry, isotope, charge, tautomer, and identifier provenance."},
+        {"id": "task_routing", "criterion": "Choose appropriate public and licensed databases by evidence need and query mode."},
+        {"id": "evidence_strata", "criterion": "Keep experimental, curated, computed, predicted, vendor, and regulatory evidence distinct."},
+        {"id": "condition_comparison", "criterion": "Compare properties, bioactivity, reactions, or spectra only under compatible identities and conditions."},
+        {"id": "conflict_resolution", "criterion": "Preserve provenance, uncertainty, access limits, and unresolved database conflicts."}
+      ]
+    },
+    {
+      "skill_id": "zju-research-integrity",
+      "strongest_open_source_baseline_candidates": ["Auto-claude-code-research-in-sleep review gates", "PaperSpine audit checks"],
+      "capabilities": [
+        {"id": "evidence_preservation", "criterion": "Preserve originals, versions, hashes, approvals, environments, and communication boundaries."},
+        {"id": "claim_provenance_audit", "criterion": "Map claims to data, code, images, statistics, citations, approvals, and contributors."},
+        {"id": "neutral_triage", "criterion": "Separate facts, anomalies, missing documentation, interpretations, and allegations."},
+        {"id": "scope_severity", "criterion": "Assess integrity domains and severity without automated guilt or intent findings."},
+        {"id": "remediation_escalation", "criterion": "Recommend proportionate remediation, owners, holds, disclosure, and current authorized escalation routes."}
+      ]
+    },
+    {
+      "skill_id": "zju-research-director",
+      "strongest_open_source_baseline_candidates": ["PaperSpine", "Auto-claude-code-research-in-sleep"],
+      "capabilities": [
+        {"id": "mission_state", "criterion": "Create, validate, resume, and audit versioned mission state without erasing failures or unknowns."},
+        {"id": "minimal_dag_routing", "criterion": "Select the smallest correct specialist DAG with prerequisites, outputs, gates, and stop conditions."},
+        {"id": "artifact_gate_truth", "criterion": "Bind real artifacts, validators, hashes, attestations, and human decisions before advancing status."},
+        {"id": "execution_provider", "criterion": "Resolve available host providers explicitly and preserve unresolved execution requirements."},
+        {"id": "cross_skill_release", "criterion": "Maintain evidence/result/artifact identity and release gates across an end-to-end research mission."}
+      ]
+    }
+  ]
+}

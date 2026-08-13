@@ -1,0 +1,27 @@
+{
+  "$schema": "portfolio-results-v3.schema.json",
+  "schema_version": "3.0",
+  "protocol_id": "zju-portfolio-twenty-skill-v3",
+  "run_id": "portfolio-v3-not-run",
+  "skill_commit": null,
+  "protocol_sha256": null,
+  "capability_matrix_sha256": null,
+  "run_manifest_sha256": null,
+  "baseline_selection": {},
+  "rater_precommit": null,
+  "holdout_declaration": {
+    "frozen": false,
+    "unseen": false,
+    "first_attempt": false,
+    "independent_administration": false,
+    "lock_sha256": null,
+    "case_document_sha256": null,
+    "case_fingerprints_sha256": null,
+    "first_attempt_registry_sha256": null,
+    "allocation_commitment_sha256": null,
+    "allocation_reveal_sha256": null,
+    "independent_administration_attestation_sha256": null
+  },
+  "protocol_deviations": [],
+  "records": []
+}

@@ -1,0 +1,295 @@
+{
+  "schema_version": "1.0",
+  "scope": "Capability evidence inventory. Coverage gates show whether an ability has a script/contract test and designed evaluation cases; they are not scientific-quality scores.",
+  "skill_count": 20,
+  "coverage_ready_count": 20,
+  "missing_fixture_skill_names": [],
+  "skills": [
+    {
+      "skill": "zju-chemistry-databases",
+      "script_count": 2,
+      "scripts_referenced_by_tests": [
+        "build_evidence_matrix.py",
+        "validate_chemistry_records.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "chemistry_evidence",
+      "fixture_expected_behavior": "identity, conditions, assay and evidence strata prevent unsafe pooling",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-data-availability",
+      "script_count": 2,
+      "scripts_referenced_by_tests": [
+        "build_release_manifest.py",
+        "validate_data_inventory.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "data_inventory",
+      "fixture_expected_behavior": "artifacts and reproducibility packages support declared result IDs",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-evidence-synthesis",
+      "script_count": 3,
+      "scripts_referenced_by_tests": [
+        "build_conflict_matrix.py",
+        "pool_effects.py",
+        "validate_evidence_table.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "conflict_matrix",
+      "fixture_expected_behavior": "supporting and contradicting evidence is not silently pooled",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-experiment-log",
+      "script_count": 2,
+      "scripts_referenced_by_tests": [
+        "build_log.py",
+        "validate_run_manifest.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "run_manifest",
+      "fixture_expected_behavior": "inputs, outputs, hashes and decision ownership are traceable",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-fulltext-access",
+      "script_count": 1,
+      "scripts_referenced_by_tests": [
+        "classify_access.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "route_classification",
+      "fixture_expected_behavior": "OA routes are preferred and interactive access is explicit",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-hypothesis-design",
+      "script_count": 2,
+      "scripts_referenced_by_tests": [
+        "select_experiment_portfolio.py",
+        "validate_hypothesis_set.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "hypothesis_ranking",
+      "fixture_expected_behavior": "competing hypotheses and discriminating experiments are required",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-literature-monitor",
+      "script_count": 1,
+      "scripts_referenced_by_tests": [
+        "update_monitor_state.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "state_transition",
+      "fixture_expected_behavior": "new, updated and duplicate records remain distinguishable",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-literature-search",
+      "script_count": 2,
+      "scripts_referenced_by_tests": [
+        "assess_search_saturation.py",
+        "normalize_records.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "record_normalization",
+      "fixture_expected_behavior": "DOI aliases deduplicate while provenance is retained",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-paper-reader",
+      "script_count": 2,
+      "scripts_referenced_by_tests": [
+        "prepare_source.py",
+        "validate_reader.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "source_preparation",
+      "fixture_expected_behavior": "page anchors and extraction coverage are emitted",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-paper-to-patent",
+      "script_count": 1,
+      "scripts_referenced_by_tests": [
+        "validate_feature_ledger.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "feature_ledger",
+      "fixture_expected_behavior": "claim features remain linked to exact source anchors",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-paper2ppt",
+      "script_count": 1,
+      "scripts_referenced_by_tests": [
+        "validate_deck_plan.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "deck_plan",
+      "fixture_expected_behavior": "each slide has a claim, source anchors, notes and a time budget",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-proposal-writer",
+      "script_count": 1,
+      "scripts_referenced_by_tests": [
+        "validate_proposal_manifest.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "proposal_manifest",
+      "fixture_expected_behavior": "objectives, experiments, gates and evidence links are executable",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-reference-audit",
+      "script_count": 2,
+      "scripts_referenced_by_tests": [
+        "compare_metadata.py",
+        "validate_status_freshness.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "metadata_comparison",
+      "fixture_expected_behavior": "DOI normalization and field mismatches are deterministic",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-research-director",
+      "script_count": 11,
+      "scripts_referenced_by_tests": [
+        "advance_mission.py",
+        "artifact_contract.py",
+        "authorization_contract.py",
+        "check_stage_gate.py",
+        "director_common.py",
+        "merge_artifacts.py",
+        "migrate_mission.py",
+        "plan_mission.py",
+        "resolve_executor.py",
+        "validate_artifact.py",
+        "validate_mission.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 20,
+      "capability_fixture_kind": "executor_resolution",
+      "fixture_expected_behavior": "available compatible providers are selected deterministically",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-research-integrity",
+      "script_count": 1,
+      "scripts_referenced_by_tests": [
+        "audit_provenance_manifest.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "provenance_manifest",
+      "fixture_expected_behavior": "artifact identity and hashes are checked against local files",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-review-response",
+      "script_count": 1,
+      "scripts_referenced_by_tests": [
+        "validate_response_tracker.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "response_tracker",
+      "fixture_expected_behavior": "completed responses require verified evidence and exact locations",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-reviewer",
+      "script_count": 1,
+      "scripts_referenced_by_tests": [
+        "validate_review_report.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "review_report",
+      "fixture_expected_behavior": "concerns have severity, evidence pointers and resolution tests",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-scientific-figure",
+      "script_count": 2,
+      "scripts_referenced_by_tests": [
+        "render_from_registry.py",
+        "validate_figure_manifest.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "figure_manifest",
+      "fixture_expected_behavior": "sources, hashes, anchors and exports are bound",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-scientific-writing",
+      "script_count": 2,
+      "scripts_referenced_by_tests": [
+        "check_claim_ledger.py",
+        "check_writing_contract.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "claim_ledger",
+      "fixture_expected_behavior": "claims require evidence or canonical result IDs",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    },
+    {
+      "skill": "zju-statistics-audit",
+      "script_count": 6,
+      "scripts_referenced_by_tests": [
+        "execute_analysis.py",
+        "reconcile_result_registry.py",
+        "render_result_tokens.py",
+        "scan_reporting.py",
+        "validate_analysis_contract.py",
+        "validate_result_handoff.py"
+      ],
+      "skill_has_deterministic_test_reference": true,
+      "designed_eval_cases": 10,
+      "capability_fixture_kind": "bounded_analysis",
+      "fixture_expected_behavior": "supported tests produce canonical result registries",
+      "coverage_gate": true,
+      "scientific_quality_status": "requires_blind_execution_and_independent_rating"
+    }
+  ]
+}

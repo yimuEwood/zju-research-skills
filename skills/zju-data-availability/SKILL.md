@@ -23,7 +23,7 @@ Read `references/data-routing.md` for access routes and `references/statement-co
 2. Record controller/owner, sensitivity, consent/ethics constraints, third-party terms, file formats, size, software needs, checksums, and current location. Do not copy credentials or restricted data into the inventory.
 3. Choose one primary route for each artifact: public repository, discipline repository, controlled access, within article/supplement, reused public source, third-party restricted, justified request, or not applicable.
 4. Select repository, persistent identifier, version, license, metadata, and embargo strategy before drafting. Verify current ZJU and journal options from authoritative pages; do not invent a repository or accession.
-5. Prepare files with nonproprietary formats where feasible, documentation, data dictionary, code environment, provenance, and checksums. Separate raw, processed, QC, analysis, result-registry, figure-source, table-source, and final presentation artifacts while recording `derived_from` lineage.
+5. Prepare files with nonproprietary formats where feasible, documentation, data dictionary, code environment, provenance, and checksums. Separate raw, processed, QC, analysis, result-registry, figure-source, table-source, and final presentation artifacts while recording `derived_from` lineage. After the inventory validates, run `scripts/build_release_manifest.py` to bind existing local files to byte counts and SHA-256 checksums. Treat `local_package_ready` as a local-byte result only. Claim publication readiness only when `publication_release_ready` is true after required identifier and license declarations carry recorded verification source/time.
 6. For sensitive data, describe eligibility, request procedure, decision authority, review criteria, expected response time, and legal/ethical limits without promising access that cannot be granted.
 7. Build one reproducibility package per computational result family: entrypoint, environment, ordered input artifact IDs, expected output/result IDs, random seeds when relevant, and a verification record. Do not equate file presence with a reproduced result.
 8. Draft a dataset-to-location statement and formal dataset/code citations. Treat “available upon reasonable request” as unresolved unless a specific justified mechanism is supplied.
@@ -42,7 +42,7 @@ Return:
 
 1. `Artifact inventory and claim/result map` with derivation lineage.
 2. `Access-route and repository plan`.
-3. `FAIR/metadata and reproducibility packages/gaps`, including result coverage.
+3. `FAIR/metadata and reproducibility packages/gaps`, including result coverage and the checksum-bound local release manifest when files are available.
 4. Ready-to-paste data/code availability statement.
 5. Dataset/code citation list.
 6. `Unresolved identifiers, restrictions, and owner decisions`.

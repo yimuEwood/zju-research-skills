@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "skill-evaluation-matrix-v3.schema.json",
+  "type": "object",
+  "required": ["schema_version", "matrix_id", "skills"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "checklist_rule": {"type": "string"},
+    "schema_version": {"const": "3.0"},
+    "matrix_id": {"const": "zju-twenty-skill-checklist-v3"},
+    "skills": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["skill_id", "strongest_open_source_baseline_candidates", "capabilities"],
+        "properties": {
+          "skill_id": {"type": "string", "pattern": "^zju-[a-z0-9-]+$"},
+          "strongest_open_source_baseline_candidates": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "capabilities": {
+            "type": "array",
+            "minItems": 5,
+            "items": {
+              "type": "object",
+              "required": ["id", "criterion"],
+              "properties": {
+                "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]+$"},
+                "criterion": {"type": "string", "minLength": 20}
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

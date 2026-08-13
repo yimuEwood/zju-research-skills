@@ -1,0 +1,278 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "portfolio-results-v3.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "protocol_id", "run_id", "skill_commit",
+    "protocol_sha256", "capability_matrix_sha256", "run_manifest_sha256",
+    "baseline_selection", "rater_precommit", "holdout_declaration",
+    "protocol_deviations", "records"
+  ],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"const": "3.0"},
+    "protocol_id": {"const": "zju-portfolio-twenty-skill-v3"},
+    "run_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$"},
+    "skill_commit": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}$"},
+    "protocol_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "capability_matrix_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "run_manifest_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "baseline_selection": {
+      "type": "object",
+      "propertyNames": {"pattern": "^zju-[a-z0-9-]+$"},
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "baseline_id", "source_commit", "selected_at", "selection_rationale",
+          "selected_before_first_run", "selection_lock_sha256", "baseline_packet_sha256"
+        ],
+        "properties": {
+          "baseline_id": {"type": "string", "minLength": 1},
+          "source_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+          "selected_at": {"type": "string", "format": "date-time"},
+          "selection_rationale": {"type": "string", "minLength": 20},
+          "selected_before_first_run": {"const": true},
+          "selection_lock_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "baseline_packet_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "rater_precommit": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["primary_rater_ids", "adjudicator_id", "rubric_sha256", "precommit_sha256"],
+          "properties": {
+            "primary_rater_ids": {
+              "type": "array", "minItems": 2, "maxItems": 2, "uniqueItems": true,
+              "items": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"}
+            },
+            "adjudicator_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"},
+            "rubric_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "precommit_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          }
+        }
+      ]
+    },
+    "holdout_declaration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frozen", "unseen", "first_attempt", "independent_administration",
+        "lock_sha256", "case_document_sha256", "case_fingerprints_sha256",
+        "first_attempt_registry_sha256", "allocation_commitment_sha256",
+        "allocation_reveal_sha256", "independent_administration_attestation_sha256"
+      ],
+      "properties": {
+        "frozen": {"type": "boolean"},
+        "unseen": {"type": "boolean"},
+        "first_attempt": {"type": "boolean"},
+        "independent_administration": {"type": "boolean"},
+        "lock_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "case_document_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "case_fingerprints_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "first_attempt_registry_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "allocation_commitment_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "allocation_reveal_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "independent_administration_attestation_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "protocol_deviations": {
+      "type": "array", "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "records": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/record"}
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "dimensionScores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_completeness", "evidence_traceability", "scientific_validity", "integrity", "usability"],
+      "properties": {
+        "task_completeness": {"type": "integer", "minimum": 0, "maximum": 4},
+        "evidence_traceability": {"type": "integer", "minimum": 0, "maximum": 4},
+        "scientific_validity": {"type": "integer", "minimum": 0, "maximum": 4},
+        "integrity": {"type": "integer", "minimum": 0, "maximum": 4},
+        "usability": {"type": "integer", "minimum": 0, "maximum": 4}
+      }
+    },
+    "goldChecks": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["check_id", "met"],
+        "properties": {
+          "check_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"},
+          "met": {"type": "boolean"}
+        }
+      }
+    },
+    "rating": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rater_id", "call_id", "model", "rated_at", "response_sha256",
+        "rubric_sha256", "dimension_scores", "score", "critical_failure", "gold_checks"
+      ],
+      "properties": {
+        "rater_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"},
+        "call_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"},
+        "model": {"type": "string", "minLength": 1},
+        "rated_at": {"type": "string", "format": "date-time"},
+        "response_sha256": {"$ref": "#/$defs/sha256"},
+        "rubric_sha256": {"$ref": "#/$defs/sha256"},
+        "dimension_scores": {"$ref": "#/$defs/dimensionScores"},
+        "score": {"type": "number", "minimum": 0, "maximum": 100},
+        "critical_failure": {"type": "boolean"},
+        "gold_checks": {"$ref": "#/$defs/goldChecks"}
+      }
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "skill_id", "layer", "case_id", "case_fingerprint", "stratum",
+        "capability_ids", "critical_failure", "run_id", "skill_commit",
+        "protocol_sha256", "capability_matrix_sha256", "evidence_sha256"
+      ],
+      "properties": {
+        "skill_id": {"type": "string", "pattern": "^zju-[a-z0-9-]+$"},
+        "layer": {"enum": ["L1_contract_conformance", "L2_deterministic_function", "L3_controlled_task_capability", "L4_frozen_holdout_generalization"]},
+        "case_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"},
+        "case_fingerprint": {"$ref": "#/$defs/sha256"},
+        "stratum": {"type": "string", "minLength": 1},
+          "capability_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "critical_failure": {"type": "boolean"},
+        "run_id": {"type": "string", "minLength": 1},
+        "skill_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "protocol_sha256": {"$ref": "#/$defs/sha256"},
+        "capability_matrix_sha256": {"$ref": "#/$defs/sha256"},
+        "evidence_sha256": {"$ref": "#/$defs/sha256"},
+        "passed": {"type": "boolean"},
+        "executor_sha256": {"$ref": "#/$defs/sha256"},
+        "instruction_packet_sha256": {"$ref": "#/$defs/sha256"},
+        "fixture_sha256": {"$ref": "#/$defs/sha256"},
+        "gold_check_ids": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"}
+        },
+        "gold_criteria_sha256": {"$ref": "#/$defs/sha256"},
+        "arm": {"enum": ["no_skill", "strongest_open_source_baseline", "distilled_skill"]},
+        "blind_label": {"enum": ["A", "B", "C"]},
+        "baseline_id": {"type": ["string", "null"]},
+        "score": {"type": "number", "minimum": 0, "maximum": 100},
+        "gold_met": {"type": "integer", "minimum": 0},
+        "gold_total": {"type": "integer", "minimum": 1},
+        "response_sha256": {"$ref": "#/$defs/sha256"},
+        "primary_ratings": {
+          "type": "array", "minItems": 2, "maxItems": 2,
+          "items": {"$ref": "#/$defs/rating"}
+        },
+        "adjudication": {
+          "oneOf": [{"type": "null"}, {"$ref": "#/$defs/rating"}]
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"layer": {"const": "L1_contract_conformance"}}},
+          "then": {"required": ["passed"]}
+        },
+        {
+          "if": {"properties": {"layer": {"const": "L2_deterministic_function"}}},
+          "then": {
+            "required": ["passed", "executor_sha256"],
+            "properties": {"capability_ids": {"minItems": 1}}
+          }
+        },
+        {
+          "if": {"properties": {"layer": {"enum": ["L3_controlled_task_capability", "L4_frozen_holdout_generalization"]}}},
+          "then": {
+            "required": [
+              "arm", "blind_label", "baseline_id", "score", "gold_met", "gold_total",
+              "response_sha256", "instruction_packet_sha256", "fixture_sha256",
+              "gold_check_ids", "gold_criteria_sha256",
+              "primary_ratings", "adjudication"
+            ],
+            "properties": {"capability_ids": {"minItems": 1}}
+          }
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"records": {"minItems": 1}}},
+      "then": {
+        "properties": {
+          "skill_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+          "protocol_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "capability_matrix_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      },
+      "else": {
+        "properties": {
+          "skill_commit": {"type": "null"},
+          "protocol_sha256": {"type": "null"},
+          "capability_matrix_sha256": {"type": "null"},
+          "run_manifest_sha256": {"type": "null"},
+          "rater_precommit": {"type": "null"}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "records": {
+            "contains": {
+              "type": "object",
+              "properties": {"layer": {"enum": ["L3_controlled_task_capability", "L4_frozen_holdout_generalization"]}},
+              "required": ["layer"]
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "run_manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "rater_precommit": {"type": "object"}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "records": {
+            "contains": {"type": "object", "properties": {"layer": {"const": "L4_frozen_holdout_generalization"}}, "required": ["layer"]}
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "holdout_declaration": {
+            "properties": {
+              "frozen": {"const": true},
+              "unseen": {"const": true},
+              "first_attempt": {"const": true},
+              "independent_administration": {"const": true},
+              "lock_sha256": {"type": "string"},
+              "case_document_sha256": {"type": "string"},
+              "case_fingerprints_sha256": {"type": "string"},
+              "first_attempt_registry_sha256": {"type": "string"},
+              "allocation_commitment_sha256": {"type": "string"},
+              "allocation_reveal_sha256": {"type": "string"},
+              "independent_administration_attestation_sha256": {"type": "string"}
+            }
+          }
+        }
+      }
+    }
+  ]
+}

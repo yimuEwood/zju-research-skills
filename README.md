@@ -4,7 +4,7 @@
 
 ![ZJU Research OS 项目概览](docs/assets/hero.png)
 
-项目当前版本是 **v0.6.0-beta.1**，20 个 Skills 都处于 Beta 阶段。这是社区开源项目，与浙江大学官方无关。
+项目当前版本是 **v0.7.0-beta.1**，20 个 Skills 都处于 Beta 阶段。这是社区开源项目，与浙江大学官方无关。
 
 ## 为什么做这个项目
 
@@ -21,6 +21,21 @@
 - 涉及账号、伦理、专利、外部上传或投稿时，仍然交给有权限的人确认。
 
 ![Director 与 19 个专业 Skills 的协作架构](docs/assets/architecture.png)
+
+## v0.7：把 20 个 Skills 放进同一套评测
+
+此前的数字并不在同一条线上：最早的三臂对照只覆盖 7 个核心 Skills，后续 12 个扩展 Skills 跑的是整改后的单臂开发集，Director 测的是路由。这些结果可以帮助开发，却不能合并成“20 项总分”。v0.7 先把这个口径问题解决了。
+
+- 建立覆盖 20/20 Skills 的能力矩阵，每项固定 5 个核心能力，避免只测试容易通过的部分。
+- 评测拆成四层：L1 工程契约、L2 确定性功能、L3 已知开发任务三臂对照、L4 冻结留出任务三臂盲测。每项至少 53 个检查/案例单位；完整组合至少 1,060 个单位、2,140 条臂级记录。
+- L2 报 Wilson 95% 区间，L3/L4 按案例配对 bootstrap；ZJU 版本与“无 Skill / 最强开源基线中较好者”比较，不能用较弱对照抬高增益。
+- 正式分数必须绑定 Skill commit、协议、能力矩阵、案例、回答、评分、基线预选和盲法分配。评分器会重新计算维度分与裁决结果，并拒绝跨臂复用回答。
+- 独立发布门使用预登记的 Ed25519 公钥验证冻结留出、首次作答和揭盲材料。仓库当前没有登记公钥，因此任何自报记录都不能把项目升级为 Stable。
+- 已完成 L1 全量普查：20 项 × 6 个必检点，共 **120/120** 通过；输入清单绑定 **153** 个文件。这个结果只代表工程完备度，不是科研能力分。
+
+当前 `official_portfolio_score` 仍为 `null`。这是有意的：L2–L4，尤其是独立管理的冻结留出集，还没有全部执行。把版本号直接改成正式版会超出证据，所以本轮继续保留 Beta。协议、能力矩阵和当前状态分别见 [`evals/portfolio-protocol-v3.md`](evals/portfolio-protocol-v3.md)、[`evals/skill-evaluation-matrix-v3.json`](evals/skill-evaluation-matrix-v3.json) 与 [`provenance/evaluation-status-v3.yaml`](provenance/evaluation-status-v3.yaml)。
+
+这一轮也继续补了三处实际能力：Evidence Synthesis 增加显式模型选择的效应量汇总（REML / DerSimonian–Laird、Hartung–Knapp、预测区间与小样本/异质性警告）；Data Availability 分开判断“本地文件包完整”和“标识符/许可证已核验、可公开发布”；Hypothesis Design 的实验组合选择加入成本单位、依赖、互斥、必选、可行性和伦理资格约束。
 
 ## v0.6：从工作流走向可执行闭环
 
@@ -77,11 +92,11 @@ flowchart LR
 |---|---|---:|---|
 | 统一入口 | [`zju-research-director`](skills/zju-research-director/) | Beta | 20/20 确定性路由断言；3/3 新上下文前向测试 |
 | 文献入口 | [`literature-search`](skills/zju-literature-search/)、[`fulltext-access`](skills/zju-fulltext-access/)、[`reference-audit`](skills/zju-reference-audit/)、[`paper-reader`](skills/zju-paper-reader/) | Beta（legacy-v1） | v0.4 内部模型评测；Stable 晋级暂停 |
-| 实验与论文 | [`experiment-log`](skills/zju-experiment-log/)、[`statistics-audit`](skills/zju-statistics-audit/)、[`scientific-writing`](skills/zju-scientific-writing/) | Beta（legacy-v1） | 同一内部评测；等待 v2 冻结留出集 |
-| 证据与研究设计 | [`literature-monitor`](skills/zju-literature-monitor/)、[`evidence-synthesis`](skills/zju-evidence-synthesis/)、[`hypothesis-design`](skills/zju-hypothesis-design/) | Beta | 每项 10 个任务级金标准案例 |
-| 交流与同行评审 | [`scientific-figure`](skills/zju-scientific-figure/)、[`paper2ppt`](skills/zju-paper2ppt/)、[`reviewer`](skills/zju-reviewer/)、[`review-response`](skills/zju-review-response/) | Beta | 每项 10 个任务级金标准案例 |
-| 共享、立项与转化 | [`data-availability`](skills/zju-data-availability/)、[`proposal-writer`](skills/zju-proposal-writer/)、[`paper-to-patent`](skills/zju-paper-to-patent/) | Beta | 每项 10 个任务级金标准案例 |
-| 专业数据库与科研规范 | [`chemistry-databases`](skills/zju-chemistry-databases/)、[`research-integrity`](skills/zju-research-integrity/) | Beta | 每项 10 个任务级金标准案例 |
+| 实验与论文 | [`experiment-log`](skills/zju-experiment-log/)、[`statistics-audit`](skills/zju-statistics-audit/)、[`scientific-writing`](skills/zju-scientific-writing/) | Beta（legacy-v1） | 同一内部评测；v3 L1 已完成，等待 L2–L4 |
+| 证据与研究设计 | [`literature-monitor`](skills/zju-literature-monitor/)、[`evidence-synthesis`](skills/zju-evidence-synthesis/)、[`hypothesis-design`](skills/zju-hypothesis-design/) | Beta | 10 个开发案例/项；v3 L1 已完成，未完成冻结盲测 |
+| 交流与同行评审 | [`scientific-figure`](skills/zju-scientific-figure/)、[`paper2ppt`](skills/zju-paper2ppt/)、[`reviewer`](skills/zju-reviewer/)、[`review-response`](skills/zju-review-response/) | Beta | 10 个开发案例/项；v3 L1 已完成，未完成冻结盲测 |
+| 共享、立项与转化 | [`data-availability`](skills/zju-data-availability/)、[`proposal-writer`](skills/zju-proposal-writer/)、[`paper-to-patent`](skills/zju-paper-to-patent/) | Beta | 10 个开发案例/项；v3 L1 已完成，未完成冻结盲测 |
+| 专业数据库与科研规范 | [`chemistry-databases`](skills/zju-chemistry-databases/)、[`research-integrity`](skills/zju-research-integrity/) | Beta | 10 个开发案例/项；v3 L1 已完成，未完成冻结盲测 |
 
 ## 测试结果，以及该怎么理解
 
@@ -113,7 +128,7 @@ flowchart LR
 
 这组结果有四个已知问题：70 个案例中有 7 个参加过前期 pilot；A/B/C 的位置没有做区组均衡；日志中出现了测试配置之外的 3 次 Web 搜索和 17 次学术 MCP 调用；仓库目前只公开了聚合结果，没有完整回答、事件日志和逐条评分记录。
 
-基于这些问题，首批 7 个 Skills 已重新标记为 Beta（legacy-v1），不再仅凭这组分数进入 Stable。下一次性能比较会使用新的 protocol v2 和全新冻结留出集。目前尚未运行 v2，因此没有 v0.5 的新跑分。
+基于这些问题，首批 7 个 Skills 已重新标记为 Beta（legacy-v1），不再仅凭这组分数进入 Stable。后续统一比较改用 protocol v3；当前已完成全 20 项 L1 普查，但还没有可支持正式分数的 L2–L4 完整运行。
 
 ### 扩展 Skills、Director 和本地检查
 
@@ -122,7 +137,7 @@ flowchart LR
 | 12 个扩展 Skills | 120 | 整改后开发集回归：平均 84.385/100；gold-check 命中率 84.58%；严重失败 0 | 最终聚合含 49 条基础运行和 71 条整改/修订记录；不是 held-out，也没有外部项目对照 |
 | Director 路由 | 20 | 5 个领域，覆盖 19 个专业 Skills，20/20 路由断言通过 | 只测试路由和阶段安排，不是科研答案质量分 |
 | Director 新上下文测试 | 3 | 3/3 断言通过 | 前向压力测试，不是跨项目 head-to-head |
-| 本地工程检查 | — | 20/20 格式校验；20 项结构一致性审计为 A/100；131 个单元测试通过；43 个离线处理/执行/验证脚本通过当前静态规则检查 | 结构审计使用的 25/30/20/25 权重参考 Claude Scholar；不评价科学正确性 |
+| 本地工程检查 | — | 20/20 格式校验；L1 全量普查 120/120；185 个单元测试通过；46 个 Skill 脚本通过当前静态规则检查 | L1 和结构审计只评价工程与说明契约，不评价科学正确性 |
 | v0.6 真实产物链 | 13 项核心执行测试 | 4 项 PDF/文本解析测试；9 项 CSV→统计→Registry→PNG/SVG/PDF 测试，覆盖组间、配对和 OLS 真图，数值与 SciPy 容差核对，并拒绝不完整多重比较家族、错误数据文件和错误变量绑定 | 确定性本地测试，不是模型回答质量或科研正确率 |
 
 聚合结果保存在 [`provenance/release-status.yaml`](provenance/release-status.yaml)、[`evals/results/full-20260811-a/aggregate-adjudicated.json`](evals/results/full-20260811-a/aggregate-adjudicated.json)、[`evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json`](evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json) 和 [`evals/results/director-forward-20260811-a.json`](evals/results/director-forward-20260811-a.json)。由于 v1 的完整原始记录还没有公开，仅凭当前仓库不能完整复算当时的所有评分。
@@ -185,6 +200,6 @@ ZJU Research OS 不是从零开始的。中文科研工作流的主骨架来自 
 - 项目代码和原创工作流按 [Apache-2.0](LICENSE) 发布，第三方归属见 [`NOTICE`](NOTICE)；
 - 非商业或 Share-Alike 来源只用于能力比较，没有把其文字、模板或工作流表达并入当前发行包；
 - GitHub Star 只用于发现候选项目，不作为科学正确性或可靠性的证据；
-- 20 个 Skills 目前全部是 Beta。首批 7 项保留 legacy-v1 内部记录，但 Stable 晋级已经暂停；扩展 Skills 与 Director 也需要通过新的冻结留出集、统一工具条件和独立复核后，才会考虑升级状态。
+- 20 个 Skills 目前全部是 Beta。v0.7 已把全组合纳入统一协议并完成 L1，但 L2、L3、L4 尚未全部执行；只有每一项都通过冻结留出集、统一工具条件、独立签名复核和置信区间门槛后，才会升级状态。
 
 如果你愿意参与测试，欢迎提交可复现的案例、失败样本或改进建议。相比只报告成功案例，这些材料对项目下一轮迭代更有价值。

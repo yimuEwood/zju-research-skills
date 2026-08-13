@@ -1,5 +1,6 @@
 {
   "schema_version": "1.0",
+  "consumption_status": "network_dependent_forward_test_not_run_in_unit_suite",
   "download_policy": "Fetch from the public arXiv landing page at evaluation time; record the retrieved version and SHA-256. Do not redistribute a cached PDF from this repository.",
   "papers": [
     {

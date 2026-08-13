@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "scope": "Deterministic script and artifact contracts; not a blind scientific-quality score.",
+  "fixtures": [
+    {"skill":"zju-literature-search","module":"normalize_records.py","fixture_kind":"record_normalization","expected":"DOI aliases deduplicate while provenance is retained"},
+    {"skill":"zju-fulltext-access","module":"classify_access.py","fixture_kind":"route_classification","expected":"OA routes are preferred and interactive access is explicit"},
+    {"skill":"zju-reference-audit","module":"compare_metadata.py","fixture_kind":"metadata_comparison","expected":"DOI normalization and field mismatches are deterministic"},
+    {"skill":"zju-paper-reader","module":"prepare_source.py","fixture_kind":"source_preparation","expected":"page anchors and extraction coverage are emitted"},
+    {"skill":"zju-experiment-log","module":"validate_run_manifest.py","fixture_kind":"run_manifest","expected":"inputs, outputs, hashes and decision ownership are traceable"},
+    {"skill":"zju-statistics-audit","module":"execute_analysis.py","fixture_kind":"bounded_analysis","expected":"supported tests produce canonical result registries"},
+    {"skill":"zju-scientific-writing","module":"check_claim_ledger.py","fixture_kind":"claim_ledger","expected":"claims require evidence or canonical result IDs"},
+    {"skill":"zju-literature-monitor","module":"update_monitor_state.py","fixture_kind":"state_transition","expected":"new, updated and duplicate records remain distinguishable"},
+    {"skill":"zju-evidence-synthesis","module":"build_conflict_matrix.py","fixture_kind":"conflict_matrix","expected":"supporting and contradicting evidence is not silently pooled"},
+    {"skill":"zju-hypothesis-design","module":"validate_hypothesis_set.py","fixture_kind":"hypothesis_ranking","expected":"competing hypotheses and discriminating experiments are required"},
+    {"skill":"zju-scientific-figure","module":"validate_figure_manifest.py","fixture_kind":"figure_manifest","expected":"sources, hashes, anchors and exports are bound"},
+    {"skill":"zju-paper2ppt","module":"validate_deck_plan.py","fixture_kind":"deck_plan","expected":"each slide has a claim, source anchors, notes and a time budget"},
+    {"skill":"zju-reviewer","module":"validate_review_report.py","fixture_kind":"review_report","expected":"concerns have severity, evidence pointers and resolution tests"},
+    {"skill":"zju-review-response","module":"validate_response_tracker.py","fixture_kind":"response_tracker","expected":"completed responses require verified evidence and exact locations"},
+    {"skill":"zju-data-availability","module":"validate_data_inventory.py","fixture_kind":"data_inventory","expected":"artifacts and reproducibility packages support declared result IDs"},
+    {"skill":"zju-proposal-writer","module":"validate_proposal_manifest.py","fixture_kind":"proposal_manifest","expected":"objectives, experiments, gates and evidence links are executable"},
+    {"skill":"zju-paper-to-patent","module":"validate_feature_ledger.py","fixture_kind":"feature_ledger","expected":"claim features remain linked to exact source anchors"},
+    {"skill":"zju-chemistry-databases","module":"build_evidence_matrix.py","fixture_kind":"chemistry_evidence","expected":"identity, conditions, assay and evidence strata prevent unsafe pooling"},
+    {"skill":"zju-research-integrity","module":"audit_provenance_manifest.py","fixture_kind":"provenance_manifest","expected":"artifact identity and hashes are checked against local files"},
+    {"skill":"zju-research-director","module":"resolve_executor.py","fixture_kind":"executor_resolution","expected":"available compatible providers are selected deterministically"}
+  ]
+}

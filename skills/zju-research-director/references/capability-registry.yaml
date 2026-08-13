@@ -516,6 +516,11 @@
           "path": "skills/zju-evidence-synthesis/scripts/build_conflict_matrix.py",
           "kind": "comparator",
           "purpose": "Construct claim-level direction, null-disagreement, heterogeneity, risk-of-bias, and directness strata without flattening conflicts."
+        },
+        {
+          "path": "skills/zju-evidence-synthesis/scripts/pool_effects.py",
+          "kind": "executor",
+          "purpose": "Pool a prespecified compatible set of independent study effects with explicit REML or DerSimonian-Laird heterogeneity estimation, selectable Hartung-Knapp inference, prediction intervals, and structured warnings."
         }
       ],
       "prerequisites": ["zju-literature-search", "zju-paper-reader"],
@@ -561,6 +566,11 @@
           "path": "skills/zju-hypothesis-design/scripts/validate_hypothesis_set.py",
           "kind": "validator",
           "purpose": "Check structured hypotheses for stable IDs, distinct predictions, falsifiers, anchors, and prospective decision rules."
+        },
+        {
+          "path": "skills/zju-hypothesis-design/scripts/select_experiment_portfolio.py",
+          "kind": "executor",
+          "purpose": "Select a deterministic constrained experiment portfolio under common costs, dependencies, exclusions, required tests, feasibility, and ethics eligibility, while exposing undiscriminated hypothesis pairs."
         }
       ],
       "prerequisites": ["zju-evidence-synthesis"],
@@ -795,6 +805,11 @@
           "path": "skills/zju-data-availability/scripts/validate_data_inventory.py",
           "kind": "validator",
           "purpose": "Validate stable artifact rows, claim links, current locations, owners, access routes, repository or identifier states, restrictions, and unresolved fields."
+        },
+        {
+          "path": "skills/zju-data-availability/scripts/build_release_manifest.py",
+          "kind": "executor",
+          "purpose": "Bind validated inventory rows to local bytes and checksums while separately auditing identifier/license evidence for publication readiness."
         }
       ],
       "prerequisites": ["zju-experiment-log", "zju-scientific-writing"],

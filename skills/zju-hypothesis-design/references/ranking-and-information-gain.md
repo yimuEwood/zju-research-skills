@@ -29,6 +29,10 @@ Select tests in this order unless constraints justify otherwise:
 
 The first experiment should maximize decision change per unit cost, not simply have the highest standalone score.
 
+When numeric costs are comparable and the budget is explicit, set one root `cost_unit` and run `python scripts/select_experiment_portfolio.py hypothesis-plan.json --budget N --output experiment-portfolio.json`. Every experiment must state `eligible: true | false`, `feasibility_status: eligible | ineligible | uncertain`, and `ethics_status: approved | not_required | pending | rejected | unknown`. Only the first two ethics states permit selection. Use `depends_on` for prerequisites, `mutually_exclusive_with` for alternatives that cannot coexist, and `required` or root `required_experiment_ids` for non-negotiable tests.
+
+The selector first checks whether required experiments and their transitive dependencies are eligible, mutually compatible, and within budget. It then greedily maximizes newly distinguished hypothesis pairs per incremental dependency-bundle cost, reports ineligible/skipped experiments and uncovered pairs, and uses stable tie breaking. Declared mutual exclusion is treated symmetrically. Treat the output as a transparent constrained scheduling heuristic, not a global optimum; power, sample irreversibility, capacity/time scheduling, stochastic outcomes, and scientific utility beyond pair coverage still require expert review.
+
 ## `hypothesis-plan.json` links
 
 Preserve `claim_id`, `gap_id`, `study_id`, and `record_id`. At the plan root, provide `known_evidence_ids` or embed the upstream `evidence_map`; every hypothesis `evidence_ids` and `contradicting_evidence_ids` value must resolve against that universe. Each experiment needs `hypothesis_ids`, `predicted_outcomes`, `decision_rule`, `inconclusive_region`, and the next action for every outcome branch. Pass hypothesis IDs and discriminating keywords to `$zju-literature-monitor` so new evidence can reopen the decision table.

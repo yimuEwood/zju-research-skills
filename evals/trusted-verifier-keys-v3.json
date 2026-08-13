@@ -1,0 +1,5 @@
+{
+  "schema_version": "3.0",
+  "purpose": "Pre-registered independent evaluation administrator Ed25519 public keys. Register a public key before freezing any holdout; never store private keys in this repository.",
+  "keys": []
+}

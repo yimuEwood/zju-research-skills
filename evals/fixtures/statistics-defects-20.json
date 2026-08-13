@@ -1,6 +1,7 @@
 {
   "schema_version": "1.0",
-  "description": "Twenty synthetic reporting defects for gold-label recall testing.",
+  "description": "Twenty synthetic reporting defects reserved for future gold-label recall testing. The current triage scanner is not scored against this taxonomy because its warning labels are mostly missing-section checks rather than defect classifiers.",
+  "consumption_status": "not_consumed_by_release_score",
   "cases": [
     {"id":"D001","text":"Six mice contributed ten cells each; n=60 independent replicates.","expected_checks":["pseudoreplication","experimental_unit"]},
     {"id":"D002","text":"Each participant was measured five times and all observations were analyzed as independent.","expected_checks":["repeated_measures","independence"]},

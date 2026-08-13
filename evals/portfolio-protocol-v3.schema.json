@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "portfolio-protocol-v3.schema.json",
+  "title": "ZJU twenty-skill portfolio evaluation protocol v3",
+  "type": "object",
+  "required": ["schema_version", "protocol_id", "arms", "layers", "rating", "stable_gate", "bootstrap", "claim_policy"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "purpose": {"type": "string"},
+    "expected_skills_path": {"type": "string"},
+    "schema_version": {"const": "3.0"},
+    "protocol_id": {"const": "zju-portfolio-twenty-skill-v3"},
+    "arms": {
+      "const": ["no_skill", "strongest_open_source_baseline", "distilled_skill"]
+    },
+    "layers": {
+      "type": "object",
+      "required": ["L1_contract_conformance", "L2_deterministic_function", "L3_controlled_task_capability", "L4_frozen_holdout_generalization"],
+      "properties": {
+        "L1_contract_conformance": {"type": "object"},
+        "L2_deterministic_function": {"type": "object"},
+        "L3_controlled_task_capability": {"type": "object"},
+        "L4_frozen_holdout_generalization": {"type": "object"}
+      },
+      "additionalProperties": false
+    },
+    "rating": {"type": "object"},
+    "stable_gate": {"type": "object"},
+    "bootstrap": {"type": "object"},
+    "claim_policy": {"type": "object"}
+  },
+  "additionalProperties": false
+}

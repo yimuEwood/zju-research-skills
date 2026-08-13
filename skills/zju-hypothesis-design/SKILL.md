@@ -24,7 +24,8 @@ Read `references/hypothesis-canvas.md` to structure hypotheses. Read `references
 7. Write a decision table before seeing new results. Define what pattern supports, weakens, or leaves each hypothesis unresolved. Include failed-manipulation and inconclusive regions, multiplicity handling, and the next action for every branch.
 8. Check feasibility, sample access, instrumentation, biosafety/chemical safety, ethics, data governance, cost, and irreversibility. Escalate hazardous or human/animal work to appropriate local review.
 9. Save a `schema_version: "2.0"` `hypothesis-plan.json` and run `scripts/validate_hypothesis_set.py`. Use its hypothesis-readiness and experiment-discrimination rankings as transparent prioritization aids, never as probabilities of truth.
-10. Return a staged plan with the lowest-cost high-information premise check first, then an orthogonal test of the dominant ambiguity. Hand hypothesis IDs, prediction terms, and decision-changing evidence types to `$zju-literature-monitor`.
+10. When experiments have comparable numeric `cost` values and a hard budget, declare one root `cost_unit`. For every experiment provide numeric `cost`, explicit `eligible`, `feasibility_status`, and `ethics_status`; add `depends_on`, `mutually_exclusive_with`, `required`, or root `required_experiment_ids` where needed. Run `scripts/select_experiment_portfolio.py`, inspect excluded experiments and uncovered hypothesis pairs, and do not present the constrained greedy set as globally optimal.
+11. Return a staged plan with the lowest-cost high-information premise check first, then an orthogonal test of the dominant ambiguity. Hand hypothesis IDs, prediction terms, and decision-changing evidence types to `$zju-literature-monitor`.
 
 ## Red Lines
 

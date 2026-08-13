@@ -1,0 +1,143 @@
+{
+  "$schema": "portfolio-protocol-v3.schema.json",
+  "schema_version": "3.0",
+  "protocol_id": "zju-portfolio-twenty-skill-v3",
+  "purpose": "Score all twenty skills from raw case-level evidence without treating structural conformance as scientific capability.",
+  "expected_skills_path": "evals/skill-evaluation-matrix-v3.json",
+  "arms": [
+    "no_skill",
+    "strongest_open_source_baseline",
+    "distilled_skill"
+  ],
+  "layers": {
+    "L1_contract_conformance": {
+      "weight": 0.05,
+      "evidence_class": "release_census",
+      "sample_unit": "required check",
+      "minimum_n_per_skill": 6,
+      "required_check_ids": [
+        "skill_format",
+        "trigger_boundary",
+        "resource_resolution",
+        "output_contract",
+        "provenance_license",
+        "evaluation_mapping"
+      ],
+      "uncertainty_method": "none_census_not_statistical",
+      "interpretation": "Engineering readiness only. A perfect L1 result is never a standalone capability score."
+    },
+    "L2_deterministic_function": {
+      "weight": 0.20,
+      "evidence_class": "deterministic_case_execution",
+      "sample_unit": "independent fixture or artifact case",
+      "minimum_n_per_skill": 20,
+      "minimum_negative_or_boundary_cases": 5,
+      "minimum_cases_per_capability": 1,
+      "uncertainty_method": "wilson_binomial_95_percent",
+      "interpretation": "Checks reproducible parsing, validation, transformation, rejection, and artifact behavior; it does not judge scientific prose quality."
+    },
+    "L3_controlled_task_capability": {
+      "weight": 0.40,
+      "evidence_class": "balanced_blind_three_arm_known_development",
+      "sample_unit": "task case",
+      "minimum_n_per_skill": 12,
+      "minimum_per_stratum": 3,
+      "minimum_cases_per_capability": 2,
+      "required_strata": [
+        "nominal",
+        "incomplete_input",
+        "edge_case",
+        "cross_skill_handoff"
+      ],
+      "raters_per_arm": 2,
+      "allocation": "skill_blocked_latin_square",
+      "uncertainty_method": "paired_case_percentile_bootstrap_95_percent",
+      "interpretation": "A controlled development benchmark. It may guide iteration but cannot by itself open the Stable gate."
+    },
+    "L4_frozen_holdout_generalization": {
+      "weight": 0.35,
+      "evidence_class": "balanced_blind_three_arm_unseen_first_attempt",
+      "sample_unit": "untouched task case",
+      "minimum_n_per_skill": 15,
+      "minimum_per_stratum": 3,
+      "minimum_cases_per_capability": 2,
+      "required_strata": [
+        "nominal",
+        "incomplete_input",
+        "adversarial",
+        "cross_domain",
+        "artifact_or_handoff"
+      ],
+      "raters_per_arm": 2,
+      "allocation": "committed_secret_skill_blocked_latin_square",
+      "uncertainty_method": "paired_case_percentile_bootstrap_95_percent",
+      "interpretation": "Primary generalization evidence. Cases must be frozen, unseen, first-attempt, and independently administered."
+    }
+  },
+  "rating": {
+    "score_range": [0, 100],
+    "score_semantics": "adjudicated weighted task-rubric points, not probability of scientific correctness",
+    "gold_check_semantics": "case-specific observable criteria scored one-to-one",
+    "primary_raters_per_arm": 2,
+    "require_distinct_primary_rater_ids": true,
+    "adjudicate_if_score_gap_exceeds_points": 10,
+    "adjudicate_on_critical_failure_disagreement": true,
+    "strongest_baseline_rule": "For each paired case, compare distilled_skill with max(no_skill, strongest_open_source_baseline).",
+    "response_hash_required": true,
+    "agreement_report_required": true,
+    "dimension_weights": {
+      "task_completeness": 0.25,
+      "evidence_traceability": 0.25,
+      "scientific_validity": 0.20,
+      "integrity": 0.20,
+      "usability": 0.10
+    },
+    "adjudicate_on_gold_disagreement": true
+  },
+  "stable_gate": {
+    "require_exactly_all_expected_skills": true,
+    "require_all_four_layers_completed": true,
+    "L1_minimum_score": 100,
+    "L2_minimum_pass_rate": 0.90,
+    "L2_minimum_wilson_lower_bound": 0.75,
+    "L2_maximum_critical_failures": 0,
+    "L3_minimum_distilled_mean_score": 75,
+    "L3_minimum_gold_check_rate": 0.80,
+    "L3_minimum_mean_gain_over_strongest_baseline": 5,
+    "L3_minimum_gain_ci_lower_bound": -2,
+    "L3_maximum_distilled_critical_failures": 0,
+    "L4_minimum_distilled_mean_score": 80,
+    "L4_minimum_gold_check_rate": 0.85,
+    "L4_minimum_mean_gain_over_strongest_baseline": 5,
+    "L4_require_positive_gain_ci": true,
+    "L4_maximum_distilled_critical_failures": 0,
+    "minimum_composite_score": 80,
+    "minimum_composite_ci_lower_bound": 75,
+    "require_frozen_unseen_holdout": true,
+    "require_first_attempt": true,
+    "require_independent_administration": true,
+    "require_resolved_adjudications": true,
+    "require_no_protocol_deviations": true,
+    "require_protocol_and_matrix_hash_binding": true,
+    "require_run_manifest_hash_binding": true,
+    "require_balanced_blind_labels": true,
+    "require_disjoint_development_and_holdout_fingerprints": true,
+    "require_verified_holdout_artifacts": true,
+    "require_pre_registered_independent_verifier_signature": true,
+    "require_precommitted_baseline": true,
+    "require_precommitted_raters": true
+  },
+  "bootstrap": {
+    "iterations": 10000,
+    "confidence_level": 0.95,
+    "seed": 20260813,
+    "resampling_unit": "case_within_skill_and_layer"
+  },
+  "claim_policy": {
+    "missing_layer": "withhold official per-skill and portfolio composite scores",
+    "failed_gate": "report the measured score and uncertainty but retain beta status",
+    "structural_only": "report L1 engineering readiness only; never label it capability, quality, or A/100",
+    "known_development_only": "report development evidence only; never call it held out",
+    "portfolio_stable": "allowed only when every expected skill independently passes every gate"
+  }
+}
