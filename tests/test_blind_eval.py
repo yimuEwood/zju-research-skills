@@ -38,15 +38,36 @@ class BlindEvaluationTests(unittest.TestCase):
 
     def test_upstream_cache_matches_tracked_lock(self):
         module = load_module("prepare_upstream_test", "evals/prepare_upstream.py")
+        manifest_path = module.DEFAULT_CACHE / "prepared-manifest.json"
+        if not manifest_path.is_file():
+            self.skipTest("optional pinned upstream cache is not present in a clean checkout")
         result = module.verify(module.DEFAULT_CACHE, ROOT / "evals/upstream-lock.json")
         self.assertTrue(result["valid"], result)
         self.assertEqual(result["files"], 306)
 
     def test_plan_keeps_arm_evidence_private(self):
         module = load_module("blind_eval_plan_test", "evals/blind_eval.py")
+        upstream_lock = json.loads((ROOT / "evals/upstream-lock.json").read_text(encoding="utf-8"))
+
+        def materialize_test_instructions(case, arm, destination, config):
+            del case, config
+            if arm == "no_skill":
+                return []
+            target = destination / "instructions/set-01"
+            target.mkdir(parents=True, exist_ok=False)
+            (target / "SKILL.md").write_text(
+                "---\nname: test-instruction\ndescription: deterministic test fixture\n---\n",
+                encoding="utf-8",
+            )
+            return [{"set": target.name, "sha256": module.hash_tree(target)}]
+
         with tempfile.TemporaryDirectory() as temp_dir:
             module.RESULTS = Path(temp_dir) / "results"
-            with mock.patch.object(module, "codex_version", return_value="codex-cli test"):
+            with (
+                mock.patch.object(module, "codex_version", return_value="codex-cli test"),
+                mock.patch.object(module, "verify_upstream", return_value=upstream_lock),
+                mock.patch.object(module, "copy_instruction_set", side_effect=materialize_test_instructions),
+            ):
                 manifest = module.create_plan("unit-plan", "pilot", ["FULL-06"])
             self.assertEqual(manifest["task_count"], 3)
             self.assertTrue(all(set(task) == {"case_id", "blind_label", "status"} for task in manifest["tasks"]))

@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "case_id": "HYP-09",
+  "base_run_id": "expansion-full-20260811-a",
+  "replacement_run_id": "expansion-amendment-20260811-a",
+  "reason": "The original participant call was rejected by the provider safety filter before any answer was generated. The task was narrowed to explicitly request safe triage only, with no operational biological details.",
+  "base_cases_sha256": "00a1a73a7ed5904b1010267de93e3729dbf49fc19b0848ac849a70e8fc22bc99",
+  "base_prompt_sha256": "8d084ac80cf4308112929ad205cb9958fd1f4d30700daef3292d760e60d74b80",
+  "replacement_cases_sha256": "fbeb64c37bca5ec1a7174ef54b09783f35ad539b78d5a624dfcb669e743aaf90",
+  "replacement_prompt_sha256": "db922b74fb00edcca8d12d820c298307b08c8ed68c831ec2dfb7ae9bbcd1a297",
+  "unchanged_skill_instruction_sha256": "3840a55064c953baf8c9e5ab1803ecd72be00d0f7d2353a4540573dcc39eb7aa",
+  "original_status": "failed",
+  "original_error_class": "provider_safety_filter",
+  "scoring_rule": "Use the replacement response and rating for HYP-09; use the base run for every other case."
+}

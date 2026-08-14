@@ -822,7 +822,7 @@ class ScriptTests(unittest.TestCase):
         self.assertIn("fix-render-reinspect loop", paper2ppt)
 
     def test_expansion_safety_amendment_is_auditable(self):
-        amendment = json.loads((ROOT / "evals/results/expansion-full-20260811-a/amendments/HYP-09.json").read_text(encoding="utf-8"))
+        amendment = json.loads((ROOT / "evals/fixtures/expansion-safety-amendment-hyp-09.json").read_text(encoding="utf-8"))
         self.assertEqual(amendment["case_id"], "HYP-09")
         self.assertEqual(amendment["original_error_class"], "provider_safety_filter")
         self.assertNotEqual(amendment["base_prompt_sha256"], amendment["replacement_prompt_sha256"])
