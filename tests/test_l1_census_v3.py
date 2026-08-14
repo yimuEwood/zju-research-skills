@@ -58,6 +58,18 @@ class L1CensusTests(unittest.TestCase):
             self.assertRegex(row["sha256"], r"^[0-9a-f]{64}$")
         self.assertRegex(self.census["input_tree_sha256"], r"^[0-9a-f]{64}$")
 
+    def test_text_input_hashes_are_line_ending_independent(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "NOTICE"
+            context = L1.EvidenceContext(root)
+            source.write_bytes(b"first\nsecond\n")
+            context.track(source)
+            lf_hash = context.input_hashes["NOTICE"]
+            source.write_bytes(b"first\r\nsecond\r\n")
+            context.track(source)
+            self.assertEqual(context.input_hashes["NOTICE"], lf_hash)
+
     def test_generator_records_a_real_failure_instead_of_defaulting_to_pass(self):
         real_exists = Path.is_file
 

@@ -22,7 +22,7 @@ current_layer_evidence:
   L4_frozen_holdout_generalization: {status: incomplete, official_score_contribution: null}
 
 local_regression_snapshot:
-  unit_tests_passed: 185
+  unit_tests_passed: 186
   skill_scripts_scanned: 46
   static_findings: 0
   adversarial_release_gate_tests: 7

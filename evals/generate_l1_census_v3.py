@@ -38,6 +38,20 @@ LOCAL_RESOURCE_PATTERN = re.compile(
 CROSS_SKILL_RESOURCE_PATTERN = re.compile(
     r"\$(zju-[a-z0-9-]+)/((?:references|scripts)/[A-Za-z0-9_.\-/]+)"
 )
+TEXT_INPUT_SUFFIXES = {
+    ".bib",
+    ".csv",
+    ".json",
+    ".md",
+    ".py",
+    ".ris",
+    ".toml",
+    ".tsv",
+    ".txt",
+    ".yaml",
+    ".yml",
+}
+TEXT_INPUT_NAMES = {"LICENSE", "NOTICE"}
 
 
 @dataclass(frozen=True)
@@ -62,7 +76,10 @@ class EvidenceContext:
         if not path.is_file():
             return
         relative = self.relative(path)
-        self.input_hashes[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
+        content = path.read_bytes()
+        if path.suffix.lower() in TEXT_INPUT_SUFFIXES or path.name in TEXT_INPUT_NAMES:
+            content = content.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        self.input_hashes[relative] = hashlib.sha256(content).hexdigest()
 
     def read_text(self, relative: str) -> str:
         path = self.root / relative

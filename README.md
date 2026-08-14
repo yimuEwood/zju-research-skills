@@ -137,7 +137,7 @@ flowchart LR
 | 12 个扩展 Skills | 120 | 整改后开发集回归：平均 84.385/100；gold-check 命中率 84.58%；严重失败 0 | 最终聚合含 49 条基础运行和 71 条整改/修订记录；不是 held-out，也没有外部项目对照 |
 | Director 路由 | 20 | 5 个领域，覆盖 19 个专业 Skills，20/20 路由断言通过 | 只测试路由和阶段安排，不是科研答案质量分 |
 | Director 新上下文测试 | 3 | 3/3 断言通过 | 前向压力测试，不是跨项目 head-to-head |
-| 本地工程检查 | — | 20/20 格式校验；L1 全量普查 120/120；185 个单元测试通过；46 个 Skill 脚本通过当前静态规则检查 | L1 和结构审计只评价工程与说明契约，不评价科学正确性 |
+| 本地工程检查 | — | 20/20 格式校验；L1 全量普查 120/120；186 个单元测试通过；46 个 Skill 脚本通过当前静态规则检查 | L1 和结构审计只评价工程与说明契约，不评价科学正确性；干净 CI 未下载可选上游缓存时会透明跳过 1 项缓存完整性集成检查 |
 | v0.6 真实产物链 | 13 项核心执行测试 | 4 项 PDF/文本解析测试；9 项 CSV→统计→Registry→PNG/SVG/PDF 测试，覆盖组间、配对和 OLS 真图，数值与 SciPy 容差核对，并拒绝不完整多重比较家族、错误数据文件和错误变量绑定 | 确定性本地测试，不是模型回答质量或科研正确率 |
 
 聚合结果保存在 [`provenance/release-status.yaml`](provenance/release-status.yaml)、[`evals/results/full-20260811-a/aggregate-adjudicated.json`](evals/results/full-20260811-a/aggregate-adjudicated.json)、[`evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json`](evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json) 和 [`evals/results/director-forward-20260811-a.json`](evals/results/director-forward-20260811-a.json)。由于 v1 的完整原始记录还没有公开，仅凭当前仓库不能完整复算当时的所有评分。

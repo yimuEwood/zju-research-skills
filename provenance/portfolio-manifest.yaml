@@ -11,7 +11,7 @@ current_release_engineering:
   artifact_contract: "local file, containment, SHA-256, producer step, supported format, and bound receipt"
   human_gate_contract: "mission decision plus caller-supplied state-bound approval receipt"
   evaluation_status: "protocol v3 covers all twenty skills; L1 census complete, L2-L4 and the independently administered frozen holdout are incomplete, so the official score remains null"
-  local_verification: "185 unit tests passed; 46 Skill scripts scanned with zero findings under the current static rules; 20/20 Skills passed quick_validate"
+  local_verification: "186 unit tests passed; 46 Skill scripts scanned with zero findings under the current static rules; 20/20 Skills passed quick_validate; clean CI skips one optional upstream-cache integrity check when that ignored cache is absent"
 
 current_capability_upgrade:
   focus: "deeper research reasoning and cross-skill handoffs, not additional skill count"

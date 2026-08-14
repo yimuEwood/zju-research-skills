@@ -21,7 +21,7 @@ v07_capability_upgrade:
   evidence_synthesis: "Explicit REML or DerSimonian-Laird tau-squared selection, normal or Hartung-Knapp inference, prediction intervals, and small-k/heterogeneity warnings."
   data_availability: "Separates local_package_ready from publication_release_ready and records identifier/license verification state."
   hypothesis_design: "Constrained experiment portfolio selection with common cost units, dependencies, exclusions, required experiments, feasibility, and ethics eligibility."
-  deterministic_tests_passed: 185
+  deterministic_tests_passed: 186
   skill_scripts_scanned: 46
   static_findings: 0
 
@@ -207,7 +207,7 @@ local_verification:
     score_scope: "Structural and instructional conformance only; not scientific task quality."
     dimensions_and_weights: {description: 25, organization: 30, style: 20, structure: 25}
     scorecard_reference: "Claude Scholar skill-quality-reviewer scoring criteria at commit 2f7766fd541a723d4ddc6230b3277f948d61b093; project-specific checks were rewritten."
-  unit_tests_passed: 185
+  unit_tests_passed: 186
   scripts_scanned: 46
   security_findings: 0
   security_scope_note: "Zero findings under the current static rules is not a formal security proof."

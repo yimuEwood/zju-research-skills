@@ -5,7 +5,7 @@
   "evidence_class": "release_census",
   "scope": "repository_worktree_inputs",
   "skill_commit": null,
-  "input_tree_sha256": "20b605b87981880da5afea3a9cf772e7e370edef9b0744b7f05354a27b1d5de2",
+  "input_tree_sha256": "b8d381a12d8f50a9d26d2b844fff2fdde7877a14a985fe9ddb8d9805b2ffd030",
   "claim_boundary": "Engineering conformance only. These records cannot supply L2, L3, or L4 evidence, an official capability score, or Stable promotion.",
   "required_check_ids": [
     "skill_format",
@@ -2487,15 +2487,15 @@
   "input_manifest": [
     {
       "path": "LICENSE",
-      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
     },
     {
       "path": "NOTICE",
-      "sha256": "19de29cc98926dbb86a476be30117c08613f42a8487c8bd5baf7e0fb124e6829"
+      "sha256": "b030ac002ad5ec6308fbf5a13d5c85e2c6e973ca53a13b7dc919dfd6b6cc2c0f"
     },
     {
       "path": "evals/generate_l1_census_v3.py",
-      "sha256": "90b6c37bc3493ab580a875be5271cdc609febaa9023ae715f981b00617a4f974"
+      "sha256": "6464109018556252bc2f5af084bf9d93c00d55e72c08d04c7c8033d269bc65ff"
     },
     {
       "path": "evals/skill-evaluation-matrix-v3.json",
