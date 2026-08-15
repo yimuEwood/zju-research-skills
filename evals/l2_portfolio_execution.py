@@ -1671,23 +1671,30 @@ def run_suite(case_document: dict[str, Any]) -> tuple[dict[str, Any], dict[str, 
 
 
 def combine_with_l1(l2_bundle: dict[str, Any]) -> dict[str, Any]:
-    # current-portfolio-evidence-v3.json contains the scorer-ready L1 records;
-    # l1-contract-census-v3.json is the lower-level observation census.
-    l1_path = ROOT / "evals/current-portfolio-evidence-v3.json"
-    l1 = json.loads(l1_path.read_text(encoding="utf-8"))
+    # Rebuild scorer-ready L1 records from the immutable census.  Never migrate
+    # the previous combined bundle: hashing that bundle creates a recursive
+    # self-reference and changes the bytes on every otherwise identical run.
+    census = json.loads((ROOT / "evals/l1-contract-census-v3.json").read_text(encoding="utf-8"))
     records = []
-    for record in l1["records"]:
-        if record.get("layer") != "L1_contract_conformance":
-            continue
-        migrated = copy.deepcopy(record)
-        migrated["run_id"] = l2_bundle["run_id"]
-        migrated["skill_commit"] = l2_bundle["skill_commit"]
-        migrated["protocol_sha256"] = l2_bundle["protocol_sha256"]
-        migrated["capability_matrix_sha256"] = l2_bundle["capability_matrix_sha256"]
-        source_evidence = migrated.get("evidence_sha256") or canonical_sha256(record)
-        migrated["case_fingerprint"] = canonical_sha256({"skill_id": migrated["skill_id"], "layer": migrated["layer"], "case_id": migrated["case_id"], "source_evidence": source_evidence})
-        migrated["evidence_sha256"] = canonical_sha256({"migrated_l1_record": migrated, "source_bundle_sha256": sha256_file(l1_path)})
-        records.append(migrated)
+    for source in census["records"]:
+        fingerprint = hashlib.sha256(
+            f"{source['skill_id']}\0{source['case_id']}\0{census['input_tree_sha256']}".encode("utf-8")
+        ).hexdigest()
+        evidence_hash = canonical_sha256({
+            "skill_id": source["skill_id"],
+            "case_id": source["case_id"],
+            "passed": source["passed"],
+            "input_tree_sha256": census["input_tree_sha256"],
+        })
+        records.append({
+            **source,
+            "run_id": l2_bundle["run_id"],
+            "skill_commit": l2_bundle["skill_commit"],
+            "protocol_sha256": l2_bundle["protocol_sha256"],
+            "capability_matrix_sha256": l2_bundle["capability_matrix_sha256"],
+            "case_fingerprint": fingerprint,
+            "evidence_sha256": evidence_hash,
+        })
     records.extend(l2_bundle["records"])
     return {**l2_bundle, "records": records}
 

@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import importlib.util
 import json
+import tempfile
 import unittest
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -147,6 +148,36 @@ class L2PortfolioExecutionTests(unittest.TestCase):
         observed = self.module.execute_case(case)
         self.assertFalse(observed["passed"])
         self.assertEqual(observed["reason"], "fixture hash mismatch")
+
+    def test_l1_l2_combination_is_not_recursive(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_root = Path(temporary_directory)
+            evals = temporary_root / "evals"
+            evals.mkdir()
+            (evals / "l1-contract-census-v3.json").write_bytes(
+                (ROOT / "evals/l1-contract-census-v3.json").read_bytes()
+            )
+            (evals / "current-portfolio-evidence-v3.json").write_bytes(
+                (ROOT / "evals/current-portfolio-evidence-v3.json").read_bytes()
+            )
+            l2_bundle = {
+                "run_id": "repeatability-check",
+                "skill_commit": "a" * 40,
+                "protocol_sha256": "b" * 64,
+                "capability_matrix_sha256": "c" * 64,
+                "records": [],
+            }
+            original_root = self.module.ROOT
+            try:
+                self.module.ROOT = temporary_root
+                first = self.module.combine_with_l1(l2_bundle)
+                (evals / "current-portfolio-evidence-v3.json").write_text(
+                    json.dumps(first, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+                )
+                second = self.module.combine_with_l1(l2_bundle)
+            finally:
+                self.module.ROOT = original_root
+            self.assertEqual(first, second)
 
 
 if __name__ == "__main__":
