@@ -3,6 +3,7 @@
   "query": "10.1038/s41586-020-2649-2",
   "target_pmcid": "PMC7759461",
   "purpose": "Recorded public API responses for deterministic offline parser tests; not a current-status assertion.",
+  "hash_mode": "canonical_lf_text",
   "files": [
     {"path": "crossref.json", "sha256": "844d3ba03ef890ff05e1272875ea9ae68654d0c07a92583a84a98956ae4d822a"},
     {"path": "europepmc.json", "sha256": "2e58270729e429abdc98ba6259a676526142d7c3e74cc1268a861d3aa04db49b"},

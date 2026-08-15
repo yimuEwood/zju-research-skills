@@ -62,9 +62,11 @@ class LiveLiteraturePdfExecutorTests(unittest.TestCase):
 
     def test_recorded_four_provider_search_uses_real_parsers_and_schema(self):
         manifest = json.loads((SNAPSHOTS / "manifest.json").read_text(encoding="utf-8"))
+        self.assertEqual(manifest["hash_mode"], "canonical_lf_text")
         for item in manifest["files"]:
             path = SNAPSHOTS / item["path"]
-            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), item["sha256"])
+            canonical_bytes = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+            self.assertEqual(hashlib.sha256(canonical_bytes).hexdigest(), item["sha256"])
         result = self.providers.search(
             DOI,
             list(self.providers.PROVIDERS),
