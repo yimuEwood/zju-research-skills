@@ -15,7 +15,7 @@ ORACLE_IDS = {
     "scope_severity": "integrity_scope_severity_matrix_v1",
     "remediation_escalation": "integrity_remediation_escalation_v1",
 }
-KINDS = {"observed_fact", "reported_statement", "anomaly", "interpretation"}
+KINDS = ("observed_fact", "reported_statement", "anomaly", "interpretation")
 VERDICT = re.compile(r"\b(?:committed misconduct|fraudulent|guilty|fabricated intentionally|deliberately falsified)\b|(?:已经|确定|故意)(?:造假|篡改|学术不端)", re.I)
 PROHIBITED_ACTIONS = {"delete_originals", "modify_evidence", "public_accusation", "credential_access", "interview_subjects"}
 
