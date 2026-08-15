@@ -1,0 +1,276 @@
+{
+  "snapshot_schema_version": "1.0",
+  "provider": "pubmed",
+  "query": "10.1038/s41586-020-2649-2",
+  "page_size": 5,
+  "recorded_at": "2026-08-15T02:38:20.677682+00:00",
+  "responses": [
+    {
+      "page": 1,
+      "response": {
+        "esearch": {
+          "header": {
+            "type": "esearch",
+            "version": "0.3"
+          },
+          "esearchresult": {
+            "count": "1",
+            "retmax": "1",
+            "retstart": "0",
+            "idlist": [
+              "32939066"
+            ],
+            "translationset": [],
+            "querytranslation": "\"10.1038/s41586-020-2649-2\"[Publisher ID]"
+          }
+        },
+        "esummary": {
+          "header": {
+            "type": "esummary",
+            "version": "0.3"
+          },
+          "result": {
+            "uids": [
+              "32939066"
+            ],
+            "32939066": {
+              "uid": "32939066",
+              "pubdate": "2020 Sep",
+              "epubdate": "2020 Sep 16",
+              "source": "Nature",
+              "authors": [
+                {
+                  "name": "Harris CR",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Millman KJ",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "van der Walt SJ",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Gommers R",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Virtanen P",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Cournapeau D",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Wieser E",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Taylor J",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Berg S",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Smith NJ",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Kern R",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Picus M",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Hoyer S",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "van Kerkwijk MH",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Brett M",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Haldane A",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Del Río JF",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Wiebe M",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Peterson P",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Gérard-Marchant P",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Sheppard K",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Reddy T",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Weckesser W",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Abbasi H",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Gohlke C",
+                  "authtype": "Author",
+                  "clusterid": ""
+                },
+                {
+                  "name": "Oliphant TE",
+                  "authtype": "Author",
+                  "clusterid": ""
+                }
+              ],
+              "lastauthor": "Oliphant TE",
+              "title": "Array programming with NumPy.",
+              "sorttitle": "array programming with numpy",
+              "volume": "585",
+              "issue": "7825",
+              "pages": "357-362",
+              "lang": [
+                "eng"
+              ],
+              "nlmuniqueid": "0410462",
+              "issn": "0028-0836",
+              "essn": "1476-4687",
+              "pubtype": [
+                "Journal Article",
+                "Research Support, Non-U.S. Gov't",
+                "Review"
+              ],
+              "recordstatus": "PubMed - indexed for MEDLINE",
+              "pubstatus": "256",
+              "articleids": [
+                {
+                  "idtype": "pubmed",
+                  "idtypen": 1,
+                  "value": "32939066"
+                },
+                {
+                  "idtype": "pmc",
+                  "idtypen": 8,
+                  "value": "PMC7759461"
+                },
+                {
+                  "idtype": "pmcid",
+                  "idtypen": 5,
+                  "value": "pmc-id: PMC7759461;"
+                },
+                {
+                  "idtype": "doi",
+                  "idtypen": 3,
+                  "value": "10.1038/s41586-020-2649-2"
+                },
+                {
+                  "idtype": "pii",
+                  "idtypen": 4,
+                  "value": "10.1038/s41586-020-2649-2"
+                }
+              ],
+              "history": [
+                {
+                  "pubstatus": "received",
+                  "date": "2020/02/21 00:00"
+                },
+                {
+                  "pubstatus": "accepted",
+                  "date": "2020/06/17 00:00"
+                },
+                {
+                  "pubstatus": "entrez",
+                  "date": "2020/09/17 05:43"
+                },
+                {
+                  "pubstatus": "pubmed",
+                  "date": "2020/09/18 06:00"
+                },
+                {
+                  "pubstatus": "medline",
+                  "date": "2020/10/30 06:00"
+                },
+                {
+                  "pubstatus": "pmc-release",
+                  "date": "2020/09/16 00:00"
+                }
+              ],
+              "references": [],
+              "attributes": [
+                "Has Abstract"
+              ],
+              "pmcrefcount": 57,
+              "fulljournalname": "Nature",
+              "elocationid": "doi: 10.1038/s41586-020-2649-2",
+              "doctype": "citation",
+              "srccontriblist": [],
+              "booktitle": "",
+              "medium": "",
+              "edition": "",
+              "publisherlocation": "",
+              "publishername": "",
+              "srcdate": "",
+              "reportnumber": "",
+              "availablefromurl": "",
+              "locationlabel": "",
+              "doccontriblist": [],
+              "docdate": "",
+              "bookname": "",
+              "chapter": "",
+              "sortpubdate": "2020/09/01 00:00",
+              "sortfirstauthor": "Harris CR",
+              "vernaculartitle": ""
+            }
+          }
+        }
+      }
+    }
+  ]
+}

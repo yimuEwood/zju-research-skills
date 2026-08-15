@@ -1,0 +1,4 @@
+interface:
+  display_name: "ZJU Omics Analysis"
+  short_description: "Audit and screen reproducible omics datasets"
+  default_prompt: "Use $zju-omics-analysis to validate this omics dataset and build a traceable analysis handoff."

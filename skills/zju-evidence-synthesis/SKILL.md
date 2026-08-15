@@ -11,6 +11,8 @@ Synthesize studies without collapsing study quality, design, and uncertainty int
 
 Choose `systematic`, `scoping`, `rapid`, `narrative`, `evidence_map`, or `quantitative`. State why the mode fits the decision. If the user requests a systematic review but supplies no protocol or reproducible search, return a protocol draft and label the synthesis incomplete.
 
+For a structured selection decision, run `python scripts/select_protocol.py protocol-signals.json`. Resolve conflicting signals before synthesis; do not select meta-analysis without compatible effects or a rapid review while also claiming exhaustive coverage.
+
 Read `references/synthesis-protocol.md` before screening. Read `references/evidence-table.md` before extraction or certainty grading. Read `references/conflict-analysis.md` when studies disagree or when producing a hypothesis/monitor handoff.
 
 ## Workflow

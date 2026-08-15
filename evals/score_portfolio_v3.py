@@ -109,6 +109,66 @@ def _canonical_sha256(value: Any) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
+def _self_hash_valid(value: dict[str, Any], field: str) -> bool:
+    return value.get(field) == _canonical_sha256({
+        key: item for key, item in value.items() if key != field
+    })
+
+
+def _rating_lock_material(records: list[dict[str, Any]], layer: str) -> list[dict[str, Any]]:
+    material = []
+    for record in records:
+        if record.get("layer") != layer:
+            continue
+        material.append({
+            "layer": layer,
+            "skill_id": record.get("skill_id"),
+            "case_id": record.get("case_id"),
+            "blind_label": record.get("blind_label"),
+            "response_sha256": record.get("response_sha256"),
+            "primary_ratings": sorted(
+                record.get("primary_ratings", []),
+                key=lambda row: (str(row.get("rater_id")), str(row.get("call_id"))),
+            ),
+            "adjudication": record.get("adjudication"),
+        })
+    return sorted(material, key=lambda row: (
+        str(row["skill_id"]), str(row["case_id"]), str(row["blind_label"])
+    ))
+
+
+def _evidence_component_hash(
+    *, run_manifest: dict[str, Any], response_manifests: list[dict[str, Any]],
+    artifact_manifests: list[dict[str, Any]], ratings_locks: list[dict[str, Any]],
+    execution_event_manifests: list[dict[str, Any]], allocation_reveals: list[dict[str, Any]],
+) -> str:
+    return _canonical_sha256({
+        "run_manifest_sha256": _canonical_sha256(run_manifest),
+        "response_manifests_sha256": _canonical_sha256(response_manifests),
+        "artifact_manifests_sha256": _canonical_sha256(artifact_manifests),
+        "ratings_locks_sha256": _canonical_sha256(ratings_locks),
+        "execution_event_manifests_sha256": _canonical_sha256(execution_event_manifests),
+        "allocation_reveals_sha256": _canonical_sha256(allocation_reveals),
+    })
+
+
+def _verify_bound_file(
+    raw_path: Any, expected_hash: Any, expected_size: Any, label: str, errors: list[str]
+) -> None:
+    if not isinstance(raw_path, str) or not raw_path:
+        _error(errors, f"{label} path is missing")
+        return
+    path = Path(raw_path)
+    if not path.is_absolute():
+        path = BASE_DIR.parent / path
+    if not path.is_file():
+        _error(errors, f"{label} file is absent from the imported evidence package")
+        return
+    payload = path.read_bytes()
+    if hashlib.sha256(payload).hexdigest() != expected_hash or len(payload) != expected_size:
+        _error(errors, f"{label} bytes differ from the signed manifest")
+
+
 def _rating_score(rating: dict[str, Any], weights: dict[str, float]) -> float:
     dimensions = rating.get("dimension_scores")
     if not isinstance(dimensions, dict):
@@ -264,11 +324,12 @@ def _validate_top_level(
 
 def _validate_task_bundle(
     results: dict[str, Any], expected_skills: set[str], matrix: dict[str, Any],
-    verification: dict[str, Any] | None, errors: list[str]
-) -> dict[tuple[str, str, str], str]:
+    verification: dict[str, Any] | None, errors: list[str],
+    results_file_sha256: str | None = None, results_size_bytes: int | None = None,
+) -> dict[tuple[str, str, str, str], str]:
     """Validate precommitted run, baseline, holdout and allocation evidence.
 
-    The returned map binds each (skill, case, arm) to its revealed blind label.
+    The returned map binds each (layer, skill, case, arm) to its blind label.
     An absent or self-reported verification bundle is never release evidence.
     """
     records = [record for record in results.get("records", []) if isinstance(record, dict)]
@@ -295,11 +356,76 @@ def _validate_task_bundle(
     manifest = verification.get("run_manifest", {})
     lock = verification.get("holdout_lock", {})
     registry = verification.get("first_attempt_registry", {})
-    reveal = verification.get("allocation_reveal", {})
+    reveals = verification.get("allocation_reveals", [])
+    response_manifests = verification.get("response_manifests", [])
+    artifact_manifests = verification.get("artifact_manifests", [])
+    ratings_locks = verification.get("ratings_locks", [])
+    event_manifests = verification.get("execution_event_manifests", [])
     attestation = verification.get("administration_attestation", {})
-    if not all(isinstance(item, dict) for item in (manifest, lock, registry, reveal, attestation)):
+    if not all(isinstance(item, dict) for item in (manifest, lock, registry, attestation)):
         _error(errors, "verification artifact sections must be objects")
         return {}
+    if not all(isinstance(value, list) and all(isinstance(row, dict) for row in value) for value in (
+        reveals, response_manifests, artifact_manifests, ratings_locks, event_manifests
+    )):
+        _error(errors, "layer evidence sections must be arrays of objects")
+        return {}
+
+    expected_results_hash = _canonical_sha256(results)
+    if verification.get("portfolio_results_sha256") != expected_results_hash:
+        _error(errors, "signed verification bundle does not bind the exact portfolio results")
+    if results_file_sha256 is None or results_size_bytes is None:
+        _error(errors, "exact portfolio results file bytes were not supplied to the scorer")
+    else:
+        if verification.get("portfolio_results_file_sha256") != results_file_sha256:
+            _error(errors, "signed verification bundle does not bind the exact portfolio results file bytes")
+        if verification.get("portfolio_results_size_bytes") != results_size_bytes:
+            _error(errors, "signed portfolio results byte size differs from the scored file")
+    expected_component_hash = _evidence_component_hash(
+        run_manifest=manifest, response_manifests=response_manifests,
+        artifact_manifests=artifact_manifests, ratings_locks=ratings_locks,
+        execution_event_manifests=event_manifests, allocation_reveals=reveals,
+    )
+    if verification.get("evidence_components_sha256") != expected_component_hash:
+        _error(errors, "signed evidence component hash is invalid")
+    if attestation.get("evidence_bundle_sha256") != expected_component_hash:
+        _error(errors, "administration attestation does not bind the signed evidence components")
+
+    def by_layer(values: list[dict[str, Any]], field: str, label: str) -> dict[str, dict[str, Any]]:
+        output: dict[str, dict[str, Any]] = {}
+        for value in values:
+            layer = value.get("layer")
+            if layer not in LAYER_IDS[2:]:
+                _error(errors, f"{label} has invalid or missing layer")
+                continue
+            if layer in output:
+                _error(errors, f"duplicate {label} for layer {layer}")
+            if not _self_hash_valid(value, field):
+                _error(errors, f"{label} self-hash is invalid for layer {layer}")
+            output[layer] = value
+        return output
+
+    responses_by_layer = by_layer(response_manifests, "response_manifest_sha256", "response manifest")
+    artifacts_by_layer = by_layer(artifact_manifests, "artifact_manifest_sha256", "artifact manifest")
+    locks_by_layer = by_layer(ratings_locks, "ratings_lock_sha256", "ratings lock")
+    events_by_layer = by_layer(event_manifests, "execution_event_manifest_sha256", "execution event manifest")
+    reveals_by_layer: dict[str, dict[str, Any]] = {}
+    for reveal_row in reveals:
+        layer = reveal_row.get("layer")
+        if layer not in LAYER_IDS[2:]:
+            _error(errors, "allocation reveal has invalid or missing layer")
+            continue
+        if layer in reveals_by_layer:
+            _error(errors, f"duplicate allocation reveal for layer {layer}")
+        reveals_by_layer[layer] = reveal_row
+    expected_layers = {record.get("layer") for record in task_records}
+    for label, index in (
+        ("response manifests", responses_by_layer), ("artifact manifests", artifacts_by_layer),
+        ("ratings locks", locks_by_layer), ("execution event manifests", events_by_layer),
+        ("allocation reveals", reveals_by_layer),
+    ):
+        if set(index) != expected_layers:
+            _error(errors, f"{label} do not cover exactly the executed L3/L4 layers")
 
     if results.get("run_manifest_sha256") != _canonical_sha256(manifest):
         _error(errors, "run_manifest_sha256 does not bind the supplied run manifest")
@@ -343,6 +469,7 @@ def _validate_task_bundle(
 
     holdout_records = [record for record in task_records if record.get("layer") == LAYER_IDS[3]]
     if holdout_records:
+        reveal = reveals_by_layer.get(LAYER_IDS[3], {})
         declaration = results.get("holdout_declaration", {})
         bound_sections = {
             "lock_sha256": lock,
@@ -376,9 +503,10 @@ def _validate_task_bundle(
             _error(errors, "first-attempt registry fingerprint set differs from the holdout lock")
         if reveal.get("allocation_commitment_sha256") != lock.get("allocation_commitment_sha256"):
             _error(errors, "allocation reveal does not open the frozen commitment")
-        expected_commitment = hashlib.sha256(
-            (str(reveal.get("secret")) + "\0" + str(reveal.get("nonce")) + "\0" + lock.get("freeze_id", "")).encode("utf-8")
-        ).hexdigest()
+        expected_commitment = hashlib.sha256((
+            str(reveal.get("secret")) + "\0" + str(reveal.get("nonce")) + "\0"
+            + lock.get("freeze_id", "") + "\0" + LAYER_IDS[3]
+        ).encode("utf-8")).hexdigest()
         if reveal.get("allocation_commitment_sha256") != expected_commitment:
             _error(errors, "allocation secret and nonce do not open the commitment")
         rated_at = _parse_datetime(reveal.get("ratings_completed_at"), "ratings_completed_at", errors)
@@ -416,16 +544,141 @@ def _validate_task_bundle(
         if actual_holdout != fingerprint_map:
             _error(errors, "executed holdout records do not exactly match the frozen fingerprint map")
 
-    assignment_map: dict[tuple[str, str, str], str] = {}
-    for assignment in reveal.get("assignments", []):
-        if not isinstance(assignment, dict):
-            continue
-        key = (assignment.get("skill_id"), assignment.get("case_id"), assignment.get("arm"))
-        if key in assignment_map:
-            _error(errors, f"duplicate allocation assignment {key}")
-        assignment_map[key] = assignment.get("blind_label")
+    assignment_map: dict[tuple[str, str, str, str], str] = {}
+    for layer, reveal in reveals_by_layer.items():
+        ratings_lock = locks_by_layer.get(layer, {})
+        response_manifest = responses_by_layer.get(layer, {})
+        if reveal.get("ratings_lock_sha256") != ratings_lock.get("ratings_lock_sha256"):
+            _error(errors, f"{layer}: allocation reveal does not bind the pre-reveal ratings lock")
+        if ratings_lock.get("response_manifest_sha256") != response_manifest.get("response_manifest_sha256"):
+            _error(errors, f"{layer}: ratings lock does not bind the response manifest")
+        sealed_at = _parse_datetime(ratings_lock.get("sealed_at"), f"{layer}.ratings_lock.sealed_at", errors)
+        completed_at = _parse_datetime(reveal.get("ratings_completed_at"), f"{layer}.ratings_completed_at", errors)
+        revealed_at = _parse_datetime(reveal.get("revealed_at"), f"{layer}.revealed_at", errors)
+        if sealed_at and completed_at and sealed_at > completed_at:
+            _error(errors, f"{layer}: ratings lock was sealed after ratings completion")
+        if sealed_at and revealed_at and sealed_at >= revealed_at:
+            _error(errors, f"{layer}: ratings lock was not sealed before reveal")
+        expected_commitment = hashlib.sha256((
+            str(reveal.get("secret")) + "\0" + str(reveal.get("nonce")) + "\0"
+            + str(reveal.get("freeze_id")) + "\0" + layer
+        ).encode("utf-8")).hexdigest()
+        if reveal.get("allocation_commitment_sha256") != expected_commitment:
+            _error(errors, f"{layer}: allocation secret and nonce do not open the layer commitment")
+        for assignment in reveal.get("assignments", []):
+            if not isinstance(assignment, dict):
+                continue
+            if assignment.get("layer") != layer:
+                _error(errors, "allocation assignment layer differs from its reveal")
+            key = (layer, assignment.get("skill_id"), assignment.get("case_id"), assignment.get("arm"))
+            if key in assignment_map:
+                _error(errors, f"duplicate allocation assignment {key}")
+            assignment_map[key] = assignment.get("blind_label")
+
+        layer_records = [record for record in task_records if record.get("layer") == layer]
+        for position, row in enumerate(response_manifest.get("responses", [])):
+            if isinstance(row, dict):
+                _verify_bound_file(
+                    row.get("response_path"), row.get("response_sha256"),
+                    row.get("response_size_bytes"), f"{layer} response[{position}]", errors,
+                )
+        expected_responses = {
+            (record.get("layer"), record.get("skill_id"), record.get("case_id"), record.get("blind_label")):
+                record.get("response_sha256")
+            for record in layer_records
+        }
+        manifest_responses = {
+            (row.get("layer"), row.get("skill_id"), row.get("case_id"), row.get("blind_label")):
+                row.get("response_sha256")
+            for row in response_manifest.get("responses", []) if isinstance(row, dict)
+        }
+        if any(row.get("layer") != layer for row in response_manifest.get("responses", []) if isinstance(row, dict)):
+            _error(errors, f"{layer}: response row layer differs from its manifest")
+        if manifest_responses != expected_responses:
+            _error(errors, f"{layer}: response manifest does not exactly bind result responses")
+        material = _rating_lock_material(task_records, layer)
+        if ratings_lock.get("raw_ratings_adjudication_sha256") != _canonical_sha256(material):
+            _error(errors, f"{layer}: results ratings or adjudication differ from the pre-reveal lock")
+        if ratings_lock.get("rating_entry_count") != 2 * len(material):
+            _error(errors, f"{layer}: ratings lock primary count is inconsistent")
+        if ratings_lock.get("adjudication_entry_count") != sum(
+            isinstance(row.get("adjudication"), dict) for row in material
+        ):
+            _error(errors, f"{layer}: ratings lock adjudication count is inconsistent")
+        if sealed_at:
+            for material_row in material:
+                rating_rows = list(material_row.get("primary_ratings", []))
+                if isinstance(material_row.get("adjudication"), dict):
+                    rating_rows.append(material_row["adjudication"])
+                for rating_index, rating in enumerate(rating_rows):
+                    rated_at = _parse_datetime(
+                        rating.get("rated_at"), f"{layer}.locked_rating[{rating_index}].rated_at", errors
+                    )
+                    if rated_at and rated_at > sealed_at:
+                        _error(errors, f"{layer}: a rating or adjudication postdates the ratings lock")
+
+        fixture_map: dict[tuple[str, str], list[str]] = defaultdict(list)
+        artifact_map: dict[tuple[str, str, str], list[str]] = defaultdict(list)
+        for row in artifacts_by_layer.get(layer, {}).get("artifacts", []):
+            if not isinstance(row, dict):
+                continue
+            _verify_bound_file(
+                row.get("artifact_path"), row.get("artifact_sha256"),
+                row.get("artifact_size_bytes"), f"{layer} artifact", errors,
+            )
+            if row.get("layer") != layer:
+                _error(errors, f"{layer}: artifact row layer differs from its manifest")
+            if row.get("artifact_role") == "fixture":
+                fixture_map[(row.get("skill_id"), row.get("case_id"))].append(row.get("artifact_sha256"))
+            else:
+                artifact_map[(row.get("skill_id"), row.get("case_id"), row.get("blind_label"))].append(row.get("artifact_sha256"))
+        if layer == LAYER_IDS[3]:
+            manifest_fixture_map = {
+                f"{skill_id}::{case_id}": sorted(values)
+                for (skill_id, case_id), values in fixture_map.items()
+            }
+            if manifest_fixture_map != lock.get("fixture_byte_hashes"):
+                _error(errors, "L4 artifact fixture bytes differ from the frozen holdout lock")
+        for record in layer_records:
+            fixture_hashes = sorted(fixture_map.get((record.get("skill_id"), record.get("case_id")), []))
+            if not fixture_hashes or record.get("fixture_sha256") != _canonical_sha256(fixture_hashes):
+                _error(errors, f"{layer}: fixture byte hashes do not bind a task record")
+            expected_artifacts = sorted(artifact_map.get((
+                record.get("skill_id"), record.get("case_id"), record.get("blind_label")
+            ), []))
+            supplied_artifacts = record.get("artifact_sha256s")
+            if not isinstance(supplied_artifacts, list) or sorted(supplied_artifacts) != expected_artifacts:
+                _error(errors, f"{layer}: generated artifact hashes do not bind a task record")
+        event_calls = {
+            (row.get("layer"), row.get("skill_id"), row.get("case_id"), row.get("blind_label"), row.get("call_id"))
+            for row in events_by_layer.get(layer, {}).get("events", []) if isinstance(row, dict)
+        }
+        if any(
+            row.get("layer") != layer
+            for row in events_by_layer.get(layer, {}).get("events", []) if isinstance(row, dict)
+        ):
+            _error(errors, f"{layer}: execution event layer differs from its manifest")
+        response_calls = {
+            (row.get("layer"), row.get("skill_id"), row.get("case_id"), row.get("blind_label"), row.get("call_id"))
+            for row in response_manifest.get("responses", []) if isinstance(row, dict)
+        }
+        if not response_calls.issubset(event_calls):
+            _error(errors, f"{layer}: execution events do not cover every response call")
+        policies: dict[tuple[str, str], set[str]] = defaultdict(set)
+        labels: dict[tuple[str, str], set[str]] = defaultdict(set)
+        for row in events_by_layer.get(layer, {}).get("events", []):
+            if not isinstance(row, dict):
+                continue
+            key = (row.get("skill_id"), row.get("case_id"))
+            policies[key].add(row.get("tool_policy_sha256"))
+            labels[key].add(row.get("blind_label"))
+        for key in policies:
+            if len(policies[key]) != 1 or labels[key] != {"A", "B", "C"}:
+                _error(errors, f"{layer}: execution events do not prove A/B/C tool-policy parity for {key}")
+
     task_keys = {
-        (record.get("skill_id"), record.get("case_id"), record.get("arm")) for record in task_records
+        (record.get("layer"), record.get("skill_id"), record.get("case_id"), record.get("arm"))
+        for record in task_records
     }
     if task_keys and set(assignment_map) != task_keys:
         _error(errors, "allocation reveal does not cover exactly all executed blinded task arms")
@@ -435,7 +688,7 @@ def _validate_task_bundle(
 def _index_records(
     records: list[Any], expected_skills: set[str], capability_map: dict[str, set[str]],
     protocol: dict[str, Any], results: dict[str, Any],
-    verified_allocations: dict[tuple[str, str, str], str], errors: list[str]
+    verified_allocations: dict[tuple[str, str, str, str], str], errors: list[str]
 ) -> dict[str, dict[str, list[dict[str, Any]]]]:
     indexed: dict[str, dict[str, list[dict[str, Any]]]] = {
         skill_id: {layer_id: [] for layer_id in LAYER_IDS} for skill_id in expected_skills
@@ -529,6 +782,12 @@ def _index_records(
             digest = raw.get("response_sha256")
             if not isinstance(digest, str) or len(digest) != 64 or any(ch not in "0123456789abcdef" for ch in digest):
                 _error(errors, f"{label}: response_sha256 must be lowercase SHA-256")
+            artifact_hashes = raw.get("artifact_sha256s")
+            if not isinstance(artifact_hashes, list) or any(
+                not isinstance(item, str) or len(item) != 64 or any(ch not in "0123456789abcdef" for ch in item)
+                for item in artifact_hashes
+            ):
+                _error(errors, f"{label}: artifact_sha256s must be an array of lowercase SHA-256 values")
             ratings = raw.get("primary_ratings")
             if not isinstance(ratings, list) or len(ratings) != 2:
                 _error(errors, f"{label}: exactly two primary ratings are required")
@@ -628,7 +887,7 @@ def _index_records(
                     _error(errors, f"{label}: baseline arm is not bound to the preselected baseline")
             elif raw.get("baseline_id") is not None:
                 _error(errors, f"{label}: non-baseline arm must have baseline_id null")
-            if verified_allocations.get((skill_id, case_id, str(arm))) != raw.get("blind_label"):
+            if verified_allocations.get((layer, skill_id, case_id, str(arm))) != raw.get("blind_label"):
                 _error(errors, f"{label}: blind label does not match the verified allocation reveal")
             response_binding = (skill_id, layer, case_id, str(arm))
             prior = response_bindings.get(str(digest))
@@ -908,6 +1167,8 @@ def score_portfolio(
     results_schema: dict[str, Any] | None = None,
     verification: dict[str, Any] | None = None,
     verification_schema: dict[str, Any] | None = None,
+    results_file_sha256: str | None = None,
+    results_size_bytes: int | None = None,
 ) -> dict[str, Any]:
     supplied_protocol = protocol
     supplied_matrix = matrix
@@ -944,7 +1205,8 @@ def score_portfolio(
     if task_records_exist and not isinstance(results.get("run_manifest_sha256"), str):
         _error(errors, "task evaluation requires a hash-bound run manifest")
     verified_allocations = _validate_task_bundle(
-        results, set(expected_skills), matrix, verification, errors
+        results, set(expected_skills), matrix, verification, errors,
+        results_file_sha256=results_file_sha256, results_size_bytes=results_size_bytes,
     )
     indexed = _index_records(
         results.get("records", []) if isinstance(results.get("records"), list) else [],
@@ -1031,6 +1293,7 @@ def main() -> int:
     parser.add_argument("--verification-schema", type=Path, default=Path(__file__).with_name("portfolio-verification-v3.schema.json"))
     parser.add_argument("--output", required=True, type=Path)
     arguments = parser.parse_args()
+    results_bytes = arguments.results.read_bytes()
     report = score_portfolio(
         _load_json(arguments.protocol),
         _load_json(arguments.matrix),
@@ -1040,6 +1303,8 @@ def main() -> int:
         results_schema=_load_json(arguments.results_schema),
         verification=_load_json(arguments.verification) if arguments.verification else None,
         verification_schema=_load_json(arguments.verification_schema) if arguments.verification else None,
+        results_file_sha256=hashlib.sha256(results_bytes).hexdigest(),
+        results_size_bytes=len(results_bytes),
     )
     arguments.output.parent.mkdir(parents=True, exist_ok=True)
     arguments.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "core_compatibility": ">=1.0.0,<2.0.0",
+  "packs": [
+    {
+      "pack_id": "omics",
+      "path": "packs/omics",
+      "description": "Bulk omics intake, QC, exploratory screening, and specialist handoff."
+    },
+    {
+      "pack_id": "materials",
+      "path": "packs/materials",
+      "description": "Crystal-structure validation and reproducible materials-computation handoff."
+    },
+    {
+      "pack_id": "drug-discovery",
+      "path": "packs/drug-discovery",
+      "description": "Source-linked target and compound evidence integration and prioritization."
+    }
+  ]
+}

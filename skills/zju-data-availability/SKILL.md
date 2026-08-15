@@ -28,6 +28,7 @@ Read `references/data-routing.md` for access routes and `references/statement-co
 7. Build one reproducibility package per computational result family: entrypoint, environment, ordered input artifact IDs, expected output/result IDs, random seeds when relevant, and a verification record. Do not equate file presence with a reproduced result.
 8. Draft a dataset-to-location statement and formal dataset/code citations. Treat “available upon reasonable request” as unresolved unless a specific justified mechanism is supplied.
 9. Run `scripts/validate_data_inventory.py` and `$zju-statistics-audit/scripts/validate_result_handoff.py`; reconcile every `supports_claims`, `supports_results`, reproducibility-package output, and statement with the canonical claim/result registries, methods, figure/table source files, repository records, supplementary files, and author contributions.
+10. Run `python scripts/validate_statement_consistency.py availability-package.json` before release. Every claim-supporting artifact must appear once in the statement with an access route that agrees with the inventory; public, restricted, embargoed, and unavailable artifacts have different required fields.
 
 ## Red Lines
 

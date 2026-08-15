@@ -22,8 +22,9 @@ For ZJU-licensed interfaces such as SciFinder or Reaxys, use `$zju-fulltext-acce
 4. Retrieve through lawful APIs or interactive licensed interfaces. Respect rate limits, terms, export limits, and ZJU credential rules. Do not use a literature identifier as proof of a chemical identity match.
 5. Normalize records without erasing provenance. Keep experimental, curated, submitted, computed, predicted, vendor, and regulatory values separate; retain units, conditions, methods, uncertainty, and source anchors.
 6. Resolve conflicts using identity specificity, primary-source quality, measurement conditions, version/date, and independent corroboration. Run `scripts/build_evidence_matrix.py` when comparing values; it separates records by entity, endpoint, unit/basis, conditions, method and evidence stratum. Do not average incompatible values.
-7. For bioactivity, preserve target organism/protein, assay type, endpoint, units, relation operators, construct, and confidence. For reactions, preserve substrates/products, stoichiometry, conditions, yield type, and primary source.
-8. Run `scripts/validate_chemistry_records.py`. Route citation verification to `$zju-reference-audit` and hazardous experimental planning to appropriate institutional safety review.
+7. Run `python scripts/compare_conditions.py condition-records.json` before cross-record condition comparisons. Compare records only after entity, endpoint, basis, and normalized temperature, duration, pressure, solvent, catalyst, and atmosphere match; an unsupported unit blocks comparison.
+8. For bioactivity, preserve target organism/protein, assay type, endpoint, units, relation operators, construct, and confidence. For reactions, preserve substrates/products, stoichiometry, conditions, yield type, and primary source.
+9. Run `scripts/validate_chemistry_records.py`. Route citation verification to `$zju-reference-audit` and hazardous experimental planning to appropriate institutional safety review.
 
 ## Incomplete-Input Fallback
 

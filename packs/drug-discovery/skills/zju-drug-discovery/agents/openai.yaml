@@ -1,0 +1,4 @@
+interface:
+  display_name: "ZJU Drug Discovery"
+  short_description: "Integrate target and compound evidence"
+  default_prompt: "Use $zju-drug-discovery to build a traceable target and compound evidence package."

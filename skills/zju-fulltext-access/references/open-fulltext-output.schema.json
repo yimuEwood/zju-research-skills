@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yimuEwood/zju-research-skills/schemas/open-fulltext-package-1.0.json",
+  "title": "ZJU lawful open full-text source package",
+  "type": "object",
+  "required": ["schema_version", "status", "target", "access", "artifact", "reader_handoff"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "status": {"const": "verified_open_fulltext"},
+    "target": {"type": "object", "required": ["pmcid"]},
+    "access": {"type": "object", "required": ["provider", "route", "retrieved_at", "source_url"]},
+    "artifact": {"type": "object", "required": ["filename", "mime_type", "byte_count", "sha256"]},
+    "reader_handoff": {"type": "object", "required": ["ready", "source_level", "source_path"]}
+  }
+}

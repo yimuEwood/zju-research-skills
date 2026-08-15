@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Execute a small, design-bound set of confirmatory analyses offline.
+"""Execute a narrow, design-bound set of confirmatory analyses offline.
 
-The executor intentionally supports a narrow core that can be checked
-numerically: Welch and paired t tests, Pearson correlation, and simple OLS.
-Unsupported models fail explicitly instead of being approximated silently.
+The supported core is intentionally explicit and numerically testable:
+Welch and paired t tests, Pearson correlation, simple OLS, one-way ANOVA,
+and a single-continuous-predictor binomial logistic GLM. Unsupported designs
+fail instead of being silently approximated by a simpler model.
 """
 
 from __future__ import annotations
@@ -21,7 +22,7 @@ from typing import Any, Iterable
 try:
     import numpy as np
     import scipy
-    from scipy import stats
+    from scipy import special, stats
 except ImportError as exc:  # pragma: no cover - exercised only in incomplete runtimes
     raise SystemExit(
         "execute_analysis.py requires numpy and scipy; install them in the active Python environment"
@@ -33,6 +34,8 @@ SUPPORTED_METHODS = {
     "paired_ttest",
     "pearson_correlation",
     "simple_ols",
+    "one_way_anova",
+    "binomial_logistic_glm",
 }
 MISSING = {"", "na", "n/a", "nan", "none", "null", "."}
 
@@ -99,6 +102,62 @@ def require_columns(rows: list[dict[str, Any]], columns: Iterable[str]) -> None:
     missing = [column for column in columns if not column or column not in available]
     if missing:
         raise ValueError(f"data table is missing required columns: {sorted(set(missing))}")
+
+
+def profile_rows(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    """Return a deterministic, bounded EDA profile without guessing data types."""
+
+    if not rows:
+        raise ValueError("data table is empty")
+    columns = sorted(set().union(*(row.keys() for row in rows)))
+    summaries: list[dict[str, Any]] = []
+    for column in columns:
+        raw = [row.get(column) for row in rows]
+        present = [value for value in raw if value is not None and str(value).strip().casefold() not in MISSING]
+        numeric_values: list[float] = []
+        non_numeric = 0
+        for value in present:
+            try:
+                number = float(value)
+            except (TypeError, ValueError):
+                non_numeric += 1
+                continue
+            if math.isfinite(number):
+                numeric_values.append(number)
+            else:
+                non_numeric += 1
+        summary: dict[str, Any] = {
+            "column": column,
+            "rows": len(rows),
+            "missing": len(raw) - len(present),
+            "missing_rate": (len(raw) - len(present)) / len(raw),
+            "unique_nonmissing": len({str(value) for value in present}),
+            "numeric_parseable": len(numeric_values),
+            "non_numeric_nonmissing": non_numeric,
+        }
+        if numeric_values and not non_numeric:
+            values = np.asarray(numeric_values, dtype=float)
+            quartiles = np.quantile(values, [0.25, 0.5, 0.75])
+            summary["numeric_summary"] = {
+                "min": float(np.min(values)),
+                "q1": float(quartiles[0]),
+                "median": float(quartiles[1]),
+                "q3": float(quartiles[2]),
+                "max": float(np.max(values)),
+                "mean": float(np.mean(values)),
+                "sd": float(np.std(values, ddof=1)) if len(values) > 1 else None,
+            }
+        summaries.append(summary)
+    canonical_rows = [stable_json({key: row.get(key) for key in columns}) for row in rows]
+    duplicate_rows = len(canonical_rows) - len(set(canonical_rows))
+    return {
+        "rows": len(rows),
+        "columns": len(columns),
+        "column_order": columns,
+        "duplicate_full_rows": duplicate_rows,
+        "column_profiles": summaries,
+        "scope_note": "Descriptive profile only; inferred data types and design validity were not asserted.",
+    }
 
 
 def result_id_for(analysis: dict[str, Any], execution: dict[str, Any]) -> str:
@@ -563,11 +622,401 @@ def execute_ols(
     return result, run
 
 
+def _eta_squared(groups: list[np.ndarray]) -> float:
+    combined = np.concatenate(groups)
+    grand_mean = float(np.mean(combined))
+    between = sum(len(group) * (float(np.mean(group)) - grand_mean) ** 2 for group in groups)
+    total = float(np.sum((combined - grand_mean) ** 2))
+    if total <= 0:
+        raise ValueError("one-way ANOVA requires non-zero total outcome variation")
+    return float(between / total)
+
+
+def execute_one_way_anova(
+    rows: list[dict[str, Any]], analysis: dict[str, Any], execution: dict[str, Any]
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Run an independent-units, fixed one-factor omnibus ANOVA.
+
+    This is deliberately not a repeated-measures, factorial, covariate-adjusted,
+    mixed, or clustered ANOVA implementation.
+    """
+
+    if str(analysis.get("effect_measure")) != "eta_squared":
+        raise ValueError("one_way_anova requires effect_measure='eta_squared'")
+    value_column = str(execution.get("value_column") or "")
+    group_column = str(execution.get("group_column") or "")
+    unit_column = str(execution.get("experimental_unit_column") or "")
+    group_order = [str(item) for item in execution.get("group_order", [])]
+    require_columns(rows, [value_column, group_column, unit_column])
+    if len(group_order) < 3 or len(group_order) != len(set(group_order)) or any(not item for item in group_order):
+        raise ValueError("one_way_anova requires a unique group_order with at least three groups")
+    for forbidden in ("subject_column", "cluster_column", "block_column", "covariate_columns", "within_factor"):
+        if execution.get(forbidden) not in (None, "", []):
+            raise ValueError(f"one_way_anova does not support {forbidden}; route to a design-appropriate provider")
+
+    values: dict[str, list[tuple[int, float]]] = {group: [] for group in group_order}
+    excluded: list[int] = []
+    unlisted: set[str] = set()
+    for index, row in enumerate(rows):
+        group = str(row.get(group_column, "")).strip()
+        number = numeric(row.get(value_column), value_column, index + 2)
+        if number is None:
+            excluded.append(index + 2)
+            continue
+        if group not in values:
+            unlisted.add(group or "<missing>")
+            continue
+        values[group].append((index, number))
+    if unlisted:
+        raise ValueError(
+            "one_way_anova found finite outcomes in groups absent from group_order: "
+            f"{sorted(unlisted)}; freeze the exact analysis population instead of dropping them silently"
+        )
+    if any(len(group_values) < 2 for group_values in values.values()):
+        raise ValueError("one_way_anova requires at least two complete independent units per group")
+    selected = [index for group_values in values.values() for index, _ in group_values]
+    unit_count, observation_count = _unit_counts(rows, unit_column, selected)
+    arrays = [np.asarray([number for _, number in values[group]], dtype=float) for group in group_order]
+    omnibus = stats.f_oneway(*arrays)
+    estimate = _eta_squared(arrays)
+    df_between = float(len(arrays) - 1)
+    df_within = float(observation_count - len(arrays))
+
+    iterations = int(execution.get("bootstrap_iterations", 2000))
+    seed = int(execution.get("bootstrap_seed", 20260815))
+    if not 200 <= iterations <= 10000:
+        raise ValueError("bootstrap_iterations must be between 200 and 10000")
+    rng = np.random.default_rng(seed)
+    boot = np.empty(iterations, dtype=float)
+    for index in range(iterations):
+        sampled = [rng.choice(group, size=len(group), replace=True) for group in arrays]
+        try:
+            boot[index] = _eta_squared(sampled)
+        except ValueError:
+            boot[index] = 0.0
+    level = float(execution.get("confidence_level", 0.95))
+    if not 0 < level < 1:
+        raise ValueError("confidence_level must lie between 0 and 1")
+    alpha = 1 - level
+    lower, upper = np.quantile(boot, [alpha / 2, 1 - alpha / 2])
+    lower = min(float(lower), estimate)
+    upper = max(float(upper), estimate)
+
+    combined = np.concatenate(arrays)
+    fitted_means = np.concatenate([
+        np.full(len(group), float(np.mean(group)), dtype=float) for group in arrays
+    ])
+    residuals = combined - fitted_means
+    levene = stats.levene(*arrays, center="median")
+    kruskal = stats.kruskal(*arrays)
+    result = {
+        "result_id": result_id_for(analysis, execution),
+        "analysis_id": analysis["analysis_id"],
+        "outcome_id": analysis["outcome_ids"][0],
+        "result_kind": "inferential",
+        "analysis_population": analysis["analysis_population"],
+        "effect_measure": "eta_squared",
+        "estimate": estimate,
+        "unit": "proportion_of_total_variance",
+        "direction": "non_directional_omnibus_group_effect",
+        "ci": {"level": level, "lower": lower, "upper": upper},
+        "p_value": float(omnibus.pvalue),
+        "multiplicity_status": "pending_execution_family_reconciliation",
+        "n": {"experimental_units": unit_count, "observations": observation_count},
+        "diagnostics": [
+            _shapiro(np.sort(residuals), "anova_residuals"),
+            {
+                "check": "levene_median",
+                "result": "variance_difference_flag" if levene.pvalue < 0.05 else "no_strong_variance_difference_detected",
+                "statistic": float(levene.statistic),
+                "p_value": float(levene.pvalue),
+                "consequence": "If variances materially differ, use a justified heteroscedastic or robust provider; this executor does not relabel the model.",
+            },
+        ],
+        "sensitivity_analyses": [{
+            "analysis_id": f"{analysis['analysis_id']}-KRUSKAL",
+            "method": "kruskal_wallis",
+            "statistic": float(kruskal.statistic),
+            "p_value": float(kruskal.pvalue),
+        }],
+        "source_anchor": "analysis-run.json#/analyses/" + str(execution["_run_index"]),
+        "status": "verified",
+        "method": "one_way_anova",
+        "test_statistic": float(omnibus.statistic),
+        "degrees_of_freedom": {"between": df_between, "within": df_within},
+        "group_summaries": {
+            group: {
+                "n": len(array),
+                "mean": float(np.mean(array)),
+                "sd": float(np.std(array, ddof=1)),
+            }
+            for group, array in zip(group_order, arrays)
+        },
+        "interval_method": {
+            "name": "stratified_percentile_bootstrap",
+            "iterations": iterations,
+            "seed": seed,
+            "resampling_unit": "experimental_unit_within_group",
+        },
+        "execution_binding": {
+            "value_column": value_column,
+            "group_column": group_column,
+            "experimental_unit_column": unit_column,
+            "group_order": group_order,
+        },
+        "verification_scope": "independent_one_factor_fixed_groups_numeric_execution_only",
+    }
+    run = {
+        "analysis_id": analysis["analysis_id"],
+        "result_id": result["result_id"],
+        "method": "one_way_anova",
+        "rows_input": len(rows),
+        "rows_used": observation_count,
+        "excluded_source_rows": excluded,
+        "columns": {"value": value_column, "group": group_column, "experimental_unit": unit_column},
+        "group_order": group_order,
+        "model_boundary": "independent_units_one_factor_no_covariates_no_clustering_no_repeated_measures",
+    }
+    return result, run
+
+
+def _fit_logistic(x: np.ndarray, y: np.ndarray) -> tuple[np.ndarray, np.ndarray, dict[str, Any]]:
+    """Fit an unpenalized two-parameter logistic model with damped Newton steps."""
+
+    mean_x = float(np.mean(x))
+    sd_x = float(np.std(x, ddof=0))
+    if not math.isfinite(sd_x) or sd_x <= 0:
+        raise ValueError("binomial_logistic_glm requires a varying continuous predictor")
+    z = (x - mean_x) / sd_x
+    matrix = np.column_stack([np.ones(len(z)), z])
+    event_rate = float(np.mean(y))
+    beta = np.asarray([math.log(event_rate / (1 - event_rate)), 0.0], dtype=float)
+
+    def log_likelihood(candidate: np.ndarray) -> float:
+        eta = matrix @ candidate
+        return float(np.sum(y * eta - np.logaddexp(0.0, eta)))
+
+    converged = False
+    iterations = 0
+    for iterations in range(1, 101):
+        eta = matrix @ beta
+        probability = special.expit(eta)
+        weights = probability * (1 - probability)
+        if float(np.min(weights)) < 1e-14:
+            raise ValueError("binomial_logistic_glm detected complete or quasi separation")
+        information = matrix.T @ (weights[:, None] * matrix)
+        score = matrix.T @ (y - probability)
+        try:
+            step = np.linalg.solve(information, score)
+        except np.linalg.LinAlgError as exc:
+            raise ValueError("binomial_logistic_glm information matrix is singular") from exc
+        current = log_likelihood(beta)
+        scale = 1.0
+        candidate = beta + step
+        while log_likelihood(candidate) < current and scale > 2 ** -20:
+            scale /= 2
+            candidate = beta + scale * step
+        if scale <= 2 ** -20:
+            raise ValueError("binomial_logistic_glm Newton step could not improve the likelihood")
+        beta = candidate
+        if float(np.max(np.abs(scale * step))) < 1e-10:
+            converged = True
+            break
+    if not converged or float(np.max(np.abs(beta))) > 25:
+        raise ValueError("binomial_logistic_glm did not converge to a finite non-separated maximum-likelihood estimate")
+
+    probability = special.expit(matrix @ beta)
+    weights = probability * (1 - probability)
+    information = matrix.T @ (weights[:, None] * matrix)
+    try:
+        covariance_z = np.linalg.inv(information)
+    except np.linalg.LinAlgError as exc:
+        raise ValueError("binomial_logistic_glm covariance matrix is singular") from exc
+    transform = np.asarray([[1.0, -mean_x / sd_x], [0.0, 1.0 / sd_x]])
+    beta_raw = transform @ beta
+    covariance_raw = transform @ covariance_z @ transform.T
+    sqrt_weights = np.sqrt(weights)
+    hat = (sqrt_weights[:, None] * matrix) @ covariance_z @ (sqrt_weights[:, None] * matrix).T
+    diagnostics = {
+        "iterations": iterations,
+        "converged": converged,
+        "predictor_center": mean_x,
+        "predictor_scale": sd_x,
+        "min_fitted_probability": float(np.min(probability)),
+        "max_fitted_probability": float(np.max(probability)),
+        "max_leverage": float(np.max(np.diag(hat))),
+        "brier_score": float(np.mean((y - probability) ** 2)),
+        "deviance": float(2 * np.sum(np.logaddexp(0.0, matrix @ beta) - y * (matrix @ beta))),
+    }
+    return beta_raw, covariance_raw, diagnostics
+
+
+def execute_binomial_logistic_glm(
+    rows: list[dict[str, Any]], analysis: dict[str, Any], execution: dict[str, Any]
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Run a binary GLM with one continuous predictor and independent units."""
+
+    if str(analysis.get("effect_measure")) != "log_odds_ratio_per_unit":
+        raise ValueError("binomial_logistic_glm requires effect_measure='log_odds_ratio_per_unit'")
+    outcome_column = str(execution.get("outcome_column") or "")
+    predictor_column = str(execution.get("predictor_column") or "")
+    unit_column = str(execution.get("experimental_unit_column") or "")
+    event_value = str(execution.get("event_value") if execution.get("event_value") is not None else "")
+    non_event_value = str(execution.get("non_event_value") if execution.get("non_event_value") is not None else "")
+    require_columns(rows, [outcome_column, predictor_column, unit_column])
+    if not event_value or not non_event_value or event_value == non_event_value:
+        raise ValueError("binomial_logistic_glm requires distinct event_value and non_event_value")
+    for forbidden in (
+        "predictor_columns", "covariate_columns", "cluster_column", "weights_column",
+        "offset_column", "random_effects", "strata_column",
+    ):
+        if execution.get(forbidden) not in (None, "", []):
+            raise ValueError(
+                f"binomial_logistic_glm supports exactly one unweighted continuous predictor and does not support {forbidden}"
+            )
+
+    selected: list[int] = []
+    excluded: list[int] = []
+    x_values: list[float] = []
+    y_values: list[float] = []
+    unknown_outcomes: set[str] = set()
+    for index, row in enumerate(rows):
+        raw_outcome = row.get(outcome_column)
+        raw_predictor = row.get(predictor_column)
+        if raw_outcome is None or str(raw_outcome).strip().casefold() in MISSING:
+            excluded.append(index + 2)
+            continue
+        predictor = numeric(raw_predictor, predictor_column, index + 2)
+        if predictor is None:
+            excluded.append(index + 2)
+            continue
+        outcome = str(raw_outcome).strip()
+        if outcome not in {event_value, non_event_value}:
+            unknown_outcomes.add(outcome)
+            continue
+        selected.append(index)
+        x_values.append(predictor)
+        y_values.append(1.0 if outcome == event_value else 0.0)
+    if unknown_outcomes:
+        raise ValueError(
+            "binomial_logistic_glm found outcomes outside the declared binary coding: "
+            f"{sorted(unknown_outcomes)}"
+        )
+    unit_count, observation_count = _unit_counts(rows, unit_column, selected)
+    events = int(sum(y_values))
+    non_events = observation_count - events
+    if observation_count < 20 or min(events, non_events) < 5:
+        raise ValueError(
+            "binomial_logistic_glm requires at least 20 complete independent units and at least five events and non-events; "
+            "small-sample or penalized inference must be routed elsewhere"
+        )
+    x = np.asarray(x_values, dtype=float)
+    y = np.asarray(y_values, dtype=float)
+    beta, covariance, fit = _fit_logistic(x, y)
+    estimate = float(beta[1])
+    standard_error = math.sqrt(float(covariance[1, 1]))
+    if not math.isfinite(standard_error) or standard_error <= 0:
+        raise ValueError("binomial_logistic_glm produced an invalid slope standard error")
+    level = float(execution.get("confidence_level", 0.95))
+    if not 0 < level < 1:
+        raise ValueError("confidence_level must lie between 0 and 1")
+    critical = float(stats.norm.ppf(0.5 + level / 2))
+    lower = estimate - critical * standard_error
+    upper = estimate + critical * standard_error
+    statistic = estimate / standard_error
+    p_value = float(2 * stats.norm.sf(abs(statistic)))
+
+    event_rate = events / observation_count
+    null_deviance = float(
+        -2 * (events * math.log(event_rate) + non_events * math.log(1 - event_rate))
+    )
+    likelihood_ratio = max(0.0, null_deviance - float(fit["deviance"]))
+    odds_ratio = math.exp(estimate)
+    result = {
+        "result_id": result_id_for(analysis, execution),
+        "analysis_id": analysis["analysis_id"],
+        "outcome_id": analysis["outcome_ids"][0],
+        "result_kind": "inferential",
+        "analysis_population": analysis["analysis_population"],
+        "effect_measure": "log_odds_ratio_per_unit",
+        "estimate": estimate,
+        "unit": execution.get("unit") or "log_odds_per_predictor_unit",
+        "direction": "higher_event_odds_per_unit" if estimate > 0 else "lower_event_odds_per_unit" if estimate < 0 else "no_numeric_direction",
+        "ci": {"level": level, "lower": lower, "upper": upper},
+        "p_value": p_value,
+        "multiplicity_status": "pending_execution_family_reconciliation",
+        "n": {"experimental_units": unit_count, "observations": observation_count},
+        "diagnostics": [
+            {
+                "check": "maximum_likelihood_convergence_and_separation",
+                "result": "passed_bounded_checks",
+                "iterations": fit["iterations"],
+                "fitted_probability_range": [fit["min_fitted_probability"], fit["max_fitted_probability"]],
+                "consequence": "No complete/quasi-separation signal crossed the executor boundary; domain model adequacy remains reviewable.",
+            },
+            {
+                "check": "leverage",
+                "result": "review_required" if fit["max_leverage"] > 0.5 else "no_extreme_leverage_flag",
+                "max_leverage": fit["max_leverage"],
+                "consequence": "Inspect influential units and prespecified sensitivity analyses.",
+            },
+            {
+                "check": "events_per_parameter",
+                "result": "bounded_minimum_passed",
+                "events": events,
+                "non_events": non_events,
+                "parameters": 2,
+                "consequence": "This threshold is an execution guardrail, not a universal adequacy guarantee.",
+            },
+        ],
+        "sensitivity_analyses": [],
+        "source_anchor": "analysis-run.json#/analyses/" + str(execution["_run_index"]),
+        "status": "verified",
+        "method": "binomial_logistic_glm",
+        "test_statistic": statistic,
+        "standard_error": standard_error,
+        "intercept": float(beta[0]),
+        "intercept_standard_error": math.sqrt(float(covariance[0, 0])),
+        "odds_ratio": odds_ratio,
+        "odds_ratio_ci": {"level": level, "lower": math.exp(lower), "upper": math.exp(upper)},
+        "likelihood_ratio": {
+            "statistic": likelihood_ratio,
+            "df": 1,
+            "p_value": float(stats.chi2.sf(likelihood_ratio, 1)),
+            "null_deviance": null_deviance,
+            "residual_deviance": fit["deviance"],
+        },
+        "brier_score": fit["brier_score"],
+        "execution_binding": {
+            "outcome_column": outcome_column,
+            "predictor_column": predictor_column,
+            "experimental_unit_column": unit_column,
+            "event_value": event_value,
+            "non_event_value": non_event_value,
+        },
+        "verification_scope": "independent_units_one_continuous_predictor_unweighted_binomial_glm_only",
+    }
+    run = {
+        "analysis_id": analysis["analysis_id"],
+        "result_id": result["result_id"],
+        "method": "binomial_logistic_glm",
+        "rows_input": len(rows),
+        "rows_used": observation_count,
+        "excluded_source_rows": excluded,
+        "columns": {"outcome": outcome_column, "predictor": predictor_column, "experimental_unit": unit_column},
+        "outcome_coding": {"event": event_value, "non_event": non_event_value},
+        "model_boundary": "binary_outcome_one_continuous_predictor_independent_unweighted_units",
+    }
+    return result, run
+
+
 EXECUTORS = {
     "welch_ttest": execute_welch,
     "paired_ttest": execute_paired,
     "pearson_correlation": execute_pearson,
     "simple_ols": execute_ols,
+    "one_way_anova": execute_one_way_anova,
+    "binomial_logistic_glm": execute_binomial_logistic_glm,
 }
 
 
@@ -626,6 +1075,14 @@ def apply_multiplicity(results: list[dict[str, Any]], analyses: list[dict[str, A
             item["multiplicity_status"] = f"{method}_adjusted_within:{family};m={len(members)}"
 
 
+def _dependency_declared(value: Any) -> bool:
+    if value in (None, False, 0, "", [], {}):
+        return False
+    if isinstance(value, str) and value.strip().casefold() in {"none", "no", "not_applicable", "independent"}:
+        return False
+    return True
+
+
 def execute(
     data_path: Path,
     contract_path: Path,
@@ -647,6 +1104,9 @@ def execute(
     outcome_ids = {
         str(item.get("outcome_id")) for item in contract.get("outcomes", []) if isinstance(item, dict)
     }
+    design = contract.get("design") if isinstance(contract.get("design"), dict) else {}
+    has_clustered_design = _dependency_declared(design.get("clusters")) or _dependency_declared(design.get("nesting"))
+    has_repeated_design = _dependency_declared(design.get("repeated_measures"))
     selected_analyses: list[dict[str, Any]] = []
     for analysis in contract.get("analyses", []):
         if not isinstance(analysis, dict):
@@ -664,6 +1124,16 @@ def execute(
             raise ValueError(
                 f"analysis {analysis_id}: unsupported execution method {method!r}; "
                 f"supported methods are {sorted(SUPPORTED_METHODS)}"
+            )
+        if has_clustered_design:
+            raise ValueError(
+                f"analysis {analysis_id}: clustered or nested designs are outside this executor; "
+                "use a provider that models the declared dependence structure"
+            )
+        if has_repeated_design and method != "paired_ttest":
+            raise ValueError(
+                f"analysis {analysis_id}: repeated measures are supported only for the exact two-condition paired_ttest core; "
+                f"{method!r} cannot represent the declared dependence"
             )
         linked_outcomes = analysis.get("outcome_ids")
         if not isinstance(linked_outcomes, list) or len(linked_outcomes) != 1:
@@ -759,6 +1229,7 @@ def execute(
             "numpy": np.__version__,
             "scipy": scipy.__version__,
         },
+        "dataset_profile": profile_rows(rows),
         "analyses": run_entries,
         "result_registry": {"path": "result-registry.json", "sha256": "pending_write"},
         "scope_note": (

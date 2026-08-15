@@ -1,0 +1,21 @@
+{
+  "schema_version": "3.0",
+  "layer": "L4_frozen_holdout_generalization",
+  "cases": [
+    {
+      "case_id": "HLD-REPLACE-001",
+      "skill_id": "zju-literature-search",
+      "stratum": "adversarial",
+      "prompt": "Replace with an independently authored task prompt.",
+      "fixture": {"replace": "with immutable task inputs"},
+      "fixture_files": ["path/to/immutable-fixture.bin"],
+      "capability_ids": ["query_design", "identity_dedup"],
+      "gold_checks": [
+        {
+          "check_id": "G1",
+          "criterion": "Replace with a directly observable, case-specific success criterion."
+        }
+      ]
+    }
+  ]
+}

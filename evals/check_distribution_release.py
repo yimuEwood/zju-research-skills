@@ -10,6 +10,8 @@ from __future__ import annotations
 import argparse
 import ast
 import json
+import re
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
@@ -17,7 +19,7 @@ from typing import Any
 import yaml
 
 
-EXPECTED_VERSION = "1.0.0"
+EXPECTED_VERSION = "1.1.0"
 EXPECTED_SKILLS = 20
 TEXT_SUFFIXES = {
     ".cfg",
@@ -34,6 +36,18 @@ TEXT_SUFFIXES = {
 }
 TEXT_NAMES = {".gitattributes", ".gitignore", "LICENSE", "NOTICE"}
 SKIP_DIRS = {".git", ".pytest_cache", ".venv", "__pycache__", "cache", "results", "venv"}
+EVALUATED_PATHS = [
+    "skills",
+    "packs",
+    "tools",
+    "requirements-runtime.txt",
+    "evals/l2-cases-v3.json",
+    "evals/l2_portfolio_execution.py",
+    "evals/portfolio-protocol-v3.json",
+    "evals/skill-evaluation-matrix-v3.json",
+    "evals/score_portfolio_v3.py",
+    "tests",
+]
 
 
 def _json(path: Path) -> dict[str, Any]:
@@ -92,6 +106,39 @@ def _discovered_test_count(root: Path) -> int:
             if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith("test_")
         )
     return count
+
+
+def _evaluated_snapshot_state(root: Path, commit: Any) -> tuple[bool, str]:
+    if not isinstance(commit, str) or not re.fullmatch(r"[0-9a-f]{40}", commit):
+        return False, "evidence skill_commit is not a full lowercase Git commit"
+
+    def run(*args: str) -> subprocess.CompletedProcess[str]:
+        return subprocess.run(
+            ["git", "-C", str(root), *args],
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            capture_output=True,
+            check=False,
+        )
+
+    if run("cat-file", "-e", f"{commit}^{{commit}}").returncode != 0:
+        return False, f"evaluated commit does not exist: {commit}"
+    if run("merge-base", "--is-ancestor", commit, "HEAD").returncode != 0:
+        return False, f"evaluated commit is not an ancestor of HEAD: {commit}"
+    changed = run("diff", "--name-only", commit, "HEAD", "--", *EVALUATED_PATHS)
+    if changed.returncode != 0:
+        return False, changed.stderr.strip() or "git diff failed"
+    changed_paths = [line for line in changed.stdout.splitlines() if line.strip()]
+    if changed_paths:
+        return False, "evaluated inputs changed after evidence commit: " + ", ".join(changed_paths[:10])
+    working = run("status", "--porcelain=v1", "--", *EVALUATED_PATHS)
+    if working.returncode != 0:
+        return False, working.stderr.strip() or "git status failed"
+    working_paths = [line for line in working.stdout.splitlines() if line.strip()]
+    if working_paths:
+        return False, "uncommitted evaluated inputs: " + ", ".join(working_paths[:10])
+    return True, f"evaluated commit {commit}; tracked inputs unchanged through HEAD"
 
 
 def evaluate(root: Path) -> dict[str, Any]:
@@ -180,13 +227,20 @@ def evaluate(root: Path) -> dict[str, Any]:
     )
 
     census_summary = census.get("summary", {})
+    census_input_count = len(census.get("input_manifest", []))
     census_ok = (
         census_summary.get("expected_skills") == 20
         and census_summary.get("complete_skills") == 20
         and census_summary.get("passed_records") == 120
         and census_summary.get("failed_records") == 0
+        and census_input_count == release["qualification"]["l1_input_files_hashed"]
     )
-    _check(checks, "l1_contract_census", census_ok, json.dumps(census_summary, sort_keys=True))
+    _check(
+        checks,
+        "l1_contract_census",
+        census_ok,
+        json.dumps({**census_summary, "input_files_hashed": census_input_count}, sort_keys=True),
+    )
 
     l1_records = [
         record
@@ -194,27 +248,48 @@ def evaluate(root: Path) -> dict[str, Any]:
         if record.get("layer") == "L1_contract_conformance"
     ]
     l1_skill_ids = {record.get("skill_id") for record in l1_records}
-    current_l1_ok = (
+    l2_records = [
+        record
+        for record in current_evidence.get("records", [])
+        if record.get("layer") == "L2_deterministic_function"
+    ]
+    l2_skill_ids = {record.get("skill_id") for record in l2_records}
+    current_l1_l2_ok = (
         len(l1_records) == 120
         and len(l1_skill_ids) == 20
         and all(record.get("passed") is True for record in l1_records)
-        and all(record.get("layer") == "L1_contract_conformance" for record in current_evidence.get("records", []))
+        and len(l2_records) == 400
+        and len(l2_skill_ids) == 20
+        and all(record.get("passed") is True for record in l2_records)
+        and all(
+            record.get("layer") in {"L1_contract_conformance", "L2_deterministic_function"}
+            for record in current_evidence.get("records", [])
+        )
         and isinstance(current_evidence.get("skill_commit"), str)
         and len(current_evidence["skill_commit"]) == 40
+        and current_evidence.get("skill_commit")
+        == release["qualification"].get("evaluated_skill_commit")
     )
     _check(
         checks,
-        "current_l1_evidence_bundle",
-        current_l1_ok,
-        "120 commit-bound engineering records; no L2-L4 records",
+        "current_l1_l2_evidence_bundle",
+        current_l1_l2_ok,
+        "120 L1 plus 400 L2 commit-bound records; no L3-L4 records",
     )
 
-    script_count = len(list((root / "skills").glob("*/scripts/*.py")))
+    snapshot_ok, snapshot_evidence = _evaluated_snapshot_state(
+        root, current_evidence.get("skill_commit")
+    )
+    _check(checks, "evaluated_snapshot_binding", snapshot_ok, snapshot_evidence)
+
+    core_script_count = len(list((root / "skills").glob("*/scripts/*.py")))
+    pack_script_count = len(list((root / "packs").glob("*/scripts/*.py")))
+    script_count = core_script_count + pack_script_count
     _check(
         checks,
         "script_inventory",
         script_count == release["qualification"]["skill_scripts_scanned"],
-        f"scripts={script_count}",
+        f"core={core_script_count} packs={pack_script_count} total={script_count}",
     )
 
     test_count = _discovered_test_count(root)

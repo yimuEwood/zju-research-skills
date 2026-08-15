@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "study_id": "STUDY-REAL-1",
+  "analysis_contract_id": "AC-REAL-ANOVA-1",
+  "registry_version": "RUN-2A39CA62F5AB68FBA9EF0B04",
+  "results": [
+    {
+      "result_id": "RES-ANOVA",
+      "analysis_id": "AN-ANOVA",
+      "outcome_id": "OUT-response",
+      "result_kind": "inferential",
+      "analysis_population": "all complete independent preparations in control, low, and high groups",
+      "effect_measure": "eta_squared",
+      "estimate": 0.895505683024256,
+      "unit": "proportion_of_total_variance",
+      "direction": "non_directional_omnibus_group_effect",
+      "ci": {
+        "level": 0.95,
+        "lower": 0.8550689949860124,
+        "upper": 0.957580914108147
+      },
+      "p_value": 4.397390529328661e-08,
+      "multiplicity_status": "single_test_in_family:primary_single_test",
+      "n": {
+        "experimental_units": 18,
+        "observations": 18
+      },
+      "diagnostics": [
+        {
+          "check": "shapiro_anova_residuals",
+          "result": "no_strong_departure_detected",
+          "statistic": 0.9568503364981544,
+          "p_value": 0.5421522160970409,
+          "scope": "all_values",
+          "consequence": "inspect distribution and sensitivity analysis; do not treat this test as an automatic model selector"
+        },
+        {
+          "check": "levene_median",
+          "result": "no_strong_variance_difference_detected",
+          "statistic": 0.008488964346349761,
+          "p_value": 0.9915517251494029,
+          "consequence": "If variances materially differ, use a justified heteroscedastic or robust provider; this executor does not relabel the model."
+        }
+      ],
+      "sensitivity_analyses": [
+        {
+          "analysis_id": "AN-ANOVA-KRUSKAL",
+          "method": "kruskal_wallis",
+          "statistic": 14.7485380116959,
+          "p_value": 0.0006271849994872388
+        }
+      ],
+      "source_anchor": "analysis-run.json#/analyses/0",
+      "status": "verified",
+      "method": "one_way_anova",
+      "test_statistic": 64.27423822714684,
+      "degrees_of_freedom": {
+        "between": 2.0,
+        "within": 15.0
+      },
+      "group_summaries": {
+        "control": {
+          "n": 6,
+          "mean": 4.816666666666666,
+          "sd": 0.48339080118126654
+        },
+        "low": {
+          "n": 6,
+          "mean": 5.800000000000001,
+          "sd": 0.4289522117905443
+        },
+        "high": {
+          "n": 6,
+          "mean": 7.699999999999999,
+          "sd": 0.4289522117905446
+        }
+      },
+      "interval_method": {
+        "name": "stratified_percentile_bootstrap",
+        "iterations": 500,
+        "seed": 20260815,
+        "resampling_unit": "experimental_unit_within_group"
+      },
+      "execution_binding": {
+        "value_column": "response",
+        "group_column": "group",
+        "experimental_unit_column": "unit",
+        "group_order": [
+          "control",
+          "low",
+          "high"
+        ]
+      },
+      "verification_scope": "independent_one_factor_fixed_groups_numeric_execution_only",
+      "raw_p_value": 4.397390529328661e-08
+    }
+  ],
+  "uses": [],
+  "execution_provenance": {
+    "run_id": "RUN-2A39CA62F5AB68FBA9EF0B04",
+    "data_sha256": "5c0e669118a22e9c114e6346b854e04bff955688ac2b0f07f8181ecd2bb3ebfc",
+    "analysis_contract_sha256": "b37daf77e4853167a8a512f9bf31a7ef93e69b8421b011bf932a8d9bd0f5ce5c",
+    "executor_sha256": "955d3412cf328f47adaadc8b7e90f1d80cc3e17c696fe94fc4f0359799651e4c"
+  }
+}

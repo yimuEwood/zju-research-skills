@@ -1,0 +1,8 @@
+{
+  "run_id": "replace-with-run-id",
+  "attestor_id": "replace-with-independent-administrator-id",
+  "independent_of_skill_authors": true,
+  "first_attempt_confirmed": true,
+  "tool_policy_parity_verified": true,
+  "evidence_bundle_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+}

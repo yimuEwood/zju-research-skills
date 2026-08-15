@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "execution-event-v3.schema.json",
+  "type": "object", "additionalProperties": false,
+  "required": ["event_id", "run_id", "layer", "skill_id", "case_id", "blind_label", "call_id", "event_type", "occurred_at", "tool_policy_sha256", "payload_sha256"],
+  "properties": {
+    "event_id": {"type": "string", "minLength": 1}, "run_id": {"type": "string", "minLength": 1},
+    "layer": {"enum": ["L3_controlled_task_capability", "L4_frozen_holdout_generalization"]},
+    "skill_id": {"type": "string", "pattern": "^zju-[a-z0-9-]+$"}, "case_id": {"type": "string", "minLength": 1},
+    "blind_label": {"enum": ["A", "B", "C"]}, "call_id": {"type": "string", "minLength": 3},
+    "event_type": {"type": "string", "minLength": 1}, "occurred_at": {"type": "string", "format": "date-time"},
+    "tool_policy_sha256": {"$ref": "#/$defs/sha256"}, "payload_sha256": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

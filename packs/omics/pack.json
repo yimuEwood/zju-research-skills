@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "pack_id": "omics",
+  "version": "0.1.0",
+  "maturity": "beta",
+  "skills": ["skills/zju-omics-analysis"],
+  "core_skills": ["zju-experiment-log", "zju-statistics-audit", "zju-scientific-figure", "zju-data-availability"],
+  "executors": ["skills/zju-omics-analysis/scripts/omics_screen.py"],
+  "runtime": ["numpy", "pandas", "scipy"],
+  "capability_boundary": "The bundled differential screen is exploratory and does not replace count-aware or design-aware confirmatory models."
+}

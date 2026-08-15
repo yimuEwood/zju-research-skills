@@ -1,0 +1,19 @@
+{
+  "run_id": "replace-with-run-id",
+  "layer": "L4_frozen_holdout_generalization",
+  "events": [
+    {
+      "event_id": "unique-event-id",
+      "run_id": "replace-with-run-id",
+      "layer": "L4_frozen_holdout_generalization",
+      "skill_id": "zju-literature-search",
+      "case_id": "HLD-REPLACE-001",
+      "blind_label": "A",
+      "call_id": "same-model-call-id-as-response-manifest",
+      "event_type": "model_response_completed",
+      "occurred_at": "2026-09-01T10:00:00+08:00",
+      "tool_policy_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "payload_sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    }
+  ]
+}

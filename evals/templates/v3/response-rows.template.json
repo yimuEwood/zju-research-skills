@@ -1,0 +1,15 @@
+{
+  "run_id": "replace-with-run-id",
+  "layer": "L4_frozen_holdout_generalization",
+  "responses": [
+    {
+      "layer": "L4_frozen_holdout_generalization",
+      "skill_id": "zju-literature-search",
+      "case_id": "HLD-REPLACE-001",
+      "blind_label": "A",
+      "call_id": "unique-model-call-id",
+      "model": "exact-model-and-version",
+      "response_path": "absolute-or-administrator-relative/path/to/response-A.md"
+    }
+  ]
+}

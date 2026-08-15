@@ -1,6 +1,6 @@
 ---
 name: zju-statistics-audit
-description: Design, run a bounded supported core of, or audit experiment-linked statistical analyses and reconcile results across manuscripts, figures, tables, supplements, and reviewer responses. Use to create an analysis contract; run prespecified Welch or paired t tests, Pearson correlation, or simple OLS from local tables; choose methods for hierarchical, repeated, clustered, missing, censored, high-dimensional, agricultural, chemical, materials, or biomedical data; or check experimental units, replicates, effect sizes, uncertainty, diagnostics, multiplicity, robustness, and numerical consistency. This workflow does not replace domain or clinical statistical responsibility.
+description: Design, run a bounded supported core of, or audit experiment-linked statistical analyses and reconcile results across manuscripts, figures, tables, supplements, and reviewer responses. Use to profile local CSV/XLSX tables; run prespecified Welch or paired t tests, Pearson correlation, simple OLS, independent one-way ANOVA, or a one-predictor binomial logistic GLM; choose providers for unsupported hierarchical, repeated, clustered, censored, high-dimensional, agricultural, chemical, materials, or biomedical models; or check experimental units, effect sizes, uncertainty, diagnostics, multiplicity, robustness, and numerical consistency. This workflow does not replace domain or clinical statistical responsibility.
 ---
 
 # ZJU Statistics Audit
@@ -19,7 +19,11 @@ Start from the design and estimand, not from a preferred test. Trace every repor
 
    `python scripts/execute_analysis.py --data measurements.csv --contract analysis-contract.json --output-dir analysis-output`
 
-   The shipped executor currently supports `welch_ttest`, `paired_ttest`, `pearson_correlation`, and `simple_ols`. It emits `analysis-run.json` and a canonical `result-registry.json`, binds both input hashes and the executor hash, applies declared Holm or Benjamini-Hochberg correction for multi-test families, and rejects unsupported models explicitly. Do not silently simplify a mixed, clustered, survival, count, multivariate, Bayesian, omics, or other unsupported model into this core.
+   Profile the input separately when an auditable EDA artifact is needed:
+
+   `python scripts/profile_dataset.py --data measurements.xlsx --output eda-report.json`
+
+   The shipped executor supports `welch_ttest`, `paired_ttest`, `pearson_correlation`, `simple_ols`, independent `one_way_anova`, and an unweighted `binomial_logistic_glm` with one continuous predictor. It emits `analysis-run.json` and a canonical `result-registry.json`, binds input and executor hashes, applies declared Holm or Benjamini-Hochberg correction, and rejects unsupported dependence, covariates, separation, or model families explicitly. Do not silently simplify mixed, clustered, multi-predictor, survival, count, multivariate, Bayesian, omics, or other unsupported models into this core.
 
 4. Reconstruct or inspect each executed analysis: variables, preprocessing, model, covariates, interactions, dependence terms, assumptions, multiplicity family, effect estimate, uncertainty, software/version, diagnostics and their consequences, missing-data strategy, and sensitivity analyses. A numerically successful run is not evidence that the model matches the design.
 5. Check whether the method represents the estimand, outcome scale, design, nesting, repeated measures, censoring, distribution, and domain-specific measurement process. Recommend alternatives conditionally; do not prescribe a test without sufficient design information.

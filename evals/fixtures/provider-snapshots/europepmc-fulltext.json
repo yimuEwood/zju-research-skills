@@ -1,0 +1,648 @@
+{
+  "snapshot_schema_version": "1.0",
+  "provider": "europepmc",
+  "target": {
+    "doi": "10.1038/s41586-020-2649-2",
+    "pmid": "32939066",
+    "pmcid": "PMC7759461"
+  },
+  "recorded_at": "2026-08-15T02:45:02.759587+00:00",
+  "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7759461/fullTextXML",
+  "lookup_response": {
+    "version": "6.9",
+    "hitCount": 1,
+    "request": {
+      "queryString": "DOI:\"10.1038/s41586-020-2649-2\"",
+      "resultType": "core",
+      "cursorMark": "*",
+      "pageSize": 5,
+      "sort": "",
+      "synonym": false
+    },
+    "resultList": {
+      "result": [
+        {
+          "id": "32939066",
+          "source": "MED",
+          "pmid": "32939066",
+          "pmcid": "PMC7759461",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC7759461"
+            ]
+          },
+          "doi": "10.1038/s41586-020-2649-2",
+          "title": "Array programming with NumPy.",
+          "authorString": "Harris CR, Millman KJ, van der Walt SJ, Gommers R, Virtanen P, Cournapeau D, Wieser E, Taylor J, Berg S, Smith NJ, Kern R, Picus M, Hoyer S, van Kerkwijk MH, Brett M, Haldane A, Del Río JF, Wiebe M, Peterson P, Gérard-Marchant P, Sheppard K, Reddy T, Weckesser W, Abbasi H, Gohlke C, Oliphant TE.",
+          "authorList": {
+            "author": [
+              {
+                "fullName": "Harris CR",
+                "firstName": "Charles R",
+                "lastName": "Harris",
+                "initials": "CR",
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Independent researcher, Logan, UT, USA."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Millman KJ",
+                "firstName": "K Jarrod",
+                "lastName": "Millman",
+                "initials": "KJ",
+                "authorId": {
+                  "type": "ORCID",
+                  "value": "0000-0002-5263-5070"
+                },
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Brain Imaging Center, University of California, Berkeley, Berkeley, CA, USA. millman@berkeley.edu."
+                    },
+                    {
+                      "affiliation": "Division of Biostatistics, University of California, Berkeley, Berkeley, CA, USA. millman@berkeley.edu."
+                    },
+                    {
+                      "affiliation": "Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA. millman@berkeley.edu."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "van der Walt SJ",
+                "firstName": "Stéfan J",
+                "lastName": "van der Walt",
+                "initials": "SJ",
+                "authorId": {
+                  "type": "ORCID",
+                  "value": "0000-0001-9276-1891"
+                },
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Brain Imaging Center, University of California, Berkeley, Berkeley, CA, USA. stefanv@berkeley.edu."
+                    },
+                    {
+                      "affiliation": "Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA. stefanv@berkeley.edu."
+                    },
+                    {
+                      "affiliation": "Applied Mathematics, Stellenbosch University, Stellenbosch, South Africa. stefanv@berkeley.edu."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Gommers R",
+                "firstName": "Ralf",
+                "lastName": "Gommers",
+                "initials": "R",
+                "authorId": {
+                  "type": "ORCID",
+                  "value": "0000-0002-0300-3333"
+                },
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Quansight, Austin, TX, USA. ralf.gommers@gmail.com."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Virtanen P",
+                "firstName": "Pauli",
+                "lastName": "Virtanen",
+                "initials": "P",
+                "authorId": {
+                  "type": "ORCID",
+                  "value": "0000-0001-9957-1257"
+                },
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Department of Physics, University of Jyväskylä, Jyväskylä, Finland."
+                    },
+                    {
+                      "affiliation": "Nanoscience Center, University of Jyväskylä, Jyväskylä, Finland."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Cournapeau D",
+                "firstName": "David",
+                "lastName": "Cournapeau",
+                "initials": "D",
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Mercari JP, Tokyo, Japan."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Wieser E",
+                "firstName": "Eric",
+                "lastName": "Wieser",
+                "initials": "E",
+                "authorId": {
+                  "type": "ORCID",
+                  "value": "0000-0003-0412-4978"
+                },
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Department of Engineering, University of Cambridge, Cambridge, UK."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Taylor J",
+                "firstName": "Julian",
+                "lastName": "Taylor",
+                "initials": "J",
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Independent researcher, Karlsruhe, Germany."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Berg S",
+                "firstName": "Sebastian",
+                "lastName": "Berg",
+                "initials": "S",
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Smith NJ",
+                "firstName": "Nathaniel J",
+                "lastName": "Smith",
+                "initials": "NJ",
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Independent researcher, Berkeley, CA, USA."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Kern R",
+                "firstName": "Robert",
+                "lastName": "Kern",
+                "initials": "R",
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Enthought, Austin, TX, USA."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Picus M",
+                "firstName": "Matti",
+                "lastName": "Picus",
+                "initials": "M",
+                "authorId": {
+                  "type": "ORCID",
+                  "value": "0000-0002-1771-9949"
+                },
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Hoyer S",
+                "firstName": "Stephan",
+                "lastName": "Hoyer",
+                "initials": "S",
+                "authorId": {
+                  "type": "ORCID",
+                  "value": "0000-0002-5207-0380"
+                },
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Google Research, Mountain View, CA, USA."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "van Kerkwijk MH",
+                "firstName": "Marten H",
+                "lastName": "van Kerkwijk",
+                "initials": "MH",
+                "authorId": {
+                  "type": "ORCID",
+                  "value": "0000-0002-5830-8505"
+                },
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Department of Astronomy and Astrophysics, University of Toronto, Toronto, Ontario, Canada."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Brett M",
+                "firstName": "Matthew",
+                "lastName": "Brett",
+                "initials": "M",
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Brain Imaging Center, University of California, Berkeley, Berkeley, CA, USA."
+                    },
+                    {
+                      "affiliation": "School of Psychology, University of Birmingham, Edgbaston, Birmingham, UK."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Haldane A",
+                "firstName": "Allan",
+                "lastName": "Haldane",
+                "initials": "A",
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Department of Physics, Temple University, Philadelphia, PA, USA."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Del Río JF",
+                "firstName": "Jaime Fernández",
+                "lastName": "Del Río",
+                "initials": "JF",
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Google, Zurich, Switzerland."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Wiebe M",
+                "firstName": "Mark",
+                "lastName": "Wiebe",
+                "initials": "M",
+                "authorId": {
+                  "type": "ORCID",
+                  "value": "0000-0003-3603-8038"
+                },
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Department of Physics and Astronomy, The University of British Columbia, Vancouver, British Columbia, Canada."
+                    },
+                    {
+                      "affiliation": "Amazon, Seattle, WA, USA."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Peterson P",
+                "firstName": "Pearu",
+                "lastName": "Peterson",
+                "initials": "P",
+                "authorId": {
+                  "type": "ORCID",
+                  "value": "0000-0001-7328-4305"
+                },
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Quansight, Austin, TX, USA."
+                    },
+                    {
+                      "affiliation": "Independent researcher, Saue, Estonia."
+                    },
+                    {
+                      "affiliation": "Department of Mechanics and Applied Mathematics, Institute of Cybernetics at Tallinn Technical University, Tallinn, Estonia."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Gérard-Marchant P",
+                "firstName": "Pierre",
+                "lastName": "Gérard-Marchant",
+                "initials": "P",
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Department of Biological and Agricultural Engineering, University of Georgia, Athens, GA, USA."
+                    },
+                    {
+                      "affiliation": "France-IX Services, Paris, France."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Sheppard K",
+                "firstName": "Kevin",
+                "lastName": "Sheppard",
+                "initials": "K",
+                "authorId": {
+                  "type": "ORCID",
+                  "value": "0000-0001-8700-2292"
+                },
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Department of Economics, University of Oxford, Oxford, UK."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Reddy T",
+                "firstName": "Tyler",
+                "lastName": "Reddy",
+                "initials": "T",
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "CCS-7, Los Alamos National Laboratory, Los Alamos, NM, USA."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Weckesser W",
+                "firstName": "Warren",
+                "lastName": "Weckesser",
+                "initials": "W",
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Abbasi H",
+                "firstName": "Hameer",
+                "lastName": "Abbasi",
+                "initials": "H",
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Quansight, Austin, TX, USA."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Gohlke C",
+                "firstName": "Christoph",
+                "lastName": "Gohlke",
+                "initials": "C",
+                "authorId": {
+                  "type": "ORCID",
+                  "value": "0000-0001-8108-7707"
+                },
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Laboratory for Fluorescence Dynamics, Biomedical Engineering Department, University of California, Irvine, Irvine, CA, USA."
+                    }
+                  ]
+                }
+              },
+              {
+                "fullName": "Oliphant TE",
+                "firstName": "Travis E",
+                "lastName": "Oliphant",
+                "initials": "TE",
+                "authorAffiliationDetailsList": {
+                  "authorAffiliation": [
+                    {
+                      "affiliation": "Quansight, Austin, TX, USA."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "authorIdList": {
+            "authorId": [
+              {
+                "type": "ORCID",
+                "value": "0000-0001-7328-4305"
+              },
+              {
+                "type": "ORCID",
+                "value": "0000-0001-8108-7707"
+              },
+              {
+                "type": "ORCID",
+                "value": "0000-0001-8700-2292"
+              },
+              {
+                "type": "ORCID",
+                "value": "0000-0001-9276-1891"
+              },
+              {
+                "type": "ORCID",
+                "value": "0000-0001-9957-1257"
+              },
+              {
+                "type": "ORCID",
+                "value": "0000-0002-0300-3333"
+              },
+              {
+                "type": "ORCID",
+                "value": "0000-0002-1771-9949"
+              },
+              {
+                "type": "ORCID",
+                "value": "0000-0002-5207-0380"
+              },
+              {
+                "type": "ORCID",
+                "value": "0000-0002-5263-5070"
+              },
+              {
+                "type": "ORCID",
+                "value": "0000-0002-5830-8505"
+              },
+              {
+                "type": "ORCID",
+                "value": "0000-0003-0412-4978"
+              },
+              {
+                "type": "ORCID",
+                "value": "0000-0003-3603-8038"
+              },
+              {
+                "type": "ORCID",
+                "value": "0009-0001-1459-4562"
+              }
+            ]
+          },
+          "dataLinksTagsList": {
+            "dataLinkstag": [
+              "supporting_data",
+              "recommended_reviews"
+            ]
+          },
+          "journalInfo": {
+            "issue": "7825",
+            "volume": "585",
+            "journalIssueId": 3010253,
+            "dateOfPublication": "2020 Sep",
+            "monthOfPublication": 9,
+            "yearOfPublication": 2020,
+            "printPublicationDate": "2020-09-01",
+            "journal": {
+              "title": "Nature",
+              "medlineAbbreviation": "Nature",
+              "isoabbreviation": "Nature",
+              "issn": "0028-0836",
+              "essn": "1476-4687",
+              "nlmid": "0410462"
+            }
+          },
+          "pubYear": "2020",
+          "pageInfo": "357-362",
+          "abstractText": "Array programming provides a powerful, compact and expressive syntax for accessing, manipulating and operating on data in vectors, matrices and higher-dimensional arrays. NumPy is the primary array programming library for the Python language. It has an essential role in research analysis pipelines in fields as diverse as physics, chemistry, astronomy, geoscience, biology, psychology, materials science, engineering, finance and economics. For example, in astronomy, NumPy was an important part of the software stack used in the discovery of gravitational waves<sup>1</sup> and in the first imaging of a black hole<sup>2</sup>. Here we review how a few fundamental array concepts lead to a simple and powerful programming paradigm for organizing, exploring and analysing scientific data. NumPy is the foundation upon which the scientific Python ecosystem is constructed. It is so pervasive that several projects, targeting audiences with specialized needs, have developed their own NumPy-like interfaces and array objects. Owing to its central position in the ecosystem, NumPy increasingly acts as an interoperability layer between such array computation libraries and, together with its application programming interface (API), provides a flexible framework to support the next decade of scientific and industrial analysis.",
+          "affiliation": "Independent researcher, Logan, UT, USA.",
+          "publicationStatus": "ppublish",
+          "language": "eng",
+          "pubModel": "Print-Electronic",
+          "pubTypeList": {
+            "pubType": [
+              "Research Support, Non-U.S. Gov't",
+              "review-article",
+              "Review",
+              "Journal Article"
+            ]
+          },
+          "meshHeadingList": {
+            "meshHeading": [
+              {
+                "majorTopic_YN": "N",
+                "descriptorName": "Computational Biology",
+                "meshQualifierList": {
+                  "meshQualifier": [
+                    {
+                      "abbreviation": "MT",
+                      "qualifierName": "methods",
+                      "majorTopic_YN": "Y"
+                    }
+                  ]
+                }
+              },
+              {
+                "majorTopic_YN": "Y",
+                "descriptorName": "Mathematics"
+              },
+              {
+                "majorTopic_YN": "Y",
+                "descriptorName": "Programming Languages"
+              },
+              {
+                "majorTopic_YN": "N",
+                "descriptorName": "Software Design"
+              }
+            ]
+          },
+          "subsetList": {
+            "subset": [
+              {
+                "code": "IM",
+                "name": "Index Medicus"
+              }
+            ]
+          },
+          "fullTextUrlList": {
+            "fullTextUrl": [
+              {
+                "availability": "Subscription required",
+                "availabilityCode": "S",
+                "documentStyle": "doi",
+                "site": "DOI",
+                "url": "https://doi.org/10.1038/s41586-020-2649-2"
+              },
+              {
+                "availability": "Open access",
+                "availabilityCode": "OA",
+                "documentStyle": "html",
+                "site": "Europe_PMC",
+                "url": "https://europepmc.org/articles/PMC7759461"
+              },
+              {
+                "availability": "Open access",
+                "availabilityCode": "OA",
+                "documentStyle": "pdf",
+                "site": "Europe_PMC",
+                "url": "https://europepmc.org/articles/PMC7759461?pdf=render"
+              }
+            ]
+          },
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "Y",
+          "citedByCount": 7572,
+          "hasData": "Y",
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "license": "cc by",
+          "hasEvaluations": "N",
+          "authMan": "N",
+          "epmcAuthMan": "N",
+          "nihAuthMan": "N",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "doi"
+            ]
+          },
+          "dateOfCompletion": "2020-10-29",
+          "dateOfCreation": "2020-09-17",
+          "firstIndexDate": "2020-09-23",
+          "fullTextReceivedDate": "2025-02-03",
+          "dateOfRevision": "2021-02-20",
+          "electronicPublicationDate": "2020-09-16",
+          "firstPublicationDate": "2020-09-16"
+        }
+      ]
+    }
+  },
+  "jats_xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><article xml:lang=\"en\" article-type=\"review-article\"><front><journal-meta><journal-id journal-id-type=\"pmc-domain-id\">981</journal-id><journal-id journal-id-type=\"pmc-domain\">npgopen</journal-id><journal-title-group><journal-title>Nature</journal-title><abbrev-journal-title>Nature</abbrev-journal-title></journal-title-group></journal-meta><article-meta><article-id pub-id-type=\"pmcid\">PMC7759461</article-id><article-id pub-id-type=\"pmcaid\">7759461</article-id><article-id pub-id-type=\"pmcaiid\">7759461</article-id><article-id pub-id-type=\"pmid\">32939066</article-id><article-id pub-id-type=\"doi\">10.1038/s41586-020-2649-2</article-id><title-group><article-title>Array programming with NumPy</article-title></title-group><contrib-group content-type=\"author\"><contrib><name name-style=\"western\"><surname>Harris</surname><given-names initials=\"CR\">Charles R</given-names></name><xref ref-type=\"aff\" rid=\"Aff1\">1</xref></contrib><contrib><name name-style=\"western\"><surname>Millman</surname><given-names initials=\"KJ\">K Jarrod</given-names></name><xref ref-type=\"aff\" rid=\"Aff2\">2</xref><xref ref-type=\"aff\" rid=\"Aff3\">3</xref><xref ref-type=\"aff\" rid=\"Aff4\">4</xref><xref ref-type=\"author-notes\" rid=\"_fncrsp93pmc__\">✉</xref></contrib><contrib><name name-style=\"western\"><surname>van der Walt</surname><given-names initials=\"SJ\">Stéfan J</given-names></name><xref ref-type=\"aff\" rid=\"Aff2\">2</xref><xref ref-type=\"aff\" rid=\"Aff4\">4</xref><xref ref-type=\"aff\" rid=\"Aff5\">5</xref><xref ref-type=\"author-notes\" rid=\"_fncrsp93pmc__\">✉</xref></contrib><contrib><name name-style=\"western\"><surname>Gommers</surname><given-names initials=\"R\">Ralf</given-names></name><xref ref-type=\"aff\" rid=\"Aff6\">6</xref><xref ref-type=\"author-notes\" rid=\"_fncrsp93pmc__\">✉</xref></contrib><contrib><name name-style=\"western\"><surname>Virtanen</surname><given-names initials=\"P\">Pauli</given-names></name><xref ref-type=\"aff\" rid=\"Aff7\">7</xref><xref ref-type=\"aff\" rid=\"Aff8\">8</xref></contrib><contrib><name name-style=\"western\"><surname>Cournapeau</surname><given-names initials=\"D\">David</given-names></name><xref ref-type=\"aff\" rid=\"Aff9\">9</xref></contrib><contrib><name name-style=\"western\"><surname>Wieser</surname><given-names initials=\"E\">Eric</given-names></name><xref ref-type=\"aff\" rid=\"Aff10\">10</xref></contrib><contrib><name name-style=\"western\"><surname>Taylor</surname><given-names initials=\"J\">Julian</given-names></name><xref ref-type=\"aff\" rid=\"Aff11\">11</xref></contrib><contrib><name name-style=\"western\"><surname>Berg</surname><given-names initials=\"S\">Sebastian</given-names></name><xref ref-type=\"aff\" rid=\"Aff4\">4</xref></contrib><contrib><name name-style=\"western\"><surname>Smith</surname><given-names initials=\"NJ\">Nathaniel J</given-names></name><xref ref-type=\"aff\" rid=\"Aff12\">12</xref></contrib><contrib><name name-style=\"western\"><surname>Kern</surname><given-names initials=\"R\">Robert</given-names></name><xref ref-type=\"aff\" rid=\"Aff13\">13</xref></contrib><contrib><name name-style=\"western\"><surname>Picus</surname><given-names initials=\"M\">Matti</given-names></name><xref ref-type=\"aff\" rid=\"Aff4\">4</xref></contrib><contrib><name name-style=\"western\"><surname>Hoyer</surname><given-names initials=\"S\">Stephan</given-names></name><xref ref-type=\"aff\" rid=\"Aff14\">14</xref></contrib><contrib><name name-style=\"western\"><surname>van Kerkwijk</surname><given-names initials=\"MH\">Marten H</given-names></name><xref ref-type=\"aff\" rid=\"Aff15\">15</xref></contrib><contrib><name name-style=\"western\"><surname>Brett</surname><given-names initials=\"M\">Matthew</given-names></name><xref ref-type=\"aff\" rid=\"Aff2\">2</xref><xref ref-type=\"aff\" rid=\"Aff16\">16</xref></contrib><contrib><name name-style=\"western\"><surname>Haldane</surname><given-names initials=\"A\">Allan</given-names></name><xref ref-type=\"aff\" rid=\"Aff17\">17</xref></contrib><contrib><name name-style=\"western\"><surname>del Río</surname><given-names initials=\"JF\">Jaime Fernández</given-names></name><xref ref-type=\"aff\" rid=\"Aff18\">18</xref></contrib><contrib><name name-style=\"western\"><surname>Wiebe</surname><given-names initials=\"M\">Mark</given-names></name><xref ref-type=\"aff\" rid=\"Aff19\">19</xref><xref ref-type=\"aff\" rid=\"Aff20\">20</xref></contrib><contrib><name name-style=\"western\"><surname>Peterson</surname><given-names initials=\"P\">Pearu</given-names></name><xref ref-type=\"aff\" rid=\"Aff6\">6</xref><xref ref-type=\"aff\" rid=\"Aff21\">21</xref><xref ref-type=\"aff\" rid=\"Aff22\">22</xref></contrib><contrib><name name-style=\"western\"><surname>Gérard-Marchant</surname><given-names initials=\"P\">Pierre</given-names></name><xref ref-type=\"aff\" rid=\"Aff23\">23</xref><xref ref-type=\"aff\" rid=\"Aff24\">24</xref></contrib><contrib><name name-style=\"western\"><surname>Sheppard</surname><given-names initials=\"K\">Kevin</given-names></name><xref ref-type=\"aff\" rid=\"Aff25\">25</xref></contrib><contrib><name name-style=\"western\"><surname>Reddy</surname><given-names initials=\"T\">Tyler</given-names></name><xref ref-type=\"aff\" rid=\"Aff26\">26</xref></contrib><contrib><name name-style=\"western\"><surname>Weckesser</surname><given-names initials=\"W\">Warren</given-names></name><xref ref-type=\"aff\" rid=\"Aff4\">4</xref></contrib><contrib><name name-style=\"western\"><surname>Abbasi</surname><given-names initials=\"H\">Hameer</given-names></name><xref ref-type=\"aff\" rid=\"Aff6\">6</xref></contrib><contrib><name name-style=\"western\"><surname>Gohlke</surname><given-names initials=\"C\">Christoph</given-names></name><xref ref-type=\"aff\" rid=\"Aff27\">27</xref></contrib><contrib><name name-style=\"western\"><surname>Oliphant</surname><given-names initials=\"TE\">Travis E</given-names></name><xref ref-type=\"aff\" rid=\"Aff6\">6</xref></contrib></contrib-group><aff id=\"Aff1\"><label>1</label>Independent researcher, Logan, UT USA </aff><aff id=\"Aff2\"><label>2</label>Brain Imaging Center, University of California, Berkeley, Berkeley, CA USA </aff><aff id=\"Aff3\"><label>3</label>Division of Biostatistics, University of California, Berkeley, Berkeley, CA USA </aff><aff id=\"Aff4\"><label>4</label>Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA USA </aff><aff id=\"Aff5\"><label>5</label>Applied Mathematics, Stellenbosch University, Stellenbosch, South Africa </aff><aff id=\"Aff6\"><label>6</label>Quansight, Austin, TX USA </aff><aff id=\"Aff7\"><label>7</label>Department of Physics, University of Jyväskylä, Jyväskylä, Finland </aff><aff id=\"Aff8\"><label>8</label>Nanoscience Center, University of Jyväskylä, Jyväskylä, Finland </aff><aff id=\"Aff9\"><label>9</label>Mercari JP, Tokyo, Japan </aff><aff id=\"Aff10\"><label>10</label>Department of Engineering, University of Cambridge, Cambridge, UK </aff><aff id=\"Aff11\"><label>11</label>Independent researcher, Karlsruhe, Germany </aff><aff id=\"Aff12\"><label>12</label>Independent researcher, Berkeley, CA USA </aff><aff id=\"Aff13\"><label>13</label>Enthought, Austin, TX USA </aff><aff id=\"Aff14\"><label>14</label>Google Research, Mountain View, CA USA </aff><aff id=\"Aff15\"><label>15</label>Department of Astronomy and Astrophysics, University of Toronto, Toronto, Ontario Canada </aff><aff id=\"Aff16\"><label>16</label>School of Psychology, University of Birmingham, Edgbaston, Birmingham UK </aff><aff id=\"Aff17\"><label>17</label>Department of Physics, Temple University, Philadelphia, PA USA </aff><aff id=\"Aff18\"><label>18</label>Google, Zurich, Switzerland </aff><aff id=\"Aff19\"><label>19</label>Department of Physics and Astronomy, The University of British Columbia, Vancouver, British Columbia Canada </aff><aff id=\"Aff20\"><label>20</label>Amazon, Seattle, WA USA </aff><aff id=\"Aff21\"><label>21</label>Independent researcher, Saue, Estonia </aff><aff id=\"Aff22\"><label>22</label>Department of Mechanics and Applied Mathematics, Institute of Cybernetics at Tallinn Technical University, Tallinn, Estonia </aff><aff id=\"Aff23\"><label>23</label>Department of Biological and Agricultural Engineering, University of Georgia, Athens, GA USA </aff><aff id=\"Aff24\"><label>24</label>France-IX Services, Paris, France </aff><aff id=\"Aff25\"><label>25</label>Department of Economics, University of Oxford, Oxford, UK </aff><aff id=\"Aff26\"><label>26</label>CCS-7, Los Alamos National Laboratory, Los Alamos, NM USA </aff><aff id=\"Aff27\"><label>27</label>Laboratory for Fluorescence Dynamics, Biomedical Engineering Department, University of California, Irvine, Irvine, CA USA </aff><author-notes><fn id=\"_fncrsp93pmc__\"><label>✉</label><p>Corresponding author.</p></fn></author-notes><pub-date><day>16</day><month>9</month><year>2020</year></pub-date><volume>585</volume><issue>7825</issue><fpage>357</fpage><page-range>357–362</page-range><pub-history><event event-type=\"pmc-release\"><date><day>4</day><month>1</month><year>2021</year></date></event></pub-history><permissions><copyright-statement>© The Author(s) 2020</copyright-statement><license><license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"http://creativecommons.org/licenses/by/4.0/\" ext-link-type=\"uri\">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p></license></permissions><self-uri xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"41586_2020_Article_2649.pdf\" content-type=\"pmc-pdf\"><?cloudpmc-path f47e/7759461/4b3fc3a0a63c/41586_2020_Article_2649.pdf?><?cloudpmc-bucket app?><?size 1218474?></self-uri><abstract id=\"Abs1\"><title>Abstract</title><p id=\"Par1\">Array programming provides a powerful, compact and expressive syntax for accessing, manipulating and operating on data in vectors, matrices and higher-dimensional arrays. NumPy is the primary array programming library for the Python language. It has an essential role in research analysis pipelines in fields as diverse as physics, chemistry, astronomy, geoscience, biology, psychology, materials science, engineering, finance and economics. For example, in astronomy, NumPy was an important part of the software stack used in the discovery of gravitational waves<sup><xref rid=\"CR1\" ref-type=\"bibr\">1</xref></sup> and in the first imaging of a black hole<sup><xref rid=\"CR2\" ref-type=\"bibr\">2</xref></sup>. Here we review how a few fundamental array concepts lead to a simple and powerful programming paradigm for organizing, exploring and analysing scientific data. NumPy is the foundation upon which the scientific Python ecosystem is constructed. It is so pervasive that several projects, targeting audiences with specialized needs, have developed their own NumPy-like interfaces and array objects. Owing to its central position in the ecosystem, NumPy increasingly acts as an interoperability layer between such array computation libraries and, together with its application programming interface (API), provides a flexible framework to support the next decade of scientific and industrial analysis.</p><sec id=\"kwd-group1\" sec-type=\"kwd-group\" disp-level=\"2\"><p><bold>Subject terms:</bold> Computational neuroscience, Solar physics, Computational science, Computer science, Software</p></sec></abstract><abstract id=\"Abs2\" abstract-type=\"web-summary\"><p id=\"Par2\">NumPy is the primary array programming library for Python; here its fundamental concepts are reviewed and its evolution into a flexible interoperability layer between increasingly specialized computational libraries is discussed.</p></abstract><custom-meta-group><custom-meta><meta-name>status</meta-name><meta-value>released</meta-value></custom-meta><custom-meta><meta-name>display-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>is-in-collection-domain</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>is-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-journal-matter</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-scanned</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-retracted</meta-name><meta-value>no</meta-value></custom-meta></custom-meta-group></article-meta><notes notes-type=\"article-notes\"><sec id=\"historyarticle-meta1\" sec-type=\"history\" disp-level=\"2\"><p>Received 2020 Feb 21; Accepted 2020 Jun 17; Issue date 2020.</p></sec></notes></front><body><sec id=\"Sec1\" disp-level=\"1\"><title>Main</title><p id=\"Par3\">Two Python array packages existed before NumPy. The Numeric package was developed in the mid-1990s and provided array objects and array-aware functions in Python. It was written in C and linked to standard fast implementations of linear algebra<sup><xref rid=\"CR3\" ref-type=\"bibr\">3</xref>,<xref rid=\"CR4\" ref-type=\"bibr\">4</xref></sup>. One of its earliest uses was to steer C++ applications for inertial confinement fusion research at Lawrence Livermore National Laboratory<sup><xref rid=\"CR5\" ref-type=\"bibr\">5</xref></sup>. To handle large astronomical images coming from the Hubble Space Telescope, a reimplementation of Numeric, called Numarray, added support for structured arrays, flexible indexing, memory mapping, byte-order variants, more efficient memory use, flexible IEEE 754-standard error-handling capabilities, and better type-casting rules<sup><xref rid=\"CR6\" ref-type=\"bibr\">6</xref></sup>. Although Numarray was highly compatible with Numeric, the two packages had enough differences that it divided the community; however, in 2005 NumPy emerged as a ‘best of both worlds’ unification<sup><xref rid=\"CR7\" ref-type=\"bibr\">7</xref></sup>—combining the features of Numarray with the small-array performance of Numeric and its rich C API.</p><p id=\"Par4\">Now, 15 years later, NumPy underpins almost every Python library that does scientific or numerical computation<sup><xref rid=\"CR8\" ref-type=\"bibr\">8</xref>–<xref rid=\"CR11\" ref-type=\"bibr\">11</xref></sup>, including SciPy<sup><xref rid=\"CR12\" ref-type=\"bibr\">12</xref></sup>, Matplotlib<sup><xref rid=\"CR13\" ref-type=\"bibr\">13</xref></sup>, pandas<sup><xref rid=\"CR14\" ref-type=\"bibr\">14</xref></sup>, scikit-learn<sup><xref rid=\"CR15\" ref-type=\"bibr\">15</xref></sup> and scikit-image<sup><xref rid=\"CR16\" ref-type=\"bibr\">16</xref></sup>. NumPy is a community-developed, open-source library, which provides a multidimensional Python array object along with array-aware functions that operate on it. Because of its inherent simplicity, the NumPy array is the de facto exchange format for array data in Python.</p><p id=\"Par5\">NumPy operates on in-memory arrays using the central processing unit (CPU). To utilize modern, specialized storage and hardware, there has been a recent proliferation of Python array packages. Unlike with the Numarray–Numeric divide, it is now much harder for these new libraries to fracture the user community—given how much work is already built on top of NumPy. However, to provide the community with access to new and exploratory technologies, NumPy is transitioning into a central coordinating mechanism that specifies a well defined array programming API and dispatches it, as appropriate, to specialized array implementations.</p></sec><sec id=\"Sec2\" disp-level=\"1\"><title>NumPy arrays</title><p id=\"Par6\">The NumPy array is a data structure that efficiently stores and accesses multidimensional arrays<sup><xref rid=\"CR17\" ref-type=\"bibr\">17</xref></sup> (also known as tensors), and enables a wide variety of scientific computation. It consists of a pointer to memory, along with metadata used to interpret the data stored there, notably ‘data type’, ‘shape’ and ‘strides’ (Fig. <xref rid=\"Fig1\" ref-type=\"fig\">1a</xref>).</p><fig id=\"Fig1\" position=\"float\"><?disp-level 2?><label>Fig. 1</label><caption><title>The NumPy array incorporates several fundamental array concepts.</title><p><bold>a</bold>, The NumPy array data structure and its associated metadata fields. <bold>b</bold>, Indexing an array with slices and steps. These operations return a ‘view’ of the original data. <bold>c</bold>, Indexing an array with masks, scalar coordinates or other arrays, so that it returns a ‘copy’ of the original data. In the bottom example, an array is indexed with other arrays; this broadcasts the indexing arguments before performing the lookup. <bold>d</bold>, Vectorization efficiently applies operations to groups of elements. <bold>e</bold>, Broadcasting in the multiplication of two-dimensional arrays. <bold>f</bold>, Reduction operations act along one or more axes. In this example, an array is summed along select axes to produce a vector, or along two axes consecutively to produce a scalar. <bold>g</bold>, Example NumPy code, illustrating some of these concepts.</p></caption><alternatives><graphic xmlns:xlink=\"http://www.w3.org/1999/xlink\" content-type=\"image\" id=\"d30e829\" xlink:href=\"41586_2020_2649_Fig1_HTML.jpg\"><?cloudpmc-path blobs/f47e/7759461/9c01400d2722/41586_2020_2649_Fig1_HTML.jpg?><?cloudpmc-bucket cdn?><?image-server-status LOAD_COMPLETED?><?original-height 969?><?original-width 2118?><?scaled-height 323?><?scaled-width 706?></graphic><graphic xmlns:xlink=\"http://www.w3.org/1999/xlink\" content-type=\"thumb\" xlink:href=\"41586_2020_2649_Fig1_HTML.gif\"><?cloudpmc-path blobs/f47e/7759461/1f76e8526376/41586_2020_2649_Fig1_HTML.gif?><?cloudpmc-bucket cdn?></graphic></alternatives></fig><p id=\"Par7\">The data type describes the nature of elements stored in an array. An array has a single data type, and each element of an array occupies the same number of bytes in memory. Examples of data types include real and complex numbers (of lower and higher precision), strings, timestamps and pointers to Python objects.</p><p id=\"Par8\">The shape of an array determines the number of elements along each axis, and the number of axes is the dimensionality of the array. For example, a vector of numbers can be stored as a one-dimensional array of shape <italic>N</italic>, whereas colour videos are four-dimensional arrays of shape (<italic>T</italic>, <italic>M</italic>, <italic>N</italic>, 3).</p><p id=\"Par9\">Strides are necessary to interpret computer memory, which stores elements linearly, as multidimensional arrays. They describe the number of bytes to move forward in memory to jump from row to row, column to column, and so forth. Consider, for example, a two-dimensional array of floating-point numbers with shape (4, 3), where each element occupies 8 bytes in memory. To move between consecutive columns, we need to jump forward 8 bytes in memory, and to access the next row, 3 × 8 = 24 bytes. The strides of that array are therefore (24, 8). NumPy can store arrays in either C or Fortran memory order, iterating first over either rows or columns. This allows external libraries written in those languages to access NumPy array data in memory directly.</p><p id=\"Par10\">Users interact with NumPy arrays using ‘indexing’ (to access subarrays or individual elements), ‘operators’ (for example, +, − and × for vectorized operations and @ for matrix multiplication), as well as ‘array-aware functions’; together, these provide an easily readable, expressive, high-level API for array programming while NumPy deals with the underlying mechanics of making operations fast.</p><p id=\"Par11\">Indexing an array returns single elements, subarrays or elements that satisfy a specific condition (Fig. <xref rid=\"Fig1\" ref-type=\"fig\">1b</xref>). Arrays can even be indexed using other arrays (Fig. <xref rid=\"Fig1\" ref-type=\"fig\">1c</xref>). Wherever possible, indexing that retrieves a subarray returns a ‘view’ on the original array such that data are shared between the two arrays. This provides a powerful way to operate on subsets of array data while limiting memory usage.</p><p id=\"Par12\">To complement the array syntax, NumPy includes functions that perform vectorized calculations on arrays, including arithmetic, statistics and trigonometry (Fig. <xref rid=\"Fig1\" ref-type=\"fig\">1d</xref>). Vectorization—operating on entire arrays rather than their individual elements—is essential to array programming. This means that operations that would take many tens of lines to express in languages such as C can often be implemented as a single, clear Python expression. This results in concise code and frees users to focus on the details of their analysis, while NumPy handles looping over array elements near-optimally—for example, taking strides into consideration to best utilize the computer’s fast cache memory.</p><p id=\"Par13\">When performing a vectorized operation (such as addition) on two arrays with the same shape, it is clear what should happen. Through ‘broadcasting’ NumPy allows the dimensions to differ, and produces results that appeal to intuition. A trivial example is the addition of a scalar value to an array, but broadcasting also generalizes to more complex examples such as scaling each column of an array or generating a grid of coordinates. In broadcasting, one or both arrays are virtually duplicated (that is, without copying any data in memory), so that the shapes of the operands match (Fig. <xref rid=\"Fig1\" ref-type=\"fig\">1d</xref>). Broadcasting is also applied when an array is indexed using arrays of indices (Fig. <xref rid=\"Fig1\" ref-type=\"fig\">1c</xref>).</p><p id=\"Par14\">Other array-aware functions, such as sum, mean and maximum, perform element-by-element ‘reductions’, aggregating results across one, multiple or all axes of a single array. For example, summing an <italic>n</italic>-dimensional array over <italic>d</italic> axes results in an array of dimension <italic>n</italic> − <italic>d</italic> (Fig. <xref rid=\"Fig1\" ref-type=\"fig\">1f</xref>).</p><p id=\"Par15\">NumPy also includes array-aware functions for creating, reshaping, concatenating and padding arrays; searching, sorting and counting data; and reading and writing files. It provides extensive support for generating pseudorandom numbers, includes an assortment of probability distributions, and performs accelerated linear algebra, using one of several backends such as OpenBLAS<sup><xref rid=\"CR18\" ref-type=\"bibr\">18</xref>,<xref rid=\"CR19\" ref-type=\"bibr\">19</xref></sup> or Intel MKL optimized for the CPUs at hand (see Supplementary Methods for more details).</p><p id=\"Par16\">Altogether, the combination of a simple in-memory array representation, a syntax that closely mimics mathematics, and a variety of array-aware utility functions forms a productive and powerfully expressive array programming language.</p></sec><sec id=\"Sec3\" disp-level=\"1\"><title>Scientific Python ecosystem</title><p id=\"Par17\">Python is an open-source, general-purpose interpreted programming language well suited to standard programming tasks such as cleaning data, interacting with web resources and parsing text. Adding fast array operations and linear algebra enables scientists to do all their work within a single programming language—one that has the advantage of being famously easy to learn and teach, as witnessed by its adoption as a primary learning language in many universities.</p><p id=\"Par18\">Even though NumPy is not part of Python’s standard library, it benefits from a good relationship with the Python developers. Over the years, the Python language has added new features and special syntax so that NumPy would have a more succinct and easier-to-read array notation. However, because it is not part of the standard library, NumPy is able to dictate its own release policies and development patterns.</p><p id=\"Par19\">SciPy and Matplotlib are tightly coupled with NumPy in terms of history, development and use. SciPy provides fundamental algorithms for scientific computing, including mathematical, scientific and engineering routines. Matplotlib generates publication-ready figures and visualizations. The combination of NumPy, SciPy and Matplotlib, together with an advanced interactive environment such as IPython<sup><xref rid=\"CR20\" ref-type=\"bibr\">20</xref></sup> or Jupyter<sup><xref rid=\"CR21\" ref-type=\"bibr\">21</xref></sup>, provides a solid foundation for array programming in Python. The scientific Python ecosystem (Fig. <xref rid=\"Fig2\" ref-type=\"fig\">2</xref>) builds on top of this foundation to provide several, widely used technique-specific libraries<sup><xref rid=\"CR15\" ref-type=\"bibr\">15</xref>,<xref rid=\"CR16\" ref-type=\"bibr\">16</xref>,<xref rid=\"CR22\" ref-type=\"bibr\">22</xref></sup>, that in turn underlie numerous domain-specific projects<sup><xref rid=\"CR23\" ref-type=\"bibr\">23</xref>–<xref rid=\"CR28\" ref-type=\"bibr\">28</xref></sup>. NumPy, at the base of the ecosystem of array-aware libraries, sets documentation standards, provides array testing infrastructure and adds build support for Fortran and other compilers.</p><fig id=\"Fig2\" position=\"float\"><?disp-level 2?><label>Fig. 2</label><caption><title>NumPy is the base of the scientific Python ecosystem.</title><p>Essential libraries and projects that depend on NumPy’s API gain access to new array implementations that support NumPy’s array protocols (Fig. <xref rid=\"Fig3\" ref-type=\"fig\">3</xref>).</p></caption><alternatives><graphic xmlns:xlink=\"http://www.w3.org/1999/xlink\" content-type=\"image\" id=\"d30e951\" xlink:href=\"41586_2020_2649_Fig2_HTML.jpg\"><?cloudpmc-path blobs/f47e/7759461/ef6ccf9e886d/41586_2020_2649_Fig2_HTML.jpg?><?cloudpmc-bucket cdn?><?image-server-status LOAD_COMPLETED?><?original-height 1300?><?original-width 1384?><?scaled-height 650?><?scaled-width 692?></graphic><graphic xmlns:xlink=\"http://www.w3.org/1999/xlink\" content-type=\"thumb\" xlink:href=\"41586_2020_2649_Fig2_HTML.gif\"><?cloudpmc-path blobs/f47e/7759461/4ae75cbe8f76/41586_2020_2649_Fig2_HTML.gif?><?cloudpmc-bucket cdn?></graphic></alternatives></fig><p id=\"Par20\">Many research groups have designed large, complex scientific libraries that add application-specific functionality to the ecosystem. For example, the eht-imaging library<sup><xref rid=\"CR29\" ref-type=\"bibr\">29</xref></sup>, developed by the Event Horizon Telescope collaboration for radio interferometry imaging, analysis and simulation, relies on many lower-level components of the scientific Python ecosystem. In particular, the EHT collaboration used this library for the first imaging of a black hole. Within eht-imaging, NumPy arrays are used to store and manipulate numerical data at every step in the processing chain: from raw data through calibration and image reconstruction. SciPy supplies tools for general image-processing tasks such as filtering and image alignment, and scikit-image, an image-processing library that extends SciPy, provides higher-level functionality such as edge filters and Hough transforms. The ‘scipy.optimize’ module performs mathematical optimization. NetworkX<sup><xref rid=\"CR22\" ref-type=\"bibr\">22</xref></sup>, a package for complex network analysis, is used to verify image comparison consistency. Astropy<sup><xref rid=\"CR23\" ref-type=\"bibr\">23</xref>,<xref rid=\"CR24\" ref-type=\"bibr\">24</xref></sup> handles standard astronomical file formats and computes time–coordinate transformations. Matplotlib is used to visualize data and to generate the final image of the black hole.</p><p id=\"Par21\">The interactive environment created by the array programming foundation and the surrounding ecosystem of tools—inside of IPython or Jupyter—is ideally suited to exploratory data analysis. Users can fluidly inspect, manipulate and visualize their data, and rapidly iterate to refine programming statements. These statements are then stitched together into imperative or functional programs, or notebooks containing both computation and narrative. Scientific computing beyond exploratory work is often done in a text editor or an integrated development environment (IDE) such as Spyder. This rich and productive environment has made Python popular for scientific research.</p><p id=\"Par22\">To complement this facility for exploratory work and rapid prototyping, NumPy has developed a culture of using time-tested software engineering practices to improve collaboration and reduce error<sup><xref rid=\"CR30\" ref-type=\"bibr\">30</xref></sup>. This culture is not only adopted by leaders in the project but also enthusiastically taught to newcomers. The NumPy team was early to adopt distributed revision control and code review to improve collaboration on code, and continuous testing that runs an extensive battery of automated tests for every proposed change to NumPy. The project also has comprehensive, high-quality documentation, integrated with the source code<sup><xref rid=\"CR31\" ref-type=\"bibr\">31</xref>–<xref rid=\"CR33\" ref-type=\"bibr\">33</xref></sup>.</p><p id=\"Par23\">This culture of using best practices for producing reliable scientific software has been adopted by the ecosystem of libraries that build on NumPy. For example, in a recent award given by the Royal Astronomical Society to Astropy, they state: “The Astropy Project has provided hundreds of junior scientists with experience in professional-standard software development practices including use of version control, unit testing, code review and issue tracking procedures. This is a vital skill set for modern researchers that is often missing from formal university education in physics or astronomy”<sup><xref rid=\"CR34\" ref-type=\"bibr\">34</xref></sup>. Community members explicitly work to address this lack of formal education through courses and workshops<sup><xref rid=\"CR35\" ref-type=\"bibr\">35</xref>–<xref rid=\"CR37\" ref-type=\"bibr\">37</xref></sup>.</p><p id=\"Par24\">The recent rapid growth of data science, machine learning and artificial intelligence has further and dramatically boosted the scientific use of Python. Examples of its important applications, such as the eht-imaging library, now exist in almost every discipline in the natural and social sciences. These tools have become the primary software environment in many fields. NumPy and its ecosystem are commonly taught in university courses, boot camps and summer schools, and are the focus of community conferences and workshops worldwide. NumPy and its API have become truly ubiquitous.</p></sec><sec id=\"Sec4\" disp-level=\"1\"><title>Array proliferation and interoperability</title><p id=\"Par25\">NumPy provides in-memory, multidimensional, homogeneously typed (that is, single-pointer and strided) arrays on CPUs. It runs on machines ranging from embedded devices to the world’s largest supercomputers, with performance approaching that of compiled languages. For most its existence, NumPy addressed the vast majority of array computation use cases.</p><p id=\"Par26\">However, scientific datasets now routinely exceed the memory capacity of a single machine and may be stored on multiple machines or in the cloud. In addition, the recent need to accelerate deep-learning and artificial intelligence applications has led to the emergence of specialized accelerator hardware, including graphics processing units (GPUs), tensor processing units (TPUs) and field-programmable gate arrays (FPGAs). Owing to its in-memory data model, NumPy is currently unable to directly utilize such storage and specialized hardware. However, both distributed data and also the parallel execution of GPUs, TPUs and FPGAs map well to the paradigm of array programming: therefore leading to a gap between available modern hardware architectures and the tools necessary to leverage their computational power.</p><p id=\"Par27\">The community’s efforts to fill this gap led to a proliferation of new array implementations. For example, each deep-learning framework created its own arrays; the PyTorch<sup><xref rid=\"CR38\" ref-type=\"bibr\">38</xref></sup>, Tensorflow<sup><xref rid=\"CR39\" ref-type=\"bibr\">39</xref></sup>, Apache MXNet<sup><xref rid=\"CR40\" ref-type=\"bibr\">40</xref></sup> and JAX arrays all have the capability to run on CPUs and GPUs in a distributed fashion, using lazy evaluation to allow for additional performance optimizations. SciPy and PyData/Sparse both provide sparse arrays, which typically contain few non-zero values and store only those in memory for efficiency. In addition, there are projects that build on NumPy arrays as data containers, and extend its capabilities. Distributed arrays are made possible that way by Dask, and labelled arrays—referring to dimensions of an array by name rather than by index for clarity, compare x[:, 1] versus x.loc[:, 'time']—by xarray<sup><xref rid=\"CR41\" ref-type=\"bibr\">41</xref></sup>.</p><p id=\"Par28\">Such libraries often mimic the NumPy API, because this lowers the barrier to entry for newcomers and provides the wider community with a stable array programming interface. This, in turn, prevents disruptive schisms such as the divergence between Numeric and Numarray. But exploring new ways of working with arrays is experimental by nature and, in fact, several promising libraries (such as Theano and Caffe) have already ceased development. And each time that a user decides to try a new technology, they must change import statements and ensure that the new library implements all the parts of the NumPy API they currently use.</p><p id=\"Par29\">Ideally, operating on specialized arrays using NumPy functions or semantics would simply work, so that users could write code once, and would then benefit from switching between NumPy arrays, GPU arrays, distributed arrays and so forth as appropriate. To support array operations between external array objects, NumPy therefore added the capability to act as a central coordination mechanism with a well specified API (Fig. <xref rid=\"Fig2\" ref-type=\"fig\">2</xref>).</p><p id=\"Par30\">To facilitate this interoperability, NumPy provides ‘protocols’ (or contracts of operation), that allow for specialized arrays to be passed to NumPy functions (Fig. <xref rid=\"Fig3\" ref-type=\"fig\">3</xref>). NumPy, in turn, dispatches operations to the originating library, as required. Over four hundred of the most popular NumPy functions are supported. The protocols are implemented by widely used libraries such as Dask, CuPy, xarray and PyData/Sparse. Thanks to these developments, users can now, for example, scale their computation from a single machine to distributed systems using Dask. The protocols also compose well, allowing users to redeploy NumPy code at scale on distributed, multi-GPU systems via, for instance, CuPy arrays embedded in Dask arrays. Using NumPy’s high-level API, users can leverage highly parallel code execution on multiple systems with millions of cores, all with minimal code changes<sup><xref rid=\"CR42\" ref-type=\"bibr\">42</xref></sup>.</p><fig id=\"Fig3\" position=\"float\"><?disp-level 2?><label>Fig. 3</label><caption><title>NumPy’s API and array protocols expose new arrays to the ecosystem.</title><p>In this example, NumPy’s ‘mean’ function is called on a Dask array. The call succeeds by dispatching to the appropriate library implementation (in this case, Dask) and results in a new Dask array. Compare this code to the example code in Fig. <xref rid=\"Fig1\" ref-type=\"fig\">1g</xref>.</p></caption><alternatives><graphic xmlns:xlink=\"http://www.w3.org/1999/xlink\" content-type=\"image\" id=\"d30e1053\" xlink:href=\"41586_2020_2649_Fig3_HTML.jpg\"><?cloudpmc-path blobs/f47e/7759461/73a82dadde47/41586_2020_2649_Fig3_HTML.jpg?><?cloudpmc-bucket cdn?><?image-server-status LOAD_COMPLETED?><?original-height 637?><?original-width 1987?><?scaled-height 255?><?scaled-width 794?></graphic><graphic xmlns:xlink=\"http://www.w3.org/1999/xlink\" content-type=\"thumb\" xlink:href=\"41586_2020_2649_Fig3_HTML.gif\"><?cloudpmc-path blobs/f47e/7759461/36b4ac996e4c/41586_2020_2649_Fig3_HTML.gif?><?cloudpmc-bucket cdn?></graphic></alternatives></fig><p id=\"Par31\">These array protocols are now a key feature of NumPy, and are expected to only increase in importance. The NumPy developers—many of whom are authors of this Review—iteratively refine and add protocol designs to improve utility and simplify adoption.</p></sec><sec id=\"Sec5\" disp-level=\"1\"><title>Discussion</title><p id=\"Par32\">NumPy combines the expressive power of array programming, the performance of C, and the readability, usability and versatility of Python in a mature, well tested, well documented and community-developed library. Libraries in the scientific Python ecosystem provide fast implementations of most important algorithms. Where extreme optimization is warranted, compiled languages can be used, such as Cython<sup><xref rid=\"CR43\" ref-type=\"bibr\">43</xref></sup>, Numba<sup><xref rid=\"CR44\" ref-type=\"bibr\">44</xref></sup> and Pythran<sup><xref rid=\"CR45\" ref-type=\"bibr\">45</xref></sup>; these languages extend Python and transparently accelerate bottlenecks. Owing to NumPy’s simple memory model, it is easy to write low-level, hand-optimized code, usually in C or Fortran, to manipulate NumPy arrays and pass them back to Python. Furthermore, using array protocols, it is possible to utilize the full spectrum of specialized hardware acceleration with minimal changes to existing code.</p><p id=\"Par33\">NumPy was initially developed by students, faculty and researchers to provide an advanced, open-source array programming library for Python, which was free to use and unencumbered by license servers and software protection dongles. There was a sense of building something consequential together for the benefit of many others. Participating in such an endeavour, within a welcoming community of like-minded individuals, held a powerful attraction for many early contributors.</p><p id=\"Par34\">These user–developers frequently had to write code from scratch to solve their own or their colleagues’ problems—often in low-level languages that preceded Python, such as Fortran<sup><xref rid=\"CR46\" ref-type=\"bibr\">46</xref></sup> and C. To them, the advantages of an interactive, high-level array library were evident. The design of this new tool was informed by other powerful interactive programming languages for scientific computing such as Basis<sup><xref rid=\"CR47\" ref-type=\"bibr\">47</xref>–<xref rid=\"CR50\" ref-type=\"bibr\">50</xref></sup>, Yorick<sup><xref rid=\"CR51\" ref-type=\"bibr\">51</xref></sup>, R<sup><xref rid=\"CR52\" ref-type=\"bibr\">52</xref></sup> and APL<sup><xref rid=\"CR53\" ref-type=\"bibr\">53</xref></sup>, as well as commercial languages and environments such as IDL (Interactive Data Language) and MATLAB.</p><p id=\"Par35\">What began as an attempt to add an array object to Python became the foundation of a vibrant ecosystem of tools. Now, a large amount of scientific work depends on NumPy being correct, fast and stable. It is no longer a small community project, but core scientific infrastructure.</p><p id=\"Par36\">The developer culture has matured: although initial development was highly informal, NumPy now has a roadmap and a process for proposing and discussing large changes. The project has formal governance structures and is fiscally sponsored by NumFOCUS, a nonprofit that promotes open practices in research, data and scientific computing. Over the past few years, the project attracted its first funded development, sponsored by the Moore and Sloan Foundations, and received an award as part of the Chan Zuckerberg Initiative’s Essentials of Open Source Software programme. With this funding, the project was (and is) able to have sustained focus over multiple months to implement substantial new features and improvements. That said, the development of NumPy still depends heavily on contributions made by graduate students and researchers in their free time (see Supplementary Methods for more details).</p><p id=\"Par37\">NumPy is no longer merely the foundational array library underlying the scientific Python ecosystem, but it has become the standard API for tensor computation and a central coordinating mechanism between array types and technologies in Python. Work continues to expand on and improve these interoperability features.</p><p id=\"Par38\">Over the next decade, NumPy developers will face several challenges. New devices will be developed, and existing specialized hardware will evolve to meet diminishing returns on Moore’s law. There will be more, and a wider variety of, data science practitioners, a large proportion of whom will use NumPy. The scale of scientific data gathering will continue to increase, with the adoption of devices and instruments such as light-sheet microscopes and the Large Synoptic Survey Telescope (LSST)<sup><xref rid=\"CR54\" ref-type=\"bibr\">54</xref></sup>. New generation languages, interpreters and compilers, such as Rust<sup><xref rid=\"CR55\" ref-type=\"bibr\">55</xref></sup>, Julia<sup><xref rid=\"CR56\" ref-type=\"bibr\">56</xref></sup> and LLVM<sup><xref rid=\"CR57\" ref-type=\"bibr\">57</xref></sup>, will create new concepts and data structures, and determine their viability.</p><p id=\"Par39\">Through the mechanisms described in this Review, NumPy is poised to embrace such a changing landscape, and to continue playing a leading part in interactive scientific computation, although to do so will require sustained funding from government, academia and industry. But, importantly, for NumPy to meet the needs of the next decade of data science, it will also need a new generation of graduate students and community contributors to drive it forward.</p></sec><sec id=\"sec6\" disp-level=\"1\"><title>Supplementary information</title><sec id=\"Sec7\" disp-level=\"2\"><supplementary-material id=\"MOESM1\" position=\"float\"><media xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"41586_2020_2649_MOESM1_ESM.pdf\" mimetype=\"application\" mime-subtype=\"pdf\"><?cloudpmc-path f47e/7759461/8394c38da0d6/41586_2020_2649_MOESM1_ESM.pdf?><?cloudpmc-bucket app?><?size 620858?><label>Supplementary Information</label><caption><p>This file contains Supplementary Methods, including Supplementary Figure 1 and additional references.</p></caption></media></supplementary-material></sec></sec><sec id=\"ack1\" sec-type=\"ack\" disp-level=\"1\"><title>Acknowledgements</title><p>We thank R. Barnowski, P. Dubois, M. Eickenberg, and P. Greenfield, who suggested text and provided helpful feedback on the manuscript. K.J.M. and S.J.v.d.W. were funded in part by the Gordon and Betty Moore Foundation through grant GBMF3834 and by the Alfred P. Sloan Foundation through grant 2013-10-27 to the University of California, Berkeley. S.J.v.d.W., S.B., M.P. and W.W. were funded in part by the Gordon and Betty Moore Foundation through grant GBMF5447 and by the Alfred P. Sloan Foundation through grant G-2017-9960 to the University of California, Berkeley.</p></sec><sec id=\"notes1\" disp-level=\"1\"><title>Author contributions</title><p>K.J.M. and S.J.v.d.W. composed the manuscript with input from others. S.B., R.G., K.S., W.W., M.B. and T.R. contributed text. All authors contributed substantial code, documentation and/or expertise to the NumPy project. All authors reviewed the manuscript.</p></sec><sec id=\"FPar1\" disp-level=\"1\"><title>Competing interests</title><p id=\"Par41\">The authors declare no competing interests.</p></sec><sec id=\"fn-group1\" sec-type=\"fn-group\" disp-level=\"1\"><title>Footnotes</title><fn-group><fn id=\"fn1\"><p><bold>Peer review information</bold>\n<italic>Nature</italic> thanks Edouard Duchesnay, Alan Edelman and the other, anonymous, reviewer(s) for their contribution to the peer review of this work.</p></fn><fn id=\"fn2\"><p><bold>Publisher’s note</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p></fn></fn-group></sec><sec id=\"_ci93_\" xml:lang=\"en\" sec-type=\"contrib-info\" disp-level=\"1\"><title>Contributor Information</title><p>K. Jarrod Millman, Email: millman@berkeley.edu.</p><p>Stéfan J. van der Walt, Email: stefanv@berkeley.edu</p><p>Ralf Gommers, Email: ralf.gommers@gmail.com.</p></sec><sec id=\"sec8\" disp-level=\"1\"><title>Supplementary information</title><p>is available for this paper at 10.1038/s41586-020-2649-2.</p></sec><sec id=\"Bib1\" sec-type=\"ref-list\" disp-level=\"1\"><title>References</title><sec id=\"Bib1_sec2\" disp-level=\"2\"><ref-list><ref id=\"CR1\"><label>1.</label><mixed-citation><named-content content-type=\"citation-string\">Abbott BP, et al.  Observation of gravitational waves from a binary black hole merger. Phys. Rev. Lett. 2016;116:061102. doi: 10.1103/PhysRevLett.116.061102.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1103/PhysRevLett.116.061102\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"pmid\" xlink:href=\"26918975\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Phys. Rev. Lett.&amp;title=Observation of gravitational waves from a binary black hole merger&amp;author=BP Abbott&amp;volume=116&amp;publication_year=2016&amp;pages=061102&amp;pmid=26918975&amp;doi=10.1103/PhysRevLett.116.061102&amp;\"/></mixed-citation></ref><ref id=\"CR2\"><label>2.</label><mixed-citation><named-content content-type=\"citation-string\">Chael A, et al.  High-resolution linear polarimetric imaging for the Event Horizon Telescope. Astrophys. J. 2016;286:11. doi: 10.3847/0004-637X/829/1/11.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.3847/0004-637X/829/1/11\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Astrophys. J.&amp;title=High-resolution linear polarimetric imaging for the Event Horizon Telescope&amp;author=A Chael&amp;volume=286&amp;publication_year=2016&amp;pages=11&amp;doi=10.3847/0004-637X/829/1/11&amp;\"/></mixed-citation></ref><ref id=\"CR3\"><label>3.</label><mixed-citation><named-content content-type=\"citation-string\">Dubois PF, Hinsen K, Hugunin J. Numerical Python. Comput. Phys. 1996;10:262–267. doi: 10.1063/1.4822400.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1063/1.4822400\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Comput. Phys.&amp;title=Numerical Python&amp;author=PF Dubois&amp;author=K Hinsen&amp;author=J Hugunin&amp;volume=10&amp;publication_year=1996&amp;pages=262-267&amp;doi=10.1063/1.4822400&amp;\"/></mixed-citation></ref><ref id=\"CR4\"><label>4.</label><mixed-citation><named-content content-type=\"citation-string\">Ascher, D., Dubois, P. F., Hinsen, K., Hugunin, J. &amp; Oliphant, T. E. <italic>An Open Source Project: Numerical Python</italic> (Lawrence Livermore National Laboratory, 2001).</named-content></mixed-citation></ref><ref id=\"CR5\"><label>5.</label><mixed-citation><named-content content-type=\"citation-string\">Yang, T.-Y., Furnish, G. &amp; Dubois, P. F. Steering object-oriented scientific computations. In <italic>Proc. TOOLS USA 97. Intl Conf. Technology of Object Oriented Systems and Languages</italic> (eds Ege, R., Singh, M. &amp; Meyer, B.) 112–119 (IEEE, 1997).</named-content></mixed-citation></ref><ref id=\"CR6\"><label>6.</label><mixed-citation><named-content content-type=\"citation-string\">Greenfield, P., Miller, J. T., Hsu, J. &amp; White, R. L. numarray: a new scientific array package for Python. In <italic>PyCon DC 2003</italic><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.112.9899\" ext-link-type=\"uri\">http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.112.9899</ext-link> (2003).</named-content></mixed-citation></ref><ref id=\"CR7\"><label>7.</label><mixed-citation><named-content content-type=\"citation-string\">Oliphant, T. E. <italic>Guide to NumPy</italic> 1st edn (Trelgol Publishing, 2006).</named-content></mixed-citation></ref><ref id=\"CR8\"><label>8.</label><mixed-citation><named-content content-type=\"citation-string\">Dubois PF. Python: batteries included. Comput. Sci. Eng. 2007;9:7–9. doi: 10.1109/MCSE.2007.51.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1109/MCSE.2007.51\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Comput. Sci. Eng.&amp;title=Python: batteries included&amp;author=PF Dubois&amp;volume=9&amp;publication_year=2007&amp;pages=7-9&amp;doi=10.1109/MCSE.2007.51&amp;\"/></mixed-citation></ref><ref id=\"CR9\"><label>9.</label><mixed-citation><named-content content-type=\"citation-string\">Oliphant TE. Python for scientific computing. Comput. Sci. Eng. 2007;9:10–20. doi: 10.1109/MCSE.2007.58.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1109/MCSE.2007.58\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Comput. Sci. Eng.&amp;title=Python for scientific computing&amp;author=TE Oliphant&amp;volume=9&amp;publication_year=2007&amp;pages=10-20&amp;doi=10.1109/MCSE.2007.58&amp;\"/></mixed-citation></ref><ref id=\"CR10\"><label>10.</label><mixed-citation><named-content content-type=\"citation-string\">Millman KJ, Aivazis M. Python for scientists and engineers. Comput. Sci. Eng. 2011;13:9–12. doi: 10.1109/MCSE.2011.36.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1109/MCSE.2011.36\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Comput. Sci. Eng.&amp;title=Python for scientists and engineers&amp;author=KJ Millman&amp;author=M Aivazis&amp;volume=13&amp;publication_year=2011&amp;pages=9-12&amp;doi=10.1109/MCSE.2011.36&amp;\"/></mixed-citation></ref><ref id=\"CR11\"><label>11.</label><mixed-citation><named-content content-type=\"citation-string\">Pérez F, Granger BE, Hunter JD. Python: an ecosystem for scientific computing. Comput. Sci. Eng. 2011;13:13–21. doi: 10.1109/MCSE.2010.119.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1109/MCSE.2010.119\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Comput. Sci. Eng.&amp;title=Python: an ecosystem for scientific computing&amp;author=F Pérez&amp;author=BE Granger&amp;author=JD Hunter&amp;volume=13&amp;publication_year=2011&amp;pages=13-21&amp;doi=10.1109/MCSE.2010.119&amp;\"/></mixed-citation></ref><ref id=\"CR12\"><label>12.</label><mixed-citation><named-content content-type=\"citation-string\">Virtanen P, et al.  SciPy 1.0—fundamental algorithms for scientific computing in Python. Nat. Methods. 2020;17:261–272. doi: 10.1038/s41592-019-0686-2.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1038/s41592-019-0686-2\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"pmcid\" xlink:href=\"PMC7056644\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"pmid\" xlink:href=\"32015543\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Nat. Methods&amp;title=SciPy 1.0—fundamental algorithms for scientific computing in Python&amp;author=P Virtanen&amp;volume=17&amp;publication_year=2020&amp;pages=261-272&amp;pmid=32015543&amp;doi=10.1038/s41592-019-0686-2&amp;\"/></mixed-citation></ref><ref id=\"CR13\"><label>13.</label><mixed-citation><named-content content-type=\"citation-string\">Hunter JD. Matplotlib: a 2D graphics environment. Comput. Sci. Eng. 2007;9:90–95. doi: 10.1109/MCSE.2007.55.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1109/MCSE.2007.55\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Comput. Sci. Eng.&amp;title=Matplotlib: a 2D graphics environment&amp;author=JD Hunter&amp;volume=9&amp;publication_year=2007&amp;pages=90-95&amp;doi=10.1109/MCSE.2007.55&amp;\"/></mixed-citation></ref><ref id=\"CR14\"><label>14.</label><mixed-citation><named-content content-type=\"citation-string\">McKinney, W. Data structures for statistical computing in Python. In <italic>Proc. 9th Python in Science Conf</italic>. (eds van der Walt, S. &amp; Millman, K. J.) 56–61 (2010).</named-content></mixed-citation></ref><ref id=\"CR15\"><label>15.</label><mixed-citation><named-content content-type=\"citation-string\">Pedregosa F, et al.  Scikit-learn: machine learning in Python. J. Mach. Learn. Res. 2011;12:2825–2830.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=J. Mach. Learn. Res.&amp;title=Scikit-learn: machine learning in Python&amp;author=F Pedregosa&amp;volume=12&amp;publication_year=2011&amp;pages=2825-2830&amp;\"/></mixed-citation></ref><ref id=\"CR16\"><label>16.</label><mixed-citation><named-content content-type=\"citation-string\">van der Walt S, et al.  scikit-image: image processing in Python. PeerJ. 2014;2:e453. doi: 10.7717/peerj.453.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.7717/peerj.453\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"pmcid\" xlink:href=\"PMC4081273\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"pmid\" xlink:href=\"25024921\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=PeerJ&amp;title=scikit-image: image processing in Python&amp;author=S van der Walt&amp;volume=2&amp;publication_year=2014&amp;pages=e453&amp;pmid=25024921&amp;doi=10.7717/peerj.453&amp;\"/></mixed-citation></ref><ref id=\"CR17\"><label>17.</label><mixed-citation><named-content content-type=\"citation-string\">van der Walt, S., Colbert, S. C. &amp; Varoquaux, G. The NumPy array: a structure for efficient numerical computation. <italic>Comput. Sci. Eng</italic>. <bold>13</bold>, 22–30 (2011). <bold>Discusses the NumPy array data structure with a focus on how it enables efficient computation</bold>.</named-content></mixed-citation></ref><ref id=\"CR18\"><label>18.</label><mixed-citation><named-content content-type=\"citation-string\">Wang, Q., Zhang, X., Zhang, Y. &amp; Yi, Q. AUGEM: automatically generate high performance dense linear algebra kernels on x86 CPUs. In <italic>SC’13: Proc. Intl Conf. High Performance Computing, Networking, Storage and Analysis</italic> 25 (IEEE, 2013).</named-content></mixed-citation></ref><ref id=\"CR19\"><label>19.</label><mixed-citation><named-content content-type=\"citation-string\">Xianyi, Z., Qian, W. &amp; Yunquan, Z. Model-driven level 3 BLAS performance optimization on Loongson 3A processor. In <italic>2012 IEEE 18th Intl Conf. Parallel and Distributed Systems</italic> 684–691 (IEEE, 2012).</named-content></mixed-citation></ref><ref id=\"CR20\"><label>20.</label><mixed-citation><named-content content-type=\"citation-string\">Pérez F, Granger BE. IPython: a system for interactive scientific computing. Comput. Sci. Eng. 2007;9:21–29. doi: 10.1109/MCSE.2007.53.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1109/MCSE.2007.53\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Comput. Sci. Eng.&amp;title=IPython: a system for interactive scientific computing&amp;author=F Pérez&amp;author=BE Granger&amp;volume=9&amp;publication_year=2007&amp;pages=21-29&amp;doi=10.1109/MCSE.2007.53&amp;\"/></mixed-citation></ref><ref id=\"CR21\"><label>21.</label><mixed-citation><named-content content-type=\"citation-string\">Kluyver, T. et al. Jupyter Notebooks—a publishing format for reproducible computational workflows. In <italic>Positioning and Power in Academic Publishing: Players, Agents and Agendas</italic> (eds Loizides, F. &amp; Schmidt, B.) 87–90 (IOS Press, 2016).</named-content></mixed-citation></ref><ref id=\"CR22\"><label>22.</label><mixed-citation><named-content content-type=\"citation-string\">Hagberg, A. A., Schult, D. A. &amp; Swart, P. J. Exploring network structure, dynamics, and function using NetworkX. In <italic>Proc. 7th Python in Science Conf</italic>. (eds Varoquaux, G., Vaught, T. &amp; Millman, K. J.) 11–15 (2008).</named-content></mixed-citation></ref><ref id=\"CR23\"><label>23.</label><mixed-citation><named-content content-type=\"citation-string\">Astropy Collaboration, et al.  Astropy: a community Python package for astronomy. Astron. Astrophys. 2013;558:A33. doi: 10.1051/0004-6361/201322068.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1051/0004-6361/201322068\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Astron. Astrophys.&amp;title=Astropy: a community Python package for astronomy&amp;author= Astropy Collaboration&amp;volume=558&amp;publication_year=2013&amp;pages=A33&amp;doi=10.1051/0004-6361/201322068&amp;\"/></mixed-citation></ref><ref id=\"CR24\"><label>24.</label><mixed-citation><named-content content-type=\"citation-string\">Price-Whelan AM, et al.  The Astropy Project: building an open-science project and status of the v2.0 core package. Astron. J. 2018;156:123. doi: 10.3847/1538-3881/aac387.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.3847/1538-3881/aac387\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Astron. J.&amp;title=The Astropy Project: building an open-science project and status of the v2.0 core package&amp;author=AM Price-Whelan&amp;volume=156&amp;publication_year=2018&amp;pages=123&amp;doi=10.3847/1538-3881/aac387&amp;\"/></mixed-citation></ref><ref id=\"CR25\"><label>25.</label><mixed-citation><named-content content-type=\"citation-string\">Cock PJ, et al.  Biopython: freely available Python tools for computational molecular biology and bioinformatics. Bioinformatics. 2009;25:1422–1423. doi: 10.1093/bioinformatics/btp163.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1093/bioinformatics/btp163\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"pmcid\" xlink:href=\"PMC2682512\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"pmid\" xlink:href=\"19304878\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Bioinformatics&amp;title=Biopython: freely available Python tools for computational molecular biology and bioinformatics&amp;author=PJ Cock&amp;volume=25&amp;publication_year=2009&amp;pages=1422-1423&amp;pmid=19304878&amp;doi=10.1093/bioinformatics/btp163&amp;\"/></mixed-citation></ref><ref id=\"CR26\"><label>26.</label><mixed-citation><named-content content-type=\"citation-string\">Millman KJ, Brett M. Analysis of functional magnetic resonance imaging in Python. Comput. Sci. Eng. 2007;9:52–55. doi: 10.1109/MCSE.2007.46.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1109/MCSE.2007.46\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Comput. Sci. Eng.&amp;title=Analysis of functional magnetic resonance imaging in Python&amp;author=KJ Millman&amp;author=M Brett&amp;volume=9&amp;publication_year=2007&amp;pages=52-55&amp;doi=10.1109/MCSE.2007.46&amp;\"/></mixed-citation></ref><ref id=\"CR27\"><label>27.</label><mixed-citation><named-content content-type=\"citation-string\">The SunPy Community et al.  SunPy—Python for solar physics. Comput. Sci. Discov. 2015;8:014009. doi: 10.1088/1749-4699/8/1/014009.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1088/1749-4699/8/1/014009\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Comput. Sci. Discov.&amp;title=SunPy—Python for solar physics&amp;volume=8&amp;publication_year=2015&amp;pages=014009&amp;doi=10.1088/1749-4699/8/1/014009&amp;\"/></mixed-citation></ref><ref id=\"CR28\"><label>28.</label><mixed-citation><named-content content-type=\"citation-string\">Hamman, J., Rocklin, M. &amp; Abernathy, R. Pangeo: a big-data ecosystem for scalable Earth system science. In <italic>EGU General Assembly Conf. Abstracts</italic> 12146 (2018).</named-content></mixed-citation></ref><ref id=\"CR29\"><label>29.</label><mixed-citation><named-content content-type=\"citation-string\">Chael, A. A. et al. ehtim: imaging, analysis, and simulation software for radio interferometry. <italic>Astrophysics Source Code Library</italic><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"https://ascl.net/1904.004\" ext-link-type=\"uri\">https://ascl.net/1904.004</ext-link> (2019).</named-content></mixed-citation></ref><ref id=\"CR30\"><label>30.</label><mixed-citation><named-content content-type=\"citation-string\">Millman, K. J. &amp; Pérez, F. Developing open source scientific practice. In <italic>Implementing Reproducible Research</italic> (eds Stodden, V., Leisch, F. &amp; Peng, R. D.) 149–183 (CRC Press, 2014). <bold>Describes the software engineering practices embraced by the NumPy and SciPy communities with a focus on how these practices improve research</bold>.</named-content></mixed-citation></ref><ref id=\"CR31\"><label>31.</label><mixed-citation><named-content content-type=\"citation-string\">van der Walt, S. The SciPy Documentation Project (technical overview). In <italic>Proc. 7th Python in Science Conf. (SciPy 2008)</italic> (eds Varoquaux, G., Vaught, T. &amp; Millman, K. J.) 27–28 (2008).</named-content></mixed-citation></ref><ref id=\"CR32\"><label>32.</label><mixed-citation><named-content content-type=\"citation-string\">Harrington, J. The SciPy Documentation Project. In <italic>Proc. 7th Python in Science Conference (SciPy 2008)</italic> (eds Varoquaux, G., Vaught, T. &amp; Millman, K. J.) 33–35 (2008).</named-content></mixed-citation></ref><ref id=\"CR33\"><label>33.</label><mixed-citation><named-content content-type=\"citation-string\">Harrington, J. &amp; Goldsmith, D. Progress report: NumPy and SciPy documentation in 2009. In <italic>Proc. 8th Python in Science Conf. (SciPy 2009)</italic> (eds Varoquaux, G., van der Walt, S. &amp; Millman, K. J.) 84–87 (2009).</named-content></mixed-citation></ref><ref id=\"CR34\"><label>34.</label><mixed-citation><named-content content-type=\"citation-string\">Royal Astronomical Society <italic>Report of the RAS ‘A’ Awards Committee 2020: Astropy Project: 2020 Group Achievement Award (A)</italic><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"https://ras.ac.uk/sites/default/files/2020-01/Group%20Award%20-%20Astropy.pdf\" ext-link-type=\"uri\">https://ras.ac.uk/sites/default/files/2020-01/Group%20Award%20-%20Astropy.pdf</ext-link> (2020).</named-content></mixed-citation></ref><ref id=\"CR35\"><label>35.</label><mixed-citation><named-content content-type=\"citation-string\">Wilson G. Software carpentry: getting scientists to write better code by making them more productive. Comput. Sci. Eng. 2006;8:66–69. doi: 10.1109/MCSE.2006.122.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1109/MCSE.2006.122\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Comput. Sci. Eng.&amp;title=Software carpentry: getting scientists to write better code by making them more productive&amp;author=G Wilson&amp;volume=8&amp;publication_year=2006&amp;pages=66-69&amp;doi=10.1109/MCSE.2006.122&amp;\"/></mixed-citation></ref><ref id=\"CR36\"><label>36.</label><mixed-citation><named-content content-type=\"citation-string\">Hannay, J. E. et al. How do scientists develop and use scientific software? In <italic>Proc. 2009 ICSE Workshop on Software Engineering for Computational Science and Engineering</italic> 1–8 (IEEE, 2009).</named-content></mixed-citation></ref><ref id=\"CR37\"><label>37.</label><mixed-citation><named-content content-type=\"citation-string\">Millman KJ, Brett M, Barnowski R, Poline J-B. Teaching computational reproducibility for neuroimaging. Front. Neurosci. 2018;12:727. doi: 10.3389/fnins.2018.00727.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.3389/fnins.2018.00727\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"pmcid\" xlink:href=\"PMC6204391\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"pmid\" xlink:href=\"30405329\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Front. Neurosci.&amp;title=Teaching computational reproducibility for neuroimaging&amp;author=KJ Millman&amp;author=M Brett&amp;author=R Barnowski&amp;author=J-B Poline&amp;volume=12&amp;publication_year=2018&amp;pages=727&amp;pmid=30405329&amp;doi=10.3389/fnins.2018.00727&amp;\"/></mixed-citation></ref><ref id=\"CR38\"><label>38.</label><mixed-citation><named-content content-type=\"citation-string\">Paszke, A. et al. Pytorch: an imperative style, high-performance deep learning library. In <italic>Advances in Neural Information Processing Systems 32</italic> (eds Wallach, H. et al.) 8024–8035 (Neural Information Processing Systems, 2019).</named-content></mixed-citation></ref><ref id=\"CR39\"><label>39.</label><mixed-citation><named-content content-type=\"citation-string\">Abadi, M. et al. TensorFlow: a system for large-scale machine learning. In <italic>OSDI’16: Proc. 12th USENIX Conf. Operating Systems Design and Implementation</italic> (chairs Keeton, K. &amp; Roscoe, T.) 265–283 (USENIX Association, 2016).</named-content></mixed-citation></ref><ref id=\"CR40\"><label>40.</label><mixed-citation><named-content content-type=\"citation-string\">Chen, T. et al. MXNet: a flexible and efficient machine learning library for heterogeneous distributed systems. Preprint at <ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"http://www.arxiv.org/abs/1512.01274\" ext-link-type=\"uri\">http://www.arxiv.org/abs/1512.01274</ext-link> (2015).</named-content></mixed-citation></ref><ref id=\"CR41\"><label>41.</label><mixed-citation><named-content content-type=\"citation-string\">Hoyer S, Hamman J. xarray: N–D labeled arrays and datasets in Python. J. Open Res. Softw. 2017;5:10. doi: 10.5334/jors.148.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.5334/jors.148\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=J. Open Res. Softw.&amp;title=xarray: N–D labeled arrays and datasets in Python&amp;author=S Hoyer&amp;author=J Hamman&amp;volume=5&amp;publication_year=2017&amp;pages=10&amp;doi=10.5334/jors.148&amp;\"/></mixed-citation></ref><ref id=\"CR42\"><label>42.</label><mixed-citation><named-content content-type=\"citation-string\">Entschev, P. Distributed multi-GPU computing with Dask, CuPy and RAPIDS. In<italic> EuroPython 2019</italic><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"https://ep2019.europython.eu/media/conference/slides/fX8dJsD-distributed-multi-gpu-computing-with-dask-cupy-and-rapids.pdf\" ext-link-type=\"uri\">https://ep2019.europython.eu/media/conference/slides/fX8dJsD-distributed-multi-gpu-computing-with-dask-cupy-and-rapids.pdf</ext-link> (2019).</named-content></mixed-citation></ref><ref id=\"CR43\"><label>43.</label><mixed-citation><named-content content-type=\"citation-string\">Behnel S, et al.  Cython: the best of both worlds. Comput. Sci. Eng. 2011;13:31–39. doi: 10.1109/MCSE.2010.118.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1109/MCSE.2010.118\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Comput. Sci. Eng.&amp;title=Cython: the best of both worlds&amp;author=S Behnel&amp;volume=13&amp;publication_year=2011&amp;pages=31-39&amp;doi=10.1109/MCSE.2010.118&amp;\"/></mixed-citation></ref><ref id=\"CR44\"><label>44.</label><mixed-citation><named-content content-type=\"citation-string\">Lam, S. K., Pitrou, A. &amp; Seibert, S. Numba: a LLVM-based Python JIT compiler. In <italic>Proc. Second Workshop on the LLVM Compiler Infrastructure in HPC, LLVM ’15</italic> 7:1–7:6 (ACM, 2015).</named-content></mixed-citation></ref><ref id=\"CR45\"><label>45.</label><mixed-citation><named-content content-type=\"citation-string\">Guelton S, et al.  Pythran: enabling static optimization of scientific Python programs. Comput. Sci. Discov. 2015;8:014001. doi: 10.1088/1749-4680/8/1/014001.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1088/1749-4680/8/1/014001\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Comput. Sci. Discov.&amp;title=Pythran: enabling static optimization of scientific Python programs&amp;author=S Guelton&amp;volume=8&amp;publication_year=2015&amp;pages=014001&amp;doi=10.1088/1749-4680/8/1/014001&amp;\"/></mixed-citation></ref><ref id=\"CR46\"><label>46.</label><mixed-citation><named-content content-type=\"citation-string\">Dongarra J, Golub GH, Grosse E, Moler C, Moore K. Netlib and NA-Net: building a scientific computing community. IEEE Ann. Hist. Comput. 2008;30:30–41. doi: 10.1109/MAHC.2008.29.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1109/MAHC.2008.29\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=IEEE Ann. Hist. Comput.&amp;title=Netlib and NA-Net: building a scientific computing community&amp;author=J Dongarra&amp;author=GH Golub&amp;author=E Grosse&amp;author=C Moler&amp;author=K Moore&amp;volume=30&amp;publication_year=2008&amp;pages=30-41&amp;doi=10.1109/MAHC.2008.29&amp;\"/></mixed-citation></ref><ref id=\"CR47\"><label>47.</label><mixed-citation><named-content content-type=\"citation-string\">Barrett, K. A., Chiu, Y. H., Painter, J. F., Motteler, Z. C. &amp; Dubois, P. F. <italic>Basis System, Part I: Running a Basis Program—A Tutorial for Beginners</italic> UCRL-MA-118543, Vol. 1 (Lawrence Livermore National Laboratory 1995).</named-content></mixed-citation></ref><ref id=\"CR48\"><label>48.</label><mixed-citation><named-content content-type=\"citation-string\">Dubois, P. F. &amp; Motteler, Z. <italic>Basis System, Part II: Basis Language Reference Manual</italic> UCRL-MA-118543, Vol. 2 (Lawrence Livermore National Laboratory, 1995).</named-content></mixed-citation></ref><ref id=\"CR49\"><label>49.</label><mixed-citation><named-content content-type=\"citation-string\">Chiu, Y. H. &amp; Dubois, P. F. <italic>Basis System, Part III: EZN User Manual</italic> UCRL-MA-118543, Vol. 3 (Lawrence Livermore National Laboratory, 1995).</named-content></mixed-citation></ref><ref id=\"CR50\"><label>50.</label><mixed-citation><named-content content-type=\"citation-string\">Chiu, Y. H. &amp; Dubois, P. F. <italic>Basis System, Part IV: EZD User Manual</italic> UCRL-MA-118543, Vol. 4 (Lawrence Livermore National Laboratory, 1995).</named-content></mixed-citation></ref><ref id=\"CR51\"><label>51.</label><mixed-citation><named-content content-type=\"citation-string\">Munro DH, Dubois PF. Using the Yorick interpreted language. Comput. Phys. 1995;9:609–615. doi: 10.1063/1.4823451.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1063/1.4823451\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Comput. Phys.&amp;title=Using the Yorick interpreted language&amp;author=DH Munro&amp;author=PF Dubois&amp;volume=9&amp;publication_year=1995&amp;pages=609-615&amp;doi=10.1063/1.4823451&amp;\"/></mixed-citation></ref><ref id=\"CR52\"><label>52.</label><mixed-citation><named-content content-type=\"citation-string\">Ihaka R, Gentleman R. R: a language for data analysis and graphics. J. Comput. Graph. Stat. 1996;5:299–314.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=J. Comput. Graph. Stat.&amp;title=R: a language for data analysis and graphics&amp;author=R Ihaka&amp;author=R Gentleman&amp;volume=5&amp;publication_year=1996&amp;pages=299-314&amp;\"/></mixed-citation></ref><ref id=\"CR53\"><label>53.</label><mixed-citation><named-content content-type=\"citation-string\">Iverson, K. E. A programming language. In <italic>Proc. 1962 Spring Joint Computer Conf</italic>. 345–351 (1962).</named-content></mixed-citation></ref><ref id=\"CR54\"><label>54.</label><mixed-citation><named-content content-type=\"citation-string\">Jenness, T. et al. LSST data management software development practices and tools. In <italic>Proc. SPIE 10707, Software and Cyberinfrastructure for Astronomy V</italic> 1070709 (SPIE and International Society for Optics and Photonics, 2018).</named-content></mixed-citation></ref><ref id=\"CR55\"><label>55.</label><mixed-citation><named-content content-type=\"citation-string\">Matsakis ND, Klock FS. The Rust language. Ada Letters. 2014;34:103–104. doi: 10.1145/2692956.2663188.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1145/2692956.2663188\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=Ada Letters&amp;title=The Rust language&amp;author=ND Matsakis&amp;author=FS Klock&amp;volume=34&amp;publication_year=2014&amp;pages=103-104&amp;doi=10.1145/2692956.2663188&amp;\"/></mixed-citation></ref><ref id=\"CR56\"><label>56.</label><mixed-citation><named-content content-type=\"citation-string\">Bezanson J, Edelman A, Karpinski S, Shah VB. Julia: a fresh approach to numerical computing. SIAM Rev. 2017;59:65–98. doi: 10.1137/141000671.</named-content><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"doi\" xlink:href=\"10.1137/141000671\"/><ext-link xmlns:xlink=\"http://www.w3.org/1999/xlink\" ext-link-type=\"google-scholar\" xlink:href=\"journal=SIAM Rev.&amp;title=Julia: a fresh approach to numerical computing&amp;author=J Bezanson&amp;author=A Edelman&amp;author=S Karpinski&amp;author=VB Shah&amp;volume=59&amp;publication_year=2017&amp;pages=65-98&amp;doi=10.1137/141000671&amp;\"/></mixed-citation></ref><ref id=\"CR57\"><label>57.</label><mixed-citation><named-content content-type=\"citation-string\">Lattner, C. &amp; Adve, V. LLVM: a compilation framework for lifelong program analysis and transformation. In <italic>Proc. 2004 Intl Symp. Code Generation and Optimization (CGO’04)</italic> 75–88 (IEEE, 2004).</named-content></mixed-citation></ref></ref-list></sec></sec><sec id=\"_ad93_\" xml:lang=\"en\" sec-type=\"associated-data\" disp-level=\"1\"><title>Associated Data</title><sec id=\"_adsm93_\" xml:lang=\"en\" sec-type=\"supplementary-materials\" disp-level=\"2\"><title>Supplementary Materials</title><supplementary-material id=\"db_ds_supplementary-material1_reqid_\" position=\"float\"><media xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"41586_2020_2649_MOESM1_ESM.pdf\" mimetype=\"application\" mime-subtype=\"pdf\"><?cloudpmc-path f47e/7759461/8394c38da0d6/41586_2020_2649_MOESM1_ESM.pdf?><?cloudpmc-bucket app?><?size 620858?><label>Supplementary Information</label><caption><p>This file contains Supplementary Methods, including Supplementary Figure 1 and additional references.</p></caption></media></supplementary-material></sec></sec></body></article>"
+}

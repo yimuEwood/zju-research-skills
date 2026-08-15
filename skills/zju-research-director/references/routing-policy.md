@@ -22,8 +22,13 @@ Parallelize steps only when neither consumes the other's outputs. Keep explicit 
 | Patent triage or disclosure aid | paper reader/prior-art search as needed -> paper-to-patent -> patent/legal human gate |
 | Retraction or correction update | literature monitor -> reference audit -> downstream evidence/claim review |
 | Submission package | statistics/reference/writing/figure checks -> reviewer -> integrity -> data availability -> release gate |
+| Bulk omics screen (optional pack) | experiment log/design metadata -> omics analysis -> statistics/figure handoff |
+| Materials structure or calculation (optional pack) | chemistry identity as needed -> materials computation -> experiment log/statistics/figure handoff |
+| Drug-discovery candidate triage (optional pack) | literature/chemistry evidence -> drug discovery -> hypothesis design -> statistics/integrity challenge |
 
 These are starting recipes. Skip an upstream step only when its required artifact is supplied and validated; record the reused artifact ID. Add chemistry database routing, monitoring, data availability, or integrity review only when the mission requires them.
+
+Optional-pack recipes are eligible only when the corresponding `$zju-omics-analysis`, `$zju-materials-computation`, or `$zju-drug-discovery` directory is installed beside the Director. `load_registry` ignores absent optional entries. Do not replace an unavailable pack with a similarly named core Skill or claim that installing a pack installs its external scientific software.
 
 `plan_mission.py` freezes the normative portion of this policy into a canonical `route_contract` and `route_contract_sha256`. Release rederives that contract from `requested_deliverables`; editing the live route, required output groups, gates, step states, or produced artifact IDs invalidates any earlier release authorization. A skipped required step still needs trusted-validated reused artifacts for every canonical output group.
 

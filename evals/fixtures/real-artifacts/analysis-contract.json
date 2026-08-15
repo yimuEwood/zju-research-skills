@@ -1,0 +1,48 @@
+{
+  "contract_id": "AC-REAL-ANOVA-1",
+  "study_id": "STUDY-REAL-1",
+  "question": "Does the response differ across the three prespecified dose groups?",
+  "design_stage": "frozen",
+  "design": {
+    "experimental_unit": "independent preparation",
+    "observational_unit": "one aggregated endpoint per preparation",
+    "assignment": "randomized",
+    "randomization_unit": "independent preparation",
+    "grouping_structure": "one row per independent preparation"
+  },
+  "outcomes": [
+    {
+      "outcome_id": "OUT-response",
+      "role": "primary",
+      "variable": "response",
+      "scale": "continuous",
+      "timepoint": "endpoint"
+    }
+  ],
+  "analyses": [
+    {
+      "analysis_id": "AN-ANOVA",
+      "outcome_ids": ["OUT-response"],
+      "estimand": "proportion of observed outcome variance attributable to the prespecified group factor",
+      "analysis_population": "all complete independent preparations in control, low, and high groups",
+      "model_family": "independent one-way fixed-factor ANOVA",
+      "effect_measure": "eta_squared",
+      "uncertainty": "95% stratified percentile bootstrap interval",
+      "missing_data_strategy": "complete case for unit, group, and response",
+      "multiplicity_family": "primary_single_test",
+      "diagnostics": ["residual distribution", "median-centered Levene test"],
+      "sensitivity_analyses": ["Kruskal-Wallis rank test"],
+      "execution": {
+        "method": "one_way_anova",
+        "result_id": "RES-ANOVA",
+        "value_column": "response",
+        "group_column": "group",
+        "experimental_unit_column": "unit",
+        "group_order": ["control", "low", "high"],
+        "confidence_level": 0.95,
+        "bootstrap_iterations": 500,
+        "bootstrap_seed": 20260815
+      }
+    }
+  ]
+}

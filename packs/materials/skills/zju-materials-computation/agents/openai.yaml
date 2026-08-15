@@ -1,0 +1,4 @@
+interface:
+  display_name: "ZJU Materials Computation"
+  short_description: "Inspect structures and materials workflows"
+  default_prompt: "Use $zju-materials-computation to validate this structure and prepare a reproducible materials analysis."

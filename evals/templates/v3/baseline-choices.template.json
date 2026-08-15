@@ -1,0 +1,10 @@
+{
+  "choices": {
+    "zju-literature-search": {
+      "baseline_id": "nature-academic-search",
+      "source_commit": "0000000000000000000000000000000000000000",
+      "baseline_packet_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "selection_rationale": "Selected before execution as the strongest eligible declared candidate for this task family."
+    }
+  }
+}

@@ -12,6 +12,11 @@ Find the least-privileged lawful access route and leave a reproducible access no
 1. Import the upstream `record_id` when available and confirm the target using DOI, PMID, title, authors, year, or an authoritative landing page. Resolve citation ambiguity before access attempts.
 2. Try open access: publisher OA copy, PubMed Central, institutional or subject repository, accepted manuscript, preprint, or explicitly public supplement.
 3. Try official metadata or content APIs only within their documented terms, rate limits, and entitlement rules. Do not turn a single-item task into a crawler.
+   For a DOI, PMID, or PMCID known to have an open Europe PMC article, retrieve one official JATS document with:
+
+   `python scripts/fetch_open_fulltext.py --pmcid PMC123456 --snapshot provider-snapshots/europepmc-fulltext.json --output-dir source-pack`
+
+   Recorded mode is the default. Live mode requires both `ZJU_RESEARCH_LIVE_API=1` and `--live`, accepts exactly one identifier, uses only the credential-free HTTPS Europe PMC API, rejects redirects/DTD/entity declarations/bodyless JATS, caps metadata at 4 MB and JATS at 30 MB, and writes a SHA-256 source package. It never follows a publisher or user-supplied download URL. Read `references/open-fulltext-output.schema.json` before consuming the manifest.
 4. For licensed resources, read `references/zju-library-access.md` and direct the user through the current Zhejiang University library entry, CARSI, WebVPN, or RVPN. The user authenticates interactively; never request or persist a password, cookie, token, or QR session.
 5. If automation is unavailable, provide the exact manual route: target citation, database or publisher, expected authentication step, and where to ask the library for help or document delivery.
 6. Read `references/source-package.md` and resolve the source family: requested version, preprint/publication relationship, correction or retraction notices, supplements, protocol/registration, data, and code. Prioritize components required by the downstream claim or method reconstruction.
@@ -28,6 +33,7 @@ Use `references/access-routes.md` for the decision tree. For a batch of locally 
 - Never perform systematic or bulk downloads. Pause and route the user to the library when the intended volume could violate license terms.
 - Do not upload publisher PDFs to public services without permission.
 - A DOI resolver or search-result link is not evidence that full text is open. Label access status `verified`, `likely`, `subscription_required`, or `unresolved`.
+- Preserve structured failures: exit `2` means invalid identifier, missing offline fixture, or local configuration; `3` means no OA match or invalid content; `4` means a retryable network/HTTP failure. A failed OA lookup must fall through to the lawful manual/library routes, never to a guessed URL.
 
 ## Output Contract
 

@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0",
+  "figure_id": "FIG-REAL-ANOVA",
+  "bounded_conclusion": "The three prespecified groups show an omnibus difference in the measured endpoint.",
+  "route": "data_figure",
+  "backend": "matplotlib",
+  "target_width_mm": 89.0,
+  "target_height_mm": 70.0,
+  "source_files": [
+    {
+      "path": "../analysis-input.xlsx",
+      "sha256": "5c0e669118a22e9c114e6346b854e04bff955688ac2b0f07f8181ecd2bb3ebfc",
+      "role": "source_data"
+    },
+    {
+      "path": "../analysis-output/result-registry.json",
+      "sha256": "4aa30a8bca0ad900beb8e59eb87f797b97ac5bd3ee4914c49c908217ba596a02",
+      "role": "canonical_result_registry"
+    },
+    {
+      "path": "../figure-spec.json",
+      "sha256": "fc7344b060cec3bad3671e26aa6ee783bb54dfb4ca8e05b4b3691fe27ba3e555",
+      "role": "figure_spec"
+    }
+  ],
+  "panels": [
+    {
+      "panel_id": "A",
+      "question": "The three prespecified groups show an omnibus difference in the measured endpoint.",
+      "source_anchor": "analysis-input.xlsx#all_rows",
+      "panel_type": "multi_group_comparison",
+      "analysis_ids": [
+        "AN-ANOVA"
+      ],
+      "result_ids": [
+        "RES-ANOVA"
+      ],
+      "experimental_unit": "independent preparation",
+      "details": {
+        "observations_rendered": 18,
+        "groups": {
+          "control": 6,
+          "low": 6,
+          "high": 6
+        },
+        "uncertainty": "within-group arithmetic mean with 95% t confidence interval",
+        "canonical_omnibus": {
+          "result_id": "RES-ANOVA",
+          "effect_measure": "eta_squared",
+          "estimate": 0.895505683024256,
+          "ci": {
+            "level": 0.95,
+            "lower": 0.8550689949860124,
+            "upper": 0.957580914108147
+          },
+          "p_value": 4.397390529328661e-08
+        }
+      }
+    }
+  ],
+  "exports": [
+    {
+      "path": "FIG-REAL-ANOVA.png",
+      "format": "png",
+      "sha256": "9163205b2de325f4466c5fa26c6825f9d9b66f7b664b8de7376241f3bb3e4296",
+      "bytes": 32480,
+      "dpi": 300,
+      "machine_check": {
+        "status": "passed",
+        "bytes": 32480,
+        "signature": "png",
+        "pixel_width": 1051,
+        "pixel_height": 826,
+        "requested_dpi": 300
+      }
+    },
+    {
+      "path": "FIG-REAL-ANOVA.svg",
+      "format": "svg",
+      "sha256": "c584e2a55ebf5a6155e14dc45a9c133bebae08194cd2805ab3dc1d5328cd3166",
+      "bytes": 12179,
+      "dpi": "vector",
+      "machine_check": {
+        "status": "passed",
+        "bytes": 12179,
+        "signature": "svg",
+        "view_box": "0 0 252.283465 198.425197",
+        "selectable_text_characters": 152
+      }
+    },
+    {
+      "path": "FIG-REAL-ANOVA.pdf",
+      "format": "pdf",
+      "sha256": "8369ef7c4492d93787854d77263814e2d1d9568b67e47d2ea87d7b2b6a84c76f",
+      "bytes": 25137,
+      "dpi": "vector",
+      "machine_check": {
+        "status": "passed",
+        "bytes": 25137,
+        "signature": "pdf",
+        "media_box_points": [
+          252.2834645669,
+          198.4251968504
+        ]
+      }
+    }
+  ],
+  "accessibility": {
+    "palette": "Okabe-Ito",
+    "redundant_encoding": "individual marks and spatial grouping",
+    "grayscale_check": "manual_inspection_required"
+  },
+  "artifact_qa": {
+    "data_to_mark_audit": {
+      "status": "passed",
+      "expected_observations": 18,
+      "rendered_observations": 18,
+      "result_id": "RES-ANOVA"
+    },
+    "export_structure_checks": "passed",
+    "placeholder_scan": "passed",
+    "human_visual_review": "passed_for_committed_fixture_at_full_resolution"
+  },
+  "qa_status": {
+    "numeric_binding": "linked_to_verified_result_id",
+    "data_binding": "data_sha256_matches_registry",
+    "file_generation": "complete",
+    "visual_inspection": "passed_for_committed_fixture_at_full_resolution",
+    "data_to_mark_audit": "passed_for_observation_count_and_registry_binding",
+    "machine_export_checks": "passed"
+  }
+}

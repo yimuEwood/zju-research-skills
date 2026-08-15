@@ -30,7 +30,9 @@ Read `references/source-to-claim.md` before invention mining and `references/dis
 7. Draft the independent claim concept first, then dependent features, specification/disclosure, embodiments, figures, and abstract so terminology and step order agree. Preserve formula meaning and define every symbol. Treat the dependency graph as a drafting outline, not a legal determination of claim scope.
 8. Generate claim-aligned flowcharts and diagrams from supported steps. Illustrations must not add components absent from the source/evidence ledger.
 9. Run `scripts/validate_feature_ledger.py`; for `workflow_version: "2.0"`, inspect the returned four maps, dependency order, query coverage, embodiment evidence gaps, and `invention_map_ready` before drafting.
-10. Deliver a clearly labelled `drafting aid` to the inventor, ZJU technology-transfer/patent office route, or patent professional. Do not promise filing success, scope, freedom to operate, or noninfringement.
+10. Run `python scripts/audit_claim_map.py claim-map.json` to verify dependency order and that every dependent claim adds a sourced limiting feature.
+11. Run `python scripts/separate_prior_art.py prior-art-lanes.json` to keep invention sources, pre-critical-date candidates, post-cutoff background, and unresolved dates in separate lanes. Do not put novelty, patentability, or freedom-to-operate conclusions in this technical map.
+12. Deliver a clearly labelled `drafting aid` to the inventor, ZJU technology-transfer/patent office route, or patent professional. Do not promise filing success, scope, freedom to operate, or noninfringement.
 
 ## Incomplete-Input Fallback
 

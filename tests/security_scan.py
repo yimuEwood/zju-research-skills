@@ -49,7 +49,9 @@ def scan_script(path: Path) -> list[dict[str, object]]:
 
 def main() -> int:
     findings: list[dict[str, object]] = []
-    scripts = sorted((ROOT / "skills").glob("*/scripts/*.py"))
+    core_scripts = (ROOT / "skills").glob("*/scripts/*.py")
+    pack_scripts = ROOT.glob("packs/*/skills/*/scripts/*.py")
+    scripts = sorted({*core_scripts, *pack_scripts})
     for path in scripts:
         findings.extend(scan_script(path))
     symlinks = [str(path) for path in ROOT.rglob("*") if path.is_symlink()]

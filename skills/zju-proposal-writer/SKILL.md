@@ -30,6 +30,12 @@ Read `references/proposal-contract.md` before drafting and `references/scheme-ro
 8. Align schedule, budget, personnel, facilities, and deliverables. Use the official budget categories and limits supplied for the scheme.
 9. Draft section contracts, then prose. Bind every literature claim to a verified citation and every project claim to the research canon. Preserve uncertainty and avoid promising guaranteed outcomes.
 10. For a structured evidence/hypothesis handoff, run `python scripts/validate_proposal_manifest.py handoff.json --compile-handoff` to generate the manifest, objective-WP map, milestone decision tree, and feasibility matrix. Validate the compiled manifest, then conduct reviewer-style checks for significance, discrimination, feasibility, differentiation, and compliance before formatting prose.
+11. Run `python scripts/audit_feasibility.py feasibility.json` on the executable plan. Require an acyclic dependency schedule, resource capacity by week, decision milestones for critical work packages, and linked risks with triggers, mitigation, contingency, and owners.
+12. When the validated manifest has stable evidence anchors, render a real proposal DOCX and provenance sidecars with:
+
+    `python scripts/render_proposal_docx.py --proposal-manifest proposal-manifest.json --output proposal.docx`
+
+    The renderer preserves objective, hypothesis, work-package, feasibility, risk, compliance, and evidence IDs, rejects unresolved placeholders, and reopens the OOXML package. Render-page inspection is still required before submission.
 
 ## Incomplete-Input Fallback
 

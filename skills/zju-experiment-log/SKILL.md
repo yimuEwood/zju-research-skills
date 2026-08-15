@@ -32,6 +32,8 @@ Create an immutable-source, traceable experiment record. Preserve uncertainty an
 
 If asked to overwrite or erase an earlier observation, refuse the silent change and immediately provide an append-only amendment record with `amendment_id`, `parent_record_id`, `recorded_at`, `actor`, `field`, `old_value`, `new_value`, `reason`, and `source_anchor`. Use `unknown` for absent values and ask only for the fields required to finalize the amendment. Preserve both reported experiment time and actual amendment time.
 
+For machine-verifiable corrections, store entry and correction events as a SHA-256 chain and run `python scripts/validate_append_only_log.py events.json`. A correction must point to an earlier event's exact hash and carry a patch and reason; never replace the earlier payload.
+
 ## Integrity Boundary
 
 - Never backdate a record without labeling the actual creation time and reported experiment time.

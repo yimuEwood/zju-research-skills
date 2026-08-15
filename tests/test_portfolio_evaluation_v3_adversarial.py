@@ -13,6 +13,9 @@ import json
 import unittest
 from pathlib import Path
 
+from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MODULE_PATH = ROOT / "evals" / "score_portfolio_v3.py"
@@ -300,6 +303,70 @@ class PortfolioProtocolV3AdversarialTests(unittest.TestCase):
             report["errors"],
         )
         self.assertFalse(report["release_gate_passed"])
+
+    def test_scorer_rejects_post_signature_result_rating_and_artifact_replacement(self):
+        skill_id = next(iter(self.rows))
+        results = self._base_results()
+        results["records"] = self._task_case(skill_id, "SIGNED-BINDING")
+        verification = {
+            "schema_version": "3.0", "verification_id": "binding-test",
+            "verified_at": "2026-08-12T05:00:00Z", "verifier_id": "external-admin",
+            "verification_key_id": "unit-external-key", "run_manifest": {},
+            "holdout_lock": {}, "first_attempt_registry": {}, "allocation_reveals": [],
+            "response_manifests": [], "artifact_manifests": [], "ratings_locks": [],
+            "execution_event_manifests": [], "administration_attestation": {},
+            "portfolio_results_sha256": SCORER._canonical_sha256(results),
+            "portfolio_results_file_sha256": "a" * 64,
+            "portfolio_results_size_bytes": 100,
+            "portfolio_results_serialization": "source-file-bytes",
+        }
+        verification["evidence_components_sha256"] = SCORER._evidence_component_hash(
+            run_manifest={}, response_manifests=[], artifact_manifests=[], ratings_locks=[],
+            execution_event_manifests=[], allocation_reveals=[],
+        )
+        private = Ed25519PrivateKey.generate()
+        public = private.public_key().public_bytes(
+            encoding=serialization.Encoding.Raw, format=serialization.PublicFormat.Raw
+        )
+        payload = json.dumps(
+            verification, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+        ).encode("utf-8")
+        verification["verification_signature_ed25519"] = private.sign(payload).hex()
+
+        original_lookup = SCORER._trusted_verifier_public_key
+        SCORER._trusted_verifier_public_key = lambda key_id, errors: public
+        try:
+            forged_results = copy.deepcopy(results)
+            forged_results["records"][0]["score"] = 99
+            result_errors: list[str] = []
+            SCORER._validate_task_bundle(
+                forged_results, set(self.rows), self.matrix, copy.deepcopy(verification), result_errors,
+                results_file_sha256="a" * 64, results_size_bytes=100,
+            )
+            self.assertTrue(any("exact portfolio results" in error for error in result_errors), result_errors)
+            byte_errors: list[str] = []
+            SCORER._validate_task_bundle(
+                results, set(self.rows), self.matrix, copy.deepcopy(verification), byte_errors,
+                results_file_sha256="b" * 64, results_size_bytes=100,
+            )
+            self.assertTrue(any("results file bytes" in error for error in byte_errors), byte_errors)
+
+            for section, field in (
+                ("ratings_locks", "ratings_lock_sha256"),
+                ("artifact_manifests", "artifact_manifest_sha256"),
+            ):
+                forged_bundle = copy.deepcopy(verification)
+                forged_bundle[section] = [{"layer": SCORER.LAYER_IDS[2], field: "f" * 64}]
+                bundle_errors: list[str] = []
+                SCORER._validate_task_bundle(
+                    results, set(self.rows), self.matrix, forged_bundle, bundle_errors
+                )
+                self.assertTrue(
+                    any("Ed25519 signature is invalid" in error for error in bundle_errors),
+                    bundle_errors,
+                )
+        finally:
+            SCORER._trusted_verifier_public_key = original_lookup
 
 
 if __name__ == "__main__":

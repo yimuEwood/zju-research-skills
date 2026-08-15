@@ -42,7 +42,7 @@ class PortfolioProtocolV3Tests(unittest.TestCase):
         self.assertEqual(layers["L3_controlled_task_capability"]["minimum_n_per_skill"], 12)
         self.assertEqual(layers["L4_frozen_holdout_generalization"]["minimum_n_per_skill"], 15)
 
-    def test_current_l1_evidence_withholds_all_official_scores(self):
+    def test_current_l1_l2_evidence_withholds_all_official_scores(self):
         results = json.loads((ROOT / "evals" / "current-portfolio-evidence-v3.json").read_text(encoding="utf-8"))
         report = MODULE.score_portfolio(self.protocol, self.matrix, results)
         self.assertTrue(report["valid_input"])
@@ -53,7 +53,7 @@ class PortfolioProtocolV3Tests(unittest.TestCase):
         self.assertTrue(all(skill["official_score"] is None for skill in report["skills"]))
         self.assertTrue(all(skill["status"] == "incomplete_beta" for skill in report["skills"]))
         self.assertEqual(report["evidence_coverage"]["L1_contract_conformance"]["complete_skills"], 20)
-        self.assertEqual(report["evidence_coverage"]["L2_deterministic_function"]["complete_skills"], 0)
+        self.assertEqual(report["evidence_coverage"]["L2_deterministic_function"]["complete_skills"], 20)
         self.assertEqual(report["evidence_coverage"]["L3_controlled_task_capability"]["complete_skills"], 0)
         self.assertEqual(report["evidence_coverage"]["L4_frozen_holdout_generalization"]["complete_skills"], 0)
         self.assertEqual(len(results["records"]), 120)

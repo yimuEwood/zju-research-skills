@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yimuEwood/zju-research-skills/schemas/pdf-reader-source-bundle-1.1.json",
+  "title": "ZJU PDF or text reader source bundle",
+  "type": "object",
+  "required": ["schema_version", "bundle_type", "source", "page_count", "pages", "inventories", "coverage"],
+  "properties": {
+    "schema_version": {"const": "1.1"},
+    "bundle_type": {"const": "reader-source-bundle"},
+    "source": {"type": "object", "required": ["filename", "format", "byte_count", "sha256"]},
+    "pages": {"type": "array", "items": {"type": "object", "required": ["page_id", "anchor", "layout_blocks"]}},
+    "inventories": {"type": "object", "required": ["figures", "tables", "equations", "formula_candidates", "visual_objects"]},
+    "coverage": {"type": "object"}
+  }
+}

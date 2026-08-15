@@ -1,0 +1,40 @@
+{
+  "document_id": "DOC-REAL-1",
+  "title": "Dose-response analysis report",
+  "subtitle": "A deterministic artifact fixture",
+  "sections": [
+    {
+      "heading": "Study context",
+      "level": 1,
+      "paragraphs": [
+        {
+          "text": "The experiment compared three prespecified groups using independent preparations.",
+          "source_ids": ["SRC-PROTOCOL"]
+        }
+      ]
+    },
+    {
+      "heading": "Primary result",
+      "level": 1,
+      "paragraphs": [
+        {
+          "text": "The one-way model returned eta squared = {{result:RES-ANOVA:estimate|.3f}} and P = {{result:RES-ANOVA:p_value|.4f}}.",
+          "source_ids": ["SRC-PROTOCOL"]
+        }
+      ],
+      "bullets": [
+        {
+          "text": "The reported interval and all displayed values remain bound to RES-ANOVA.",
+          "source_ids": ["SRC-PROTOCOL"]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-PROTOCOL",
+      "citation": "Fixture protocol for the three-group endpoint study",
+      "anchor": "protocol://STUDY-REAL-1/endpoint-v1"
+    }
+  ]
+}

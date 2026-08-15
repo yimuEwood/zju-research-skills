@@ -1,0 +1,12 @@
+{
+  "schema_version": "3.0",
+  "run_id": "replace-with-run-id",
+  "layer": "L4_frozen_holdout_generalization",
+  "sealed_at": "2026-09-03T18:00:00+08:00",
+  "sealed_before_reveal": true,
+  "response_manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "rating_entry_count": 2,
+  "adjudication_entry_count": 0,
+  "raw_ratings_adjudication_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "ratings_lock_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+}

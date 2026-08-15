@@ -61,8 +61,8 @@ class DistributionReleaseTests(unittest.TestCase):
         codex = json.loads((ROOT / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8"))
         claude = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
         opencode = json.loads((ROOT / "opencode.json").read_text(encoding="utf-8"))
-        self.assertEqual(codex["version"], "1.0.0")
-        self.assertEqual(claude["version"], "1.0.0")
+        self.assertEqual(codex["version"], "1.1.0")
+        self.assertEqual(claude["version"], "1.1.0")
         self.assertEqual(codex["name"], claude["name"])
         self.assertEqual(opencode["skills"], {"paths": ["./skills"]})
 
@@ -94,6 +94,16 @@ class DistributionReleaseTests(unittest.TestCase):
             "opencode.json",
             "LICENSE",
             "NOTICE",
+            "install.ps1",
+            "install.sh",
+            "update.ps1",
+            "update.sh",
+            "tools/zju_skills.py",
+            "requirements-runtime.txt",
+            "packs/index.json",
+            "packs/omics/pack.json",
+            "packs/materials/pack.json",
+            "packs/drug-discovery/pack.json",
             "provenance/distribution-release-v1.json",
         }
         self.assertTrue(required <= names, required - names)
@@ -103,6 +113,18 @@ class DistributionReleaseTests(unittest.TestCase):
             if name.startswith("skills/") and name.endswith("/SKILL.md") and name.count("/") == 2
         }
         self.assertEqual(len(archived_skills), 20)
+        archived_pack_skills = {
+            name.split("/")[3]
+            for name in names
+            if name.startswith("packs/")
+            and "/skills/" in name
+            and name.endswith("/SKILL.md")
+            and name.count("/") == 4
+        }
+        self.assertEqual(
+            archived_pack_skills,
+            {"zju-omics-analysis", "zju-materials-computation", "zju-drug-discovery"},
+        )
         forbidden = [
             name
             for name in names

@@ -1,0 +1,38 @@
+{
+  "project_id": "DECK-REAL-1",
+  "source_id": "STUDY-REAL-1",
+  "title": "Three-group endpoint study",
+  "paper_type": "methods",
+  "audience": "research group meeting",
+  "duration_minutes": 5,
+  "terminology_ledger": {
+    "eta squared": "eta squared (η²)",
+    "experimental unit": "independent preparation"
+  },
+  "slides": [
+    {
+      "slide_id": "S1",
+      "title": "Question and design",
+      "claim": "Three prespecified groups were compared at one endpoint.",
+      "on_slide_text": [
+        "Experimental unit: independent preparation",
+        "Analysis: fixed one-factor ANOVA"
+      ],
+      "source_anchors": ["protocol://STUDY-REAL-1/endpoint-v1"],
+      "speaker_notes": "Explain the independent-unit design before showing the omnibus result.",
+      "estimated_seconds": 70
+    },
+    {
+      "slide_id": "S2",
+      "title": "Observed group effect",
+      "claim": "The observed eta squared was {{result:RES-ANOVA:estimate|.3f}}.",
+      "on_slide_text": [
+        "Exact P value: {{result:RES-ANOVA:p_value|.4f}}",
+        "Interpretation remains non-directional at the omnibus stage"
+      ],
+      "source_anchors": ["analysis-run.json#/analyses/0", "protocol://STUDY-REAL-1/endpoint-v1"],
+      "speaker_notes": "State that the omnibus result does not identify a pairwise contrast and cite RES-ANOVA.",
+      "estimated_seconds": 90
+    }
+  ]
+}

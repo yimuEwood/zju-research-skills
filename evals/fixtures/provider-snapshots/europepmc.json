@@ -1,0 +1,648 @@
+{
+  "snapshot_schema_version": "1.0",
+  "provider": "europepmc",
+  "query": "10.1038/s41586-020-2649-2",
+  "page_size": 5,
+  "recorded_at": "2026-08-15T02:38:19.167694+00:00",
+  "responses": [
+    {
+      "page": 1,
+      "response": {
+        "version": "6.9",
+        "hitCount": 1,
+        "request": {
+          "queryString": "DOI:\"10.1038/s41586-020-2649-2\"",
+          "resultType": "core",
+          "cursorMark": "*",
+          "pageSize": 5,
+          "sort": "",
+          "synonym": false
+        },
+        "resultList": {
+          "result": [
+            {
+              "id": "32939066",
+              "source": "MED",
+              "pmid": "32939066",
+              "pmcid": "PMC7759461",
+              "fullTextIdList": {
+                "fullTextId": [
+                  "PMC7759461"
+                ]
+              },
+              "doi": "10.1038/s41586-020-2649-2",
+              "title": "Array programming with NumPy.",
+              "authorString": "Harris CR, Millman KJ, van der Walt SJ, Gommers R, Virtanen P, Cournapeau D, Wieser E, Taylor J, Berg S, Smith NJ, Kern R, Picus M, Hoyer S, van Kerkwijk MH, Brett M, Haldane A, Del Río JF, Wiebe M, Peterson P, Gérard-Marchant P, Sheppard K, Reddy T, Weckesser W, Abbasi H, Gohlke C, Oliphant TE.",
+              "authorList": {
+                "author": [
+                  {
+                    "fullName": "Harris CR",
+                    "firstName": "Charles R",
+                    "lastName": "Harris",
+                    "initials": "CR",
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Independent researcher, Logan, UT, USA."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Millman KJ",
+                    "firstName": "K Jarrod",
+                    "lastName": "Millman",
+                    "initials": "KJ",
+                    "authorId": {
+                      "type": "ORCID",
+                      "value": "0000-0002-5263-5070"
+                    },
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Brain Imaging Center, University of California, Berkeley, Berkeley, CA, USA. millman@berkeley.edu."
+                        },
+                        {
+                          "affiliation": "Division of Biostatistics, University of California, Berkeley, Berkeley, CA, USA. millman@berkeley.edu."
+                        },
+                        {
+                          "affiliation": "Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA. millman@berkeley.edu."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "van der Walt SJ",
+                    "firstName": "Stéfan J",
+                    "lastName": "van der Walt",
+                    "initials": "SJ",
+                    "authorId": {
+                      "type": "ORCID",
+                      "value": "0000-0001-9276-1891"
+                    },
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Brain Imaging Center, University of California, Berkeley, Berkeley, CA, USA. stefanv@berkeley.edu."
+                        },
+                        {
+                          "affiliation": "Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA. stefanv@berkeley.edu."
+                        },
+                        {
+                          "affiliation": "Applied Mathematics, Stellenbosch University, Stellenbosch, South Africa. stefanv@berkeley.edu."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Gommers R",
+                    "firstName": "Ralf",
+                    "lastName": "Gommers",
+                    "initials": "R",
+                    "authorId": {
+                      "type": "ORCID",
+                      "value": "0000-0002-0300-3333"
+                    },
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Quansight, Austin, TX, USA. ralf.gommers@gmail.com."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Virtanen P",
+                    "firstName": "Pauli",
+                    "lastName": "Virtanen",
+                    "initials": "P",
+                    "authorId": {
+                      "type": "ORCID",
+                      "value": "0000-0001-9957-1257"
+                    },
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Department of Physics, University of Jyväskylä, Jyväskylä, Finland."
+                        },
+                        {
+                          "affiliation": "Nanoscience Center, University of Jyväskylä, Jyväskylä, Finland."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Cournapeau D",
+                    "firstName": "David",
+                    "lastName": "Cournapeau",
+                    "initials": "D",
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Mercari JP, Tokyo, Japan."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Wieser E",
+                    "firstName": "Eric",
+                    "lastName": "Wieser",
+                    "initials": "E",
+                    "authorId": {
+                      "type": "ORCID",
+                      "value": "0000-0003-0412-4978"
+                    },
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Department of Engineering, University of Cambridge, Cambridge, UK."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Taylor J",
+                    "firstName": "Julian",
+                    "lastName": "Taylor",
+                    "initials": "J",
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Independent researcher, Karlsruhe, Germany."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Berg S",
+                    "firstName": "Sebastian",
+                    "lastName": "Berg",
+                    "initials": "S",
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Smith NJ",
+                    "firstName": "Nathaniel J",
+                    "lastName": "Smith",
+                    "initials": "NJ",
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Independent researcher, Berkeley, CA, USA."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Kern R",
+                    "firstName": "Robert",
+                    "lastName": "Kern",
+                    "initials": "R",
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Enthought, Austin, TX, USA."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Picus M",
+                    "firstName": "Matti",
+                    "lastName": "Picus",
+                    "initials": "M",
+                    "authorId": {
+                      "type": "ORCID",
+                      "value": "0000-0002-1771-9949"
+                    },
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Hoyer S",
+                    "firstName": "Stephan",
+                    "lastName": "Hoyer",
+                    "initials": "S",
+                    "authorId": {
+                      "type": "ORCID",
+                      "value": "0000-0002-5207-0380"
+                    },
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Google Research, Mountain View, CA, USA."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "van Kerkwijk MH",
+                    "firstName": "Marten H",
+                    "lastName": "van Kerkwijk",
+                    "initials": "MH",
+                    "authorId": {
+                      "type": "ORCID",
+                      "value": "0000-0002-5830-8505"
+                    },
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Department of Astronomy and Astrophysics, University of Toronto, Toronto, Ontario, Canada."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Brett M",
+                    "firstName": "Matthew",
+                    "lastName": "Brett",
+                    "initials": "M",
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Brain Imaging Center, University of California, Berkeley, Berkeley, CA, USA."
+                        },
+                        {
+                          "affiliation": "School of Psychology, University of Birmingham, Edgbaston, Birmingham, UK."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Haldane A",
+                    "firstName": "Allan",
+                    "lastName": "Haldane",
+                    "initials": "A",
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Department of Physics, Temple University, Philadelphia, PA, USA."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Del Río JF",
+                    "firstName": "Jaime Fernández",
+                    "lastName": "Del Río",
+                    "initials": "JF",
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Google, Zurich, Switzerland."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Wiebe M",
+                    "firstName": "Mark",
+                    "lastName": "Wiebe",
+                    "initials": "M",
+                    "authorId": {
+                      "type": "ORCID",
+                      "value": "0000-0003-3603-8038"
+                    },
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Department of Physics and Astronomy, The University of British Columbia, Vancouver, British Columbia, Canada."
+                        },
+                        {
+                          "affiliation": "Amazon, Seattle, WA, USA."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Peterson P",
+                    "firstName": "Pearu",
+                    "lastName": "Peterson",
+                    "initials": "P",
+                    "authorId": {
+                      "type": "ORCID",
+                      "value": "0000-0001-7328-4305"
+                    },
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Quansight, Austin, TX, USA."
+                        },
+                        {
+                          "affiliation": "Independent researcher, Saue, Estonia."
+                        },
+                        {
+                          "affiliation": "Department of Mechanics and Applied Mathematics, Institute of Cybernetics at Tallinn Technical University, Tallinn, Estonia."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Gérard-Marchant P",
+                    "firstName": "Pierre",
+                    "lastName": "Gérard-Marchant",
+                    "initials": "P",
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Department of Biological and Agricultural Engineering, University of Georgia, Athens, GA, USA."
+                        },
+                        {
+                          "affiliation": "France-IX Services, Paris, France."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Sheppard K",
+                    "firstName": "Kevin",
+                    "lastName": "Sheppard",
+                    "initials": "K",
+                    "authorId": {
+                      "type": "ORCID",
+                      "value": "0000-0001-8700-2292"
+                    },
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Department of Economics, University of Oxford, Oxford, UK."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Reddy T",
+                    "firstName": "Tyler",
+                    "lastName": "Reddy",
+                    "initials": "T",
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "CCS-7, Los Alamos National Laboratory, Los Alamos, NM, USA."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Weckesser W",
+                    "firstName": "Warren",
+                    "lastName": "Weckesser",
+                    "initials": "W",
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Abbasi H",
+                    "firstName": "Hameer",
+                    "lastName": "Abbasi",
+                    "initials": "H",
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Quansight, Austin, TX, USA."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Gohlke C",
+                    "firstName": "Christoph",
+                    "lastName": "Gohlke",
+                    "initials": "C",
+                    "authorId": {
+                      "type": "ORCID",
+                      "value": "0000-0001-8108-7707"
+                    },
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Laboratory for Fluorescence Dynamics, Biomedical Engineering Department, University of California, Irvine, Irvine, CA, USA."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fullName": "Oliphant TE",
+                    "firstName": "Travis E",
+                    "lastName": "Oliphant",
+                    "initials": "TE",
+                    "authorAffiliationDetailsList": {
+                      "authorAffiliation": [
+                        {
+                          "affiliation": "Quansight, Austin, TX, USA."
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "authorIdList": {
+                "authorId": [
+                  {
+                    "type": "ORCID",
+                    "value": "0000-0001-7328-4305"
+                  },
+                  {
+                    "type": "ORCID",
+                    "value": "0000-0001-8108-7707"
+                  },
+                  {
+                    "type": "ORCID",
+                    "value": "0000-0001-8700-2292"
+                  },
+                  {
+                    "type": "ORCID",
+                    "value": "0000-0001-9276-1891"
+                  },
+                  {
+                    "type": "ORCID",
+                    "value": "0000-0001-9957-1257"
+                  },
+                  {
+                    "type": "ORCID",
+                    "value": "0000-0002-0300-3333"
+                  },
+                  {
+                    "type": "ORCID",
+                    "value": "0000-0002-1771-9949"
+                  },
+                  {
+                    "type": "ORCID",
+                    "value": "0000-0002-5207-0380"
+                  },
+                  {
+                    "type": "ORCID",
+                    "value": "0000-0002-5263-5070"
+                  },
+                  {
+                    "type": "ORCID",
+                    "value": "0000-0002-5830-8505"
+                  },
+                  {
+                    "type": "ORCID",
+                    "value": "0000-0003-0412-4978"
+                  },
+                  {
+                    "type": "ORCID",
+                    "value": "0000-0003-3603-8038"
+                  },
+                  {
+                    "type": "ORCID",
+                    "value": "0009-0001-1459-4562"
+                  }
+                ]
+              },
+              "dataLinksTagsList": {
+                "dataLinkstag": [
+                  "supporting_data",
+                  "recommended_reviews"
+                ]
+              },
+              "journalInfo": {
+                "issue": "7825",
+                "volume": "585",
+                "journalIssueId": 3010253,
+                "dateOfPublication": "2020 Sep",
+                "monthOfPublication": 9,
+                "yearOfPublication": 2020,
+                "printPublicationDate": "2020-09-01",
+                "journal": {
+                  "title": "Nature",
+                  "medlineAbbreviation": "Nature",
+                  "isoabbreviation": "Nature",
+                  "issn": "0028-0836",
+                  "essn": "1476-4687",
+                  "nlmid": "0410462"
+                }
+              },
+              "pubYear": "2020",
+              "pageInfo": "357-362",
+              "abstractText": "Array programming provides a powerful, compact and expressive syntax for accessing, manipulating and operating on data in vectors, matrices and higher-dimensional arrays. NumPy is the primary array programming library for the Python language. It has an essential role in research analysis pipelines in fields as diverse as physics, chemistry, astronomy, geoscience, biology, psychology, materials science, engineering, finance and economics. For example, in astronomy, NumPy was an important part of the software stack used in the discovery of gravitational waves<sup>1</sup> and in the first imaging of a black hole<sup>2</sup>. Here we review how a few fundamental array concepts lead to a simple and powerful programming paradigm for organizing, exploring and analysing scientific data. NumPy is the foundation upon which the scientific Python ecosystem is constructed. It is so pervasive that several projects, targeting audiences with specialized needs, have developed their own NumPy-like interfaces and array objects. Owing to its central position in the ecosystem, NumPy increasingly acts as an interoperability layer between such array computation libraries and, together with its application programming interface (API), provides a flexible framework to support the next decade of scientific and industrial analysis.",
+              "affiliation": "Independent researcher, Logan, UT, USA.",
+              "publicationStatus": "ppublish",
+              "language": "eng",
+              "pubModel": "Print-Electronic",
+              "pubTypeList": {
+                "pubType": [
+                  "Research Support, Non-U.S. Gov't",
+                  "review-article",
+                  "Review",
+                  "Journal Article"
+                ]
+              },
+              "meshHeadingList": {
+                "meshHeading": [
+                  {
+                    "majorTopic_YN": "N",
+                    "descriptorName": "Computational Biology",
+                    "meshQualifierList": {
+                      "meshQualifier": [
+                        {
+                          "abbreviation": "MT",
+                          "qualifierName": "methods",
+                          "majorTopic_YN": "Y"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "majorTopic_YN": "Y",
+                    "descriptorName": "Mathematics"
+                  },
+                  {
+                    "majorTopic_YN": "Y",
+                    "descriptorName": "Programming Languages"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "descriptorName": "Software Design"
+                  }
+                ]
+              },
+              "subsetList": {
+                "subset": [
+                  {
+                    "code": "IM",
+                    "name": "Index Medicus"
+                  }
+                ]
+              },
+              "fullTextUrlList": {
+                "fullTextUrl": [
+                  {
+                    "availability": "Subscription required",
+                    "availabilityCode": "S",
+                    "documentStyle": "doi",
+                    "site": "DOI",
+                    "url": "https://doi.org/10.1038/s41586-020-2649-2"
+                  },
+                  {
+                    "availability": "Open access",
+                    "availabilityCode": "OA",
+                    "documentStyle": "html",
+                    "site": "Europe_PMC",
+                    "url": "https://europepmc.org/articles/PMC7759461"
+                  },
+                  {
+                    "availability": "Open access",
+                    "availabilityCode": "OA",
+                    "documentStyle": "pdf",
+                    "site": "Europe_PMC",
+                    "url": "https://europepmc.org/articles/PMC7759461?pdf=render"
+                  }
+                ]
+              },
+              "isOpenAccess": "Y",
+              "inEPMC": "Y",
+              "inPMC": "Y",
+              "hasPDF": "Y",
+              "hasBook": "N",
+              "hasSuppl": "Y",
+              "citedByCount": 7572,
+              "hasData": "Y",
+              "hasReferences": "Y",
+              "hasTextMinedTerms": "Y",
+              "hasDbCrossReferences": "N",
+              "hasLabsLinks": "Y",
+              "license": "cc by",
+              "hasEvaluations": "N",
+              "authMan": "N",
+              "epmcAuthMan": "N",
+              "nihAuthMan": "N",
+              "hasTMAccessionNumbers": "Y",
+              "tmAccessionTypeList": {
+                "accessionType": [
+                  "doi"
+                ]
+              },
+              "dateOfCompletion": "2020-10-29",
+              "dateOfCreation": "2020-09-17",
+              "firstIndexDate": "2020-09-23",
+              "fullTextReceivedDate": "2025-02-03",
+              "dateOfRevision": "2021-02-20",
+              "electronicPublicationDate": "2020-09-16",
+              "firstPublicationDate": "2020-09-16"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

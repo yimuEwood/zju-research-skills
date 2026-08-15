@@ -58,12 +58,19 @@ class ExecutorRoutingTests(unittest.TestCase):
             {
                 "literature_search",
                 "fulltext_retrieval",
+                "reference_resolution",
+                "structured_fulltext_extraction",
                 "pdf_extraction",
+                "dataset_profiling",
                 "statistical_analysis",
                 "scientific_figure",
+                "document_generation",
                 "presentation",
                 "citation_library",
                 "chemistry_lookup",
+                "omics_analysis",
+                "materials_computation",
+                "drug_discovery",
             },
         )
         self.assertTrue(all(item["availability_probe"]["type"] == "inventory_key" for item in validated["providers"]))
@@ -190,6 +197,77 @@ class ExecutorRoutingTests(unittest.TestCase):
             self.assertEqual(exit_code, 0)
             self.assertEqual(payload["selected"][0]["provider_id"], "script.zju.paper_reader.prepare_source")
             self.assertFalse(payload["execution_performed"])
+
+    def test_new_native_executors_are_narrowly_routable(self):
+        cases = [
+            (
+                "reference_resolution",
+                "reference_resolution",
+                "script.zju.reference_audit.resolve_reference",
+            ),
+            (
+                "structured_fulltext_extraction",
+                "jats_reader_bundle",
+                "script.zju.paper_reader.parse_jats",
+            ),
+            (
+                "dataset_profiling",
+                "dataset_profile",
+                "script.zju.statistics.profile_dataset",
+            ),
+            (
+                "document_generation",
+                "research_docx",
+                "script.zju.writing.build_research_docx",
+            ),
+            (
+                "presentation",
+                "presentation_file",
+                "script.zju.paper2ppt.build_presentation",
+            ),
+            (
+                "omics_analysis",
+                "omics_screen",
+                "script.pack.omics.screen",
+            ),
+            (
+                "materials_computation",
+                "structure_analysis",
+                "script.pack.materials.analyze_structure",
+            ),
+            (
+                "drug_discovery",
+                "candidate_priority",
+                "script.pack.drug.prioritize_candidates",
+            ),
+        ]
+        for capability, produced, provider_id in cases:
+            with self.subTest(capability=capability):
+                result = self.resolver.resolve_executors(
+                    self.registry,
+                    {"platform": "codex", "available": [provider_id]},
+                    [{"capability": capability, "produces": [produced]}],
+                )
+                self.assertEqual(result["selected"][0]["provider_id"], provider_id)
+                self.assertFalse(result["execution_performed"])
+
+    def test_materials_cif_requires_the_pymatgen_inventory_key(self):
+        native_only = self.resolver.resolve_executors(
+            self.registry,
+            {"platform": "codex", "available": ["script.pack.materials.analyze_structure"]},
+            [{"capability": "materials_computation", "accepts": ["cif"], "produces": ["structure_analysis"]}],
+        )
+        self.assertEqual(native_only["selected"], [])
+        self.assertEqual(native_only["unresolved"][0]["reason"], "no_available_compatible_provider")
+        with_pymatgen = self.resolver.resolve_executors(
+            self.registry,
+            {"platform": "codex", "available": ["script.pack.materials.analyze_structure.pymatgen"]},
+            [{"capability": "materials_computation", "accepts": ["cif"], "produces": ["structure_analysis"]}],
+        )
+        self.assertEqual(
+            with_pymatgen["selected"][0]["provider_id"],
+            "script.pack.materials.analyze_structure_pymatgen",
+        )
 
 
 if __name__ == "__main__":

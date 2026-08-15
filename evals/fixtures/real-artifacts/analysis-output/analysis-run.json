@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "run_id": "RUN-2A39CA62F5AB68FBA9EF0B04",
+  "study_id": "STUDY-REAL-1",
+  "analysis_contract_id": "AC-REAL-ANOVA-1",
+  "inputs": {
+    "data": {
+      "path": "analysis-input.xlsx",
+      "sha256": "5c0e669118a22e9c114e6346b854e04bff955688ac2b0f07f8181ecd2bb3ebfc",
+      "rows": 18
+    },
+    "analysis_contract": {
+      "path": "analysis-contract.json",
+      "sha256": "b37daf77e4853167a8a512f9bf31a7ef93e69b8421b011bf932a8d9bd0f5ce5c"
+    },
+    "executor": {
+      "path": "execute_analysis.py",
+      "sha256": "955d3412cf328f47adaadc8b7e90f1d80cc3e17c696fe94fc4f0359799651e4c"
+    }
+  },
+  "software": {
+    "python": "3.14.2",
+    "numpy": "2.4.0",
+    "scipy": "1.17.1"
+  },
+  "dataset_profile": {
+    "rows": 18,
+    "columns": 3,
+    "column_order": [
+      "group",
+      "response",
+      "unit"
+    ],
+    "duplicate_full_rows": 0,
+    "column_profiles": [
+      {
+        "column": "group",
+        "rows": 18,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "unique_nonmissing": 3,
+        "numeric_parseable": 0,
+        "non_numeric_nonmissing": 18
+      },
+      {
+        "column": "response",
+        "rows": 18,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "unique_nonmissing": 18,
+        "numeric_parseable": 18,
+        "non_numeric_nonmissing": 0,
+        "numeric_summary": {
+          "min": 4.0,
+          "q1": 5.125,
+          "median": 5.800000000000001,
+          "q3": 7.325,
+          "max": 8.3,
+          "mean": 6.105555555555555,
+          "sd": 1.3013442019796853
+        }
+      },
+      {
+        "column": "unit",
+        "rows": 18,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "unique_nonmissing": 18,
+        "numeric_parseable": 0,
+        "non_numeric_nonmissing": 18
+      }
+    ],
+    "scope_note": "Descriptive profile only; inferred data types and design validity were not asserted."
+  },
+  "analyses": [
+    {
+      "analysis_id": "AN-ANOVA",
+      "result_id": "RES-ANOVA",
+      "method": "one_way_anova",
+      "rows_input": 18,
+      "rows_used": 18,
+      "excluded_source_rows": [],
+      "columns": {
+        "value": "response",
+        "group": "group",
+        "experimental_unit": "unit"
+      },
+      "group_order": [
+        "control",
+        "low",
+        "high"
+      ],
+      "model_boundary": "independent_units_one_factor_no_covariates_no_clustering_no_repeated_measures"
+    }
+  ],
+  "result_registry": {
+    "path": "result-registry.json",
+    "sha256": "4aa30a8bca0ad900beb8e59eb87f797b97ac5bd3ee4914c49c908217ba596a02"
+  },
+  "scope_note": "Numeric execution and lineage were checked. Design validity, scientific interpretation, and domain adequacy still require review."
+}

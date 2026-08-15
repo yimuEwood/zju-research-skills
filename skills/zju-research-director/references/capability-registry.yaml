@@ -81,6 +81,11 @@
           "path": "skills/zju-literature-search/scripts/assess_search_saturation.py",
           "kind": "validator",
           "purpose": "Measure query-view coverage, evidence gaps, marginal unique yield, and whether the documented search may stop or should expand."
+        },
+        {
+          "path": "skills/zju-literature-search/scripts/query_providers.py",
+          "kind": "executor",
+          "purpose": "Run bounded Crossref, OpenAlex, Europe PMC, and PubMed searches from explicit live mode or recorded snapshots."
         }
       ],
       "prerequisites": [],
@@ -129,6 +134,11 @@
           "path": "skills/zju-fulltext-access/scripts/classify_access.py",
           "kind": "classifier",
           "purpose": "Triage locally supplied metadata into likely access routes while rejecting credential-like fields."
+        },
+        {
+          "path": "skills/zju-fulltext-access/scripts/fetch_open_fulltext.py",
+          "kind": "executor",
+          "purpose": "Resolve one DOI, PMID, or PMCID to a hash-verified Europe PMC open JATS source package without credentials or paywall access."
         }
       ],
       "prerequisites": ["zju-literature-search"],
@@ -175,6 +185,16 @@
           "path": "skills/zju-reference-audit/scripts/validate_status_freshness.py",
           "kind": "validator",
           "purpose": "Check whether correction and retraction status records remain within the declared audit window."
+        },
+        {
+          "path": "skills/zju-reference-audit/scripts/resolve_reference.py",
+          "kind": "executor",
+          "purpose": "Resolve one DOI or PMID across bounded independent metadata providers and expose field-level agreement or conflict."
+        },
+        {
+          "path": "skills/zju-reference-audit/scripts/audit_claim_support.py",
+          "kind": "auditor",
+          "purpose": "Bind material claim atoms to matching source-anchored evidence facts and reject unsupported, contradictory, or falsely declared support."
         }
       ],
       "prerequisites": ["zju-literature-search"],
@@ -227,6 +247,11 @@
           "path": "skills/zju-paper-reader/scripts/validate_reader.py",
           "kind": "validator",
           "purpose": "Check saved Markdown for the required mode-specific structure and source-anchor section."
+        },
+        {
+          "path": "skills/zju-paper-reader/scripts/parse_jats.py",
+          "kind": "extractor",
+          "purpose": "Extract stable section, paragraph, figure, table, formula, and reference anchors from a verified JATS article."
         }
       ],
       "prerequisites": ["zju-fulltext-access"],
@@ -279,6 +304,11 @@
           "path": "skills/zju-experiment-log/scripts/validate_run_manifest.py",
           "kind": "validator",
           "purpose": "Validate run identity, inputs, parameters, environment, outputs, hashes, status, and next decision gate."
+        },
+        {
+          "path": "skills/zju-experiment-log/scripts/validate_append_only_log.py",
+          "kind": "validator",
+          "purpose": "Validate a strictly ordered SHA-256 event chain in which corrections append exact-original-bound patches instead of replacing observations."
         }
       ],
       "prerequisites": ["zju-hypothesis-design"],
@@ -333,7 +363,12 @@
           {
             "path": "skills/zju-statistics-audit/scripts/execute_analysis.py",
             "kind": "executor",
-            "purpose": "Execute prespecified Welch or paired t tests, Pearson correlation, or simple OLS from local tabular data and emit a hashed analysis run plus canonical result registry."
+            "purpose": "Execute the bounded prespecified core of Welch or paired t tests, Pearson correlation, simple OLS, one-way ANOVA, and single-predictor binomial logistic GLM, then emit diagnostics, hashes, and a canonical result registry."
+          },
+          {
+            "path": "skills/zju-statistics-audit/scripts/profile_dataset.py",
+            "kind": "executor",
+            "purpose": "Profile supported local CSV, TSV, JSON, or XLSX tables into deterministic typed summaries and missingness diagnostics before analysis."
           },
           {
           "path": "skills/zju-statistics-audit/scripts/scan_reporting.py",
@@ -398,11 +433,6 @@
       "required_human_gates": [],
         "validators": [
           {
-            "path": "skills/zju-scientific-figure/scripts/render_from_registry.py",
-            "kind": "renderer",
-            "purpose": "Render supported result-bound one-panel figures to real PNG, SVG, and PDF exports with hashes and a figure manifest."
-          },
-          {
           "path": "skills/zju-scientific-writing/scripts/check_claim_ledger.py",
           "kind": "validator",
           "purpose": "Validate claim identifiers, support states, and traceable evidence bindings."
@@ -411,6 +441,16 @@
           "path": "skills/zju-scientific-writing/scripts/check_writing_contract.py",
           "kind": "validator",
           "purpose": "Validate contribution, evidence, result-section, objection, and submission-readiness contracts."
+        },
+        {
+          "path": "skills/zju-scientific-writing/scripts/build_research_docx.py",
+          "kind": "executor",
+          "purpose": "Build and reopen-verify a source- and result-bound research DOCX from constrained Markdown or structured JSON."
+        },
+        {
+          "path": "skills/zju-scientific-writing/scripts/validate_mode_fidelity.py",
+          "kind": "validator",
+          "purpose": "Enforce factual-signature preservation in polish mode and verified evidence binding in draft mode."
         }
       ],
       "prerequisites": [
@@ -521,6 +561,11 @@
           "path": "skills/zju-evidence-synthesis/scripts/pool_effects.py",
           "kind": "executor",
           "purpose": "Pool a prespecified compatible set of independent study effects with explicit REML or DerSimonian-Laird heterogeneity estimation, selectable Hartung-Knapp inference, prediction intervals, and structured warnings."
+        },
+        {
+          "path": "skills/zju-evidence-synthesis/scripts/select_protocol.py",
+          "kind": "classifier",
+          "purpose": "Select and verify a synthesis protocol from objective, completeness, deadline, and compatible-effect signals using a deterministic decision table."
         }
       ],
       "prerequisites": ["zju-literature-search", "zju-paper-reader"],
@@ -618,6 +663,11 @@
           "path": "skills/zju-scientific-figure/scripts/validate_figure_manifest.py",
           "kind": "validator",
           "purpose": "Validate the figure claim, panel evidence mapping, source and transformation provenance, export status, and QA state."
+        },
+        {
+          "path": "skills/zju-scientific-figure/scripts/render_from_registry.py",
+          "kind": "renderer",
+          "purpose": "Render supported result-bound point, interval, grouped, regression, forest, ANOVA, or logistic figures to real PNG, SVG, and PDF exports with data-binding and machine-readable QA."
         }
       ],
       "prerequisites": ["zju-statistics-audit"],
@@ -663,6 +713,11 @@
           "path": "skills/zju-paper2ppt/scripts/validate_deck_plan.py",
           "kind": "validator",
           "purpose": "Validate slide claims, timing, editable elements, notes, citations, anchors, artifact truth states, and render-QA fields."
+        },
+        {
+          "path": "skills/zju-paper2ppt/scripts/build_presentation.py",
+          "kind": "executor",
+          "purpose": "Build a real 16:9 source-grounded PPTX with visible sources, speaker notes, result bindings, and a hash-verified artifact manifest."
         }
       ],
       "prerequisites": ["zju-paper-reader"],
@@ -810,6 +865,11 @@
           "path": "skills/zju-data-availability/scripts/build_release_manifest.py",
           "kind": "executor",
           "purpose": "Bind validated inventory rows to local bytes and checksums while separately auditing identifier/license evidence for publication readiness."
+        },
+        {
+          "path": "skills/zju-data-availability/scripts/validate_statement_consistency.py",
+          "kind": "validator",
+          "purpose": "Reconcile every claim-supporting inventory artifact with exactly one honest statement access route and its state-specific required fields."
         }
       ],
       "prerequisites": ["zju-experiment-log", "zju-scientific-writing"],
@@ -856,6 +916,16 @@
           "path": "skills/zju-proposal-writer/scripts/validate_proposal_manifest.py",
           "kind": "validator",
           "purpose": "Validate call identity and limits, objective-to-work-package traceability, milestones, risks, compliance state, and unsupported claims."
+        },
+        {
+          "path": "skills/zju-proposal-writer/scripts/render_proposal_docx.py",
+          "kind": "executor",
+          "purpose": "Render a validated proposal manifest into a real DOCX that preserves objective, work-package, decision-gate, risk, capability, and evidence identifiers."
+        },
+        {
+          "path": "skills/zju-proposal-writer/scripts/audit_feasibility.py",
+          "kind": "auditor",
+          "purpose": "Audit work-package dependency order, weekly resource capacity, critical milestones, and risk-trigger-mitigation-contingency coverage."
         }
       ],
       "prerequisites": [
@@ -906,6 +976,16 @@
           "path": "skills/zju-paper-to-patent/scripts/validate_feature_ledger.py",
           "kind": "validator",
           "purpose": "Validate verbatim feature support, exact anchors, source-state labels, numeric invariants, confidentiality, and exclusion of unsupported claim features."
+        },
+        {
+          "path": "skills/zju-paper-to-patent/scripts/audit_claim_map.py",
+          "kind": "auditor",
+          "purpose": "Validate acyclic claim dependencies, supported feature coverage, and a new limiting feature in every dependent claim."
+        },
+        {
+          "path": "skills/zju-paper-to-patent/scripts/separate_prior_art.py",
+          "kind": "classifier",
+          "purpose": "Separate invention sources, pre-critical-date prior-art candidates, post-cutoff background, and unresolved dates without legal conclusions."
         }
       ],
       "prerequisites": ["zju-literature-search", "zju-paper-reader"],
@@ -957,6 +1037,11 @@
           "path": "skills/zju-chemistry-databases/scripts/build_evidence_matrix.py",
           "kind": "comparator",
           "purpose": "Group chemistry evidence by entity, endpoint, unit, basis, conditions, method, and evidence stratum before comparison."
+        },
+        {
+          "path": "skills/zju-chemistry-databases/scripts/compare_conditions.py",
+          "kind": "comparator",
+          "purpose": "Normalize supported temperature, duration, and pressure units and compare records only when identity, endpoint, basis, and conditions agree."
         }
       ],
       "prerequisites": [],
@@ -1009,6 +1094,11 @@
           "path": "skills/zju-research-integrity/scripts/audit_provenance_manifest.py",
           "kind": "auditor",
           "purpose": "Audit stable artifact provenance, hashes, claim links, approvals, contributors, environment records, and unresolved documentation gaps."
+        },
+        {
+          "path": "skills/zju-research-integrity/scripts/triage_integrity_case.py",
+          "kind": "triage",
+          "purpose": "Independently audit neutral incident wording, signal-derived scope and severity, and preservation-first authorized escalation actions."
         }
       ],
       "prerequisites": [],
@@ -1024,6 +1114,83 @@
         "trigger": "Evidence is incomplete, a live policy has not been freshly verified, or a suspected incident requires institutional authority.",
         "behavior": "Preserve original evidence, separate facts from anomalies and allegations, avoid a misconduct verdict, and return the least disruptive remediation and authorized escalation options.",
         "produces": ["neutral_integrity_triage", "evidence_preservation_plan"]
+      }
+    }
+  },
+  "optional_skills": {
+    "zju-omics-analysis": {
+      "description": "Validates feature-by-sample omics matrices, performs deterministic QC and exploratory screening, and routes design-aware confirmatory analyses.",
+      "role": "Omics intake, QC, exploratory screen, and specialist handoff.",
+      "stages": ["analysis"],
+      "accepts": ["omics_count_matrix", "sample_metadata", "omics_design", "assay_metadata"],
+      "fast_required_input_groups": [["omics_count_matrix"], ["sample_metadata"]],
+      "produces": ["omics_screen", "omics_qc", "omics_analysis_handoff"],
+      "risk_level": "medium",
+      "external_state": "none",
+      "required_human_gates": [],
+      "validators": [{
+        "path": "skills/zju-omics-analysis/scripts/omics_screen.py",
+        "kind": "executor",
+        "purpose": "Validate aligned raw counts and sample metadata, compute QC and deterministic PCA, and perform a clearly labeled exploratory two-group screen."
+      }],
+      "prerequisites": ["zju-experiment-log"],
+      "dependencies": ["zju-statistics-audit", "zju-scientific-figure", "zju-data-availability"],
+      "next_skills": ["zju-statistics-audit", "zju-scientific-figure", "zju-scientific-writing"],
+      "fallback": {
+        "status": "partial",
+        "trigger": "Assay, organism, feature namespace, experimental unit, or design metadata is missing or unsupported.",
+        "behavior": "Return a source-hashed intake and design-gap report without confirmatory differential or biological claims.",
+        "produces": ["omics_intake", "omics_design_gap_report"]
+      }
+    },
+    "zju-materials-computation": {
+      "description": "Validates crystal structures and creates traceable handoffs for materials simulations without treating geometry checks as physical-property evidence.",
+      "role": "Structure validation and materials-computation provenance handoff.",
+      "stages": ["analysis", "execution"],
+      "accepts": ["crystal_structure", "structure_json", "cif", "poscar", "calculation_manifest"],
+      "fast_required_input_groups": [["crystal_structure", "structure_json", "cif", "poscar"]],
+      "produces": ["structure_analysis", "materials_calculation_handoff"],
+      "risk_level": "medium",
+      "external_state": "none",
+      "required_human_gates": [],
+      "validators": [{
+        "path": "skills/zju-materials-computation/scripts/analyze_structure.py",
+        "kind": "executor",
+        "purpose": "Compute lattice, composition, density availability, periodic distances, hashes, and structure-sanity warnings."
+      }],
+      "prerequisites": [],
+      "dependencies": ["zju-chemistry-databases", "zju-experiment-log", "zju-statistics-audit"],
+      "next_skills": ["zju-experiment-log", "zju-statistics-audit", "zju-scientific-figure"],
+      "fallback": {
+        "status": "partial",
+        "trigger": "Structure identity, disorder, magnetic state, calculation settings, or an optional parser is unresolved.",
+        "behavior": "Preserve source bytes and return structure or calculation gaps without claiming stability or properties.",
+        "produces": ["materials_intake", "calculation_gap_report"]
+      }
+    },
+    "zju-drug-discovery": {
+      "description": "Integrates source-linked target, compound, assay, potency, selectivity, safety, and translational evidence for early decision support.",
+      "role": "Drug-target evidence integration and discriminating follow-up prioritization.",
+      "stages": ["discovery", "analysis", "design"],
+      "accepts": ["target_records", "compound_records", "bioactivity_records", "candidate_evidence", "disease_context"],
+      "fast_required_input_groups": [["candidate_evidence"]],
+      "produces": ["candidate_priority", "drug_discovery_evidence_matrix", "drug_discovery_experiment_plan"],
+      "risk_level": "high",
+      "external_state": "read_only",
+      "required_human_gates": ["external_action"],
+      "validators": [{
+        "path": "skills/zju-drug-discovery/scripts/prioritize_candidates.py",
+        "kind": "executor",
+        "purpose": "Rank source-linked candidate evidence with explicit weights, missingness, exclusions, safety penalties, and leave-one-lane-out sensitivity."
+      }],
+      "prerequisites": ["zju-chemistry-databases", "zju-literature-search"],
+      "dependencies": ["zju-hypothesis-design", "zju-statistics-audit", "zju-research-integrity"],
+      "next_skills": ["zju-hypothesis-design", "zju-statistics-audit", "zju-research-integrity"],
+      "fallback": {
+        "status": "partial",
+        "trigger": "Compound identity, assay comparability, source IDs, safety evidence, or disease context is unresolved.",
+        "behavior": "Return a missing-evidence matrix and follow-up plan without efficacy, safety, clinical, regulatory, or investment conclusions.",
+        "produces": ["drug_discovery_intake", "missing_evidence_plan"]
       }
     }
   }

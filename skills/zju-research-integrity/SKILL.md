@@ -16,12 +16,13 @@ Choose `preventive_audit`, `manuscript_audit`, `data_image_code_audit`, `authors
 1. Define scope, roles, data sensitivity, applicable institution/funder/journal rules, decision owner, and whether the task is preventive or incident-related.
 2. Preserve source artifacts, versions, timestamps, hashes, approvals, contributor records, analysis environments, and communication boundaries. Do not alter originals or conduct covert surveillance.
 3. Map claims to data, code, images, statistics, citations, approvals, and contributors. Run `scripts/audit_provenance_manifest.py` on a structured manifest.
-4. Check fabrication/falsification indicators, selective reporting, inappropriate image processing, duplicated or inconsistent records, statistical/design defects, citation accuracy, plagiarism/overlap, authorship/contribution, conflicts, data/material provenance, ethics/consent, safety, and AI/tool disclosure.
-5. Separate fact, anomaly, missing documentation, interpretation, and allegation. Seek benign explanations and domain expertise without erasing evidence.
-6. Grade findings as `documentation`, `correctable`, `serious`, or `urgent_safety_or_legal`, with rationale and affected outputs. A triage level is not a misconduct verdict.
-7. Propose the least disruptive valid remediation: documentation repair, correction, reanalysis, figure replacement, authorship discussion, disclosure, submission hold, or referral to the authorized institutional route.
-8. For incident triage, protect confidentiality, avoid retaliation, minimize personal data, and use current official channels. Do not confront or notify third parties unless the user has authority and the procedure requires it.
-9. Close with an action owner, deadline, preserved evidence list, decisions, unresolved questions, and re-audit trigger.
+4. For an incident package, run `python scripts/triage_integrity_case.py incident.json --check all`, or select `neutral_triage`, `scope_severity`, or `remediation_escalation`. Keep observations, reported statements, anomalies, and interpretations separate; compute severity from explicit signals; require the least disruptive preservation and authorized-referral actions appropriate to that severity.
+5. Check fabrication/falsification indicators, selective reporting, inappropriate image processing, duplicated or inconsistent records, statistical/design defects, citation accuracy, plagiarism/overlap, authorship/contribution, conflicts, data/material provenance, ethics/consent, safety, and AI/tool disclosure.
+6. Separate fact, anomaly, missing documentation, interpretation, and allegation. Seek benign explanations and domain expertise without erasing evidence.
+7. Grade findings as `documentation`, `correctable`, `serious`, or `urgent_safety_or_legal`, with rationale and affected outputs. A triage level is not a misconduct verdict.
+8. Propose the least disruptive valid remediation: documentation repair, correction, reanalysis, figure replacement, authorship discussion, disclosure, submission hold, or referral to the authorized institutional route.
+9. For incident triage, protect confidentiality, avoid retaliation, minimize personal data, and use current official channels. Do not confront or notify third parties unless the user has authority and the procedure requires it.
+10. Close with an action owner, deadline, preserved evidence list, decisions, unresolved questions, and re-audit trigger.
 
 ## Red Lines
 

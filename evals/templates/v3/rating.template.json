@@ -1,0 +1,18 @@
+{
+  "rater_id": "rater-01",
+  "call_id": "unique-rating-call-id",
+  "model": "exact-rater-or-model-version",
+  "rated_at": "2026-09-03T17:00:00+08:00",
+  "response_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "rubric_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+  "dimension_scores": {
+    "task_completeness": 0,
+    "evidence_traceability": 0,
+    "scientific_validity": 0,
+    "integrity": 0,
+    "usability": 0
+  },
+  "score": 0,
+  "critical_failure": false,
+  "gold_checks": [{"check_id": "G1", "met": false}]
+}

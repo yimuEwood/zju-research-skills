@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "document_id": "DOC-REAL-1",
+  "document_kind": "manuscript",
+  "title": "Dose-response analysis report",
+  "source": {
+    "path": "research-document.json",
+    "sha256": "0d0d7c2f5ed5804a50108966184c77bef11e2b6ca3c70ce5854a42455b667f3d"
+  },
+  "result_registry": {
+    "path": "result-registry.json",
+    "sha256": "4aa30a8bca0ad900beb8e59eb87f797b97ac5bd3ee4914c49c908217ba596a02",
+    "registry_version": "RUN-2A39CA62F5AB68FBA9EF0B04"
+  },
+  "sources": [
+    {
+      "source_id": "SRC-PROTOCOL",
+      "citation": "Fixture protocol for the three-group endpoint study",
+      "anchor": "protocol://STUDY-REAL-1/endpoint-v1"
+    }
+  ],
+  "cited_source_ids": [
+    "SRC-PROTOCOL"
+  ],
+  "result_uses": [
+    {
+      "result_id": "RES-ANOVA",
+      "field": "estimate",
+      "rendered": "0.896",
+      "format": ".3f"
+    },
+    {
+      "result_id": "RES-ANOVA",
+      "field": "p_value",
+      "rendered": "0.0000",
+      "format": ".4f"
+    }
+  ],
+  "artifact": {
+    "path": "research-document.docx",
+    "format": "docx",
+    "sha256": "4a0b3207a939f76c040d1a4d035e2f45e325b563a5d56f114eb11cde6ead9ef4",
+    "bytes": 4128
+  },
+  "qa": {
+    "ooxml_reopen": "passed",
+    "placeholder_scan": "passed",
+    "source_resolution": "passed",
+    "result_token_resolution": "passed",
+    "visual_render_review": "required",
+    "verification": {
+      "valid": true,
+      "visible_characters": 572,
+      "findings": []
+    }
+  }
+}

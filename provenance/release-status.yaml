@@ -1,10 +1,22 @@
 schema_version: "1.2"
 snapshot_date: "2026-08-15"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 distribution_status: stable
 capability_evaluation_status: beta
 official_portfolio_score: null
-reason: "v1.0.0 is the first stable distribution: package layout, public contracts, deterministic executors, and supported agent manifests passed the release gates. Protocol-v3 scientific capability evidence remains beta because L2-L4 and an independently administered frozen holdout are incomplete; official scores remain null."
+reason: "v1.1.0 keeps the distribution stable and adds real literature/PDF/statistics/figure/document executors, 20-Skill L2 deterministic evidence, one-command install/update, Fast Mode, and optional domain packs. Protocol-v3 scientific capability evidence remains beta because independent L3/L4 evaluation is still pending; official scores remain null."
+
+v110_distribution_release:
+  release: "1.1.0"
+  tag: "v1.1.0"
+  qualification: "provenance/distribution-release-v1.json"
+  release_notes: "docs/release-notes-v1.1.0.md"
+  distribution_status: stable
+  capability_evaluation_status: beta
+  official_portfolio_score: null
+  release_gate: "20 core Skills; L1 120/120; L2 400/400; 295 tests discovered and passed locally with the optional upstream cache; clean checkout requires 294 passes and transparently skips one optional cache check; 68 core-plus-pack scripts with zero static findings; Ubuntu/Windows and Python 3.11/3.13 CI; Codex/Claude Code/OpenCode manifests."
+  capabilities: "Live scholarly-provider adapters with recorded tests; lawful OA JATS and real PDF preparation; bounded statistics, figure, DOCX and PPTX executors; one-command install/update; Fast Mode; optional omics, materials and drug-discovery packs."
+  claim_boundary: "L2 proves deterministic software behavior against frozen oracles, not free-form scientific-answer accuracy. L3/L4 remain externally administered and incomplete."
 
 v100_distribution_release:
   release: "1.0.0"
@@ -220,8 +232,8 @@ local_verification:
     score_scope: "Structural and instructional conformance only; not scientific task quality."
     dimensions_and_weights: {description: 25, organization: 30, style: 20, structure: 25}
     scorecard_reference: "Claude Scholar skill-quality-reviewer scoring criteria at commit 2f7766fd541a723d4ddc6230b3277f948d61b093; project-specific checks were rewritten."
-  unit_tests_passed: 186
-  scripts_scanned: 46
+  unit_tests_passed: 295
+  scripts_scanned: 68
   security_findings: 0
   security_scope_note: "Zero findings under the current static rules is not a formal security proof."
   official_zju_pages_live_checked_at: "2026-08-11"

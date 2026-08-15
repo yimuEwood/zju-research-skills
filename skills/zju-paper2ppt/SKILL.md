@@ -38,7 +38,11 @@ Classify the source as `discovery`, `methods`, `resource`, `clinical`, `material
 4. Assign one claim and one audience action to each slide. Link every factual statement, number, and visual to a source anchor; label author interpretation and presenter interpretation separately.
 5. Select figures by evidential value. Preserve labels, scale bars, legends, and panel context; never crop away a qualification or reuse an image without a clear source/license basis.
 6. Draft concise Chinese by default when the user writes Chinese. Keep essential English terms where translation would reduce precision. Put explanation, caveats, and transitions in speaker notes rather than shrinking dense text.
-7. Create the actual PPTX with an available presentation workflow. If the environment cannot produce it, return a validated deck plan and state that the artifact is not yet generated.
+7. Create the actual PPTX with an available presentation workflow. For a source-complete validated JSON deck plan, the deterministic executor can generate a 16:9 PPTX with visible source anchors, speaker notes, registry-resolved values, hashes, and OOXML reopen checks:
+
+   `python scripts/build_presentation.py --plan deck-plan.json --registry result-registry.json --output talk.pptx`
+
+   This bounded executor supports text-led evidence decks; it does not replace the richer presentation workflow for image-heavy, template-driven, or complex visual layouts. If the environment cannot produce the required artifact, return a validated deck plan and state that the artifact is not yet generated.
 8. Render all slides and inspect them at presentation size. Fix overflow, clipping, alignment, low-resolution crops, inconsistent terms, missing anchors, unreadable axes, and unsupported claims.
 9. Run `scripts/validate_deck_plan.py` on the plan used to generate the deck. Re-open the final PPTX and verify slide count, notes, assets, and output path.
 

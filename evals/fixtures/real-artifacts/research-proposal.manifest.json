@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "document_id": "PROP-REAL-1",
+  "document_kind": "proposal",
+  "title": "Mechanism-discriminating endpoint study",
+  "source": {
+    "path": "research-proposal.source.json",
+    "sha256": "c606917d93cb0ff884ebf56cc66c4775c07eb11936835a1110b66ce2e9d486dd"
+  },
+  "result_registry": null,
+  "sources": [
+    {
+      "source_id": "EV-1",
+      "citation": "Fixture protocol for the endpoint study",
+      "anchor": "protocol://STUDY-REAL-1/endpoint-v1"
+    }
+  ],
+  "cited_source_ids": [
+    "EV-1"
+  ],
+  "result_uses": [],
+  "artifact": {
+    "path": "research-proposal.docx",
+    "format": "docx",
+    "sha256": "375ffacad0bd248e53327d042696cf3422ddb7d751679b53dd786f0e2a5f7273",
+    "bytes": 4469
+  },
+  "qa": {
+    "ooxml_reopen": "passed",
+    "placeholder_scan": "passed",
+    "source_resolution": "passed",
+    "result_token_resolution": "passed",
+    "visual_render_review": "required",
+    "verification": {
+      "valid": true,
+      "visible_characters": 1295,
+      "findings": []
+    }
+  },
+  "proposal_validation": {
+    "valid": true,
+    "workflow_version": "2.0",
+    "execution_plan_ready": true,
+    "ready_to_start": true
+  },
+  "proposal_manifest": {
+    "path": "proposal-manifest.json",
+    "proposal_id": "PROP-REAL-1"
+  }
+}

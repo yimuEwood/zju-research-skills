@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yimuEwood/zju-research-skills/schemas/reference-resolution-1.0.json",
+  "title": "ZJU multi-provider reference resolution",
+  "type": "object",
+  "required": ["schema_version", "identifier", "status", "matched_sources", "canonical", "field_evidence", "provider_search"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "status": {"enum": ["verified_two_source", "single_source_only", "not_found", "source_conflict"]},
+    "matched_sources": {"type": "array", "items": {"type": "string"}},
+    "canonical": {"type": ["object", "null"]},
+    "field_evidence": {"type": "array"}
+  }
+}

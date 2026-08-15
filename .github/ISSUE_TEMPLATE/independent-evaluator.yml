@@ -1,0 +1,60 @@
+name: 参与 L3/L4 独立盲测
+description: 申请担任外部管理员、案例作者、评分者或裁决者
+title: "[独立评测] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        谢谢你愿意参与独立评测。请先阅读 `docs/evaluation/external-blind-evaluation-v3.md`。
+
+        L3/L4 不能由项目作者自行补分。报名信息只用于确认角色、时间与利益冲突；未见案例、分配密钥、私钥和盲法身份不得公开在 Issue 中。
+  - type: dropdown
+    id: role
+    attributes:
+      label: 希望承担的角色
+      options:
+        - 外部评测管理员
+        - 未见案例作者
+        - 独立评分者
+        - 分歧裁决者
+    validations:
+      required: true
+  - type: input
+    id: background
+    attributes:
+      label: 学科或方法背景
+      description: 简要说明与你希望评测的 Skill 相关的经验。
+    validations:
+      required: true
+  - type: textarea
+    id: skills
+    attributes:
+      label: 可以评测的 Skills
+      description: 请填写完整的 zju-* 名称；可填写多个。
+    validations:
+      required: true
+  - type: textarea
+    id: conflicts
+    attributes:
+      label: 利益冲突说明
+      description: 是否参与过本项目开发、早期案例设计、上游基线开发，或与项目作者存在直接合作关系？没有也请写“无”。
+    validations:
+      required: true
+  - type: input
+    id: availability
+    attributes:
+      label: 可参与时间
+      description: 写明时区和大致时间范围，不要在这里留下私密联系方式。
+    validations:
+      required: true
+  - type: checkboxes
+    id: commitments
+    attributes:
+      label: 评测约定
+      options:
+        - label: 我会在评分锁定前保持设置身份和分配信息保密。
+          required: true
+        - label: 我不会把未见案例、私钥、分配密钥或未揭盲材料提交到公开 Issue。
+          required: true
+        - label: 我理解独立角色不能由同一人兼任，评分也不能与另一名评分者协作完成。
+          required: true

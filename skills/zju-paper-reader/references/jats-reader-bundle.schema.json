@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yimuEwood/zju-research-skills/schemas/jats-reader-bundle-1.0.json",
+  "title": "ZJU JATS reader bundle",
+  "type": "object",
+  "required": ["schema_version", "bundle_type", "source", "article", "sections", "paragraphs", "inventories", "coverage"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "bundle_type": {"const": "jats-reader-bundle"},
+    "source": {"type": "object", "required": ["filename", "byte_count", "sha256"]},
+    "sections": {"type": "array"},
+    "paragraphs": {"type": "array"},
+    "inventories": {"type": "object", "required": ["figures", "tables", "formulas", "references"]},
+    "coverage": {"type": "object", "required": ["body_present", "paragraphs", "sections"]}
+  }
+}

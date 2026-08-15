@@ -160,6 +160,10 @@
         "executor_sha256": {"$ref": "#/$defs/sha256"},
         "instruction_packet_sha256": {"$ref": "#/$defs/sha256"},
         "fixture_sha256": {"$ref": "#/$defs/sha256"},
+        "artifact_sha256s": {
+          "type": "array", "uniqueItems": true,
+          "items": {"$ref": "#/$defs/sha256"}
+        },
         "gold_check_ids": {
           "type": "array", "minItems": 1, "uniqueItems": true,
           "items": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"}
@@ -198,6 +202,7 @@
             "required": [
               "arm", "blind_label", "baseline_id", "score", "gold_met", "gold_total",
               "response_sha256", "instruction_packet_sha256", "fixture_sha256",
+              "artifact_sha256s",
               "gold_check_ids", "gold_criteria_sha256",
               "primary_ratings", "adjudication"
             ],

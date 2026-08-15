@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zju-research-skills.local/schemas/deck-plan.schema.json",
+  "title": "Source-grounded deck plan",
+  "type": "object",
+  "required": ["project_id", "source_id", "paper_type", "audience", "duration_minutes", "terminology_ledger", "slides"],
+  "properties": {
+    "project_id": {"type": "string", "minLength": 1},
+    "source_id": {"type": "string", "minLength": 1},
+    "paper_type": {"enum": ["discovery", "methods", "resource", "clinical", "materials", "review"]},
+    "audience": {"type": "string", "minLength": 1},
+    "duration_minutes": {"type": "number", "exclusiveMinimum": 0},
+    "terminology_ledger": {"type": "object"},
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["slide_id", "title", "claim", "source_anchors", "speaker_notes", "estimated_seconds"],
+        "properties": {
+          "slide_id": {"type": "string", "minLength": 1},
+          "title": {"type": "string", "minLength": 1},
+          "claim": {"type": "string", "minLength": 1},
+          "source_anchors": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "speaker_notes": {"type": "string", "minLength": 1},
+          "estimated_seconds": {"type": "number", "exclusiveMinimum": 0},
+          "on_slide_text": {"oneOf": [{"type": "string"}, {"type": "array", "items": {"type": "string"}}]}
+        }
+      }
+    }
+  }
+}

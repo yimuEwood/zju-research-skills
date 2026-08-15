@@ -1,0 +1,18 @@
+{
+  "figure_id": "FIG-REAL-ANOVA",
+  "bounded_conclusion": "The three prespecified groups show an omnibus difference in the measured endpoint.",
+  "result_id": "RES-ANOVA",
+  "analysis_id": "AN-ANOVA",
+  "plot_type": "multi_group_comparison",
+  "value_column": "response",
+  "group_column": "group",
+  "experimental_unit_column": "unit",
+  "experimental_unit": "independent preparation",
+  "group_order": ["control", "low", "high"],
+  "x_label": "Prespecified group",
+  "y_label": "Response (AU)",
+  "formats": ["png", "svg", "pdf"],
+  "width_mm": 89,
+  "height_mm": 70,
+  "dpi": 300
+}

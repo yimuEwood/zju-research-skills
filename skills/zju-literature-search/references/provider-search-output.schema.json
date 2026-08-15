@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yimuEwood/zju-research-skills/schemas/provider-search-output-1.0.json",
+  "title": "ZJU bounded provider search result",
+  "type": "object",
+  "required": ["schema_version", "query", "providers", "records", "failures", "execution"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "query": {"type": "string", "minLength": 1},
+    "providers": {"type": "array", "items": {"enum": ["crossref", "openalex", "europepmc", "pubmed"]}},
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["provider", "source_id", "title", "authors", "year", "venue", "doi", "pmid", "pmcid", "landing_url", "source_database"]
+      }
+    },
+    "failures": {"type": "array", "items": {"type": "object"}},
+    "execution": {"type": "object", "required": ["mode", "page_size", "pages_requested", "network_enabled"]}
+  }
+}

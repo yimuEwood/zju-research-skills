@@ -1,0 +1,89 @@
+{
+  "workflow_version": "2.0",
+  "proposal_id": "PROP-REAL-1",
+  "title": "Mechanism-discriminating endpoint study",
+  "mode": "compose",
+  "scheme_status": "template_pending",
+  "evidence": [
+    {
+      "evidence_id": "EV-1",
+      "status": "verified_fixture",
+      "citation": "Fixture protocol for the endpoint study",
+      "source_anchor": "protocol://STUDY-REAL-1/endpoint-v1"
+    }
+  ],
+  "hypotheses": [
+    {
+      "hypothesis_id": "H-1",
+      "statement": "The intervention changes the endpoint through mechanism A.",
+      "evidence_ids": ["EV-1"],
+      "predictions": ["A monotonic response is observed"],
+      "falsifiers": ["The response remains within the prespecified null region"]
+    },
+    {
+      "hypothesis_id": "H-2",
+      "statement": "The observed response is explained by mechanism B.",
+      "evidence_ids": ["EV-1"],
+      "predictions": ["The response plateaus under the high condition"],
+      "falsifiers": ["The high condition exceeds the prespecified plateau boundary"]
+    }
+  ],
+  "objectives": [
+    {
+      "objective_id": "O-1",
+      "question": "Which mechanism better predicts the endpoint pattern?",
+      "hypothesis_ids": ["H-1", "H-2"],
+      "evidence_ids": ["EV-1"],
+      "success_criteria": ["Apply the frozen decision rule to all complete independent units"]
+    }
+  ],
+  "capabilities": [
+    {
+      "capability_id": "CAP-1",
+      "item": "Endpoint measurement workflow",
+      "dimension": "method",
+      "status": "available",
+      "evidence_ids": ["EV-1"]
+    }
+  ],
+  "work_packages": [
+    {
+      "work_package_id": "WP-1",
+      "objective_ids": ["O-1"],
+      "hypothesis_ids": ["H-1", "H-2"],
+      "experiment_ids": ["EXP-1"],
+      "evidence_ids": ["EV-1"],
+      "inputs": ["independent preparations", "three prespecified conditions"],
+      "experimental_unit": "independent preparation",
+      "methods": ["randomized endpoint comparison"],
+      "outputs": ["verified endpoint dataset", "decision record"],
+      "capability_ids": ["CAP-1"],
+      "dependencies": [],
+      "owner": "research team",
+      "timeline": {"start_month": 1, "end_month": 3},
+      "milestones": [
+        {
+          "milestone_id": "M-1",
+          "month": 3,
+          "deliverable": "complete endpoint dataset",
+          "acceptance_criteria": "all prespecified QC checks pass"
+        }
+      ],
+      "decision_gate": {
+        "metric": "prespecified endpoint contrast",
+        "branches": {
+          "success": {"condition": "pattern supports H-1", "next": "advance mechanism A"},
+          "inconclusive": {"condition": "interval overlaps both decision regions", "next": "repeat or redesign"},
+          "failure": {"condition": "pattern supports neither hypothesis", "next": "stop and revise model"}
+        }
+      }
+    }
+  ],
+  "risks": [
+    {"risk_id": "R-1", "risk": "measurement drift", "mitigation": "run prespecified QC controls"}
+  ],
+  "compliance": [
+    {"item": "ethics", "status": "not applicable to the fixture"}
+  ],
+  "submission_ready": false
+}

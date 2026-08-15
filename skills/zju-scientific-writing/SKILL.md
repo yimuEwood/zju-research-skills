@@ -29,11 +29,18 @@ State the mode at the start. If a request mixes them, separate the drafted passa
 4. In `draft` mode, build the argument in this order: question/gap, approach, result with magnitude and uncertainty, interpretation within design, limitation, implication. Keep methods reproducible and results separate from discussion. A metric-only Results subsection without a contribution/evidence mapping remains incomplete.
 5. In `revise` mode, make a section-level change plan, record which claim/result IDs each move affects, revise the argument, and emit before/after claim scope plus follow-up edits required in the Abstract, figures/tables, Methods, supplement, and response letter.
 6. In `polish` mode, create an invariant list for numbers, units, group labels, direction, statistical qualifiers, gene/protein/chemical notation, and citations. Edit against those invariants and report any substantive change separately.
+   When structured assertion ledgers exist, run `python scripts/validate_mode_fidelity.py writing-mode.json`. In `polish`, preserve the exact assertion set and factual signatures. In `draft`, require every output assertion to bind to verified literature or author data.
 7. Reconcile every numerical use against the canonical result registry with `$zju-statistics-audit/scripts/reconcile_result_registry.py`. Never independently retype a rounded value into the Abstract, Results, legend, table, supplement, or response letter.
    When figure, review, or data-package artifacts are present, also run `$zju-statistics-audit/scripts/validate_result_handoff.py` so claim, evidence, and result IDs resolve across the package.
 8. Audit every sentence for evidence, scope, causality, statistical wording, and citation placement. Invoke `$zju-reference-audit` for unresolved references and `$zju-statistics-audit` for statistical claims.
 9. Before using `submission_ready`, create a reviewer-objection register covering novelty, validity, scope, reproducibility, statistics, and editorial fit. All objections must be resolved, accepted as bounded limitations, or explicitly open; open objections block the readiness label.
 10. Return the revised text plus a change/evidence report. Mark placeholders such as `[AUTHOR DATA REQUIRED]` rather than filling gaps plausibly.
+
+For a finalized source-complete artifact, render constrained Markdown or structured JSON plus an optional canonical result registry into a real DOCX:
+
+`python scripts/build_research_docx.py --source manuscript.json --registry result-registry.json --output manuscript.docx`
+
+The builder resolves result tokens, requires stable citation/source anchors, rejects unresolved placeholders, writes real headings and numbering, records hashes, and reopens the OOXML package. A successful package check is not visual page-layout review; render and inspect the DOCX before submission.
 
 ## Missing-Text Fallback
 
@@ -49,4 +56,4 @@ If the source passage or author data is absent, do not produce revised prose and
 
 ## Output Contract
 
-Return: mode and scope, evidence-bound text, contribution-to-results map, claim-to-`result_id` map, cross-artifact follow-up map for revise mode, unresolved placeholders, claim-evidence exceptions, result-registry consistency status, reviewer-readiness status when requested, and material-change log. For polish mode, explicitly confirm whether numbers, direction, significance, units, and citations were preserved.
+Return: mode and scope, evidence-bound text, contribution-to-results map, claim-to-`result_id` map, cross-artifact follow-up map for revise mode, unresolved placeholders, claim-evidence exceptions, result-registry consistency status, reviewer-readiness status when requested, and material-change log. When artifact generation is requested and inputs are complete, also return the DOCX and its manifest; keep OOXML package verification separate from visual render QA. For polish mode, explicitly confirm whether numbers, direction, significance, units, and citations were preserved.

@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "pack_id": "drug-discovery",
+  "version": "0.1.0",
+  "maturity": "beta",
+  "skills": ["skills/zju-drug-discovery"],
+  "core_skills": ["zju-chemistry-databases", "zju-literature-search", "zju-hypothesis-design", "zju-statistics-audit"],
+  "executors": ["skills/zju-drug-discovery/scripts/prioritize_candidates.py"],
+  "runtime": [],
+  "external_providers": ["PubChem", "ChEMBL", "Open Targets", "ClinicalTrials.gov"],
+  "capability_boundary": "The ranking is transparent decision support, not validated efficacy, safety, clinical, regulatory, or investment evidence."
+}

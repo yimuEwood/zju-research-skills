@@ -11,12 +11,13 @@ Coordinate specialists through one versioned Research Mission. Do not imitate a 
 
 Choose one mode and state it:
 
+- `fast`: route one bounded request to exactly one specialist with a minimal evidence packet and no persistent Research Mission. Read `references/fast-mode.md` and run `scripts/route_fast_request.py` when the requested output is structured.
 - `plan`: create or revise the mission, dependency DAG, budgets, gates, and next executable step.
 - `execute`: run the next ready stage, invoke the named specialist skill, merge its artifacts, and re-evaluate downstream readiness.
 - `resume`: validate an existing mission, preserve unresolved state, and continue from the first ready incomplete step.
 - `audit`: inspect routing, provenance, autonomy, gates, and completion claims without executing stages.
 
-Use this director only when two or more capabilities must coordinate or when persistent state/gates materially matter. For an isolated request, invoke the specialist directly.
+Use `fast` or invoke the specialist directly for an isolated, low-risk request. Use the persistent modes only when two or more capabilities must coordinate or when state, gates, resumability, or release evidence materially matters. Fast Mode never waives a specialist boundary or a required human gate.
 
 ## Workflow
 
@@ -52,6 +53,8 @@ Use this director only when two or more capabilities must coordinate or when per
 10. Before release, run claim, artifact, integrity, reproducibility, and submission-release gates as applicable. Use independent challenge by `$zju-reviewer`, `$zju-statistics-audit`, or `$zju-research-integrity` when their registered scope applies. Human approval remains mandatory for ethics, patents/legal review, credentialed access, external mutation, and submission.
 11. Stop when the requested deliverables are validated, a gate blocks progress, the autonomy/budget ceiling is reached, or material user judgment is required. Return the complete state needed to resume.
 
+For `fast`, do not create a Mission or pretend to execute this workflow. Route one registered output, pass only supplied inputs and constraints, run the selected specialist, and return its artifact plus unresolved issues. Promote to `plan` or `execute` as soon as a second capability, persistent state, a high-risk gate, or a release claim becomes necessary.
+
 ## Routing Invariants
 
 - Plan a DAG, not an unbounded chain. Every step names prerequisites, expected outputs, gates, autonomy, and a validator or manual verification path.
@@ -74,7 +77,7 @@ The host inventory is an explicit JSON object with `platform` and `available` in
 
 ## Output Contract
 
-Return these sections for every mode:
+For persistent modes, return these sections:
 
 1. `Mission status`: mission ID, mode, current stage, autonomy ceiling, status, and stop reason.
 2. `Capability DAG`: ordered steps with skill, prerequisites, expected outputs, gates, status, and artifact IDs.
@@ -84,3 +87,5 @@ Return these sections for every mode:
 6. `Next action`: exactly one ready action, or the concrete condition required to unblock.
 
 Do not claim the mission, analysis, document, figure, deck, filing, or submission is complete unless the corresponding artifact exists and every required gate passed.
+
+For `fast`, return `Mode`, `Selected specialist`, `Input packet`, `Output artifact`, `Validation`, `Unresolved issues`, and `Escalation condition`.

@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "project_id": "DECK-REAL-1",
+  "source_id": "STUDY-REAL-1",
+  "slide_count": 2,
+  "source_anchors": [
+    "analysis-run.json#/analyses/0",
+    "protocol://STUDY-REAL-1/endpoint-v1"
+  ],
+  "result_uses": [
+    {
+      "result_id": "RES-ANOVA",
+      "field": "estimate",
+      "rendered": "0.896",
+      "format": ".3f"
+    },
+    {
+      "result_id": "RES-ANOVA",
+      "field": "p_value",
+      "rendered": "0.0000",
+      "format": ".4f"
+    }
+  ],
+  "inputs": {
+    "deck_plan": {
+      "path": "deck-plan.json",
+      "sha256": "45c523598ce22c07a8f57ddd87c1f4c01e3d90363fbfc26cacd5f473b7bfdda8"
+    },
+    "result_registry": {
+      "path": "result-registry.json",
+      "sha256": "4aa30a8bca0ad900beb8e59eb87f797b97ac5bd3ee4914c49c908217ba596a02",
+      "registry_version": "RUN-2A39CA62F5AB68FBA9EF0B04"
+    }
+  },
+  "artifact": {
+    "path": "research-deck.pptx",
+    "format": "pptx",
+    "sha256": "3b52d7b31196ce4a2182bd3bff47c3b9bceb544f0da4f4394c9457ee52b37554",
+    "bytes": 11082,
+    "aspect_ratio": "16:9"
+  },
+  "qa": {
+    "deck_plan_validation": "passed",
+    "ooxml_reopen": "passed",
+    "placeholder_scan": "passed",
+    "source_resolution": "passed",
+    "result_token_resolution": "passed",
+    "speaker_notes_present": true,
+    "verification": {
+      "valid": true,
+      "visible_characters": 769,
+      "findings": []
+    },
+    "render_and_human_visual_review": "required"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "path": "analysis-input.xlsx",
+    "format": "xlsx",
+    "sha256": "5c0e669118a22e9c114e6346b854e04bff955688ac2b0f07f8181ecd2bb3ebfc"
+  },
+  "rows": 18,
+  "columns": 3,
+  "column_order": [
+    "group",
+    "response",
+    "unit"
+  ],
+  "duplicate_full_rows": 0,
+  "column_profiles": [
+    {
+      "column": "group",
+      "rows": 18,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "unique_nonmissing": 3,
+      "numeric_parseable": 0,
+      "non_numeric_nonmissing": 18
+    },
+    {
+      "column": "response",
+      "rows": 18,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "unique_nonmissing": 18,
+      "numeric_parseable": 18,
+      "non_numeric_nonmissing": 0,
+      "numeric_summary": {
+        "min": 4.0,
+        "q1": 5.125,
+        "median": 5.800000000000001,
+        "q3": 7.325,
+        "max": 8.3,
+        "mean": 6.105555555555555,
+        "sd": 1.3013442019796853
+      }
+    },
+    {
+      "column": "unit",
+      "rows": 18,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "unique_nonmissing": 18,
+      "numeric_parseable": 0,
+      "non_numeric_nonmissing": 18
+    }
+  ],
+  "scope_note": "Descriptive profile only; inferred data types and design validity were not asserted."
+}

@@ -1,0 +1,22 @@
+{
+  "run_id": "replace-with-run-id",
+  "layer": "L4_frozen_holdout_generalization",
+  "artifacts": [
+    {
+      "layer": "L4_frozen_holdout_generalization",
+      "skill_id": "zju-literature-search",
+      "case_id": "HLD-REPLACE-001",
+      "blind_label": null,
+      "artifact_role": "fixture",
+      "artifact_path": "path/to/immutable-fixture.bin"
+    },
+    {
+      "layer": "L4_frozen_holdout_generalization",
+      "skill_id": "zju-literature-search",
+      "case_id": "HLD-REPLACE-001",
+      "blind_label": "A",
+      "artifact_role": "generated_artifact",
+      "artifact_path": "path/to/generated-output-A.pdf"
+    }
+  ]
+}

@@ -33,6 +33,8 @@ When `analysis_ids` select only part of a contract, the executor refuses to adju
 | `paired_ttest` | `value_column`, `condition_column`, `experimental_unit_column`, `reference_group`, `comparison_group` | mean within-unit comparison minus reference difference |
 | `pearson_correlation` | `x_column`, `y_column`, `experimental_unit_column` | Pearson correlation coefficient |
 | `simple_ols` | `x_column`, `y_column`, `experimental_unit_column` | unadjusted slope for one continuous predictor |
+| `one_way_anova` | `value_column`, `group_column`, `experimental_unit_column`, unique `group_order` of at least three groups; `effect_measure` must be `eta_squared` | omnibus eta squared with fixed-seed within-group percentile bootstrap interval |
+| `binomial_logistic_glm` | `outcome_column`, `predictor_column`, `experimental_unit_column`, `event_value`, `non_event_value`; `effect_measure` must be `log_odds_ratio_per_unit` | unadjusted log odds ratio per one raw predictor unit |
 
 Optional `unit` records the estimate unit. Use explicit axis/result units such as `mg/L`, `unitless`, or `response units per dose unit`; do not infer one from a column name.
 
@@ -42,6 +44,8 @@ Optional `unit` records the estimate unit. Use explicit axis/result units such a
 - Missing tokens are excluded only from the variables required by that analysis and are listed in `analysis-run.json`.
 - Unpaired analyses reject repeated experimental-unit IDs so technical replicates are not silently counted as independent data.
 - Paired analyses use complete pairs and list incomplete pair IDs that were excluded.
+- One-way ANOVA is limited to independent units and one fixed factor. It rejects unlisted groups, repeated/clustered designs, blocks, covariates, and within-unit factors. Its bootstrap seed and iteration count are recorded.
+- The binomial GLM is limited to one continuous predictor, independent unweighted units, at least 20 complete rows, and at least five events and non-events. It rejects extra covariates, offsets, weights, clusters, small-sample/penalized cases, separation, singular information, and non-convergence.
 - `result-registry.json` is immediately compatible with `reconcile_result_registry.py` and retains an `execution_binding` with the exact value, group/condition, x/y, experimental-unit, and reference/comparison fields used by the method.
 - `analysis-run.json` records data, contract, and executor SHA-256 values plus Python, NumPy, and SciPy versions.
 

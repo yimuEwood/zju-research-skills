@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zju-research-skills.local/schemas/executable-figure.schema.json",
+  "title": "Registry-bound scientific figure specification",
+  "type": "object",
+  "required": ["figure_id", "bounded_conclusion", "result_id", "plot_type"],
+  "properties": {
+    "figure_id": {"type": "string", "minLength": 1},
+    "bounded_conclusion": {"type": "string", "minLength": 1},
+    "result_id": {"type": "string", "minLength": 1},
+    "analysis_id": {"type": "string"},
+    "plot_type": {"enum": ["group_comparison", "multi_group_comparison", "paired_comparison", "scatter_regression", "logistic_curve"]},
+    "formats": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["png", "svg", "pdf"]}},
+    "width_mm": {"type": "number", "exclusiveMinimum": 0},
+    "height_mm": {"type": "number", "exclusiveMinimum": 0},
+    "dpi": {"type": "integer", "minimum": 72}
+  },
+  "oneOf": [
+    {"properties": {"plot_type": {"const": "group_comparison"}}, "required": ["value_column", "group_column", "experimental_unit_column", "reference_group", "comparison_group", "group_order"]},
+    {"properties": {"plot_type": {"const": "multi_group_comparison"}, "group_order": {"type": "array", "minItems": 3, "uniqueItems": true}}, "required": ["value_column", "group_column", "experimental_unit_column", "group_order"]},
+    {"properties": {"plot_type": {"const": "paired_comparison"}}, "required": ["value_column", "group_column", "experimental_unit_column", "reference_group", "comparison_group", "group_order"]},
+    {"properties": {"plot_type": {"const": "scatter_regression"}}, "required": ["x_column", "y_column", "experimental_unit_column"]},
+    {"properties": {"plot_type": {"const": "logistic_curve"}}, "required": ["outcome_column", "predictor_column", "experimental_unit_column", "event_value", "non_event_value"]}
+  ]
+}

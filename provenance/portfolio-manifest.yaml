@@ -1,5 +1,5 @@
 schema_version: "1.2"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 snapshot_date: "2026-08-15"
 total_skills: 20
 distribution_status: stable
@@ -7,14 +7,14 @@ portfolio_status: beta
 stable_promotion_suspended: true
 
 current_release_engineering:
-  release: "1.0.0"
+  release: "1.1.0"
   mission_schema: "1.1"
   artifact_contract: "local file, containment, SHA-256, producer step, supported format, and bound receipt"
   human_gate_contract: "mission decision plus caller-supplied state-bound approval receipt"
-  evaluation_status: "protocol v3 covers all twenty skills; L1 census complete, L2-L4 and the independently administered frozen holdout are incomplete, so the official score remains null"
-  local_verification: "192 tests discovered and passed locally with the optional upstream cache present; clean checkout requires 191 passes and skips one optional upstream-cache integrity check; 46 Skill scripts scanned with zero findings under the current static rules; 20/20 Skills passed quick_validate"
+  evaluation_status: "protocol v3 covers all twenty skills; L1 and L2 are complete, while independently administered L3/L4 remain pending, so the official score remains null"
+  local_verification: "295 tests discovered and passed locally with the optional upstream cache present; clean checkout requires 294 passes and skips one optional upstream-cache integrity check; 68 core-plus-pack scripts scanned with zero findings under the current static rules; 20/20 core Skills passed quick_validate"
   distribution_qualification: "provenance/distribution-release-v1.json"
-  capability_boundary: "Portfolio capability status remains beta and the official score remains null until protocol-v3 L2-L4 and independent frozen-holdout evidence are complete."
+  capability_boundary: "Portfolio capability status remains beta and the official score remains null until protocol-v3 L3/L4 and independent frozen-holdout evidence are complete."
 
 current_capability_upgrade:
   focus: "deeper research reasoning and cross-skill handoffs, not additional skill count"
@@ -22,7 +22,8 @@ current_capability_upgrade:
   analysis_chain: "design-analysis handoff, domain decision maps, canonical result registry, and result-linked writing, figures, data statements, review, and response"
   translation_chain: "evidence-to-work-package proposal compilation and research-to-invention mapping"
   domain_depth: "condition-aware chemistry evidence comparison"
-  new_executors: "explicit-model meta-analysis with REML/DL, Hartung-Knapp and prediction intervals; local-versus-publication data release verification; constrained experiment-portfolio selection with eligibility, dependency and exclusion rules"
+  new_executors: "multi-provider scholarly lookup; lawful OA JATS and page-anchored PDF preparation; bounded statistics and figure export; DOCX/PPTX generation; explicit-model meta-analysis; data-release verification; constrained experiment selection; and twelve deterministic gap validators"
+  distribution_tools: "one-command install, update, doctor and uninstall for Codex, Claude Code and OpenCode; single-skill Fast Mode; optional omics, materials and drug-discovery packs"
   evaluation_framework: "twenty-skill capability matrix, four evidence layers, schema-validated records, independently signed verification bundles, adversarial anti-forgery tests, and no score imputation"
 
 legacy_first_wave_beta:
@@ -112,15 +113,16 @@ comparison_boundary:
 
 evaluation_protocol_v3:
   target_release: "future independently verified capability release"
-  status: "all_twenty_mapped_l1_complete_l2_l3_l4_incomplete"
+  status: "all_twenty_mapped_l1_l2_complete_l3_l4_external_pending"
   official_portfolio_score: null
   l1_contract_census: "120/120 checks passed across 20/20 skills; engineering conformance only"
+  l2_deterministic_function: "400/400 cases passed across 20/20 skills and 100 capability IDs; deterministic software behavior only"
   required_units_per_skill: 53
   required_portfolio_units_before_arm_replication: 1060
   minimum_arm_level_records: 2140
   stable_decision_available: false
   required_before_stable:
-    - "Complete L2 deterministic cases, L3 controlled three-arm cases, and L4 frozen three-arm holdout for every skill"
+    - "Complete L3 controlled three-arm cases and L4 frozen three-arm holdout for every skill"
     - "Blocked and balanced blind allocation with precommitted baselines and raters"
     - "Independently administered first-attempt holdout and pre-registered Ed25519 verifier key"
     - "Executor-enforced identical tool policy and artifact/hash binding"
@@ -130,7 +132,11 @@ installation:
   plugin_manifest: ".codex-plugin/plugin.json"
   skill_root: "skills/"
   local_trial_mode: "isolated project evaluation workspaces"
-  project_scoped_cli_install_available: false
+  project_scoped_cli_install_available: true
+  user_scoped_cli_install_available: true
+  one_command_update_available: true
+  fast_mode_available: true
+  optional_domain_packs: [omics, materials, drug-discovery]
   user_level_install_performed: true
   rationale: "The twenty skill directories are synchronized to the user's Codex skill directory without overwriting the existing nature-* skills."
   preserves_existing_global_nature_skills: true

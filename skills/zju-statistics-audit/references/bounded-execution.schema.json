@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zju-research-skills.local/schemas/bounded-execution.schema.json",
+  "title": "Bounded statistical execution block",
+  "type": "object",
+  "required": ["method", "experimental_unit_column"],
+  "properties": {
+    "method": {"enum": ["welch_ttest", "paired_ttest", "pearson_correlation", "simple_ols", "one_way_anova", "binomial_logistic_glm"]},
+    "result_id": {"type": "string", "minLength": 1},
+    "experimental_unit_column": {"type": "string", "minLength": 1},
+    "confidence_level": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1},
+    "multiplicity_method": {"enum": ["none", "holm", "benjamini_hochberg"]}
+  },
+  "oneOf": [
+    {"properties": {"method": {"const": "welch_ttest"}}, "required": ["value_column", "group_column", "reference_group", "comparison_group"]},
+    {"properties": {"method": {"const": "paired_ttest"}}, "required": ["value_column", "condition_column", "reference_group", "comparison_group"]},
+    {"properties": {"method": {"const": "pearson_correlation"}}, "required": ["x_column", "y_column"]},
+    {"properties": {"method": {"const": "simple_ols"}}, "required": ["x_column", "y_column"]},
+    {"properties": {"method": {"const": "one_way_anova"}, "group_order": {"type": "array", "minItems": 3, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}}, "required": ["value_column", "group_column", "group_order"]},
+    {"properties": {"method": {"const": "binomial_logistic_glm"}}, "required": ["outcome_column", "predictor_column", "event_value", "non_event_value"]}
+  ]
+}

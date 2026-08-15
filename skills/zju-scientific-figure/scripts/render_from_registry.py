@@ -5,15 +5,26 @@ from __future__ import annotations
 
 import argparse
 import csv
+import datetime as dt
 import hashlib
 import json
 import math
+import re
+import struct
+import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any
 
 
 OKABE_ITO = ["#0072B2", "#D55E00", "#009E73", "#CC79A7", "#E69F00"]
-SUPPORTED_PLOTS = {"group_comparison", "paired_comparison", "scatter_regression"}
+SUPPORTED_PLOTS = {
+    "group_comparison",
+    "multi_group_comparison",
+    "paired_comparison",
+    "scatter_regression",
+    "logistic_curve",
+}
+PLACEHOLDER = re.compile(r"\b(?:TODO|TBD|SOURCE_REQUIRED|NOT_GENERATED|PLACEHOLDER)\b|\{\{|\}\}", re.IGNORECASE)
 
 
 def sha256_file(path: Path) -> str:
@@ -227,6 +238,56 @@ def render_group_comparison(ax: Any, rows: list[dict[str, Any]], spec: dict[str,
     }
 
 
+def render_multi_group_comparison(
+    ax: Any, rows: list[dict[str, Any]], spec: dict[str, Any], result: dict[str, Any]
+) -> dict[str, Any]:
+    verify_spec_binding(
+        result,
+        spec,
+        ["value_column", "group_column", "experimental_unit_column", "group_order"],
+    )
+    groups, values = group_values(rows, spec)
+    if len(groups) < 3:
+        raise ValueError("multi_group_comparison requires at least three groups")
+    for index, group in enumerate(groups):
+        ordered = sorted(values[group])
+        x = [index + stable_jitter(f"{group}:{unit}") for unit, _ in ordered]
+        y = [value for _, value in ordered]
+        ax.scatter(
+            x,
+            y,
+            s=16,
+            color=OKABE_ITO[index % len(OKABE_ITO)],
+            alpha=0.72,
+            linewidths=0,
+            zorder=2,
+        )
+        mean = sum(y) / len(y)
+        if len(y) > 1:
+            import scipy.stats as stats
+
+            sd = math.sqrt(sum((item - mean) ** 2 for item in y) / (len(y) - 1))
+            half = float(stats.t.ppf(0.975, len(y) - 1)) * sd / math.sqrt(len(y))
+            ax.errorbar(index, mean, yerr=half, fmt="o", color="black", markersize=3.2, capsize=3, linewidth=1, zorder=3)
+    ax.set_xticks(range(len(groups)), groups)
+    ax.set_ylabel(str(spec.get("y_label") or spec["value_column"]))
+    ax.set_xlabel(str(spec.get("x_label") or ""))
+    observations = sum(len(value) for value in values.values())
+    verify_rendered_counts(result, units=observations, observations=observations)
+    return {
+        "observations_rendered": observations,
+        "groups": {group: len(values[group]) for group in groups},
+        "uncertainty": "within-group arithmetic mean with 95% t confidence interval",
+        "canonical_omnibus": {
+            "result_id": result["result_id"],
+            "effect_measure": result.get("effect_measure"),
+            "estimate": result.get("estimate"),
+            "ci": result.get("ci"),
+            "p_value": result.get("p_value"),
+        },
+    }
+
+
 def render_paired_comparison(ax: Any, rows: list[dict[str, Any]], spec: dict[str, Any], result: dict[str, Any]) -> dict[str, Any]:
     binding = result.get("execution_binding") if isinstance(result.get("execution_binding"), dict) else {}
     condition_column = binding.get("condition_column")
@@ -257,6 +318,7 @@ def render_paired_comparison(ax: Any, rows: list[dict[str, Any]], spec: dict[str
     verify_rendered_counts(result, units=len(common), observations=2 * len(common))
     return {
         "complete_pairs_rendered": len(common),
+        "observations_rendered": 2 * len(common),
         "uncertainty": "canonical paired contrast is stored in the linked result registry; individual pairs are shown",
         "canonical_contrast": {
             "result_id": result["result_id"],
@@ -316,11 +378,146 @@ def render_scatter(ax: Any, rows: list[dict[str, Any]], spec: dict[str, Any], re
     }
 
 
+def render_logistic_curve(
+    ax: Any, rows: list[dict[str, Any]], spec: dict[str, Any], result: dict[str, Any]
+) -> dict[str, Any]:
+    verify_spec_binding(
+        result,
+        spec,
+        [
+            "outcome_column",
+            "predictor_column",
+            "experimental_unit_column",
+            "event_value",
+            "non_event_value",
+        ],
+    )
+    outcome_column = str(spec.get("outcome_column") or "")
+    predictor_column = str(spec.get("predictor_column") or "")
+    unit_column = str(spec.get("experimental_unit_column") or "")
+    event_value = str(spec.get("event_value") if spec.get("event_value") is not None else "")
+    non_event_value = str(spec.get("non_event_value") if spec.get("non_event_value") is not None else "")
+    available = set().union(*(row.keys() for row in rows)) if rows else set()
+    if missing := ({outcome_column, predictor_column, unit_column} - available):
+        raise ValueError(f"data table is missing required columns: {sorted(missing)}")
+    points: list[tuple[str, float, float]] = []
+    seen: set[str] = set()
+    unknown: set[str] = set()
+    for row in rows:
+        unit = str(row.get(unit_column, "")).strip()
+        predictor = finite_number(row.get(predictor_column))
+        outcome = str(row.get(outcome_column, "")).strip()
+        if not unit or predictor is None or not outcome:
+            continue
+        if outcome not in {event_value, non_event_value}:
+            unknown.add(outcome)
+            continue
+        if unit in seen:
+            raise ValueError(f"duplicate experimental-unit observation: {unit}")
+        seen.add(unit)
+        points.append((unit, predictor, 1.0 if outcome == event_value else 0.0))
+    if unknown:
+        raise ValueError(f"logistic_curve found outcomes outside declared coding: {sorted(unknown)}")
+    if len(points) < 2:
+        raise ValueError("logistic_curve requires at least two complete observations")
+    points.sort()
+    x_values = [item[1] for item in points]
+    y_values = [item[2] + stable_jitter(item[0], width=0.035) for item in points]
+    ax.scatter(x_values, y_values, s=16, color=OKABE_ITO[0], alpha=0.65, linewidths=0, zorder=2)
+    intercept = finite_number(result.get("intercept"))
+    slope = finite_number(result.get("estimate"))
+    if intercept is None or slope is None or result.get("method") != "binomial_logistic_glm":
+        raise ValueError("logistic_curve requires a canonical binomial_logistic_glm slope and intercept")
+    import numpy as np
+
+    grid = np.linspace(min(x_values), max(x_values), 200)
+    probability = 1.0 / (1.0 + np.exp(-(intercept + slope * grid)))
+    ax.plot(grid, probability, color=OKABE_ITO[1], linewidth=1.25, zorder=3)
+    ax.set_ylim(-0.08, 1.08)
+    ax.set_yticks([0, 1], [non_event_value, event_value])
+    ax.set_xlabel(str(spec.get("x_label") or predictor_column))
+    ax.set_ylabel(str(spec.get("y_label") or f"Observed {outcome_column}"))
+    verify_rendered_counts(result, units=len(points), observations=len(points))
+    return {
+        "observations_rendered": len(points),
+        "curve_points": 200,
+        "outcome_coding": {"event": event_value, "non_event": non_event_value},
+        "canonical_glm": {
+            "result_id": result["result_id"],
+            "log_odds_ratio_per_unit": slope,
+            "odds_ratio": result.get("odds_ratio"),
+            "ci": result.get("ci"),
+            "p_value": result.get("p_value"),
+        },
+    }
+
+
 RENDERERS = {
     "group_comparison": render_group_comparison,
+    "multi_group_comparison": render_multi_group_comparison,
     "paired_comparison": render_paired_comparison,
     "scatter_regression": render_scatter,
+    "logistic_curve": render_logistic_curve,
 }
+
+
+def inspect_export(
+    path: Path,
+    output_format: str,
+    *,
+    width_mm: float,
+    height_mm: float,
+    dpi: int,
+) -> dict[str, Any]:
+    """Perform deterministic structural checks without claiming human visual review."""
+
+    data = path.read_bytes()
+    if len(data) < 200:
+        raise ValueError(f"generated {output_format} export is unexpectedly small")
+    report: dict[str, Any] = {"status": "passed", "bytes": len(data)}
+    if output_format == "png":
+        if not data.startswith(b"\x89PNG\r\n\x1a\n") or data[12:16] != b"IHDR":
+            raise ValueError("generated PNG has an invalid signature or IHDR")
+        width, height = struct.unpack(">II", data[16:24])
+        expected_width = round(width_mm / 25.4 * dpi)
+        expected_height = round(height_mm / 25.4 * dpi)
+        if abs(width - expected_width) > 1 or abs(height - expected_height) > 1:
+            raise ValueError(
+                "generated PNG canvas does not match the requested physical size and DPI: "
+                f"actual={width}x{height}, expected={expected_width}x{expected_height}"
+            )
+        report.update({
+            "signature": "png",
+            "pixel_width": width,
+            "pixel_height": height,
+            "requested_dpi": dpi,
+        })
+    elif output_format == "svg":
+        root = ET.fromstring(data)
+        if not root.tag.casefold().endswith("svg") or not root.get("viewBox"):
+            raise ValueError("generated SVG is missing a valid root/viewBox")
+        visible_text = " ".join("".join(root.itertext()).split())
+        if PLACEHOLDER.search(visible_text):
+            raise ValueError("generated SVG contains an unresolved placeholder")
+        report.update({
+            "signature": "svg",
+            "view_box": root.get("viewBox"),
+            "selectable_text_characters": len(visible_text),
+        })
+    elif output_format == "pdf":
+        if not data.startswith(b"%PDF-") or b"%%EOF" not in data[-2048:]:
+            raise ValueError("generated PDF has an invalid signature or EOF marker")
+        media_box = re.search(
+            br"/MediaBox\s*\[\s*0(?:\.0+)?\s+0(?:\.0+)?\s+([0-9.]+)\s+([0-9.]+)\s*\]",
+            data,
+        )
+        report.update({
+            "signature": "pdf",
+            "media_box_points": [float(media_box.group(1)), float(media_box.group(2))] if media_box else "not_extracted",
+        })
+    else:  # pragma: no cover - guarded before export
+        raise ValueError(f"no machine check for export format {output_format!r}")
+    return report
 
 
 def render(data_path: Path, registry_path: Path, spec_path: Path, output_dir: Path) -> tuple[dict[str, Any], Path]:
@@ -335,6 +532,8 @@ def render(data_path: Path, registry_path: Path, spec_path: Path, output_dir: Pa
     spec = json.loads(spec_path.read_text(encoding="utf-8-sig"))
     if not isinstance(registry, dict) or not isinstance(spec, dict):
         raise ValueError("registry and figure spec must be JSON objects")
+    if PLACEHOLDER.search(json.dumps(spec, ensure_ascii=False)):
+        raise ValueError("figure spec contains an unresolved placeholder")
     for field in ("figure_id", "bounded_conclusion", "result_id", "plot_type"):
         if not spec.get(field):
             raise ValueError(f"figure spec is missing {field}")
@@ -371,13 +570,39 @@ def render(data_path: Path, registry_path: Path, spec_path: Path, output_dir: Pa
     exports: list[dict[str, Any]] = []
     for output_format in formats:
         path = output_dir / f"{base_name}.{output_format}"
-        figure.savefig(path, dpi=dpi if output_format == "png" else None, bbox_inches="tight", facecolor="white")
+        if output_format == "pdf":
+            fixed_time = dt.datetime(2026, 8, 15, tzinfo=dt.timezone.utc)
+            metadata: dict[str, Any] = {
+                "Creator": "zju-research-skills",
+                "Producer": "matplotlib",
+                "CreationDate": fixed_time,
+                "ModDate": fixed_time,
+            }
+        elif output_format == "svg":
+            metadata = {"Creator": "zju-research-skills", "Date": "2026-08-15"}
+        else:
+            metadata = {"Software": "zju-research-skills"}
+        figure.savefig(
+            path,
+            dpi=dpi if output_format == "png" else None,
+            bbox_inches=None,
+            facecolor="white",
+            metadata=metadata,
+        )
+        machine_check = inspect_export(
+            path,
+            output_format,
+            width_mm=width_mm,
+            height_mm=height_mm,
+            dpi=dpi,
+        )
         exports.append({
             "path": path.name,
             "format": output_format,
             "sha256": sha256_file(path),
             "bytes": path.stat().st_size,
             "dpi": dpi if output_format == "png" else "vector",
+            "machine_check": machine_check,
         })
     plt.close(figure)
 
@@ -391,6 +616,13 @@ def render(data_path: Path, registry_path: Path, spec_path: Path, output_dir: Pa
         "experimental_unit": str(spec.get("experimental_unit") or spec.get("experimental_unit_column") or "unknown"),
         "details": details,
     }
+    expected_observations = result.get("n", {}).get("observations")
+    rendered_observations = details.get("observations_rendered")
+    if expected_observations != rendered_observations:
+        raise ValueError(
+            "data-to-mark audit failed after rendering: "
+            f"registry observations={expected_observations}, rendered observations={rendered_observations}"
+        )
     manifest = {
         "schema_version": "1.0",
         "figure_id": spec["figure_id"],
@@ -411,12 +643,24 @@ def render(data_path: Path, registry_path: Path, spec_path: Path, output_dir: Pa
             "redundant_encoding": "individual marks and spatial grouping",
             "grayscale_check": "manual_inspection_required",
         },
+        "artifact_qa": {
+            "data_to_mark_audit": {
+                "status": "passed",
+                "expected_observations": expected_observations,
+                "rendered_observations": rendered_observations,
+                "result_id": result["result_id"],
+            },
+            "export_structure_checks": "passed",
+            "placeholder_scan": "passed",
+            "human_visual_review": "required",
+        },
         "qa_status": {
             "numeric_binding": "linked_to_verified_result_id",
             "data_binding": data_binding_status,
             "file_generation": "complete",
             "visual_inspection": "required",
-            "data_to_mark_audit": "required",
+            "data_to_mark_audit": "passed_for_observation_count_and_registry_binding",
+            "machine_export_checks": "passed",
         },
     }
     manifest_path = output_dir / "figure-manifest.json"

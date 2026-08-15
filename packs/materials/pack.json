@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "pack_id": "materials",
+  "version": "0.1.0",
+  "maturity": "beta",
+  "skills": ["skills/zju-materials-computation"],
+  "core_skills": ["zju-chemistry-databases", "zju-experiment-log", "zju-statistics-audit", "zju-scientific-figure"],
+  "executors": ["skills/zju-materials-computation/scripts/analyze_structure.py"],
+  "runtime": ["numpy"],
+  "optional_runtime": ["pymatgen for CIF and POSCAR parsing"],
+  "capability_boundary": "The bundled executor validates geometry and provenance; it does not establish physical stability or properties."
+}

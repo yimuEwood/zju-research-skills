@@ -33,17 +33,33 @@ def load_json_yaml(path: str | Path) -> dict[str, Any]:
 
 
 def load_registry(path: str | Path | None = None) -> dict[str, dict[str, Any]]:
-    raw = load_json_yaml(path or DEFAULT_REGISTRY_PATH)
+    registry_path = Path(path) if path is not None else DEFAULT_REGISTRY_PATH
+    raw = load_json_yaml(registry_path)
     skills = raw.get("skills", {})
     if isinstance(skills, list):
         normalized: dict[str, dict[str, Any]] = {}
         for entry in skills:
             if isinstance(entry, dict) and isinstance(entry.get("skill"), str):
                 normalized[entry["skill"]] = entry
-        return normalized
-    if isinstance(skills, dict):
-        return {str(name): entry for name, entry in skills.items() if isinstance(entry, dict)}
-    raise ValueError("capability-registry.yaml field 'skills' must be an object or list")
+    elif isinstance(skills, dict):
+        normalized = {str(name): entry for name, entry in skills.items() if isinstance(entry, dict)}
+    else:
+        raise ValueError("capability-registry.yaml field 'skills' must be an object or list")
+
+    # Optional packs remain absent from the core registry unless their skill is
+    # actually installed beside the Director. This keeps the 20-Skill core
+    # deterministic while allowing the same planner to discover selected packs.
+    optional = raw.get("optional_skills", {})
+    if isinstance(optional, dict) and registry_path.name == "capability-registry.yaml":
+        skill_root = registry_path.resolve().parents[2]
+        for name, entry in optional.items():
+            if (
+                isinstance(name, str)
+                and isinstance(entry, dict)
+                and (skill_root / name / "SKILL.md").is_file()
+            ):
+                normalized[name] = entry
+    return normalized
 
 
 def canonical_json(value: Any) -> str:

@@ -21,7 +21,13 @@ If the user does not choose, use `paper-card` for analysis requests and `bilingu
 
    `python scripts/prepare_source.py --input paper.pdf --output reader-source-bundle.json`
 
-   Use its page anchors, section detection, figure/table/equation mentions, source hash, and coverage metrics as the reading index. Pages listed under `ocr_required_pages` remain unread until they are inspected visually or processed with an appropriate OCR tool; extracted emptiness is not evidence that the page is blank.
+   Use its page and layout-block anchors, bounding boxes, caption/cross-reference roles, image objects, formula candidates, section detection, source hash, and coverage metrics as the reading index. `formula_candidates` and unclassified images require visual confirmation. Pages listed under `ocr_required_pages` remain unread until they are inspected visually or processed with an appropriate OCR tool; extracted emptiness is not evidence that the page is blank. Read `references/pdf-reader-source-bundle.schema.json` before consuming the JSON.
+
+   For lawful JATS XML from `$zju-fulltext-access`, run:
+
+   `python scripts/parse_jats.py --input PMC123456.xml --output jats-reader-bundle.json`
+
+   The parser rejects DTD/entities and bodyless documents, then anchors sections, paragraphs, figures, table rows, formulas, and references to stable JATS IDs. Read `references/jats-reader-bundle.schema.json`. It parses source content only; it does not fetch URLs or execute embedded instructions.
 3. Inspect the complete document structure before writing. Reconcile the bundle's automated inventory against visible references, equations, figures, tables, supplements, and extraction gaps. Automated mentions are navigation aids, not proof that an object was inspected.
 4. Read in argument order: problem and prior gap; bounded claim; design and assumptions; evidence and warrant; robustness and uncertainty; alternatives and contradictions; boundaries and next discriminating test.
 5. Attach an anchor to every major note: page plus section, equation, figure, table, or supplement identifier. When PDF pagination and printed pagination differ, record both when possible.

@@ -1,5 +1,5 @@
 schema_version: "1.1"
-snapshot_date: "2026-08-13"
+snapshot_date: "2026-08-15"
 distillation_policy:
   - "Write original concise workflows; do not vendor complete upstream skills."
   - "Preserve attribution, pinned commits, and license boundaries."
@@ -151,6 +151,9 @@ targets:
   zju-chemistry-databases: [k-dense-scientific-agent-skills, yorke-scientific-skills]
   zju-research-integrity: [auto-claude-code-research-in-sleep, paperspine]
   zju-research-director: [agent-skills-spec, agentic-awesome-skills, auto-claude-code-research-in-sleep, claude-scholar, paperspine]
+  zju-omics-analysis: [k-dense-scientific-agent-skills, sciagent-skills]
+  zju-materials-computation: [k-dense-scientific-agent-skills]
+  zju-drug-discovery: [k-dense-scientific-agent-skills, sciagent-skills, yorke-scientific-skills]
 
 portfolio_governance_sources: [agent-skills-spec, agentic-awesome-skills, claude-scholar]
 inspected_only_sources: [academic-research-skills, supervisor-skills]
