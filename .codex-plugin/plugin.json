@@ -1,10 +1,13 @@
 {
   "name": "zju-research-skills",
-  "version": "0.7.0-beta.1",
+  "version": "1.0.0",
   "description": "A Chinese-first Research OS that connects literature discovery, evidence synthesis, experiment design, analysis, publication, and research translation for Zhejiang University researchers.",
   "author": {
-    "name": "ZJU Research Skills Project"
+    "name": "ZJU Research Skills Project",
+    "url": "https://github.com/yimuEwood/zju-research-skills"
   },
+  "homepage": "https://github.com/yimuEwood/zju-research-skills#readme",
+  "repository": "https://github.com/yimuEwood/zju-research-skills",
   "license": "Apache-2.0",
   "keywords": [
     "research",
@@ -21,6 +24,7 @@
     "longDescription": "Twenty evidence-grounded skills with one Research Director connecting multi-source discovery, multi-format imports, page-anchored PDF extraction, bounded statistical execution, result-bound figure export, argument spines, conflict synthesis, discriminating hypotheses, writing, review, data sharing, proposals, patents, and condition-aware chemistry comparison through a shared mission and execution-provider protocol.",
     "developerName": "ZJU Research Skills Project",
     "category": "Productivity",
+    "websiteURL": "https://github.com/yimuEwood/zju-research-skills",
     "capabilities": [
       "Interactive",
       "Write"

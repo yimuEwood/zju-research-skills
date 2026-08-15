@@ -1,10 +1,13 @@
 # ZJU Research OS
 
+[![offline capability checks](https://github.com/yimuEwood/zju-research-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/yimuEwood/zju-research-skills/actions/workflows/ci.yml)
+[![GitHub release](https://img.shields.io/github/v/release/yimuEwood/zju-research-skills)](https://github.com/yimuEwood/zju-research-skills/releases)
+
 一套面向浙江大学科研场景的中文科研 Skills。项目由 1 个 Research Director 和 19 个专业 Skills 组成，覆盖文献检索、论文阅读、证据综合、实验记录、统计分析、写作、制图、答审、数据共享和科研转化。
 
 ![ZJU Research OS 项目概览](docs/assets/hero.png)
 
-项目当前版本是 **v0.7.0-beta.1**，20 个 Skills 都处于 Beta 阶段。这是社区开源项目，与浙江大学官方无关。
+项目当前正式版是 **v1.0.0**。这是社区开源项目，与浙江大学官方无关。
 
 ## 为什么做这个项目
 
@@ -22,6 +25,14 @@
 
 ![Director 与 19 个专业 Skills 的协作架构](docs/assets/architecture.png)
 
+## v1.0.0：第一个正式发行版
+
+v1.0.0 把当前 20 个 Skills 的目录、公开交接契约、确定性脚本和项目级安装入口冻结为稳定基线。Codex、Claude Code 和 OpenCode 都有明确的项目入口；分支 CI 在 Ubuntu / Windows 与 Python 3.11 / 3.13 的四种组合上运行完整离线回归；发布标签会在创建 GitHub Release 前再跑一遍正式版门。
+
+这里的“正式版”指软件分发和工程接口进入稳定线，不等于每一次科研回答都已被证明正确。protocol v3 的 20 项能力证据仍是 Beta，`official_portfolio_score` 仍为 `null`：L2–L4，特别是独立管理的冻结留出集，还没有全部执行。这两个状态分开记录，不会用单元测试或结构分代替科研能力评测。
+
+正式版的机器可读门槛见 [`provenance/distribution-release-v1.json`](provenance/distribution-release-v1.json)，完整发布说明见 [`docs/release-notes-v1.0.0.md`](docs/release-notes-v1.0.0.md)。
+
 ## v0.7：把 20 个 Skills 放进同一套评测
 
 此前的数字并不在同一条线上：最早的三臂对照只覆盖 7 个核心 Skills，后续 12 个扩展 Skills 跑的是整改后的单臂开发集，Director 测的是路由。这些结果可以帮助开发，却不能合并成“20 项总分”。v0.7 先把这个口径问题解决了。
@@ -33,7 +44,7 @@
 - 独立发布门使用预登记的 Ed25519 公钥验证冻结留出、首次作答和揭盲材料。仓库当前没有登记公钥，因此任何自报记录都不能把项目升级为 Stable。
 - 已完成 L1 全量普查：20 项 × 6 个必检点，共 **120/120** 通过；输入清单绑定 **153** 个文件。这个结果只代表工程完备度，不是科研能力分。
 
-当前 `official_portfolio_score` 仍为 `null`。这是有意的：L2–L4，尤其是独立管理的冻结留出集，还没有全部执行。把版本号直接改成正式版会超出证据，所以本轮继续保留 Beta。协议、能力矩阵和当前状态分别见 [`evals/portfolio-protocol-v3.md`](evals/portfolio-protocol-v3.md)、[`evals/skill-evaluation-matrix-v3.json`](evals/skill-evaluation-matrix-v3.json) 与 [`provenance/evaluation-status-v3.yaml`](provenance/evaluation-status-v3.yaml)。
+当前 `official_portfolio_score` 仍为 `null`。这是有意的：L2–L4，尤其是独立管理的冻结留出集，还没有全部执行。v1.0.0 仅将工程分发状态升为稳定，没有改动这一能力评测结论。协议、能力矩阵和当前状态分别见 [`evals/portfolio-protocol-v3.md`](evals/portfolio-protocol-v3.md)、[`evals/skill-evaluation-matrix-v3.json`](evals/skill-evaluation-matrix-v3.json) 与 [`provenance/evaluation-status-v3.yaml`](provenance/evaluation-status-v3.yaml)。
 
 这一轮也继续补了三处实际能力：Evidence Synthesis 增加显式模型选择的效应量汇总（REML / DerSimonian–Laird、Hartung–Knapp、预测区间与小样本/异质性警告）；Data Availability 分开判断“本地文件包完整”和“标识符/许可证已核验、可公开发布”；Hypothesis Design 的实验组合选择加入成本单位、依赖、互斥、必选、可行性和伦理资格约束。
 
@@ -88,7 +99,7 @@ flowchart LR
 
 ## 包含哪些 Skills
 
-| 范围 | Skills | 状态 | 当前测试依据 |
+| 范围 | Skills | 能力证据状态 | 当前测试依据 |
 |---|---|---:|---|
 | 统一入口 | [`zju-research-director`](skills/zju-research-director/) | Beta | 20/20 确定性路由断言；3/3 新上下文前向测试 |
 | 文献入口 | [`literature-search`](skills/zju-literature-search/)、[`fulltext-access`](skills/zju-fulltext-access/)、[`reference-audit`](skills/zju-reference-audit/)、[`paper-reader`](skills/zju-paper-reader/) | Beta（legacy-v1） | v0.4 内部模型评测；Stable 晋级暂停 |
@@ -137,7 +148,7 @@ flowchart LR
 | 12 个扩展 Skills | 120 | 整改后开发集回归：平均 84.385/100；gold-check 命中率 84.58%；严重失败 0 | 最终聚合含 49 条基础运行和 71 条整改/修订记录；不是 held-out，也没有外部项目对照 |
 | Director 路由 | 20 | 5 个领域，覆盖 19 个专业 Skills，20/20 路由断言通过 | 只测试路由和阶段安排，不是科研答案质量分 |
 | Director 新上下文测试 | 3 | 3/3 断言通过 | 前向压力测试，不是跨项目 head-to-head |
-| 本地工程检查 | — | 20/20 格式校验；L1 全量普查 120/120；186 个单元测试通过；46 个 Skill 脚本通过当前静态规则检查 | L1 和结构审计只评价工程与说明契约，不评价科学正确性；干净 CI 未下载可选上游缓存时会透明跳过 1 项缓存完整性集成检查 |
+| 本地工程检查 | — | 20/20 格式校验；L1 全量普查 120/120；共发现 192 项测试，本地带可选上游缓存时 192 项全过；46 个 Skill 脚本通过当前静态规则检查 | 干净 CI 必跑 191 项，因不携带未追踪的上游缓存而明确跳过 1 项可选缓存完整性检查；L1 和结构审计不评价科学正确性 |
 | v0.6 真实产物链 | 13 项核心执行测试 | 4 项 PDF/文本解析测试；9 项 CSV→统计→Registry→PNG/SVG/PDF 测试，覆盖组间、配对和 OLS 真图，数值与 SciPy 容差核对，并拒绝不完整多重比较家族、错误数据文件和错误变量绑定 | 确定性本地测试，不是模型回答质量或科研正确率 |
 
 聚合结果保存在 [`provenance/release-status.yaml`](provenance/release-status.yaml)、[`evals/results/full-20260811-a/aggregate-adjudicated.json`](evals/results/full-20260811-a/aggregate-adjudicated.json)、[`evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json`](evals/results/expansion-full-20260811-a/aggregate-expansion-full-judge-1.json) 和 [`evals/results/director-forward-20260811-a.json`](evals/results/director-forward-20260811-a.json)。由于 v1 的完整原始记录还没有公开，仅凭当前仓库不能完整复算当时的所有评分。
@@ -174,7 +185,7 @@ ZJU Research OS 不是从零开始的。中文科研工作流的主骨架来自 
 
 ## 怎么使用
 
-将仓库根目录作为本地 Codex 插件加载即可。插件入口是 [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json)，Skills 位于 [`skills/`](skills/)。具体安装方式可能随 Codex 或 Agent Skills 客户端版本变化，请以所用客户端的当前说明为准。
+将仓库根目录作为项目级插件或 Skill 目录加载即可。Codex 入口是 [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json)，Claude Code 入口是 [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json)，OpenCode 使用 [`opencode.json`](opencode.json) 指向同一个 [`skills/`](skills/) 目录。具体安装命令可能随客户端版本变化，请以对应客户端的当前说明为准。
 
 需要处理跨阶段任务时，可以从 Director 开始：
 
@@ -200,6 +211,6 @@ ZJU Research OS 不是从零开始的。中文科研工作流的主骨架来自 
 - 项目代码和原创工作流按 [Apache-2.0](LICENSE) 发布，第三方归属见 [`NOTICE`](NOTICE)；
 - 非商业或 Share-Alike 来源只用于能力比较，没有把其文字、模板或工作流表达并入当前发行包；
 - GitHub Star 只用于发现候选项目，不作为科学正确性或可靠性的证据；
-- 20 个 Skills 目前全部是 Beta。v0.7 已把全组合纳入统一协议并完成 L1，但 L2、L3、L4 尚未全部执行；只有每一项都通过冻结留出集、统一工具条件、独立签名复核和置信区间门槛后，才会升级状态。
+- v1.0.0 的软件分发状态是 Stable；20 个 Skills 的能力证据状态仍是 Beta。v0.7 已把全组合纳入统一协议并完成 L1，但 L2、L3、L4 尚未全部执行；只有每一项都通过冻结留出集、统一工具条件、独立签名复核和置信区间门槛后，才会升级能力证据状态。
 
 如果你愿意参与测试，欢迎提交可复现的案例、失败样本或改进建议。相比只报告成功案例，这些材料对项目下一轮迭代更有价值。

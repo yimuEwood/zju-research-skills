@@ -1,0 +1,18 @@
+{
+  "name": "zju-research-skills",
+  "description": "Twenty Chinese-first research skills and one director for traceable research workflows.",
+  "version": "1.0.0",
+  "author": {
+    "name": "ZJU Research Skills Project"
+  },
+  "homepage": "https://github.com/yimuEwood/zju-research-skills",
+  "repository": "https://github.com/yimuEwood/zju-research-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "research",
+    "academic-writing",
+    "literature",
+    "statistics",
+    "research-integrity"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "release": "1.0.0",
+  "tag": "v1.0.0",
+  "release_date": "2026-08-15",
+  "release_scope": "distribution, public interfaces, deterministic executors, and cross-agent packaging",
+  "distribution_status": "stable",
+  "capability_evaluation_status": "beta",
+  "official_portfolio_score": null,
+  "qualification": {
+    "skills": 20,
+    "l1_contract_checks_passed": 120,
+    "l1_contract_checks_total": 120,
+    "l1_scorer_complete_skills": 20,
+    "offline_tests_discovered": 192,
+    "local_tests_passed_with_optional_cache": 192,
+    "clean_checkout_required_tests_passed": 191,
+    "clean_checkout_optional_cache_checks_skipped": 1,
+    "skill_scripts_scanned": 46,
+    "static_findings_allowed": 0,
+    "ci_operating_systems": [
+      "ubuntu-latest",
+      "windows-latest"
+    ],
+    "ci_python_versions": [
+      "3.11",
+      "3.13"
+    ],
+    "agent_packages": [
+      "codex",
+      "claude-code",
+      "opencode"
+    ],
+    "local_client_smoke": [
+      "Codex plugin validator passed with codex-cli 0.147.0",
+      "Claude plugin validate --strict passed with Claude Code 2.1.169",
+      "OpenCode debug skill discovered 20/20 project skills with OpenCode 1.2.27"
+    ]
+  },
+  "tagging_policy": "Push v1.0.0 only after the same commit passes the complete branch CI matrix. The tag workflow reruns the offline release gate before creating the GitHub Release.",
+  "claim_boundary": [
+    "Stable distribution means the package layout, public contracts, deterministic scripts, and supported installation manifests passed the declared release gates.",
+    "It does not mean that every scientific answer produced with a skill is correct, nor does it replace domain-expert review.",
+    "The protocol-v3 capability score remains withheld until all twenty skills complete L2-L4 and an independently administered frozen holdout with registered verification evidence."
+  ]
+}

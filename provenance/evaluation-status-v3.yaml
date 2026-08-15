@@ -1,5 +1,6 @@
 schema_version: "3.0"
-snapshot_date: "2026-08-14"
+snapshot_date: "2026-08-15"
+evaluated_package_version: "1.0.0"
 protocol: "evals/portfolio-protocol-v3.json"
 capability_matrix: "evals/skill-evaluation-matrix-v3.json"
 current_evidence_declaration: "evals/current-portfolio-evidence-v3.json"
@@ -22,7 +23,10 @@ current_layer_evidence:
   L4_frozen_holdout_generalization: {status: incomplete, official_score_contribution: null}
 
 local_regression_snapshot:
-  unit_tests_passed: 186
+  unit_tests_discovered: 192
+  local_tests_passed_with_optional_cache: 192
+  clean_checkout_required_tests_passed: 191
+  clean_checkout_optional_cache_checks_skipped: 1
   skill_scripts_scanned: 46
   static_findings: 0
   adversarial_release_gate_tests: 7

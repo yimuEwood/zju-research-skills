@@ -263,7 +263,7 @@ def render_benchmark() -> None:
         draw.text((x + 18, 1132), caption, font=font(19, True), fill=WHITE)
 
     draw.text((70, 1204), "限制：位置未区组均衡，工具策略未由执行器强制，完整 raw records 未公开。", font=font(20), fill=GOLD)
-    draw.text((70, 1234), "仅作 legacy-v1 方向性证据；当前 20 Skills 均为 Beta，尚无 v2 新分数。", font=font(20, True), fill=WHITE)
+    draw.text((70, 1234), "仅作 legacy-v1 方向性证据；能力评测仍为 Beta，尚无 protocol v3 正式分。", font=font(20, True), fill=WHITE)
     footer(draw, "03 / 04")
     image.convert("RGB").save(ASSETS / "benchmark.png", quality=95)
 

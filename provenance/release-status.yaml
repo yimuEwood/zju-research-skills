@@ -1,8 +1,21 @@
-schema_version: "1.1"
-snapshot_date: "2026-08-14"
-plugin_version: "0.7.0-beta.1"
-status: beta
-reason: "All twenty skills remain beta. v0.7 places them under one four-layer protocol and completes the L1 census, but L2-L4 and an independently administered frozen holdout are incomplete. Official per-skill and portfolio scores therefore remain null."
+schema_version: "1.2"
+snapshot_date: "2026-08-15"
+plugin_version: "1.0.0"
+distribution_status: stable
+capability_evaluation_status: beta
+official_portfolio_score: null
+reason: "v1.0.0 is the first stable distribution: package layout, public contracts, deterministic executors, and supported agent manifests passed the release gates. Protocol-v3 scientific capability evidence remains beta because L2-L4 and an independently administered frozen holdout are incomplete; official scores remain null."
+
+v100_distribution_release:
+  release: "1.0.0"
+  tag: "v1.0.0"
+  qualification: "provenance/distribution-release-v1.json"
+  release_notes: "docs/release-notes-v1.0.0.md"
+  distribution_status: stable
+  capability_evaluation_status: beta
+  official_portfolio_score: null
+  release_gate: "20 Skills; L1 120/120; 192 tests discovered and passed locally with the optional upstream cache present; clean checkout requires 191 passes and transparently skips that one optional cache check; 46 Skill scripts with zero static findings; Ubuntu/Windows and Python 3.11/3.13 branch CI; Codex/Claude Code/OpenCode manifests."
+  claim_boundary: "Stable distribution is an engineering and packaging claim, not a scientific-answer accuracy claim."
 
 v07_portfolio_evaluation:
   release: "0.7.0-beta.1"
