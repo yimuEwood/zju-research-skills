@@ -4,10 +4,10 @@
   "target_pmcid": "PMC7759461",
   "purpose": "Recorded public API responses for deterministic offline parser tests; not a current-status assertion.",
   "files": [
-    {"path": "crossref.json", "sha256": "9544000820281f5a3a09f7ac86243257bf83a9f9f44c51114e2f5435ed3f47d0"},
-    {"path": "europepmc.json", "sha256": "650f925f378090cca1f9f17f31193b638e08744eecc5838aff36fed86e0f54b5"},
-    {"path": "europepmc-fulltext.json", "sha256": "713b1d8fa9dc85561c1de08e8597c595524a2289ef5ce0ea2fe3f4e044723ec2"},
-    {"path": "openalex.json", "sha256": "7f034f810ca22e017d1ddcf87f490f4e72fa06d232e7830b943e72719fc2fd6d"},
-    {"path": "pubmed.json", "sha256": "04b779eb23fa0d60a36e7d2085399c34045ee327cbff4dcaddf850f4fb368d80"}
+    {"path": "crossref.json", "sha256": "844d3ba03ef890ff05e1272875ea9ae68654d0c07a92583a84a98956ae4d822a"},
+    {"path": "europepmc.json", "sha256": "2e58270729e429abdc98ba6259a676526142d7c3e74cc1268a861d3aa04db49b"},
+    {"path": "europepmc-fulltext.json", "sha256": "f692b702a53a425d418484fecba635a00dccaf30cb3f80a1d498fb892f901e14"},
+    {"path": "openalex.json", "sha256": "1e27197b7f4c328d4dc296bdb08bd91315ef874d72efff55ea2fb186dcd001e8"},
+    {"path": "pubmed.json", "sha256": "4048462c70d64861fc3d2fb684ab4fe1634d7009748f880376097cf257cf5d7a"}
   ]
 }
