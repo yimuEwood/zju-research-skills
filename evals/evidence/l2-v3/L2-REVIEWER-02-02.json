@@ -4,7 +4,7 @@
   "case_id": "L2-REVIEWER-02-02",
   "skill_id": "zju-reviewer",
   "fixture_sha256": "43b4f3d3787c796db9f6a3f62c623e37387579afadbb33ec06a3b39253feb024",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "43b4f3d3787c796db9f6a3f62c623e37387579afadbb33ec06a3b39253feb024",

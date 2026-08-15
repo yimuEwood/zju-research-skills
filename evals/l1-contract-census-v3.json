@@ -5,7 +5,7 @@
   "evidence_class": "release_census",
   "scope": "repository_worktree_inputs",
   "skill_commit": null,
-  "input_tree_sha256": "85122dff82ff6d986b1600013e15cb73cb313ab55e3815b52d1cb15b8091aeb8",
+  "input_tree_sha256": "09f9c808b6adfda1038f404ddf490c8f4c25e7bfeabe743081e567940c5607aa",
   "claim_boundary": "Engineering conformance only. These records cannot supply L2, L3, or L4 evidence, an official capability score, or Stable promotion.",
   "required_check_ids": [
     "skill_format",
@@ -3060,7 +3060,7 @@
     },
     {
       "path": "skills/zju-research-integrity/scripts/triage_integrity_case.py",
-      "sha256": "57263d058aa7fb371d2616efdca33403855a71c3afdf9b6e300ac2c94780648d"
+      "sha256": "a80132170d0f741ab370776c0ea19f2f5806019532cfa58887e48d815225d7c8"
     },
     {
       "path": "skills/zju-review-response/SKILL.md",

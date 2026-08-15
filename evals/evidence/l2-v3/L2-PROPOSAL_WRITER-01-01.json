@@ -4,7 +4,7 @@
   "case_id": "L2-PROPOSAL_WRITER-01-01",
   "skill_id": "zju-proposal-writer",
   "fixture_sha256": "90d5bbd0f5d2349274bcca4287f6b1d6400fd851a6b8325e64fbd5d5e31d208a",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "90d5bbd0f5d2349274bcca4287f6b1d6400fd851a6b8325e64fbd5d5e31d208a",

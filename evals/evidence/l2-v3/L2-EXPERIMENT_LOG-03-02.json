@@ -4,7 +4,7 @@
   "case_id": "L2-EXPERIMENT_LOG-03-02",
   "skill_id": "zju-experiment-log",
   "fixture_sha256": "1b4b7a07b618c1cfc791b967a38606e1c812ca14bfe56dc65f853dee67744c18",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "1b4b7a07b618c1cfc791b967a38606e1c812ca14bfe56dc65f853dee67744c18",

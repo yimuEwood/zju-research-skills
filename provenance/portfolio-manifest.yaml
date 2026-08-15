@@ -12,7 +12,7 @@ current_release_engineering:
   artifact_contract: "local file, containment, SHA-256, producer step, supported format, and bound receipt"
   human_gate_contract: "mission decision plus caller-supplied state-bound approval receipt"
   evaluation_status: "protocol v3 covers all twenty skills; L1 and L2 are complete, while independently administered L3/L4 remain pending, so the official score remains null"
-  local_verification: "295 tests discovered and passed locally with the optional upstream cache present; clean checkout requires 294 passes and skips one optional upstream-cache integrity check; 68 core-plus-pack scripts scanned with zero findings under the current static rules; 20/20 core Skills passed quick_validate"
+  local_verification: "296 tests discovered and passed locally with the optional upstream cache present; clean checkout requires 295 passes and skips one optional upstream-cache integrity check; 68 core-plus-pack scripts scanned with zero findings under the current static rules; 20/20 core Skills passed quick_validate"
   distribution_qualification: "provenance/distribution-release-v1.json"
   capability_boundary: "Portfolio capability status remains beta and the official score remains null until protocol-v3 L3/L4 and independent frozen-holdout evidence are complete."
 

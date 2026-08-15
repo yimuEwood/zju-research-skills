@@ -4,7 +4,7 @@
   "case_id": "L2-SCIENTIFIC_WRITING-01-03",
   "skill_id": "zju-scientific-writing",
   "fixture_sha256": "a33ee1c3b70dfacf1490de95be39e18a4e0d57ed2e73397a58f1fd8d48a8ebcf",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "a33ee1c3b70dfacf1490de95be39e18a4e0d57ed2e73397a58f1fd8d48a8ebcf",

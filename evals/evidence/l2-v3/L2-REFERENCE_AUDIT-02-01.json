@@ -4,7 +4,7 @@
   "case_id": "L2-REFERENCE_AUDIT-02-01",
   "skill_id": "zju-reference-audit",
   "fixture_sha256": "92a184748a67af7a3fb43d17a5110da624ca6a7e3e654ace4bf445fb8244a36a",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "92a184748a67af7a3fb43d17a5110da624ca6a7e3e654ace4bf445fb8244a36a",

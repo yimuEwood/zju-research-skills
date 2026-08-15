@@ -4,7 +4,7 @@
   "case_id": "L2-DATA_AVAILABILITY-03-03",
   "skill_id": "zju-data-availability",
   "fixture_sha256": "f40dd9978ff2e0fb4d666c6f39ac36986be57c52416884d49e2f4a49fcc4a569",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "f40dd9978ff2e0fb4d666c6f39ac36986be57c52416884d49e2f4a49fcc4a569",

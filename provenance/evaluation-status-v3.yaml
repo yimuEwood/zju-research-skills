@@ -4,7 +4,7 @@ evaluated_package_version: "1.1.0"
 protocol: "evals/portfolio-protocol-v3.json"
 capability_matrix: "evals/skill-evaluation-matrix-v3.json"
 current_evidence_declaration: "evals/current-portfolio-evidence-v3.json"
-evaluated_skill_commit: "08aecf5ba38f4879ae0d718ca624d16ac2affb6e"
+evaluated_skill_commit: "8712ddd6f6a36391595150ba04ba5aeb69224f62"
 current_status: beta
 official_portfolio_score: null
 official_score_reason: "Protocol v3 has not run a frozen, unseen, independently administered first-attempt holdout for all twenty skills."
@@ -42,9 +42,9 @@ current_layer_evidence:
     remaining_requirement: "A separately authored unseen holdout, preregistered independent Ed25519 administrator, first-attempt execution, two independent raters, and post-rating reveal."
 
 local_regression_snapshot:
-  unit_tests_discovered: 295
-  local_tests_passed_with_optional_cache: 295
-  clean_checkout_required_tests_passed: 294
+  unit_tests_discovered: 296
+  local_tests_passed_with_optional_cache: 296
+  clean_checkout_required_tests_passed: 295
   clean_checkout_optional_cache_checks_skipped: 1
   core_skill_scripts_scanned: 65
   optional_pack_scripts_scanned: 3

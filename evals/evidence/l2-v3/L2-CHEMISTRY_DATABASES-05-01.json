@@ -4,7 +4,7 @@
   "case_id": "L2-CHEMISTRY_DATABASES-05-01",
   "skill_id": "zju-chemistry-databases",
   "fixture_sha256": "aff0f1394b9f94bc5d64f0153e009e017632e4c732ab0a48eb036c1f0749d380",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "aff0f1394b9f94bc5d64f0153e009e017632e4c732ab0a48eb036c1f0749d380",

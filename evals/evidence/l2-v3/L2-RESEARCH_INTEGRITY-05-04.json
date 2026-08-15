@@ -4,7 +4,7 @@
   "case_id": "L2-RESEARCH_INTEGRITY-05-04",
   "skill_id": "zju-research-integrity",
   "fixture_sha256": "e7817edb514ed4da76cc8cef1dc576bf2dfa98fe811c00990ea7d4df88d8898a",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "e7817edb514ed4da76cc8cef1dc576bf2dfa98fe811c00990ea7d4df88d8898a",

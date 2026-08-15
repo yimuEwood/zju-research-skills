@@ -4,7 +4,7 @@
   "case_id": "L2-PAPER2PPT-05-04",
   "skill_id": "zju-paper2ppt",
   "fixture_sha256": "77c9b6246f4ee1346197970a26536a81073803638ef9cb599d2ee8b8fce3bb08",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "77c9b6246f4ee1346197970a26536a81073803638ef9cb599d2ee8b8fce3bb08",

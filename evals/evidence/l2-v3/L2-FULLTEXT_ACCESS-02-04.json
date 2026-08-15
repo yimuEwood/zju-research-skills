@@ -4,7 +4,7 @@
   "case_id": "L2-FULLTEXT_ACCESS-02-04",
   "skill_id": "zju-fulltext-access",
   "fixture_sha256": "c37e065327fa83382282d5d7b77f1ab8c8d5ea17957f424a63ae1dc3f23d864b",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "c37e065327fa83382282d5d7b77f1ab8c8d5ea17957f424a63ae1dc3f23d864b",

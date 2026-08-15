@@ -4,7 +4,7 @@
   "case_id": "L2-HYPOTHESIS_DESIGN-02-03",
   "skill_id": "zju-hypothesis-design",
   "fixture_sha256": "23433706e6894b4ffee2b35a80112adbbbe85df05bb65ff81dc79dfecb0329f1",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "23433706e6894b4ffee2b35a80112adbbbe85df05bb65ff81dc79dfecb0329f1",

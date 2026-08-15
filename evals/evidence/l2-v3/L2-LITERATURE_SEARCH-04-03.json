@@ -4,7 +4,7 @@
   "case_id": "L2-LITERATURE_SEARCH-04-03",
   "skill_id": "zju-literature-search",
   "fixture_sha256": "af25e84ed65c084e8a68a7e65c27ecdc16674b1f81d556497bd89e934e9108e8",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "af25e84ed65c084e8a68a7e65c27ecdc16674b1f81d556497bd89e934e9108e8",

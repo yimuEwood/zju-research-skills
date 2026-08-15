@@ -4,7 +4,7 @@
   "case_id": "L2-SCIENTIFIC_FIGURE-03-02",
   "skill_id": "zju-scientific-figure",
   "fixture_sha256": "a08a58be8edfb4fd758bcc328d5fb12d8ed39a1c37757f3d5005fe6bbb949cee",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "a08a58be8edfb4fd758bcc328d5fb12d8ed39a1c37757f3d5005fe6bbb949cee",

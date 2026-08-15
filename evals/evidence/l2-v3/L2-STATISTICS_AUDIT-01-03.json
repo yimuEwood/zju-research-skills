@@ -4,7 +4,7 @@
   "case_id": "L2-STATISTICS_AUDIT-01-03",
   "skill_id": "zju-statistics-audit",
   "fixture_sha256": "0f69afea3a859508ed077daf02c4046c576db74daf91e2bc0b40a9a5abb40b77",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "0f69afea3a859508ed077daf02c4046c576db74daf91e2bc0b40a9a5abb40b77",

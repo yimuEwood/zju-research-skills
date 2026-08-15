@@ -4,7 +4,7 @@
   "case_id": "L2-PAPER_READER-03-02",
   "skill_id": "zju-paper-reader",
   "fixture_sha256": "0f22168ff82ad45080e56e0de799be0de3c9d03ef148323ef98a0ff28820b13e",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "0f22168ff82ad45080e56e0de799be0de3c9d03ef148323ef98a0ff28820b13e",

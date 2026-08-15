@@ -4,7 +4,7 @@
   "case_id": "L2-REVIEW_RESPONSE-01-03",
   "skill_id": "zju-review-response",
   "fixture_sha256": "f1ce61f77c2bd88a5b4b162b71ca22f45f532b94d81c2a4651c2c3294578ec17",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "f1ce61f77c2bd88a5b4b162b71ca22f45f532b94d81c2a4651c2c3294578ec17",

@@ -4,7 +4,7 @@
   "case_id": "L2-LITERATURE_MONITOR-02-02",
   "skill_id": "zju-literature-monitor",
   "fixture_sha256": "617cdbb4b864bbf143b6d6a75c2ac804ba0734f40ff87124b6495525084a4229",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "617cdbb4b864bbf143b6d6a75c2ac804ba0734f40ff87124b6495525084a4229",

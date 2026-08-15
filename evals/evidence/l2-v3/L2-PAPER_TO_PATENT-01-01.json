@@ -4,7 +4,7 @@
   "case_id": "L2-PAPER_TO_PATENT-01-01",
   "skill_id": "zju-paper-to-patent",
   "fixture_sha256": "b30bfddf5d8c1a06e06212f0d21e4bb9d75ecb46c97fd4e878e9f73f9f962c69",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "b30bfddf5d8c1a06e06212f0d21e4bb9d75ecb46c97fd4e878e9f73f9f962c69",

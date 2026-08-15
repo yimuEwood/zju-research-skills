@@ -14,7 +14,7 @@ v110_distribution_release:
   distribution_status: stable
   capability_evaluation_status: beta
   official_portfolio_score: null
-  release_gate: "20 core Skills; L1 120/120; L2 400/400; 295 tests discovered and passed locally with the optional upstream cache; clean checkout requires 294 passes and transparently skips one optional cache check; 68 core-plus-pack scripts with zero static findings; Ubuntu/Windows and Python 3.11/3.13 CI; Codex/Claude Code/OpenCode manifests."
+  release_gate: "20 core Skills; L1 120/120; L2 400/400; 296 tests discovered and passed locally with the optional upstream cache; clean checkout requires 295 passes and transparently skips one optional cache check; 68 core-plus-pack scripts with zero static findings; Ubuntu/Windows and Python 3.11/3.13 CI; Codex/Claude Code/OpenCode manifests."
   capabilities: "Live scholarly-provider adapters with recorded tests; lawful OA JATS and real PDF preparation; bounded statistics, figure, DOCX and PPTX executors; one-command install/update; Fast Mode; optional omics, materials and drug-discovery packs."
   claim_boundary: "L2 proves deterministic software behavior against frozen oracles, not free-form scientific-answer accuracy. L3/L4 remain externally administered and incomplete."
 
@@ -232,7 +232,7 @@ local_verification:
     score_scope: "Structural and instructional conformance only; not scientific task quality."
     dimensions_and_weights: {description: 25, organization: 30, style: 20, structure: 25}
     scorecard_reference: "Claude Scholar skill-quality-reviewer scoring criteria at commit 2f7766fd541a723d4ddc6230b3277f948d61b093; project-specific checks were rewritten."
-  unit_tests_passed: 295
+  unit_tests_passed: 296
   scripts_scanned: 68
   security_findings: 0
   security_scope_note: "Zero findings under the current static rules is not a formal security proof."

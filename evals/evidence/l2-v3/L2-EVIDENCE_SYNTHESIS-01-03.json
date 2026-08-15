@@ -4,7 +4,7 @@
   "case_id": "L2-EVIDENCE_SYNTHESIS-01-03",
   "skill_id": "zju-evidence-synthesis",
   "fixture_sha256": "e269d3955ee8aa7c3966e62aeca4cc6936564a114d2aafe458fca6efdc39f764",
-  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "runner_sha256": "63d71b123c54a1596e9a36061f2cbd221836d5d310f53a345d9c355a49f48afa",
   "observation": {
     "passed": true,
     "fixture_sha256": "e269d3955ee8aa7c3966e62aeca4cc6936564a114d2aafe458fca6efdc39f764",
