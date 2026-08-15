@@ -1,0 +1,57 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-EXPERIMENT_LOG-03-01",
+  "skill_id": "zju-experiment-log",
+  "fixture_sha256": "e037c2de545b444c7690632b726d8e2ccc255cfba2ff57de23cb8f14e6020af0",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "e037c2de545b444c7690632b726d8e2ccc255cfba2ff57de23cb8f14e6020af0",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "schema_version": "2.0",
+          "issues": [
+            {
+              "path": "design_snapshot.experimental_unit",
+              "severity": "error",
+              "message": "Required design handoff field is missing."
+            }
+          ]
+        },
+        "surface": "{\"issues\": [{\"message\": \"Required design handoff field is missing.\", \"path\": \"design_snapshot.experimental_unit\", \"severity\": \"error\"}], \"schema_version\": \"2.0\", \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "schema_version": "2.0",
+          "issues": []
+        },
+        "surface": "{\"issues\": [], \"schema_version\": \"2.0\", \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "191f79c9dc6651b090fa173099ddab27cef8212433638390b34ad100a8a771ad"
+  }
+}

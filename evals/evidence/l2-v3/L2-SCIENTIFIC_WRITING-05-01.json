@@ -1,0 +1,63 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_WRITING-05-01",
+  "skill_id": "zju-scientific-writing",
+  "fixture_sha256": "47c8e7ffa7f693929d0b8857f4bff6ec2b5dacbf28e06dbf5ac619330ce51fec",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "47c8e7ffa7f693929d0b8857f4bff6ec2b5dacbf28e06dbf5ac619330ce51fec",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "contributions": 1,
+          "results_sections": 1,
+          "reviewer_objections": 1,
+          "workflow_version": "2.0",
+          "issues": [
+            {
+              "path": "results_sections[0].result_ids",
+              "severity": "error",
+              "message": "Unknown canonical result ID: UNKNOWN"
+            }
+          ]
+        },
+        "surface": "{\"contributions\": 1, \"issues\": [{\"message\": \"Unknown canonical result ID: UNKNOWN\", \"path\": \"results_sections[0].result_ids\", \"severity\": \"error\"}], \"results_sections\": 1, \"reviewer_objections\": 1, \"valid\": false, \"workflow_version\": \"2.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "contributions": 1,
+          "results_sections": 1,
+          "reviewer_objections": 1,
+          "workflow_version": "2.0",
+          "issues": []
+        },
+        "surface": "{\"contributions\": 1, \"issues\": [], \"results_sections\": 1, \"reviewer_objections\": 1, \"valid\": true, \"workflow_version\": \"2.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "ac3ac305a3e7a06b5d664835e95bea63031ba2c5003eab775bc0c3d42ea6c620"
+  }
+}

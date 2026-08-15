@@ -1,0 +1,108 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PAPER_TO_PATENT-01-03",
+  "skill_id": "zju-paper-to-patent",
+  "fixture_sha256": "5b80bc3a3604e6bd4cc9195ad7d1c1b3351a7b125a645a028ca8185a42b5a977",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "5b80bc3a3604e6bd4cc9195ad7d1c1b3351a7b125a645a028ca8185a42b5a977",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"alternative_embodiment_map\": [], \"claim_dependency_cycle\": [], \"claim_dependency_map\": [], \"claim_dependency_order\": [], \"declared_sources\": 1, \"feature_evidence_map\": [{\"claim_role\": \"independent\", \"evidence_ids\": [], \"feature_id\": \"FT-1\", \"source_anchors\": {\"P1\": \"p. 4, lines 10-12\"}, \"source_ids\": [\"P1\"], \"support_state\": \"explicit\", \"term\": \"controller\"}], \"features\": 1, \"findings\": [{\"field\": \"features[1].confidentiality\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"invention_map_ready\": false, \"prior_art_query_map\": [], \"problem_solution_effect_map\": [], \"valid\": false}",
+          "expected": "confidentiality"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "invention_map_ready": false,
+          "features": 1,
+          "declared_sources": 1,
+          "problem_solution_effect_map": [],
+          "feature_evidence_map": [
+            {
+              "feature_id": "FT-1",
+              "term": "controller",
+              "support_state": "explicit",
+              "source_ids": [
+                "P1"
+              ],
+              "source_anchors": {
+                "P1": "p. 4, lines 10-12"
+              },
+              "evidence_ids": [],
+              "claim_role": "independent"
+            }
+          ],
+          "claim_dependency_map": [],
+          "claim_dependency_order": [],
+          "claim_dependency_cycle": [],
+          "prior_art_query_map": [],
+          "alternative_embodiment_map": [],
+          "findings": []
+        },
+        "surface": "{\"alternative_embodiment_map\": [], \"claim_dependency_cycle\": [], \"claim_dependency_map\": [], \"claim_dependency_order\": [], \"declared_sources\": 1, \"feature_evidence_map\": [{\"claim_role\": \"independent\", \"evidence_ids\": [], \"feature_id\": \"FT-1\", \"source_anchors\": {\"P1\": \"p. 4, lines 10-12\"}, \"source_ids\": [\"P1\"], \"support_state\": \"explicit\", \"term\": \"controller\"}], \"features\": 1, \"findings\": [], \"invention_map_ready\": false, \"prior_art_query_map\": [], \"problem_solution_effect_map\": [], \"valid\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "invention_map_ready": false,
+          "features": 1,
+          "declared_sources": 1,
+          "problem_solution_effect_map": [],
+          "feature_evidence_map": [
+            {
+              "feature_id": "FT-1",
+              "term": "controller",
+              "support_state": "explicit",
+              "source_ids": [
+                "P1"
+              ],
+              "source_anchors": {
+                "P1": "p. 4, lines 10-12"
+              },
+              "evidence_ids": [],
+              "claim_role": "independent"
+            }
+          ],
+          "claim_dependency_map": [],
+          "claim_dependency_order": [],
+          "claim_dependency_cycle": [],
+          "prior_art_query_map": [],
+          "alternative_embodiment_map": [],
+          "findings": [
+            {
+              "severity": "error",
+              "field": "features[1].confidentiality",
+              "message": "required field missing"
+            }
+          ]
+        },
+        "surface": "{\"alternative_embodiment_map\": [], \"claim_dependency_cycle\": [], \"claim_dependency_map\": [], \"claim_dependency_order\": [], \"declared_sources\": 1, \"feature_evidence_map\": [{\"claim_role\": \"independent\", \"evidence_ids\": [], \"feature_id\": \"FT-1\", \"source_anchors\": {\"P1\": \"p. 4, lines 10-12\"}, \"source_ids\": [\"P1\"], \"support_state\": \"explicit\", \"term\": \"controller\"}], \"features\": 1, \"findings\": [{\"field\": \"features[1].confidentiality\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"invention_map_ready\": false, \"prior_art_query_map\": [], \"problem_solution_effect_map\": [], \"valid\": false}",
+        "exception": null
+      }
+    },
+    "second_sha256": "d69ddff2f61a3725393cbdd9d7495dafda07e7c5b564de81b6b5f1d5f68ff5d4"
+  }
+}

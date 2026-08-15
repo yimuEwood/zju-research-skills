@@ -1,0 +1,66 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-DATA_AVAILABILITY-04-03",
+  "skill_id": "zju-data-availability",
+  "fixture_sha256": "55352a16d00b0f36644f3e8446274ae9560aa9f8ec887c88a00cf9ccdc22c613",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "55352a16d00b0f36644f3e8446274ae9560aa9f8ec887c88a00cf9ccdc22c613",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"artifacts\": 1, \"findings\": [{\"field\": \"artifacts[1].description\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"supported_result_ids\": [], \"valid\": false, \"workflow_version\": \"1.0\"}",
+          "expected": "description"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "workflow_version": "1.0",
+          "artifacts": 1,
+          "supported_result_ids": [],
+          "findings": []
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [], \"supported_result_ids\": [], \"valid\": true, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "workflow_version": "1.0",
+          "artifacts": 1,
+          "supported_result_ids": [],
+          "findings": [
+            {
+              "severity": "error",
+              "field": "artifacts[1].description",
+              "message": "required field missing"
+            }
+          ]
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [{\"field\": \"artifacts[1].description\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"supported_result_ids\": [], \"valid\": false, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "30bf8b4e6a7a3a1f9b63c31b7ee77f036352520efb6e17d0789ec80c2e97010f"
+  }
+}

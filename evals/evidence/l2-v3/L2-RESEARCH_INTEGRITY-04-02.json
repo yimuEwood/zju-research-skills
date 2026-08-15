@@ -1,0 +1,92 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-RESEARCH_INTEGRITY-04-02",
+  "skill_id": "zju-research-integrity",
+  "fixture_sha256": "05f13f8f83a524f47415bb94664a88d0056905ed0c423fc7c43f24a7228316f9",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "05f13f8f83a524f47415bb94664a88d0056905ed0c423fc7c43f24a7228316f9",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": "low",
+          "expected": "low"
+        },
+        {
+          "passed": true,
+          "observed": "integrity_scope_severity_matrix_v1",
+          "expected": "integrity_scope_severity_matrix_v1"
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "oracle_id": "integrity_scope_severity_matrix_v1",
+          "valid": false,
+          "check": "scope_severity",
+          "details": {
+            "scope_severity": {
+              "computed_severity": "high",
+              "required_scope": [
+                "data_security",
+                "privacy",
+                "provenance"
+              ]
+            }
+          },
+          "findings": [
+            {
+              "field": "declared_severity",
+              "message": "declared 'low', computed 'high'",
+              "check": "scope_severity"
+            },
+            {
+              "field": "declared_scope",
+              "message": "required scope domains omitted: ['data_security', 'privacy']",
+              "check": "scope_severity"
+            }
+          ]
+        },
+        "surface": "{\"check\": \"scope_severity\", \"details\": {\"scope_severity\": {\"computed_severity\": \"high\", \"required_scope\": [\"data_security\", \"privacy\", \"provenance\"]}}, \"findings\": [{\"check\": \"scope_severity\", \"field\": \"declared_severity\", \"message\": \"declared 'low', computed 'high'\"}, {\"check\": \"scope_severity\", \"field\": \"declared_scope\", \"message\": \"required scope domains omitted: ['data_security', 'privacy']\"}], \"oracle_id\": \"integrity_scope_severity_matrix_v1\", \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "oracle_id": "integrity_scope_severity_matrix_v1",
+          "valid": true,
+          "check": "scope_severity",
+          "details": {
+            "scope_severity": {
+              "computed_severity": "low",
+              "required_scope": [
+                "provenance"
+              ]
+            }
+          },
+          "findings": []
+        },
+        "surface": "{\"check\": \"scope_severity\", \"details\": {\"scope_severity\": {\"computed_severity\": \"low\", \"required_scope\": [\"provenance\"]}}, \"findings\": [], \"oracle_id\": \"integrity_scope_severity_matrix_v1\", \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "f891365d681541596877d4b3bc4c8f74b58ec5bcbba928f762bc59b46ec25ffb"
+  }
+}

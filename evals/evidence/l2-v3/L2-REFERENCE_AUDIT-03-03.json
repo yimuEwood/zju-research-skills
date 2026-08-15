@@ -1,0 +1,100 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-REFERENCE_AUDIT-03-03",
+  "skill_id": "zju-reference-audit",
+  "fixture_sha256": "7437347cdbfde793803df71aa6d2dd07480f8fd62b5ee4865de24efd3d1c7524",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "7437347cdbfde793803df71aa6d2dd07480f8fd62b5ee4865de24efd3d1c7524",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"claims\": [{\"atoms\": [{\"atom_id\": \"A1\", \"contradicting_fact_ids\": [\"F1\"], \"material\": true, \"status\": \"contradicted\", \"supporting_fact_ids\": []}], \"claim_id\": \"C1\", \"status\": \"not_supported\"}], \"findings\": [{\"field\": \"claims[0].atoms[0]\", \"message\": \"material claim atom is contradicted\"}], \"oracle_id\": \"claim_atom_support_v1\", \"valid\": false}",
+          "expected": "material claim atom is contradicted"
+        },
+        {
+          "passed": true,
+          "observed": "claim_atom_support_v1",
+          "expected": "claim_atom_support_v1"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "oracle_id": "claim_atom_support_v1",
+          "valid": true,
+          "claims": [
+            {
+              "claim_id": "C1",
+              "status": "supported",
+              "atoms": [
+                {
+                  "atom_id": "A1",
+                  "status": "supported",
+                  "material": true,
+                  "supporting_fact_ids": [
+                    "F1"
+                  ],
+                  "contradicting_fact_ids": []
+                }
+              ]
+            }
+          ],
+          "findings": []
+        },
+        "surface": "{\"claims\": [{\"atoms\": [{\"atom_id\": \"A1\", \"contradicting_fact_ids\": [], \"material\": true, \"status\": \"supported\", \"supporting_fact_ids\": [\"F1\"]}], \"claim_id\": \"C1\", \"status\": \"supported\"}], \"findings\": [], \"oracle_id\": \"claim_atom_support_v1\", \"valid\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "oracle_id": "claim_atom_support_v1",
+          "valid": false,
+          "claims": [
+            {
+              "claim_id": "C1",
+              "status": "not_supported",
+              "atoms": [
+                {
+                  "atom_id": "A1",
+                  "status": "contradicted",
+                  "material": true,
+                  "supporting_fact_ids": [],
+                  "contradicting_fact_ids": [
+                    "F1"
+                  ]
+                }
+              ]
+            }
+          ],
+          "findings": [
+            {
+              "field": "claims[0].atoms[0]",
+              "message": "material claim atom is contradicted"
+            }
+          ]
+        },
+        "surface": "{\"claims\": [{\"atoms\": [{\"atom_id\": \"A1\", \"contradicting_fact_ids\": [\"F1\"], \"material\": true, \"status\": \"contradicted\", \"supporting_fact_ids\": []}], \"claim_id\": \"C1\", \"status\": \"not_supported\"}], \"findings\": [{\"field\": \"claims[0].atoms[0]\", \"message\": \"material claim atom is contradicted\"}], \"oracle_id\": \"claim_atom_support_v1\", \"valid\": false}",
+        "exception": null
+      }
+    },
+    "second_sha256": "b1a17b0a1ab57642b8282e91448aef99b5241c9606f0a5324ca52e6bb0a62b0b"
+  }
+}

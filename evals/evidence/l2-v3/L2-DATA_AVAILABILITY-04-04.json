@@ -1,0 +1,61 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-DATA_AVAILABILITY-04-04",
+  "skill_id": "zju-data-availability",
+  "fixture_sha256": "18373ed7fbe228505265df45a3645f189a581b3ddd702048feb0ea92bd8f050a",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "18373ed7fbe228505265df45a3645f189a581b3ddd702048feb0ea92bd8f050a",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "workflow_version": "1.0",
+          "artifacts": 1,
+          "supported_result_ids": [],
+          "findings": [
+            {
+              "severity": "error",
+              "field": "artifacts[1].description",
+              "message": "required field missing"
+            }
+          ]
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [{\"field\": \"artifacts[1].description\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"supported_result_ids\": [], \"valid\": false, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "workflow_version": "1.0",
+          "artifacts": 1,
+          "supported_result_ids": [],
+          "findings": []
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [], \"supported_result_ids\": [], \"valid\": true, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "d6bfeb6d1867771708f03ef0f89d427dd197a6648dc114609744aa2355f146b4"
+  }
+}

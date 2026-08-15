@@ -1,0 +1,72 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-REFERENCE_AUDIT-02-03",
+  "skill_id": "zju-reference-audit",
+  "fixture_sha256": "d987e38ffbf5fb868636685019553f003dd05c8b169c1644f8d2308cab66a9a4",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "d987e38ffbf5fb868636685019553f003dd05c8b169c1644f8d2308cab66a9a4",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"as_of\": \"2026-08-15\", \"max_age_days\": 30, \"records\": [{\"age_days\": 2418, \"audit_id\": \"REF-1\", \"freshness\": \"stale\", \"issues\": []}], \"valid\": false}",
+          "expected": "stale"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "as_of": "2026-08-15",
+          "max_age_days": 30,
+          "records": [
+            {
+              "audit_id": "REF-1",
+              "freshness": "current",
+              "age_days": 1,
+              "issues": []
+            }
+          ]
+        },
+        "surface": "{\"as_of\": \"2026-08-15\", \"max_age_days\": 30, \"records\": [{\"age_days\": 1, \"audit_id\": \"REF-1\", \"freshness\": \"current\", \"issues\": []}], \"valid\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "as_of": "2026-08-15",
+          "max_age_days": 30,
+          "records": [
+            {
+              "audit_id": "REF-1",
+              "freshness": "stale",
+              "age_days": 2418,
+              "issues": []
+            }
+          ]
+        },
+        "surface": "{\"as_of\": \"2026-08-15\", \"max_age_days\": 30, \"records\": [{\"age_days\": 2418, \"audit_id\": \"REF-1\", \"freshness\": \"stale\", \"issues\": []}], \"valid\": false}",
+        "exception": null
+      }
+    },
+    "second_sha256": "ad9954b036eae619f119da91aac02eb0e74bd09be6fa4004f0bc5eeb44aea720"
+  }
+}

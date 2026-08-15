@@ -1,0 +1,55 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_FIGURE-03-03",
+  "skill_id": "zju-scientific-figure",
+  "fixture_sha256": "1207fdb3769bd3875d0d78d5a3f879828ec00563d6e101f5a9d2bd1e5723ef12",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "1207fdb3769bd3875d0d78d5a3f879828ec00563d6e101f5a9d2bd1e5723ef12",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "export_formats": [
+            "png",
+            "svg",
+            "pdf"
+          ],
+          "exports_content_hashed": true,
+          "manifest_has_provenance": true,
+          "manifest_written": true
+        },
+        "surface": "{\"export_formats\": [\"png\", \"svg\", \"pdf\"], \"exports_content_hashed\": true, \"manifest_has_provenance\": true, \"manifest_written\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "ValueError: figure spec is missing bounded_conclusion",
+        "exception": {
+          "type": "ValueError",
+          "message": "figure spec is missing bounded_conclusion"
+        }
+      }
+    },
+    "second_sha256": "6d8f4c774dba9de936e4ce6849c4475832bb7ba1327d66c2c7da6a02245039f9"
+  }
+}

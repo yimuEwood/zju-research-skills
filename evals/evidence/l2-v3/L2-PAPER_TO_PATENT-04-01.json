@@ -1,0 +1,88 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PAPER_TO_PATENT-04-01",
+  "skill_id": "zju-paper-to-patent",
+  "fixture_sha256": "229ea64fcfec6820e815cb42cccef0b49fdc2e90df8c66a2c7dff32541dc4145",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "229ea64fcfec6820e815cb42cccef0b49fdc2e90df8c66a2c7dff32541dc4145",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": [
+            "P1"
+          ],
+          "expected": "P1"
+        },
+        {
+          "passed": true,
+          "observed": "patent_prior_art_lane_separation_v1",
+          "expected": "patent_prior_art_lane_separation_v1"
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "oracle_id": "patent_prior_art_lane_separation_v1",
+          "valid": false,
+          "critical_date": "2025-01-01",
+          "lanes": {
+            "prior_art_candidate": [
+              "P1"
+            ],
+            "post_cutoff_background": [
+              "P2"
+            ],
+            "date_unresolved": []
+          },
+          "findings": [
+            {
+              "field": "candidate_records[0].source_id",
+              "message": "an invention source cannot also be classified as prior art"
+            }
+          ]
+        },
+        "surface": "{\"critical_date\": \"2025-01-01\", \"findings\": [{\"field\": \"candidate_records[0].source_id\", \"message\": \"an invention source cannot also be classified as prior art\"}], \"lanes\": {\"date_unresolved\": [], \"post_cutoff_background\": [\"P2\"], \"prior_art_candidate\": [\"P1\"]}, \"oracle_id\": \"patent_prior_art_lane_separation_v1\", \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "oracle_id": "patent_prior_art_lane_separation_v1",
+          "valid": true,
+          "critical_date": "2025-01-01",
+          "lanes": {
+            "prior_art_candidate": [
+              "P1"
+            ],
+            "post_cutoff_background": [
+              "P2"
+            ],
+            "date_unresolved": []
+          },
+          "findings": []
+        },
+        "surface": "{\"critical_date\": \"2025-01-01\", \"findings\": [], \"lanes\": {\"date_unresolved\": [], \"post_cutoff_background\": [\"P2\"], \"prior_art_candidate\": [\"P1\"]}, \"oracle_id\": \"patent_prior_art_lane_separation_v1\", \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "32c2f705d6e8bd320bbf8c2aa2de40c21fae88622f3961ed5c8c8319cea3b3a3"
+  }
+}

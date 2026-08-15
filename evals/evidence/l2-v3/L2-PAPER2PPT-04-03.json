@@ -1,0 +1,55 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PAPER2PPT-04-03",
+  "skill_id": "zju-paper2ppt",
+  "fixture_sha256": "f3ba8edc43bcc52c2ef956257db1754e76060b7bb2346159732c396e475fa6e7",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "f3ba8edc43bcc52c2ef956257db1754e76060b7bb2346159732c396e475fa6e7",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "slide_count": 1,
+          "source_anchors": [
+            "p.1"
+          ],
+          "artifact_format": "pptx",
+          "artifact_content_hashed": true,
+          "ooxml_reopen": "passed",
+          "speaker_notes_present": true
+        },
+        "surface": "{\"artifact_content_hashed\": true, \"artifact_format\": \"pptx\", \"ooxml_reopen\": \"passed\", \"slide_count\": 1, \"source_anchors\": [\"p.1\"], \"speaker_notes_present\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "ValueError: deck plan is invalid: [{'severity': 'error', 'field': 'slides[1].source_anchors', 'message': 'required field missing'}]",
+        "exception": {
+          "type": "ValueError",
+          "message": "deck plan is invalid: [{'severity': 'error', 'field': 'slides[1].source_anchors', 'message': 'required field missing'}]"
+        }
+      }
+    },
+    "second_sha256": "bc3d125a60206b79421e3699cf15fae3916e4afcb1bf5a5e86b0655990811d11"
+  }
+}

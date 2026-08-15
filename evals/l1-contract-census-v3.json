@@ -5,7 +5,7 @@
   "evidence_class": "release_census",
   "scope": "repository_worktree_inputs",
   "skill_commit": null,
-  "input_tree_sha256": "b8d381a12d8f50a9d26d2b844fff2fdde7877a14a985fe9ddb8d9805b2ffd030",
+  "input_tree_sha256": "85122dff82ff6d986b1600013e15cb73cb313ab55e3815b52d1cb15b8091aeb8",
   "claim_boundary": "Engineering conformance only. These records cannot supply L2, L3, or L4 evidence, an official capability score, or Stable promotion.",
   "required_check_ids": [
     "skill_format",
@@ -1138,10 +1138,12 @@
         "skills/zju-literature-search/references/database-routing.md",
         "skills/zju-literature-search/references/discovery-closure.md",
         "skills/zju-literature-search/references/domain-query-templates.md",
+        "skills/zju-literature-search/references/provider-search-output.schema.json",
         "skills/zju-literature-search/references/search-protocol.md",
         "skills/zju-literature-search/references/untrusted-content.md",
         "skills/zju-literature-search/scripts/assess_search_saturation.py",
-        "skills/zju-literature-search/scripts/normalize_records.py"
+        "skills/zju-literature-search/scripts/normalize_records.py",
+        "skills/zju-literature-search/scripts/query_providers.py"
       ],
       "failures": []
     },
@@ -1206,9 +1208,11 @@
         "skills/zju-fulltext-access/SKILL.md",
         "skills/zju-fulltext-access/agents/openai.yaml",
         "skills/zju-fulltext-access/references/access-routes.md",
+        "skills/zju-fulltext-access/references/open-fulltext-output.schema.json",
         "skills/zju-fulltext-access/references/source-package.md",
         "skills/zju-fulltext-access/references/zju-library-access.md",
-        "skills/zju-fulltext-access/scripts/classify_access.py"
+        "skills/zju-fulltext-access/scripts/classify_access.py",
+        "skills/zju-fulltext-access/scripts/fetch_open_fulltext.py"
       ],
       "failures": []
     },
@@ -1273,8 +1277,11 @@
         "skills/zju-reference-audit/SKILL.md",
         "skills/zju-reference-audit/agents/openai.yaml",
         "skills/zju-reference-audit/references/audit-protocol.md",
+        "skills/zju-reference-audit/references/reference-resolution.schema.json",
         "skills/zju-reference-audit/references/support-assessment.md",
+        "skills/zju-reference-audit/scripts/audit_claim_support.py",
         "skills/zju-reference-audit/scripts/compare_metadata.py",
+        "skills/zju-reference-audit/scripts/resolve_reference.py",
         "skills/zju-reference-audit/scripts/validate_status_freshness.py"
       ],
       "failures": []
@@ -1340,8 +1347,11 @@
         "skills/zju-paper-reader/SKILL.md",
         "skills/zju-paper-reader/agents/openai.yaml",
         "skills/zju-paper-reader/references/argument-spine.md",
+        "skills/zju-paper-reader/references/jats-reader-bundle.schema.json",
         "skills/zju-paper-reader/references/paper-card.md",
+        "skills/zju-paper-reader/references/pdf-reader-source-bundle.schema.json",
         "skills/zju-paper-reader/references/reader-schema.md",
+        "skills/zju-paper-reader/scripts/parse_jats.py",
         "skills/zju-paper-reader/scripts/prepare_source.py",
         "skills/zju-paper-reader/scripts/validate_reader.py"
       ],
@@ -1412,6 +1422,7 @@
         "skills/zju-experiment-log/references/privacy-safety.md",
         "skills/zju-experiment-log/references/run-manifest.md",
         "skills/zju-experiment-log/scripts/build_log.py",
+        "skills/zju-experiment-log/scripts/validate_append_only_log.py",
         "skills/zju-experiment-log/scripts/validate_run_manifest.py",
         "skills/zju-statistics-audit/scripts/validate_analysis_contract.py"
       ],
@@ -1483,6 +1494,7 @@
         "skills/zju-statistics-audit/references/reporting-template.md",
         "skills/zju-statistics-audit/references/result-registry.md",
         "skills/zju-statistics-audit/scripts/execute_analysis.py",
+        "skills/zju-statistics-audit/scripts/profile_dataset.py",
         "skills/zju-statistics-audit/scripts/reconcile_result_registry.py",
         "skills/zju-statistics-audit/scripts/render_result_tokens.py",
         "skills/zju-statistics-audit/scripts/scan_reporting.py",
@@ -1554,8 +1566,10 @@
         "skills/zju-scientific-writing/references/claim-evidence-ledger.md",
         "skills/zju-scientific-writing/references/contribution-contract.md",
         "skills/zju-scientific-writing/references/writing-modes.md",
+        "skills/zju-scientific-writing/scripts/build_research_docx.py",
         "skills/zju-scientific-writing/scripts/check_claim_ledger.py",
         "skills/zju-scientific-writing/scripts/check_writing_contract.py",
+        "skills/zju-scientific-writing/scripts/validate_mode_fidelity.py",
         "skills/zju-statistics-audit/scripts/reconcile_result_registry.py",
         "skills/zju-statistics-audit/scripts/validate_result_handoff.py"
       ],
@@ -1693,6 +1707,7 @@
         "skills/zju-evidence-synthesis/references/synthesis-protocol.md",
         "skills/zju-evidence-synthesis/scripts/build_conflict_matrix.py",
         "skills/zju-evidence-synthesis/scripts/pool_effects.py",
+        "skills/zju-evidence-synthesis/scripts/select_protocol.py",
         "skills/zju-evidence-synthesis/scripts/validate_evidence_table.py"
       ],
       "failures": []
@@ -1897,6 +1912,7 @@
         "skills/zju-paper2ppt/agents/openai.yaml",
         "skills/zju-paper2ppt/references/deck-spec.md",
         "skills/zju-paper2ppt/references/slide-qa.md",
+        "skills/zju-paper2ppt/scripts/build_presentation.py",
         "skills/zju-paper2ppt/scripts/validate_deck_plan.py"
       ],
       "failures": []
@@ -2099,6 +2115,7 @@
         "skills/zju-data-availability/references/statement-contract.md",
         "skills/zju-data-availability/scripts/build_release_manifest.py",
         "skills/zju-data-availability/scripts/validate_data_inventory.py",
+        "skills/zju-data-availability/scripts/validate_statement_consistency.py",
         "skills/zju-statistics-audit/scripts/validate_result_handoff.py"
       ],
       "failures": []
@@ -2166,6 +2183,8 @@
         "skills/zju-proposal-writer/references/evidence-to-execution.md",
         "skills/zju-proposal-writer/references/proposal-contract.md",
         "skills/zju-proposal-writer/references/scheme-routing.md",
+        "skills/zju-proposal-writer/scripts/audit_feasibility.py",
+        "skills/zju-proposal-writer/scripts/render_proposal_docx.py",
         "skills/zju-proposal-writer/scripts/validate_proposal_manifest.py"
       ],
       "failures": []
@@ -2233,6 +2252,8 @@
         "skills/zju-paper-to-patent/references/disclosure-structure.md",
         "skills/zju-paper-to-patent/references/research-to-invention-map.md",
         "skills/zju-paper-to-patent/references/source-to-claim.md",
+        "skills/zju-paper-to-patent/scripts/audit_claim_map.py",
+        "skills/zju-paper-to-patent/scripts/separate_prior_art.py",
         "skills/zju-paper-to-patent/scripts/validate_feature_ledger.py"
       ],
       "failures": []
@@ -2301,6 +2322,7 @@
         "skills/zju-chemistry-databases/references/comparison-playbook.md",
         "skills/zju-chemistry-databases/references/database-routing.md",
         "skills/zju-chemistry-databases/scripts/build_evidence_matrix.py",
+        "skills/zju-chemistry-databases/scripts/compare_conditions.py",
         "skills/zju-chemistry-databases/scripts/validate_chemistry_records.py"
       ],
       "failures": []
@@ -2368,7 +2390,8 @@
         "skills/zju-research-integrity/references/incident-triage.md",
         "skills/zju-research-integrity/references/integrity-checklist.md",
         "skills/zju-research-integrity/references/zju-policy-routing.md",
-        "skills/zju-research-integrity/scripts/audit_provenance_manifest.py"
+        "skills/zju-research-integrity/scripts/audit_provenance_manifest.py",
+        "skills/zju-research-integrity/scripts/triage_integrity_case.py"
       ],
       "failures": []
     },
@@ -2436,6 +2459,7 @@
         "skills/zju-research-director/references/autonomy-levels.md",
         "skills/zju-research-director/references/capability-registry.yaml",
         "skills/zju-research-director/references/executor-registry.yaml",
+        "skills/zju-research-director/references/fast-mode.md",
         "skills/zju-research-director/references/gate-matrix.md",
         "skills/zju-research-director/references/mission-schema.yaml",
         "skills/zju-research-director/references/routing-policy.md",
@@ -2446,6 +2470,7 @@
         "skills/zju-research-director/scripts/migrate_mission.py",
         "skills/zju-research-director/scripts/plan_mission.py",
         "skills/zju-research-director/scripts/resolve_executor.py",
+        "skills/zju-research-director/scripts/route_fast_request.py",
         "skills/zju-research-director/scripts/validate_artifact.py",
         "skills/zju-research-director/scripts/validate_mission.py"
       ],
@@ -2503,11 +2528,11 @@
     },
     {
       "path": "provenance/sources.yaml",
-      "sha256": "3da632272fd147faabed1784f6af9539cd26fc66b4fad9de0431ca97b785d740"
+      "sha256": "f0d6e1fc7d214972c0d5bc11733fbb5382e0ecd10034cb63aab79de984254523"
     },
     {
       "path": "skills/zju-chemistry-databases/SKILL.md",
-      "sha256": "76b7dd4c82cfc3bc2ab5eb17a0b5a355a8ef2e1a52f52299960fc675ef73d9b5"
+      "sha256": "1dcbc7ccfc0a55b06b562b5bb8f42c176b99dead650c6dfc588eb662125788e0"
     },
     {
       "path": "skills/zju-chemistry-databases/agents/openai.yaml",
@@ -2530,12 +2555,16 @@
       "sha256": "bf0a02600336f3ad8a4541ccc9a8d70576bf3ab34eafb9189e57255d5f141724"
     },
     {
+      "path": "skills/zju-chemistry-databases/scripts/compare_conditions.py",
+      "sha256": "2e4708ebfb62e2bc28021770caff7c1f612113111b0ea016ec892ea55bd13643"
+    },
+    {
       "path": "skills/zju-chemistry-databases/scripts/validate_chemistry_records.py",
       "sha256": "22a9df0f23bbc5193b34e1f2501e67a3934c1610456e546fe715c5e12e9e8717"
     },
     {
       "path": "skills/zju-data-availability/SKILL.md",
-      "sha256": "957e8334bd964fe04989adbf1bf87dcd26c3c289d5bda6952db69e04aa9c64c6"
+      "sha256": "74dfd3cc60efa5bfb9d9936c02364de3d1e9cdb0a4e17de5dd189883b379fbc9"
     },
     {
       "path": "skills/zju-data-availability/agents/openai.yaml",
@@ -2558,8 +2587,12 @@
       "sha256": "f6a944d80ffc24a8fba922def2deb0f6bb723a91eb8d1d5c5f6cc048e3af1edb"
     },
     {
+      "path": "skills/zju-data-availability/scripts/validate_statement_consistency.py",
+      "sha256": "8786da346b763ff12e26b8c30276d919383042c1292b0c8882f140cad07375b6"
+    },
+    {
       "path": "skills/zju-evidence-synthesis/SKILL.md",
-      "sha256": "bb703aa24b4367e49a01ae6416ec3aefb90366f25549adc621628fba9af11c83"
+      "sha256": "9e1641c7a0cbaacc430623c34a9c2b5f3ba3e7f46f48c92e533cc23feda5c11a"
     },
     {
       "path": "skills/zju-evidence-synthesis/agents/openai.yaml",
@@ -2586,12 +2619,16 @@
       "sha256": "c52d859561e0da822214a3de4cdfc9fd6c93f92f71a0ed1a82c6787c5d312cd2"
     },
     {
+      "path": "skills/zju-evidence-synthesis/scripts/select_protocol.py",
+      "sha256": "2819587cbd905aa2f2c2d1a3821de2e5a0674721d20a31641f8cbb82446c05f5"
+    },
+    {
       "path": "skills/zju-evidence-synthesis/scripts/validate_evidence_table.py",
       "sha256": "e2af27daac333487419c3f4cf665193da214919cb1357592183bcdcd42e7d907"
     },
     {
       "path": "skills/zju-experiment-log/SKILL.md",
-      "sha256": "d36acc2f276f0f4627fee1626de0cad9d4f0ca431e40b4b33d2beb3eea162c37"
+      "sha256": "9e1a4c38f0560561695ad72f789259d73178eee901cce7b5dd41ae77de52ffd8"
     },
     {
       "path": "skills/zju-experiment-log/agents/openai.yaml",
@@ -2618,12 +2655,16 @@
       "sha256": "7090ea6a8ccc218c085918573949d423a2a24d1f772747f5fde8a8746f4e2d91"
     },
     {
+      "path": "skills/zju-experiment-log/scripts/validate_append_only_log.py",
+      "sha256": "fbc7b1664149e6d87641755dce3e0301f8a85b1c4fe765f2ddf040682d84324e"
+    },
+    {
       "path": "skills/zju-experiment-log/scripts/validate_run_manifest.py",
       "sha256": "56485850a7f37acbc96728f7f4585b75c27eda7d77905a64fbaf2d820ed00870"
     },
     {
       "path": "skills/zju-fulltext-access/SKILL.md",
-      "sha256": "94a6f3a2ce6bcdc18a8265bdbbd5e84a518bbf8156608547c73d3bb0038def21"
+      "sha256": "ce747a427c2a0ffbdd7e307241249f976f703585a9d23c316b73d2ae9f03666b"
     },
     {
       "path": "skills/zju-fulltext-access/agents/openai.yaml",
@@ -2632,6 +2673,10 @@
     {
       "path": "skills/zju-fulltext-access/references/access-routes.md",
       "sha256": "2cb38ea3e49d03015572d389826d170fe734cbc3a783656c018b1730d2f1be06"
+    },
+    {
+      "path": "skills/zju-fulltext-access/references/open-fulltext-output.schema.json",
+      "sha256": "c30fbc9bf630b110e77c11e9ed458fee84620d78a5453aa6fbeb711ccf8997e9"
     },
     {
       "path": "skills/zju-fulltext-access/references/source-package.md",
@@ -2644,6 +2689,10 @@
     {
       "path": "skills/zju-fulltext-access/scripts/classify_access.py",
       "sha256": "44342df2ebf71be0206afaeb448e36854f86520a7913fbb4bf7b3f9308ff9ffe"
+    },
+    {
+      "path": "skills/zju-fulltext-access/scripts/fetch_open_fulltext.py",
+      "sha256": "83b0930fafc1cbeb8f7bf4c31da5787cec6e503a8fd2f0ca21f48ffe3c1fd104"
     },
     {
       "path": "skills/zju-hypothesis-design/SKILL.md",
@@ -2699,7 +2748,7 @@
     },
     {
       "path": "skills/zju-literature-search/SKILL.md",
-      "sha256": "2e541e90d77dfc05b5405986913e3c3e2b44522288f1036302eb4e35f7740068"
+      "sha256": "ed68f981412d655b79a2d4399a20414e973fedd3fd5d26930d4ad154ad6c5d10"
     },
     {
       "path": "skills/zju-literature-search/agents/openai.yaml",
@@ -2718,6 +2767,10 @@
       "sha256": "fbd2a40d6ea18314bd9e87c8edf771cf4cb018fedc167b6bccd2cb271d12656e"
     },
     {
+      "path": "skills/zju-literature-search/references/provider-search-output.schema.json",
+      "sha256": "0cfade92c756a6109ae195cbc02c78ef7a5cfb8f2c8797d310728d16580ba247"
+    },
+    {
       "path": "skills/zju-literature-search/references/search-protocol.md",
       "sha256": "bac397bf3e48fde4f0929ff2a3c8a859634fbd5f9b31e8c330e180148e0e4a88"
     },
@@ -2734,8 +2787,12 @@
       "sha256": "6fd8defb52bbb6881bcba81816675acd57b17620c1ae92b49992723163d358dc"
     },
     {
+      "path": "skills/zju-literature-search/scripts/query_providers.py",
+      "sha256": "f6ec0e281cb278a6485cade321a13ac51a570d010c198fe670e363ff04f8df6c"
+    },
+    {
       "path": "skills/zju-paper-reader/SKILL.md",
-      "sha256": "f9edd4229c88dfa6982ec47e76c6b98e27d80a853338cca2d162d507ff597701"
+      "sha256": "f47d87b226602ec659bcf43a61406bdbbd4e9ad42b22759a666a88912ecb0e7d"
     },
     {
       "path": "skills/zju-paper-reader/agents/openai.yaml",
@@ -2746,16 +2803,28 @@
       "sha256": "9b73109d5dffecd58c7002e2bdf285611d2fee645d75fb56952a3cc1e890d027"
     },
     {
+      "path": "skills/zju-paper-reader/references/jats-reader-bundle.schema.json",
+      "sha256": "c5cf76f8b77a5d3996a777ef78903aaab0fdfc0664b329f13ad6ba918e9ca96c"
+    },
+    {
       "path": "skills/zju-paper-reader/references/paper-card.md",
       "sha256": "e79142ce06da87e024511bd71a053a303df0dd785e57df62b4f603a8d968e40d"
+    },
+    {
+      "path": "skills/zju-paper-reader/references/pdf-reader-source-bundle.schema.json",
+      "sha256": "340ebcbc5c1320d6cb6933c06d8eeb1292641115cded146fcfc8f5af3a96c1db"
     },
     {
       "path": "skills/zju-paper-reader/references/reader-schema.md",
       "sha256": "1c3b9a394ce71f6479794edba21cd393ac7654805ba393d79ad0132f90d7c739"
     },
     {
+      "path": "skills/zju-paper-reader/scripts/parse_jats.py",
+      "sha256": "8090130bbc66c0be9b89e7d9cd598a1fbc10522c41ddf72739041c2c96af1577"
+    },
+    {
       "path": "skills/zju-paper-reader/scripts/prepare_source.py",
-      "sha256": "381ea8c2b90fe4053ff92afda6fa5d7c504c70a2e83fa7f8601d3375a37b831e"
+      "sha256": "1a00ee27301aab8370ec3e9dbf7ea16ffc5d77c88b995298394f77acee9b973d"
     },
     {
       "path": "skills/zju-paper-reader/scripts/validate_reader.py",
@@ -2763,7 +2832,7 @@
     },
     {
       "path": "skills/zju-paper-to-patent/SKILL.md",
-      "sha256": "1771c147786fcdcdc3b087d0007c40a161a9f00ade458e70d54dd26e2e5a4446"
+      "sha256": "de5ed2f4438c00cd647e7a27d67e9232e5f8201538acc91f972684d3aaed1a91"
     },
     {
       "path": "skills/zju-paper-to-patent/agents/openai.yaml",
@@ -2782,12 +2851,20 @@
       "sha256": "0ea62d8eacbecf0d17d9fc56e702086daf6286e2d05723cf5b46e57e82e57cac"
     },
     {
+      "path": "skills/zju-paper-to-patent/scripts/audit_claim_map.py",
+      "sha256": "aaf65866947d80a1b627b57d5e3cf898e03f029a3ec827d50d74b7a4ae3e3a62"
+    },
+    {
+      "path": "skills/zju-paper-to-patent/scripts/separate_prior_art.py",
+      "sha256": "de0628e44c009a8335158294f2f7ae0eba69a14ff83fe1e2faf99a1797ce6d68"
+    },
+    {
       "path": "skills/zju-paper-to-patent/scripts/validate_feature_ledger.py",
       "sha256": "1de790019b61aead7334d5033cec39359cc015149757b31b4cf1ed3379798f12"
     },
     {
       "path": "skills/zju-paper2ppt/SKILL.md",
-      "sha256": "b4daa9f8ec4dc79604ef1e00596a1121daba6506dfc460564a397ee02da41378"
+      "sha256": "85d90bf789e6bcf426da447e680c90df8de03375f2ee4fc6b6e7800d838265e3"
     },
     {
       "path": "skills/zju-paper2ppt/agents/openai.yaml",
@@ -2802,12 +2879,16 @@
       "sha256": "c634ea96af427b7369009730bae9545c5d4c1ae2cd3867d47703e7c50d43e258"
     },
     {
+      "path": "skills/zju-paper2ppt/scripts/build_presentation.py",
+      "sha256": "f47f4cc070a681e9ee8273523a9741a90ae21dcaf4af411c4716bdb6251de19b"
+    },
+    {
       "path": "skills/zju-paper2ppt/scripts/validate_deck_plan.py",
       "sha256": "c6c87d2907efc9b27b952ed1eb284bb77e3d2b150bbeef7747745cc4025a2133"
     },
     {
       "path": "skills/zju-proposal-writer/SKILL.md",
-      "sha256": "0076d898eff913c9b5f23200e068c98fe32799a896a28db65112a47a8dd7297a"
+      "sha256": "ba2a5416b6be1a90d1006a8e688251b92f154ddb1ac477e049f142a09ac9552a"
     },
     {
       "path": "skills/zju-proposal-writer/agents/openai.yaml",
@@ -2826,12 +2907,20 @@
       "sha256": "4e86af094c4ad94afa937ecdb07be49fe43d2a825f9df29894a5e6f2f31c5641"
     },
     {
+      "path": "skills/zju-proposal-writer/scripts/audit_feasibility.py",
+      "sha256": "11406b7ffa9b44b340506e5b4dd5066599b02d3511a0b6b877cbf2bf1386f59d"
+    },
+    {
+      "path": "skills/zju-proposal-writer/scripts/render_proposal_docx.py",
+      "sha256": "429cc68a4f6d5265756dbc3d0d53deb2ca334abdd68a77cedd8e1957fe55b88b"
+    },
+    {
       "path": "skills/zju-proposal-writer/scripts/validate_proposal_manifest.py",
       "sha256": "46bcec4aad26b51158908031345df1b642d53d20ddb771bede7e2e1c5d265f41"
     },
     {
       "path": "skills/zju-reference-audit/SKILL.md",
-      "sha256": "9242f3eeb46ea7dd0d6958fc3cae18095b6876a7b6a197a0470461f5fa936188"
+      "sha256": "fcba5b210cbbc94e5543919a747de4daefd6797e3b49be45078839426cf45a10"
     },
     {
       "path": "skills/zju-reference-audit/agents/openai.yaml",
@@ -2842,12 +2931,24 @@
       "sha256": "35455d57749c71b3b2c9a4ba15d15da32d747cb39b0930af2978dc6a76d5429e"
     },
     {
+      "path": "skills/zju-reference-audit/references/reference-resolution.schema.json",
+      "sha256": "8aa1e3daaf645658c389bdb8060275897f6d92edb2a022d01f32b63775349527"
+    },
+    {
       "path": "skills/zju-reference-audit/references/support-assessment.md",
       "sha256": "514f24eaa3c719bddea98ae57c263eeb30edd39e7d530664a5127c1b2b85bbc3"
     },
     {
+      "path": "skills/zju-reference-audit/scripts/audit_claim_support.py",
+      "sha256": "5bcb7e4c110512f82c1e5afa8d6b7d9731748406ff2de80c9ac31e0a599402f1"
+    },
+    {
       "path": "skills/zju-reference-audit/scripts/compare_metadata.py",
       "sha256": "42c052ea441dfa0b76dfed097ab7a50c745bb8a0cdcae0427ddee743d7b1c831"
+    },
+    {
+      "path": "skills/zju-reference-audit/scripts/resolve_reference.py",
+      "sha256": "b0cc706d28a659feb5cbcfb653f91831b7d87ae15aa6b48d0583593c8e940d01"
     },
     {
       "path": "skills/zju-reference-audit/scripts/validate_status_freshness.py",
@@ -2855,7 +2956,7 @@
     },
     {
       "path": "skills/zju-research-director/SKILL.md",
-      "sha256": "5cbb5fa00310ca213f554192dffb3f7964afeb0df8565c9f6bed8f0ad369ee7d"
+      "sha256": "651628b297c5555705a8ef8046f41b7a2ff117567dd5e8bf1b2243b2fd3d077e"
     },
     {
       "path": "skills/zju-research-director/agents/openai.yaml",
@@ -2871,11 +2972,15 @@
     },
     {
       "path": "skills/zju-research-director/references/capability-registry.yaml",
-      "sha256": "2138efae46408db0f7cef256690fa6e5bf73ebe85c4c97ff2d8b10ed6d04fb45"
+      "sha256": "d0e86dbc255aba8db5ab44c48ff056c6fa4e21111f1c4648584c7aa7cfa9b503"
     },
     {
       "path": "skills/zju-research-director/references/executor-registry.yaml",
-      "sha256": "818157060b7f32ecc73a869602de234b033b1a56fc45c899cdae87f4f2865cc8"
+      "sha256": "8f59a13bfc4b5f8c2c9d92e49fa70c9c5b5da10726592631728e16b758833e06"
+    },
+    {
+      "path": "skills/zju-research-director/references/fast-mode.md",
+      "sha256": "9578c7e32ccfb306d8817b115c3aaf84a3e177513becc0afe5ef0e4b878b37da"
     },
     {
       "path": "skills/zju-research-director/references/gate-matrix.md",
@@ -2887,7 +2992,7 @@
     },
     {
       "path": "skills/zju-research-director/references/routing-policy.md",
-      "sha256": "ace08d6c262cd5419890416358e1daec252185732e45dcc84c5de147fccca35e"
+      "sha256": "8d2948c50bd63e2ce45b4a0d3f1ddf9c6d1eccdde4d5cd09cc017204645e200b"
     },
     {
       "path": "skills/zju-research-director/references/trusted-validation-attestation.schema.yaml",
@@ -2918,6 +3023,10 @@
       "sha256": "871b7ca0ba287d6ff04bd968f698befcfdb5417627264cc115ee6a7d003b573f"
     },
     {
+      "path": "skills/zju-research-director/scripts/route_fast_request.py",
+      "sha256": "189736ba17ef25e09bf31a8bf8866cfa0d730fdfcaeb5ba246279d124524b4a4"
+    },
+    {
       "path": "skills/zju-research-director/scripts/validate_artifact.py",
       "sha256": "61fc735c9c4a563f53a2b327c991f68f578135ceb94cc635b5d0aca6512e7558"
     },
@@ -2927,7 +3036,7 @@
     },
     {
       "path": "skills/zju-research-integrity/SKILL.md",
-      "sha256": "bcc567f13689f64e42014fd1996951feb91a82b4b37013ce6c15bd57327a1ce1"
+      "sha256": "b349359e2f9ee5eca49edc0e5252d51f8a1854f2dc544699c76fa0ffe1bd7f09"
     },
     {
       "path": "skills/zju-research-integrity/agents/openai.yaml",
@@ -2948,6 +3057,10 @@
     {
       "path": "skills/zju-research-integrity/scripts/audit_provenance_manifest.py",
       "sha256": "be2d8be1d8fc465cb2b12ea146e9ccef103e3a0497abf7dd6b9be64beea59822"
+    },
+    {
+      "path": "skills/zju-research-integrity/scripts/triage_integrity_case.py",
+      "sha256": "57263d058aa7fb371d2616efdca33403855a71c3afdf9b6e300ac2c94780648d"
     },
     {
       "path": "skills/zju-review-response/SKILL.md",
@@ -2991,7 +3104,7 @@
     },
     {
       "path": "skills/zju-scientific-figure/SKILL.md",
-      "sha256": "9ff028367fd806857d539989b9e098b2d129c6c3ee7ee053583ff77df9231c34"
+      "sha256": "b33bfd2a31a87b124fa1a53e37b94fd3fc536b7d926ec7630755da5cbab70ab7"
     },
     {
       "path": "skills/zju-scientific-figure/agents/openai.yaml",
@@ -2999,7 +3112,7 @@
     },
     {
       "path": "skills/zju-scientific-figure/references/executable-figure-spec.md",
-      "sha256": "2dae2970b89e7c051cee949ecfb4bbed39e028efd82ee0cc8cfa3a7f2f8a10c1"
+      "sha256": "9b87c55f45e4da068a650474ae76ea2baa9e81d496f14c29c31655321acbeb7a"
     },
     {
       "path": "skills/zju-scientific-figure/references/figure-contract.md",
@@ -3011,7 +3124,7 @@
     },
     {
       "path": "skills/zju-scientific-figure/scripts/render_from_registry.py",
-      "sha256": "398c34c8298e6596883dcf167a71811873f209989f158607cf8105ccb4f3edba"
+      "sha256": "688d164e49acb1bedbf5e16185630f257053673c1bf5ca7d54d00a846b468303"
     },
     {
       "path": "skills/zju-scientific-figure/scripts/validate_figure_manifest.py",
@@ -3019,7 +3132,7 @@
     },
     {
       "path": "skills/zju-scientific-writing/SKILL.md",
-      "sha256": "e6f55d2de55dfa576769b09a2577975cf813e06b6c4abb30631b0345f67dc01d"
+      "sha256": "131dc3aa7745197facbbe778c51c02436364ed8976d2c85372925d2993e9efc6"
     },
     {
       "path": "skills/zju-scientific-writing/agents/openai.yaml",
@@ -3038,6 +3151,10 @@
       "sha256": "f09997886127746163cc43afab193cb088d422f8eff3cafd0339d2ce31ff903a"
     },
     {
+      "path": "skills/zju-scientific-writing/scripts/build_research_docx.py",
+      "sha256": "232b757e932de3f1facc877972e249091d97b72d0182a2ff35aa6aeff41bbeb1"
+    },
+    {
       "path": "skills/zju-scientific-writing/scripts/check_claim_ledger.py",
       "sha256": "0ac76cc174b041fd03ec267f335235f4d699f7197b9e1fa854de1fe3dfba7968"
     },
@@ -3046,8 +3163,12 @@
       "sha256": "020660adc97f7073f9bd717d40e3030887f6eb1334ea5c19d46e4c04de47b67c"
     },
     {
+      "path": "skills/zju-scientific-writing/scripts/validate_mode_fidelity.py",
+      "sha256": "e2624f64c807fbbf89162a127d903d8ad30a6a679d5d7c24e19ccd2f9ab33148"
+    },
+    {
       "path": "skills/zju-statistics-audit/SKILL.md",
-      "sha256": "78881d3dd866650c6b90ed2de0111364707b65e663ca9aec74bbdd5c0de0da94"
+      "sha256": "6641460da390c9b5806a3c7168f050c370326809122a091eec9ef941e37e9101"
     },
     {
       "path": "skills/zju-statistics-audit/agents/openai.yaml",
@@ -3063,7 +3184,7 @@
     },
     {
       "path": "skills/zju-statistics-audit/references/execution-contract.md",
-      "sha256": "213466ded6882e11a22b9a8a6cea5059b2db3101ef6007db62a385b4277467e0"
+      "sha256": "8f4243d84843857a4c604dd64ff731f507b24bf95aa218e036c65955d444bc14"
     },
     {
       "path": "skills/zju-statistics-audit/references/reporting-template.md",
@@ -3075,7 +3196,11 @@
     },
     {
       "path": "skills/zju-statistics-audit/scripts/execute_analysis.py",
-      "sha256": "efcfc971d4fb75cad759a8df3788e56e1414538db760c98f1d8ff104ced1169b"
+      "sha256": "955d3412cf328f47adaadc8b7e90f1d80cc3e17c696fe94fc4f0359799651e4c"
+    },
+    {
+      "path": "skills/zju-statistics-audit/scripts/profile_dataset.py",
+      "sha256": "a4563675d3b7221631e972e48d8a2385a40f39c3ebc5a5652fc9b22a44687ebf"
     },
     {
       "path": "skills/zju-statistics-audit/scripts/reconcile_result_registry.py",

@@ -1,0 +1,68 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_WRITING-04-03",
+  "skill_id": "zju-scientific-writing",
+  "fixture_sha256": "1e5a5748f4cb9652e3fd5fb4b2c49ba56bfe497d0972a22fb0c7484c5656d853",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "1e5a5748f4cb9652e3fd5fb4b2c49ba56bfe497d0972a22fb0c7484c5656d853",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"contributions\": 1, \"issues\": [{\"message\": \"Required field is missing.\", \"path\": \"contributions[0].claim_boundary\", \"severity\": \"error\"}], \"results_sections\": 1, \"reviewer_objections\": 1, \"valid\": false, \"workflow_version\": \"2.0\"}",
+          "expected": "claim_boundary"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "contributions": 1,
+          "results_sections": 1,
+          "reviewer_objections": 1,
+          "workflow_version": "2.0",
+          "issues": []
+        },
+        "surface": "{\"contributions\": 1, \"issues\": [], \"results_sections\": 1, \"reviewer_objections\": 1, \"valid\": true, \"workflow_version\": \"2.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "contributions": 1,
+          "results_sections": 1,
+          "reviewer_objections": 1,
+          "workflow_version": "2.0",
+          "issues": [
+            {
+              "path": "contributions[0].claim_boundary",
+              "severity": "error",
+              "message": "Required field is missing."
+            }
+          ]
+        },
+        "surface": "{\"contributions\": 1, \"issues\": [{\"message\": \"Required field is missing.\", \"path\": \"contributions[0].claim_boundary\", \"severity\": \"error\"}], \"results_sections\": 1, \"reviewer_objections\": 1, \"valid\": false, \"workflow_version\": \"2.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "a1b74941a695a4ef87d4e746f6bc2425046f03e1aa6da0ed1e680c4cc2622ab9"
+  }
+}

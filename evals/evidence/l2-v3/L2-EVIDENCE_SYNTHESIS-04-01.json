@@ -1,0 +1,149 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-EVIDENCE_SYNTHESIS-04-01",
+  "skill_id": "zju-evidence-synthesis",
+  "fixture_sha256": "26b1e9d01df273c3ff22d7447736e2bd90cf4613446f76d96d3634150f0f3662",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "26b1e9d01df273c3ff22d7447736e2bd90cf4613446f76d96d3634150f0f3662",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": 1,
+          "expected": 1
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "groups": [
+            {
+              "claim_or_outcome_id": "CLM-1",
+              "study_ids": [
+                "S1",
+                "S2"
+              ],
+              "direction_groups": {
+                "contradicts_or_negative": [],
+                "null_mixed_or_unclear": [],
+                "other": [
+                  "S2"
+                ],
+                "supports_or_positive": [
+                  "S1"
+                ]
+              },
+              "directional_conflict": false,
+              "null_disagreement": false,
+              "candidate_moderators": [
+                {
+                  "field": "measurement_method",
+                  "observed_values": [
+                    "assay-A",
+                    "assay-B"
+                  ]
+                }
+              ],
+              "risk_of_bias_strata": {
+                "low": [
+                  "S1",
+                  "S2"
+                ]
+              },
+              "directness_strata": {
+                "direct": [
+                  "S1",
+                  "S2"
+                ]
+              },
+              "resolution_state": "no_directional_conflict_detected"
+            }
+          ],
+          "summary": {
+            "groups": 1,
+            "directional_conflicts": 0,
+            "null_disagreements": 0,
+            "unexplained_conflicts": 0
+          },
+          "interpretation_note": "Candidate moderators explain where studies differ; they do not prove the cause of heterogeneity."
+        },
+        "surface": "{\"groups\": [{\"candidate_moderators\": [{\"field\": \"measurement_method\", \"observed_values\": [\"assay-A\", \"assay-B\"]}], \"claim_or_outcome_id\": \"CLM-1\", \"direction_groups\": {\"contradicts_or_negative\": [], \"null_mixed_or_unclear\": [], \"other\": [\"S2\"], \"supports_or_positive\": [\"S1\"]}, \"directional_conflict\": false, \"directness_strata\": {\"direct\": [\"S1\", \"S2\"]}, \"null_disagreement\": false, \"resolution_state\": \"no_directional_conflict_detected\", \"risk_of_bias_strata\": {\"low\": [\"S1\", \"S2\"]}, \"study_ids\": [\"S1\", \"S2\"]}], \"interpretation_note\": \"Candidate moderators explain where studies differ; they do not prove the cause of heterogeneity.\", \"summary\": {\"directional_conflicts\": 0, \"groups\": 1, \"null_disagreements\": 0, \"unexplained_conflicts\": 0}}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "groups": [
+            {
+              "claim_or_outcome_id": "CLM-1",
+              "study_ids": [
+                "S1",
+                "S2"
+              ],
+              "direction_groups": {
+                "contradicts_or_negative": [
+                  "S2"
+                ],
+                "null_mixed_or_unclear": [],
+                "supports_or_positive": [
+                  "S1"
+                ]
+              },
+              "directional_conflict": true,
+              "null_disagreement": false,
+              "candidate_moderators": [
+                {
+                  "field": "measurement_method",
+                  "observed_values": [
+                    "assay-A",
+                    "assay-B"
+                  ]
+                }
+              ],
+              "risk_of_bias_strata": {
+                "low": [
+                  "S1",
+                  "S2"
+                ]
+              },
+              "directness_strata": {
+                "direct": [
+                  "S1",
+                  "S2"
+                ]
+              },
+              "resolution_state": "context_hypothesis_available"
+            }
+          ],
+          "summary": {
+            "groups": 1,
+            "directional_conflicts": 1,
+            "null_disagreements": 0,
+            "unexplained_conflicts": 0
+          },
+          "interpretation_note": "Candidate moderators explain where studies differ; they do not prove the cause of heterogeneity."
+        },
+        "surface": "{\"groups\": [{\"candidate_moderators\": [{\"field\": \"measurement_method\", \"observed_values\": [\"assay-A\", \"assay-B\"]}], \"claim_or_outcome_id\": \"CLM-1\", \"direction_groups\": {\"contradicts_or_negative\": [\"S2\"], \"null_mixed_or_unclear\": [], \"supports_or_positive\": [\"S1\"]}, \"directional_conflict\": true, \"directness_strata\": {\"direct\": [\"S1\", \"S2\"]}, \"null_disagreement\": false, \"resolution_state\": \"context_hypothesis_available\", \"risk_of_bias_strata\": {\"low\": [\"S1\", \"S2\"]}, \"study_ids\": [\"S1\", \"S2\"]}], \"interpretation_note\": \"Candidate moderators explain where studies differ; they do not prove the cause of heterogeneity.\", \"summary\": {\"directional_conflicts\": 1, \"groups\": 1, \"null_disagreements\": 0, \"unexplained_conflicts\": 0}}",
+        "exception": null
+      }
+    },
+    "second_sha256": "e6a33e2484e2974f58c9b8b0f585b7ab387bc62e22216bf409a1267ef1da285e"
+  }
+}

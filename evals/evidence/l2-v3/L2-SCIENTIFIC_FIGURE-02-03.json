@@ -1,0 +1,60 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_FIGURE-02-03",
+  "skill_id": "zju-scientific-figure",
+  "fixture_sha256": "0933294a299adeb11bccbcea566fe3398eb417dbe085f091a7c57f6dfde6b75e",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "0933294a299adeb11bccbcea566fe3398eb417dbe085f091a7c57f6dfde6b75e",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "ValueError: figure specification does not match the canonical analysis binding: y_column: figure='missing_column', analysis='response'",
+          "expected": "missing_column"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "export_formats": [
+            "png",
+            "svg",
+            "pdf"
+          ],
+          "exports_content_hashed": true,
+          "manifest_has_provenance": true,
+          "manifest_written": true
+        },
+        "surface": "{\"export_formats\": [\"png\", \"svg\", \"pdf\"], \"exports_content_hashed\": true, \"manifest_has_provenance\": true, \"manifest_written\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "ValueError: figure specification does not match the canonical analysis binding: y_column: figure='missing_column', analysis='response'",
+        "exception": {
+          "type": "ValueError",
+          "message": "figure specification does not match the canonical analysis binding: y_column: figure='missing_column', analysis='response'"
+        }
+      }
+    },
+    "second_sha256": "a0405e1ac3963bd065d235dda98910714e72038532216e5fc3c7531b1a2e41b4"
+  }
+}

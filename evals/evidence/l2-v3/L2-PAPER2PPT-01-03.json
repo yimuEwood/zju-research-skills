@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PAPER2PPT-01-03",
+  "skill_id": "zju-paper2ppt",
+  "fixture_sha256": "f69abf05ebf3cf1af794d8d5ed5140612b4f059de39f24a42ec25c50ab4f2b35",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "f69abf05ebf3cf1af794d8d5ed5140612b4f059de39f24a42ec25c50ab4f2b35",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"estimated_seconds\": 60.0, \"findings\": [{\"field\": \"slides[1].claim\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"valid\": false}",
+          "expected": "claim"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "estimated_seconds": 60.0,
+          "findings": []
+        },
+        "surface": "{\"estimated_seconds\": 60.0, \"findings\": [], \"valid\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "estimated_seconds": 60.0,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "slides[1].claim",
+              "message": "required field missing"
+            }
+          ]
+        },
+        "surface": "{\"estimated_seconds\": 60.0, \"findings\": [{\"field\": \"slides[1].claim\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"valid\": false}",
+        "exception": null
+      }
+    },
+    "second_sha256": "6125cbee3b0c94cc8bb41e21c6005b9ef8456ced5e52f7f05d810747743b7e0c"
+  }
+}

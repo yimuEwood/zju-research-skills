@@ -1,0 +1,93 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PAPER_READER-04-02",
+  "skill_id": "zju-paper-reader",
+  "fixture_sha256": "a9181085a49982316fe4cefceea4337c356b3770fe03e14d56cad9e8d1f5f252",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "a9181085a49982316fe4cefceea4337c356b3770fe03e14d56cad9e8d1f5f252",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "mode": "paper-card",
+          "valid": false,
+          "checks": {
+            "source_identity": true,
+            "coverage": true,
+            "source_anchors": true,
+            "page_anchor": true,
+            "research_question": true,
+            "argument_spine": true,
+            "claim_evidence_map": false,
+            "methods": true,
+            "quantitative_findings": true,
+            "alternatives": true,
+            "limitations": true,
+            "synthesis_handoff": true,
+            "figure_inventory": true,
+            "table_inventory": true,
+            "equation_inventory": true
+          },
+          "missing": [
+            "claim_evidence_map"
+          ],
+          "anchor_mentions": 1,
+          "claim_rows_detected": 1,
+          "note": "This validator checks structure and anchors; it does not judge scientific correctness."
+        },
+        "surface": "{\"anchor_mentions\": 1, \"checks\": {\"alternatives\": true, \"argument_spine\": true, \"claim_evidence_map\": false, \"coverage\": true, \"equation_inventory\": true, \"figure_inventory\": true, \"limitations\": true, \"methods\": true, \"page_anchor\": true, \"quantitative_findings\": true, \"research_question\": true, \"source_anchors\": true, \"source_identity\": true, \"synthesis_handoff\": true, \"table_inventory\": true}, \"claim_rows_detected\": 1, \"missing\": [\"claim_evidence_map\"], \"mode\": \"paper-card\", \"note\": \"This validator checks structure and anchors; it does not judge scientific correctness.\", \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "mode": "paper-card",
+          "valid": true,
+          "checks": {
+            "source_identity": true,
+            "coverage": true,
+            "source_anchors": true,
+            "page_anchor": true,
+            "research_question": true,
+            "argument_spine": true,
+            "claim_evidence_map": true,
+            "methods": true,
+            "quantitative_findings": true,
+            "alternatives": true,
+            "limitations": true,
+            "synthesis_handoff": true,
+            "figure_inventory": true,
+            "table_inventory": true,
+            "equation_inventory": true
+          },
+          "missing": [],
+          "anchor_mentions": 1,
+          "claim_rows_detected": 1,
+          "note": "This validator checks structure and anchors; it does not judge scientific correctness."
+        },
+        "surface": "{\"anchor_mentions\": 1, \"checks\": {\"alternatives\": true, \"argument_spine\": true, \"claim_evidence_map\": true, \"coverage\": true, \"equation_inventory\": true, \"figure_inventory\": true, \"limitations\": true, \"methods\": true, \"page_anchor\": true, \"quantitative_findings\": true, \"research_question\": true, \"source_anchors\": true, \"source_identity\": true, \"synthesis_handoff\": true, \"table_inventory\": true}, \"claim_rows_detected\": 1, \"missing\": [], \"mode\": \"paper-card\", \"note\": \"This validator checks structure and anchors; it does not judge scientific correctness.\", \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "17dd2ab78187ad5385ef1a1c9ae3b9b7ba7466e7b6fffe2f5257ddeffa61bdd0"
+  }
+}

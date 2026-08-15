@@ -1,0 +1,66 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-DATA_AVAILABILITY-02-01",
+  "skill_id": "zju-data-availability",
+  "fixture_sha256": "e8dd30eeba8454f6e43e8c848a847821f4f30a684b698ced6ca52cdbb0f26dca",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "e8dd30eeba8454f6e43e8c848a847821f4f30a684b698ced6ca52cdbb0f26dca",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "workflow_version": "1.0",
+          "artifacts": 1,
+          "supported_result_ids": [],
+          "findings": [
+            {
+              "severity": "error",
+              "field": "artifacts[1].access_route",
+              "message": "required field missing"
+            },
+            {
+              "severity": "error",
+              "field": "artifacts[1].access_route",
+              "message": "invalid access route"
+            }
+          ]
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [{\"field\": \"artifacts[1].access_route\", \"message\": \"required field missing\", \"severity\": \"error\"}, {\"field\": \"artifacts[1].access_route\", \"message\": \"invalid access route\", \"severity\": \"error\"}], \"supported_result_ids\": [], \"valid\": false, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "workflow_version": "1.0",
+          "artifacts": 1,
+          "supported_result_ids": [],
+          "findings": []
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [], \"supported_result_ids\": [], \"valid\": true, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "c264e3493854df9b91b6c188126d1377867c86e4954a40f3d973934f11ad96ef"
+  }
+}

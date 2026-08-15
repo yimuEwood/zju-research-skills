@@ -1,0 +1,74 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-EVIDENCE_SYNTHESIS-01-03",
+  "skill_id": "zju-evidence-synthesis",
+  "fixture_sha256": "e269d3955ee8aa7c3966e62aeca4cc6936564a114d2aafe458fca6efdc39f764",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "e269d3955ee8aa7c3966e62aeca4cc6936564a114d2aafe458fca6efdc39f764",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"findings\": [{\"field\": \"compatible_effect_estimates_available\", \"message\": \"meta-analysis cannot be selected without compatible effect estimates\"}], \"oracle_id\": \"synthesis_protocol_decision_table_v1\", \"rationale\": [], \"selected_protocol\": null, \"valid\": false}",
+          "expected": "compatible effect estimates"
+        },
+        {
+          "passed": true,
+          "observed": "synthesis_protocol_decision_table_v1",
+          "expected": "synthesis_protocol_decision_table_v1"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "oracle_id": "synthesis_protocol_decision_table_v1",
+          "valid": true,
+          "selected_protocol": "meta_analysis",
+          "rationale": [
+            "quantitative objective",
+            "compatible effects",
+            "comprehensive study set"
+          ],
+          "findings": []
+        },
+        "surface": "{\"findings\": [], \"oracle_id\": \"synthesis_protocol_decision_table_v1\", \"rationale\": [\"quantitative objective\", \"compatible effects\", \"comprehensive study set\"], \"selected_protocol\": \"meta_analysis\", \"valid\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "oracle_id": "synthesis_protocol_decision_table_v1",
+          "valid": false,
+          "selected_protocol": null,
+          "rationale": [],
+          "findings": [
+            {
+              "field": "compatible_effect_estimates_available",
+              "message": "meta-analysis cannot be selected without compatible effect estimates"
+            }
+          ]
+        },
+        "surface": "{\"findings\": [{\"field\": \"compatible_effect_estimates_available\", \"message\": \"meta-analysis cannot be selected without compatible effect estimates\"}], \"oracle_id\": \"synthesis_protocol_decision_table_v1\", \"rationale\": [], \"selected_protocol\": null, \"valid\": false}",
+        "exception": null
+      }
+    },
+    "second_sha256": "f71ff40c4c04f0febccb7c1498576d4ac3274f095dfb4feb2436767fa95b6feb"
+  }
+}

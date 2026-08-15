@@ -1,0 +1,61 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-DATA_AVAILABILITY-03-02",
+  "skill_id": "zju-data-availability",
+  "fixture_sha256": "8a5427d96654416e30ce10152142d64aa9bacdfbf0a11727c4dc3e95246d8069",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "8a5427d96654416e30ce10152142d64aa9bacdfbf0a11727c4dc3e95246d8069",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "workflow_version": "1.0",
+          "artifacts": 1,
+          "supported_result_ids": [],
+          "findings": [
+            {
+              "severity": "error",
+              "field": "artifacts[1]",
+              "message": "ready public artifact lacks repository or identifier"
+            }
+          ]
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [{\"field\": \"artifacts[1]\", \"message\": \"ready public artifact lacks repository or identifier\", \"severity\": \"error\"}], \"supported_result_ids\": [], \"valid\": false, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "workflow_version": "1.0",
+          "artifacts": 1,
+          "supported_result_ids": [],
+          "findings": []
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [], \"supported_result_ids\": [], \"valid\": true, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "fb9577018d5475117c34f90b35941678bb80373b6327bd6f3fe71db10edce239"
+  }
+}

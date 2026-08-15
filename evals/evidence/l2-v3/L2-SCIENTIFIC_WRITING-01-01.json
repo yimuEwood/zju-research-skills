@@ -1,0 +1,72 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_WRITING-01-01",
+  "skill_id": "zju-scientific-writing",
+  "fixture_sha256": "a761c0723f92c76fc17a2f6ad99d6b6546bd8f2995a8332b709c28d8a7b0b380",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "a761c0723f92c76fc17a2f6ad99d6b6546bd8f2995a8332b709c28d8a7b0b380",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": 1,
+          "expected": 1
+        },
+        {
+          "passed": true,
+          "observed": "writing_mode_contract_v1",
+          "expected": "writing_mode_contract_v1"
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "oracle_id": "writing_mode_contract_v1",
+          "valid": false,
+          "mode": "polish",
+          "output_assertions": 1,
+          "preserved_assertions": 0,
+          "findings": [
+            {
+              "field": "output_assertions[A1]",
+              "message": "polish mode changed a factual invariant"
+            }
+          ]
+        },
+        "surface": "{\"findings\": [{\"field\": \"output_assertions[A1]\", \"message\": \"polish mode changed a factual invariant\"}], \"mode\": \"polish\", \"oracle_id\": \"writing_mode_contract_v1\", \"output_assertions\": 1, \"preserved_assertions\": 0, \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "oracle_id": "writing_mode_contract_v1",
+          "valid": true,
+          "mode": "polish",
+          "output_assertions": 1,
+          "preserved_assertions": 1,
+          "findings": []
+        },
+        "surface": "{\"findings\": [], \"mode\": \"polish\", \"oracle_id\": \"writing_mode_contract_v1\", \"output_assertions\": 1, \"preserved_assertions\": 1, \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "3e692037b95e443aef05fd8ef96e23b9bd1dde2d17540bd51f286bba66aa186b"
+  }
+}

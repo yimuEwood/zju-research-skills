@@ -1,0 +1,68 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_FIGURE-04-01",
+  "skill_id": "zju-scientific-figure",
+  "fixture_sha256": "defcde2be8f7d6ab30a22345298309ecbfa0b63bc1f4a98a831a1ff55cd851f0",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "defcde2be8f7d6ab30a22345298309ecbfa0b63bc1f4a98a831a1ff55cd851f0",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": [
+            "png",
+            "svg",
+            "pdf"
+          ],
+          "expected": [
+            "png",
+            "svg",
+            "pdf"
+          ]
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "ValueError: formats must be a unique non-empty subset of png, svg, and pdf",
+        "exception": {
+          "type": "ValueError",
+          "message": "formats must be a unique non-empty subset of png, svg, and pdf"
+        }
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "export_formats": [
+            "png",
+            "svg",
+            "pdf"
+          ],
+          "exports_content_hashed": true,
+          "manifest_has_provenance": true,
+          "manifest_written": true
+        },
+        "surface": "{\"export_formats\": [\"png\", \"svg\", \"pdf\"], \"exports_content_hashed\": true, \"manifest_has_provenance\": true, \"manifest_written\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "b887f21b68d16b640cd7ba50534fd6496f776f6f77953a5f5c9d3cc07608f5e9"
+  }
+}

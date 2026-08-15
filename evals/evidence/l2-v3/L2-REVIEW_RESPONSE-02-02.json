@@ -1,0 +1,63 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-REVIEW_RESPONSE-02-02",
+  "skill_id": "zju-review-response",
+  "fixture_sha256": "1337769f0b19f6a6182ba45b17edc5db81f0c0fa22fbc67e73e9f4527156c285",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "1337769f0b19f6a6182ba45b17edc5db81f0c0fa22fbc67e73e9f4527156c285",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "ready": true,
+          "workflow_version": "1.0",
+          "unresolved": 0,
+          "evidence_linked_items": 0,
+          "findings": []
+        },
+        "surface": "{\"evidence_linked_items\": 0, \"findings\": [], \"ready\": true, \"unresolved\": 0, \"valid\": true, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "ready": false,
+          "workflow_version": "1.0",
+          "unresolved": 1,
+          "evidence_linked_items": 0,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "items[1].status",
+              "message": "invalid status"
+            }
+          ]
+        },
+        "surface": "{\"evidence_linked_items\": 0, \"findings\": [{\"field\": \"items[1].status\", \"message\": \"invalid status\", \"severity\": \"error\"}], \"ready\": false, \"unresolved\": 1, \"valid\": false, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "e5e8d748a6c69885e65c1aa1757f67423fce6fbad6fe7e4ad0084f5e27cc0c3e"
+  }
+}

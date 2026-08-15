@@ -1,0 +1,55 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_FIGURE-02-02",
+  "skill_id": "zju-scientific-figure",
+  "fixture_sha256": "1889809e2aec79f7222e10396ed9e39af0de3b6198d022997170fac68df26787",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "1889809e2aec79f7222e10396ed9e39af0de3b6198d022997170fac68df26787",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "ValueError: figure specification does not match the canonical analysis binding: y_column: figure='missing_column', analysis='response'",
+        "exception": {
+          "type": "ValueError",
+          "message": "figure specification does not match the canonical analysis binding: y_column: figure='missing_column', analysis='response'"
+        }
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "export_formats": [
+            "png",
+            "svg",
+            "pdf"
+          ],
+          "exports_content_hashed": true,
+          "manifest_has_provenance": true,
+          "manifest_written": true
+        },
+        "surface": "{\"export_formats\": [\"png\", \"svg\", \"pdf\"], \"exports_content_hashed\": true, \"manifest_has_provenance\": true, \"manifest_written\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "72e01d891beaaaf6e2b46789e03fc4098be7d2716a1b1ae3600f4e925607f4f5"
+  }
+}

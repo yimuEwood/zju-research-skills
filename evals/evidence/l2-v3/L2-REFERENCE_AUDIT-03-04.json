@@ -1,0 +1,100 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-REFERENCE_AUDIT-03-04",
+  "skill_id": "zju-reference-audit",
+  "fixture_sha256": "2dd219dc0297dbeb49c2112463d63c7d4adc0ebcb74fb1d01750f372dd19df0e",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "2dd219dc0297dbeb49c2112463d63c7d4adc0ebcb74fb1d01750f372dd19df0e",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": "claim_atom_support_v1",
+          "expected": "claim_atom_support_v1"
+        },
+        {
+          "passed": true,
+          "observed": "claim_atom_support_v1",
+          "expected": "claim_atom_support_v1"
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "oracle_id": "claim_atom_support_v1",
+          "valid": false,
+          "claims": [
+            {
+              "claim_id": "C1",
+              "status": "not_supported",
+              "atoms": [
+                {
+                  "atom_id": "A1",
+                  "status": "contradicted",
+                  "material": true,
+                  "supporting_fact_ids": [],
+                  "contradicting_fact_ids": [
+                    "F1"
+                  ]
+                }
+              ]
+            }
+          ],
+          "findings": [
+            {
+              "field": "claims[0].atoms[0]",
+              "message": "material claim atom is contradicted"
+            }
+          ]
+        },
+        "surface": "{\"claims\": [{\"atoms\": [{\"atom_id\": \"A1\", \"contradicting_fact_ids\": [\"F1\"], \"material\": true, \"status\": \"contradicted\", \"supporting_fact_ids\": []}], \"claim_id\": \"C1\", \"status\": \"not_supported\"}], \"findings\": [{\"field\": \"claims[0].atoms[0]\", \"message\": \"material claim atom is contradicted\"}], \"oracle_id\": \"claim_atom_support_v1\", \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "oracle_id": "claim_atom_support_v1",
+          "valid": true,
+          "claims": [
+            {
+              "claim_id": "C1",
+              "status": "supported",
+              "atoms": [
+                {
+                  "atom_id": "A1",
+                  "status": "supported",
+                  "material": true,
+                  "supporting_fact_ids": [
+                    "F1"
+                  ],
+                  "contradicting_fact_ids": []
+                }
+              ]
+            }
+          ],
+          "findings": []
+        },
+        "surface": "{\"claims\": [{\"atoms\": [{\"atom_id\": \"A1\", \"contradicting_fact_ids\": [], \"material\": true, \"status\": \"supported\", \"supporting_fact_ids\": [\"F1\"]}], \"claim_id\": \"C1\", \"status\": \"supported\"}], \"findings\": [], \"oracle_id\": \"claim_atom_support_v1\", \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "7f2fbab21d194fda1ffe90e5aac7eb7eb385d9189d19bb40ea26f345db15663f"
+  }
+}

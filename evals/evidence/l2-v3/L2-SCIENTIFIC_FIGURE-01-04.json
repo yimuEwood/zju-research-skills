@@ -1,0 +1,55 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_FIGURE-01-04",
+  "skill_id": "zju-scientific-figure",
+  "fixture_sha256": "741201f2f0fa1a70af8808c5edb508632c857d983141b5bcccc2fb0d183bb5d6",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "741201f2f0fa1a70af8808c5edb508632c857d983141b5bcccc2fb0d183bb5d6",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "ValueError: result_id 'RES-1-V14' must resolve to exactly one canonical result",
+        "exception": {
+          "type": "ValueError",
+          "message": "result_id 'RES-1-V14' must resolve to exactly one canonical result"
+        }
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "export_formats": [
+            "png",
+            "svg",
+            "pdf"
+          ],
+          "exports_content_hashed": true,
+          "manifest_has_provenance": true,
+          "manifest_written": true
+        },
+        "surface": "{\"export_formats\": [\"png\", \"svg\", \"pdf\"], \"exports_content_hashed\": true, \"manifest_has_provenance\": true, \"manifest_written\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "1ec14b5c15da7d184189fac01ebce8154123afdde16b6ccf626ceafc39659ed3"
+  }
+}

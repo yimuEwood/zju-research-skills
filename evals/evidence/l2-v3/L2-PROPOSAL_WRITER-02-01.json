@@ -1,0 +1,98 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PROPOSAL_WRITER-02-01",
+  "skill_id": "zju-proposal-writer",
+  "fixture_sha256": "216b08fe252b4249c5754aca51f5c53181162f39ae0d5ff8e71f6f8e98e3e8d7",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "216b08fe252b4249c5754aca51f5c53181162f39ae0d5ff8e71f6f8e98e3e8d7",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "execution_plan_ready": false,
+          "ready_to_start": false,
+          "submission_ready": false,
+          "objective_work_package_map": [
+            {
+              "objective_id": "O1",
+              "hypothesis_ids": [],
+              "work_package_ids": [
+                "WP1"
+              ]
+            }
+          ],
+          "work_package_sequence": [
+            "WP1"
+          ],
+          "dependency_cycle": [],
+          "milestone_decision_tree": [],
+          "feasibility_matrix": [],
+          "feasibility_summary": {},
+          "findings": [
+            {
+              "severity": "error",
+              "field": "evidence[1].evidence_id",
+              "message": "required field missing"
+            },
+            {
+              "severity": "error",
+              "field": "objectives[O1].evidence_ids",
+              "message": "unknown IDs: ['E1']"
+            }
+          ]
+        },
+        "surface": "{\"dependency_cycle\": [], \"execution_plan_ready\": false, \"feasibility_matrix\": [], \"feasibility_summary\": {}, \"findings\": [{\"field\": \"evidence[1].evidence_id\", \"message\": \"required field missing\", \"severity\": \"error\"}, {\"field\": \"objectives[O1].evidence_ids\", \"message\": \"unknown IDs: ['E1']\", \"severity\": \"error\"}], \"milestone_decision_tree\": [], \"objective_work_package_map\": [{\"hypothesis_ids\": [], \"objective_id\": \"O1\", \"work_package_ids\": [\"WP1\"]}], \"ready_to_start\": false, \"submission_ready\": false, \"valid\": false, \"work_package_sequence\": [\"WP1\"]}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "execution_plan_ready": false,
+          "ready_to_start": false,
+          "submission_ready": true,
+          "objective_work_package_map": [
+            {
+              "objective_id": "O1",
+              "hypothesis_ids": [],
+              "work_package_ids": [
+                "WP1"
+              ]
+            }
+          ],
+          "work_package_sequence": [
+            "WP1"
+          ],
+          "dependency_cycle": [],
+          "milestone_decision_tree": [],
+          "feasibility_matrix": [],
+          "feasibility_summary": {},
+          "findings": []
+        },
+        "surface": "{\"dependency_cycle\": [], \"execution_plan_ready\": false, \"feasibility_matrix\": [], \"feasibility_summary\": {}, \"findings\": [], \"milestone_decision_tree\": [], \"objective_work_package_map\": [{\"hypothesis_ids\": [], \"objective_id\": \"O1\", \"work_package_ids\": [\"WP1\"]}], \"ready_to_start\": false, \"submission_ready\": true, \"valid\": true, \"work_package_sequence\": [\"WP1\"]}",
+        "exception": null
+      }
+    },
+    "second_sha256": "a13749ad16edfc31dc943c4a5b77700afc38515cd77f64b0e608e815c921e958"
+  }
+}

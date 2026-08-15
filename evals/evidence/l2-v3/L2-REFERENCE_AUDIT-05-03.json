@@ -1,0 +1,67 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-REFERENCE_AUDIT-05-03",
+  "skill_id": "zju-reference-audit",
+  "fixture_sha256": "db378ae3dca4a24bc265b67fa35d4e6865a57e39de0ab7bb941560d77bebeedb",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "db378ae3dca4a24bc265b67fa35d4e6865a57e39de0ab7bb941560d77bebeedb",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "status": "repair_required",
+          "field_differences": {
+            "doi": {
+              "field": "doi",
+              "submitted": "10.1000/wrong",
+              "canonical": "10.1000/l2",
+              "status": "material_mismatch",
+              "similarity": 0.0
+            }
+          },
+          "human_confirmation_required": true
+        },
+        "surface": "{\"field_differences\": {\"doi\": {\"canonical\": \"10.1000/l2\", \"field\": \"doi\", \"similarity\": 0.0, \"status\": \"material_mismatch\", \"submitted\": \"10.1000/wrong\"}}, \"human_confirmation_required\": true, \"status\": \"repair_required\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "status": "not_verified",
+          "field_differences": {
+            "doi": {
+              "field": "doi",
+              "submitted": "https://doi.org/10.1000/L2.",
+              "canonical": "",
+              "status": "not_verified",
+              "similarity": null
+            }
+          },
+          "human_confirmation_required": true
+        },
+        "surface": "{\"field_differences\": {\"doi\": {\"canonical\": \"\", \"field\": \"doi\", \"similarity\": null, \"status\": \"not_verified\", \"submitted\": \"https://doi.org/10.1000/L2.\"}}, \"human_confirmation_required\": true, \"status\": \"not_verified\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "19cdfec55572e8735399fe7796df2bad7f0c747e01cdad43b80ceb53fcf931d5"
+  }
+}

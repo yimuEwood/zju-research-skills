@@ -1,0 +1,103 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PAPER_TO_PATENT-02-04",
+  "skill_id": "zju-paper-to-patent",
+  "fixture_sha256": "dd99966b23d98be99057858a18456b9f4c1368c50b29469eb8a5f4db794d8abe",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "dd99966b23d98be99057858a18456b9f4c1368c50b29469eb8a5f4db794d8abe",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "invention_map_ready": false,
+          "features": 1,
+          "declared_sources": 1,
+          "problem_solution_effect_map": [],
+          "feature_evidence_map": [
+            {
+              "feature_id": "FT-1-V24",
+              "term": "controller",
+              "support_state": "unsupported",
+              "source_ids": [
+                "P1-V24"
+              ],
+              "source_anchors": {
+                "P1-V24": "p. 4, lines 10-12"
+              },
+              "evidence_ids": [],
+              "claim_role": "independent"
+            }
+          ],
+          "claim_dependency_map": [],
+          "claim_dependency_order": [],
+          "claim_dependency_cycle": [],
+          "prior_art_query_map": [],
+          "alternative_embodiment_map": [],
+          "findings": [
+            {
+              "severity": "error",
+              "field": "features[1]",
+              "message": "formal claim feature lacks sufficient sourced support"
+            }
+          ]
+        },
+        "surface": "{\"alternative_embodiment_map\": [], \"claim_dependency_cycle\": [], \"claim_dependency_map\": [], \"claim_dependency_order\": [], \"declared_sources\": 1, \"feature_evidence_map\": [{\"claim_role\": \"independent\", \"evidence_ids\": [], \"feature_id\": \"FT-1-V24\", \"source_anchors\": {\"P1-V24\": \"p. 4, lines 10-12\"}, \"source_ids\": [\"P1-V24\"], \"support_state\": \"unsupported\", \"term\": \"controller\"}], \"features\": 1, \"findings\": [{\"field\": \"features[1]\", \"message\": \"formal claim feature lacks sufficient sourced support\", \"severity\": \"error\"}], \"invention_map_ready\": false, \"prior_art_query_map\": [], \"problem_solution_effect_map\": [], \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "invention_map_ready": false,
+          "features": 1,
+          "declared_sources": 1,
+          "problem_solution_effect_map": [],
+          "feature_evidence_map": [
+            {
+              "feature_id": "FT-1-V24",
+              "term": "controller",
+              "support_state": "explicit",
+              "source_ids": [
+                "P1-V24"
+              ],
+              "source_anchors": {
+                "P1-V24": "p. 4, lines 10-12"
+              },
+              "evidence_ids": [],
+              "claim_role": "independent"
+            }
+          ],
+          "claim_dependency_map": [],
+          "claim_dependency_order": [],
+          "claim_dependency_cycle": [],
+          "prior_art_query_map": [],
+          "alternative_embodiment_map": [],
+          "findings": []
+        },
+        "surface": "{\"alternative_embodiment_map\": [], \"claim_dependency_cycle\": [], \"claim_dependency_map\": [], \"claim_dependency_order\": [], \"declared_sources\": 1, \"feature_evidence_map\": [{\"claim_role\": \"independent\", \"evidence_ids\": [], \"feature_id\": \"FT-1-V24\", \"source_anchors\": {\"P1-V24\": \"p. 4, lines 10-12\"}, \"source_ids\": [\"P1-V24\"], \"support_state\": \"explicit\", \"term\": \"controller\"}], \"features\": 1, \"findings\": [], \"invention_map_ready\": false, \"prior_art_query_map\": [], \"problem_solution_effect_map\": [], \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "5c1b4303c5b13e126eea4d744a1b8670513a932e3f9fbdf349d70e7cd700ec36"
+  }
+}

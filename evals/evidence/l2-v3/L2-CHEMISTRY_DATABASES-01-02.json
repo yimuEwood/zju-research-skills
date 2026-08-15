@@ -1,0 +1,55 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-CHEMISTRY_DATABASES-01-02",
+  "skill_id": "zju-chemistry-databases",
+  "fixture_sha256": "a0426a7972a45a9f96581eea1cafc495b8e323608e826ea6a2e56e2e937d9f3d",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "a0426a7972a45a9f96581eea1cafc495b8e323608e826ea6a2e56e2e937d9f3d",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "entities[1]",
+              "message": "no structure or database identity anchor"
+            }
+          ]
+        },
+        "surface": "{\"findings\": [{\"field\": \"entities[1]\", \"message\": \"no structure or database identity anchor\", \"severity\": \"error\"}], \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "findings": []
+        },
+        "surface": "{\"findings\": [], \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "e2c95f40c12607b6e8ace6290eda3db91c4705ff65d6620965a38f29c1d109eb"
+  }
+}

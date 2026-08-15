@@ -1,0 +1,61 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-REVIEWER-01-04",
+  "skill_id": "zju-reviewer",
+  "fixture_sha256": "e7410881604cf872def37b31bf5e5e3e09ac833897cb6678ca2c0ea2c9ac0549",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "e7410881604cf872def37b31bf5e5e3e09ac833897cb6678ca2c0ea2c9ac0549",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "workflow_version": "1.0",
+          "concerns": 1,
+          "response_handoff_ready": false,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "concerns[1].claim_pointer",
+              "message": "required field missing"
+            }
+          ]
+        },
+        "surface": "{\"concerns\": 1, \"findings\": [{\"field\": \"concerns[1].claim_pointer\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"response_handoff_ready\": false, \"valid\": false, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "workflow_version": "1.0",
+          "concerns": 1,
+          "response_handoff_ready": false,
+          "findings": []
+        },
+        "surface": "{\"concerns\": 1, \"findings\": [], \"response_handoff_ready\": false, \"valid\": true, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "15fc6278cd1051f25b3fef258340dd85a632fe22490602208848bda8f5e8274f"
+  }
+}

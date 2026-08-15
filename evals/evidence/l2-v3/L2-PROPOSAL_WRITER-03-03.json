@@ -1,0 +1,98 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PROPOSAL_WRITER-03-03",
+  "skill_id": "zju-proposal-writer",
+  "fixture_sha256": "3ad8affe1e86140bb08c87f00920a1f4b3d6dfc5777ba43cb945bcdc41592486",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "3ad8affe1e86140bb08c87f00920a1f4b3d6dfc5777ba43cb945bcdc41592486",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"dependency_cycle\": [], \"execution_plan_ready\": false, \"feasibility_matrix\": [], \"feasibility_summary\": {}, \"findings\": [{\"field\": \"objectives[O1].question\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"milestone_decision_tree\": [], \"objective_work_package_map\": [{\"hypothesis_ids\": [], \"objective_id\": \"O1\", \"work_package_ids\": [\"WP1\"]}], \"ready_to_start\": false, \"submission_ready\": false, \"valid\": false, \"work_package_sequence\": [\"WP1\"]}",
+          "expected": "question"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "execution_plan_ready": false,
+          "ready_to_start": false,
+          "submission_ready": true,
+          "objective_work_package_map": [
+            {
+              "objective_id": "O1",
+              "hypothesis_ids": [],
+              "work_package_ids": [
+                "WP1"
+              ]
+            }
+          ],
+          "work_package_sequence": [
+            "WP1"
+          ],
+          "dependency_cycle": [],
+          "milestone_decision_tree": [],
+          "feasibility_matrix": [],
+          "feasibility_summary": {},
+          "findings": []
+        },
+        "surface": "{\"dependency_cycle\": [], \"execution_plan_ready\": false, \"feasibility_matrix\": [], \"feasibility_summary\": {}, \"findings\": [], \"milestone_decision_tree\": [], \"objective_work_package_map\": [{\"hypothesis_ids\": [], \"objective_id\": \"O1\", \"work_package_ids\": [\"WP1\"]}], \"ready_to_start\": false, \"submission_ready\": true, \"valid\": true, \"work_package_sequence\": [\"WP1\"]}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "execution_plan_ready": false,
+          "ready_to_start": false,
+          "submission_ready": false,
+          "objective_work_package_map": [
+            {
+              "objective_id": "O1",
+              "hypothesis_ids": [],
+              "work_package_ids": [
+                "WP1"
+              ]
+            }
+          ],
+          "work_package_sequence": [
+            "WP1"
+          ],
+          "dependency_cycle": [],
+          "milestone_decision_tree": [],
+          "feasibility_matrix": [],
+          "feasibility_summary": {},
+          "findings": [
+            {
+              "severity": "error",
+              "field": "objectives[O1].question",
+              "message": "required field missing"
+            }
+          ]
+        },
+        "surface": "{\"dependency_cycle\": [], \"execution_plan_ready\": false, \"feasibility_matrix\": [], \"feasibility_summary\": {}, \"findings\": [{\"field\": \"objectives[O1].question\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"milestone_decision_tree\": [], \"objective_work_package_map\": [{\"hypothesis_ids\": [], \"objective_id\": \"O1\", \"work_package_ids\": [\"WP1\"]}], \"ready_to_start\": false, \"submission_ready\": false, \"valid\": false, \"work_package_sequence\": [\"WP1\"]}",
+        "exception": null
+      }
+    },
+    "second_sha256": "0c19fe6aab3d940382b5e41b75876fd4c04ebecc158595beac81c76e27cfd88e"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-STATISTICS_AUDIT-01-03",
+  "skill_id": "zju-statistics-audit",
+  "fixture_sha256": "0f69afea3a859508ed077daf02c4046c576db74daf91e2bc0b40a9a5abb40b77",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "0f69afea3a859508ed077daf02c4046c576db74daf91e2bc0b40a9a5abb40b77",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"analyses\": 1, \"confirmatory_outcomes_covered\": true, \"issues\": [{\"message\": \"Required analysis decision is missing.\", \"path\": \"analyses[0].estimand\", \"severity\": \"error\"}], \"outcomes\": 1, \"plan_ready\": false, \"valid\": false}",
+          "expected": "estimand"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "plan_ready": true,
+          "outcomes": 1,
+          "analyses": 1,
+          "confirmatory_outcomes_covered": true,
+          "issues": []
+        },
+        "surface": "{\"analyses\": 1, \"confirmatory_outcomes_covered\": true, \"issues\": [], \"outcomes\": 1, \"plan_ready\": true, \"valid\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "plan_ready": false,
+          "outcomes": 1,
+          "analyses": 1,
+          "confirmatory_outcomes_covered": true,
+          "issues": [
+            {
+              "path": "analyses[0].estimand",
+              "severity": "error",
+              "message": "Required analysis decision is missing."
+            }
+          ]
+        },
+        "surface": "{\"analyses\": 1, \"confirmatory_outcomes_covered\": true, \"issues\": [{\"message\": \"Required analysis decision is missing.\", \"path\": \"analyses[0].estimand\", \"severity\": \"error\"}], \"outcomes\": 1, \"plan_ready\": false, \"valid\": false}",
+        "exception": null
+      }
+    },
+    "second_sha256": "a74a802bee9b479432c99b8f5803510c8c79f35dbb69622ff6118c801b19d485"
+  }
+}

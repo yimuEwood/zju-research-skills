@@ -1,0 +1,57 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-EXPERIMENT_LOG-02-01",
+  "skill_id": "zju-experiment-log",
+  "fixture_sha256": "82eaafc058ea2beb0a69e8c52e7366de3c1dafc88620f4df72b490fdd2d5f707",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "82eaafc058ea2beb0a69e8c52e7366de3c1dafc88620f4df72b490fdd2d5f707",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "schema_version": "2.0",
+          "issues": [
+            {
+              "path": "started_at",
+              "severity": "error",
+              "message": "Required field is missing."
+            }
+          ]
+        },
+        "surface": "{\"issues\": [{\"message\": \"Required field is missing.\", \"path\": \"started_at\", \"severity\": \"error\"}], \"schema_version\": \"2.0\", \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "schema_version": "2.0",
+          "issues": []
+        },
+        "surface": "{\"issues\": [], \"schema_version\": \"2.0\", \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "da2392e88060c971f74ade48e078896f5f7ad054ffeed279cf536575ae3caae0"
+  }
+}

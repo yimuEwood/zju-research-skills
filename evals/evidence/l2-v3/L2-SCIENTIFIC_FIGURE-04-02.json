@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_FIGURE-04-02",
+  "skill_id": "zju-scientific-figure",
+  "fixture_sha256": "3d979437b544ac738d782a8c9f63089b453b5458217f700f83046fa389a561de",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "3d979437b544ac738d782a8c9f63089b453b5458217f700f83046fa389a561de",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": [
+            "svg"
+          ],
+          "expected": [
+            "svg"
+          ]
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "ValueError: formats must be a unique non-empty subset of png, svg, and pdf",
+        "exception": {
+          "type": "ValueError",
+          "message": "formats must be a unique non-empty subset of png, svg, and pdf"
+        }
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "export_formats": [
+            "svg"
+          ],
+          "exports_content_hashed": true,
+          "manifest_has_provenance": true,
+          "manifest_written": true
+        },
+        "surface": "{\"export_formats\": [\"svg\"], \"exports_content_hashed\": true, \"manifest_has_provenance\": true, \"manifest_written\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "3744b4154d0ee3cf64c6b9658daeec02adeaa31aa0a8a76513548a0255747c3f"
+  }
+}

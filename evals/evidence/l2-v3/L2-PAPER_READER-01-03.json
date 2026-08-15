@@ -1,0 +1,122 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PAPER_READER-01-03",
+  "skill_id": "zju-paper-reader",
+  "fixture_sha256": "7ef320fe5456f83f3395380e287ea4b7aa0e20d4d4201f106a7928e15ec4caae",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "7ef320fe5456f83f3395380e287ea4b7aa0e20d4d4201f106a7928e15ec4caae",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "SourcePreparationError: the .pdf file does not contain a valid PDF header",
+          "expected": "PDF"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "schema_version": "1.1",
+          "bundle_type": "reader-source-bundle",
+          "source": {
+            "filename": "source.md",
+            "format": "markdown",
+            "mime_type": "text/markdown",
+            "byte_count": 39,
+            "sha256": "8993363fd83494477957d1bf06081e53db0c0ce62a8d2d053af622e129ff8d91"
+          },
+          "extraction": {
+            "parser": {
+              "name": "plain-text",
+              "version": "utf-8"
+            },
+            "text_normalization": "UTF-8, LF newlines, trailing whitespace removed",
+            "ocr_threshold_characters": null
+          },
+          "page_count": 1,
+          "pages": [
+            {
+              "page_id": "page-0001",
+              "page_number": 1,
+              "anchor": "[p. 1]",
+              "char_count": 34,
+              "line_count": 4,
+              "width_points": null,
+              "height_points": null,
+              "layout_blocks": [
+                {
+                  "block_id": "page-0001-block-0001",
+                  "type": "text",
+                  "anchor": "[p. 1, block page-0001-block-0001]",
+                  "bbox_points": null,
+                  "text": "# Abstract\nText.\n# Results\nResult.",
+                  "char_count": 34,
+                  "line_count": 4,
+                  "styles": []
+                }
+              ],
+              "embedded_image_count": 0,
+              "vector_drawing_count": 0,
+              "text": "# Abstract\nText.\n# Results\nResult."
+            }
+          ],
+          "detected_sections": [],
+          "inventories": {
+            "figures": [],
+            "tables": [],
+            "equations": [],
+            "formula_candidates": [],
+            "visual_objects": []
+          },
+          "ocr_required_pages": [],
+          "coverage": {
+            "pages_total": 1,
+            "pages_with_text": 1,
+            "pages_without_text": 0,
+            "pages_needing_ocr": 0,
+            "text_page_coverage_ratio": 1.0,
+            "usable_page_coverage_ratio": 1.0,
+            "total_characters": 34,
+            "sections_detected": 0,
+            "figure_mentions": 0,
+            "table_mentions": 0,
+            "equation_mentions": 0,
+            "formula_candidates": 0,
+            "visual_objects": 0,
+            "vector_drawings": 0,
+            "layout_blocks": 1
+          }
+        },
+        "surface": "{\"bundle_type\": \"reader-source-bundle\", \"coverage\": {\"equation_mentions\": 0, \"figure_mentions\": 0, \"formula_candidates\": 0, \"layout_blocks\": 1, \"pages_needing_ocr\": 0, \"pages_total\": 1, \"pages_with_text\": 1, \"pages_without_text\": 0, \"sections_detected\": 0, \"table_mentions\": 0, \"text_page_coverage_ratio\": 1.0, \"total_characters\": 34, \"usable_page_coverage_ratio\": 1.0, \"vector_drawings\": 0, \"visual_objects\": 0}, \"detected_sections\": [], \"extraction\": {\"ocr_threshold_characters\": null, \"parser\": {\"name\": \"plain-text\", \"version\": \"utf-8\"}, \"text_normalization\": \"UTF-8, LF newlines, trailing whitespace removed\"}, \"inventories\": {\"equations\": [], \"figures\": [], \"formula_candidates\": [], \"tables\": [], \"visual_objects\": []}, \"ocr_required_pages\": [], \"page_count\": 1, \"pages\": [{\"anchor\": \"[p. 1]\", \"char_count\": 34, \"embedded_image_count\": 0, \"height_points\": null, \"layout_blocks\": [{\"anchor\": \"[p. 1, block page-0001-block-0001]\", \"bbox_points\": null, \"block_id\": \"page-0001-block-0001\", \"char_count\": 34, \"line_count\": 4, \"styles\": [], \"text\": \"# Abstract\\nText.\\n# Results\\nResult.\", \"type\": \"text\"}], \"line_count\": 4, \"page_id\": \"page-0001\", \"page_number\": 1, \"text\": \"# Abstract\\nText.\\n# Results\\nResult.\", \"vector_drawing_count\": 0, \"width_points\": null}], \"schema_version\": \"1.1\", \"source\": {\"byte_count\": 39, \"filename\": \"source.md\", \"format\": \"markdown\", \"mime_type\": \"text/markdown\", \"sha256\": \"8993363fd83494477957d1bf06081e53db0c0ce62a8d2d053af622e129ff8d91\"}}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "SourcePreparationError: the .pdf file does not contain a valid PDF header",
+        "exception": {
+          "type": "SourcePreparationError",
+          "message": "the .pdf file does not contain a valid PDF header"
+        }
+      }
+    },
+    "second_sha256": "be45e36fa13ffd10db2ac41b7e86dae25c3d9e4dd5858cf0c2d928b41101b85e"
+  }
+}

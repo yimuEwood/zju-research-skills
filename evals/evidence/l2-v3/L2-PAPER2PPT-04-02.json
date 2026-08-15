@@ -1,0 +1,55 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PAPER2PPT-04-02",
+  "skill_id": "zju-paper2ppt",
+  "fixture_sha256": "d5ca1dcd1bcd5bd50ac9a1705659132ebad963c4f8b5f0974c9232203d26c6df",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "d5ca1dcd1bcd5bd50ac9a1705659132ebad963c4f8b5f0974c9232203d26c6df",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "ValueError: deck plan is invalid: [{'severity': 'error', 'field': 'slides[1].source_anchors', 'message': 'required field missing'}]",
+        "exception": {
+          "type": "ValueError",
+          "message": "deck plan is invalid: [{'severity': 'error', 'field': 'slides[1].source_anchors', 'message': 'required field missing'}]"
+        }
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "slide_count": 1,
+          "source_anchors": [
+            "Table 1"
+          ],
+          "artifact_format": "pptx",
+          "artifact_content_hashed": true,
+          "ooxml_reopen": "passed",
+          "speaker_notes_present": true
+        },
+        "surface": "{\"artifact_content_hashed\": true, \"artifact_format\": \"pptx\", \"ooxml_reopen\": \"passed\", \"slide_count\": 1, \"source_anchors\": [\"Table 1\"], \"speaker_notes_present\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "c990d659633ecc6fe83680cd3ed9f2bc4e64590ed5161e74198aaa7f11156407"
+  }
+}

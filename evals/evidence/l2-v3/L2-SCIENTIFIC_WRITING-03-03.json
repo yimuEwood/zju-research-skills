@@ -1,0 +1,68 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_WRITING-03-03",
+  "skill_id": "zju-scientific-writing",
+  "fixture_sha256": "4bdc5dd2121fe239629d83a3bdcf8e9ae8e41faa16bed786d2ae1c97ef075f9f",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "4bdc5dd2121fe239629d83a3bdcf8e9ae8e41faa16bed786d2ae1c97ef075f9f",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"contributions\": 1, \"issues\": [{\"message\": \"Unknown canonical result ID: RES-404\", \"path\": \"results_sections[0].result_ids\", \"severity\": \"error\"}], \"results_sections\": 1, \"reviewer_objections\": 1, \"valid\": false, \"workflow_version\": \"2.0\"}",
+          "expected": "RES-404"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "contributions": 1,
+          "results_sections": 1,
+          "reviewer_objections": 1,
+          "workflow_version": "2.0",
+          "issues": []
+        },
+        "surface": "{\"contributions\": 1, \"issues\": [], \"results_sections\": 1, \"reviewer_objections\": 1, \"valid\": true, \"workflow_version\": \"2.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "contributions": 1,
+          "results_sections": 1,
+          "reviewer_objections": 1,
+          "workflow_version": "2.0",
+          "issues": [
+            {
+              "path": "results_sections[0].result_ids",
+              "severity": "error",
+              "message": "Unknown canonical result ID: RES-404"
+            }
+          ]
+        },
+        "surface": "{\"contributions\": 1, \"issues\": [{\"message\": \"Unknown canonical result ID: RES-404\", \"path\": \"results_sections[0].result_ids\", \"severity\": \"error\"}], \"results_sections\": 1, \"reviewer_objections\": 1, \"valid\": false, \"workflow_version\": \"2.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "f4b6b947082fd939154ac8ec1290d9822ac1a5fed383f4f2cd56e88acde8fe2a"
+  }
+}

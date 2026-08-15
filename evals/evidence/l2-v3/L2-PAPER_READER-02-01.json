@@ -1,0 +1,158 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PAPER_READER-02-01",
+  "skill_id": "zju-paper-reader",
+  "fixture_sha256": "2686b3d4c63dfb88715c612d4be4a8e0b43ef75d45c765b0133a242b876fbc9e",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "2686b3d4c63dfb88715c612d4be4a8e0b43ef75d45c765b0133a242b876fbc9e",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": 1,
+          "expected": 1
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "SourcePreparationError: the .pdf file does not contain a valid PDF header",
+        "exception": {
+          "type": "SourcePreparationError",
+          "message": "the .pdf file does not contain a valid PDF header"
+        }
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "schema_version": "1.1",
+          "bundle_type": "reader-source-bundle",
+          "source": {
+            "filename": "source.md",
+            "format": "markdown",
+            "mime_type": "text/markdown",
+            "byte_count": 54,
+            "sha256": "3105cc2dcc4508539762bae2ba86c6416b1d0ae295dc3c16dd2fe7a0bf9c15fa"
+          },
+          "extraction": {
+            "parser": {
+              "name": "plain-text",
+              "version": "utf-8"
+            },
+            "text_normalization": "UTF-8, LF newlines, trailing whitespace removed",
+            "ocr_threshold_characters": null
+          },
+          "page_count": 1,
+          "pages": [
+            {
+              "page_id": "page-0001",
+              "page_number": 1,
+              "anchor": "[p. 1]",
+              "char_count": 51,
+              "line_count": 2,
+              "width_points": null,
+              "height_points": null,
+              "layout_blocks": [
+                {
+                  "block_id": "page-0001-block-0001",
+                  "type": "text",
+                  "anchor": "[p. 1, block page-0001-block-0001]",
+                  "bbox_points": null,
+                  "text": "# Results\nFigure 2 and Table 1 report Equation (1).",
+                  "char_count": 51,
+                  "line_count": 2,
+                  "styles": []
+                }
+              ],
+              "embedded_image_count": 0,
+              "vector_drawing_count": 0,
+              "text": "# Results\nFigure 2 and Table 1 report Equation (1)."
+            }
+          ],
+          "detected_sections": [],
+          "inventories": {
+            "figures": [
+              {
+                "mention_id": "figure-001",
+                "label": "2",
+                "page_id": "page-0001",
+                "page_number": 1,
+                "block_id": "page-0001-block-0001",
+                "bbox_points": null,
+                "role": "caption_candidate",
+                "anchor": "[p. 1, block page-0001-block-0001, line 2]",
+                "excerpt": "Figure 2 and Table 1 report Equation (1)."
+              }
+            ],
+            "tables": [
+              {
+                "mention_id": "table-001",
+                "label": "1",
+                "page_id": "page-0001",
+                "page_number": 1,
+                "block_id": "page-0001-block-0001",
+                "bbox_points": null,
+                "role": "cross_reference",
+                "anchor": "[p. 1, block page-0001-block-0001, line 2]",
+                "excerpt": "Figure 2 and Table 1 report Equation (1)."
+              }
+            ],
+            "equations": [
+              {
+                "mention_id": "equation-001",
+                "label": "1",
+                "page_id": "page-0001",
+                "page_number": 1,
+                "block_id": "page-0001-block-0001",
+                "bbox_points": null,
+                "role": "cross_reference",
+                "anchor": "[p. 1, block page-0001-block-0001, line 2]",
+                "excerpt": "Figure 2 and Table 1 report Equation (1)."
+              }
+            ],
+            "formula_candidates": [],
+            "visual_objects": []
+          },
+          "ocr_required_pages": [],
+          "coverage": {
+            "pages_total": 1,
+            "pages_with_text": 1,
+            "pages_without_text": 0,
+            "pages_needing_ocr": 0,
+            "text_page_coverage_ratio": 1.0,
+            "usable_page_coverage_ratio": 1.0,
+            "total_characters": 51,
+            "sections_detected": 0,
+            "figure_mentions": 1,
+            "table_mentions": 1,
+            "equation_mentions": 1,
+            "formula_candidates": 0,
+            "visual_objects": 0,
+            "vector_drawings": 0,
+            "layout_blocks": 1
+          }
+        },
+        "surface": "{\"bundle_type\": \"reader-source-bundle\", \"coverage\": {\"equation_mentions\": 1, \"figure_mentions\": 1, \"formula_candidates\": 0, \"layout_blocks\": 1, \"pages_needing_ocr\": 0, \"pages_total\": 1, \"pages_with_text\": 1, \"pages_without_text\": 0, \"sections_detected\": 0, \"table_mentions\": 1, \"text_page_coverage_ratio\": 1.0, \"total_characters\": 51, \"usable_page_coverage_ratio\": 1.0, \"vector_drawings\": 0, \"visual_objects\": 0}, \"detected_sections\": [], \"extraction\": {\"ocr_threshold_characters\": null, \"parser\": {\"name\": \"plain-text\", \"version\": \"utf-8\"}, \"text_normalization\": \"UTF-8, LF newlines, trailing whitespace removed\"}, \"inventories\": {\"equations\": [{\"anchor\": \"[p. 1, block page-0001-block-0001, line 2]\", \"bbox_points\": null, \"block_id\": \"page-0001-block-0001\", \"excerpt\": \"Figure 2 and Table 1 report Equation (1).\", \"label\": \"1\", \"mention_id\": \"equation-001\", \"page_id\": \"page-0001\", \"page_number\": 1, \"role\": \"cross_reference\"}], \"figures\": [{\"anchor\": \"[p. 1, block page-0001-block-0001, line 2]\", \"bbox_points\": null, \"block_id\": \"page-0001-block-0001\", \"excerpt\": \"Figure 2 and Table 1 report Equation (1).\", \"label\": \"2\", \"mention_id\": \"figure-001\", \"page_id\": \"page-0001\", \"page_number\": 1, \"role\": \"caption_candidate\"}], \"formula_candidates\": [], \"tables\": [{\"anchor\": \"[p. 1, block page-0001-block-0001, line 2]\", \"bbox_points\": null, \"block_id\": \"page-0001-block-0001\", \"excerpt\": \"Figure 2 and Table 1 report Equation (1).\", \"label\": \"1\", \"mention_id\": \"table-001\", \"page_id\": \"page-0001\", \"page_number\": 1, \"role\": \"cross_reference\"}], \"visual_objects\": []}, \"ocr_required_pages\": [], \"page_count\": 1, \"pages\": [{\"anchor\": \"[p. 1]\", \"char_count\": 51, \"embedded_image_count\": 0, \"height_points\": null, \"layout_blocks\": [{\"anchor\": \"[p. 1, block page-0001-block-0001]\", \"bbox_points\": null, \"block_id\": \"page-0001-block-0001\", \"char_count\": 51, \"line_count\": 2, \"styles\": [], \"text\": \"# Results\\nFigure 2 and Table 1 report Equation (1).\", \"type\": \"text\"}], \"line_count\": 2, \"page_id\": \"page-0001\", \"page_number\": 1, \"text\": \"# Results\\nFigure 2 and Table 1 report Equation (1).\", \"vector_drawing_count\": 0, \"width_points\": null}], \"schema_version\": \"1.1\", \"source\": {\"byte_count\": 54, \"filename\": \"source.md\", \"format\": \"markdown\", \"mime_type\": \"text/markdown\", \"sha256\": \"3105cc2dcc4508539762bae2ba86c6416b1d0ae295dc3c16dd2fe7a0bf9c15fa\"}}",
+        "exception": null
+      }
+    },
+    "second_sha256": "4947bfb0af9fe4db6417b5e7f8ff61f175bfe7faaea7e9d9e031b92014bfd112"
+  }
+}

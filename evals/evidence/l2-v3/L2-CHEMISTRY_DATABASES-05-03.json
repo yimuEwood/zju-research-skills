@@ -1,0 +1,60 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-CHEMISTRY_DATABASES-05-03",
+  "skill_id": "zju-chemistry-databases",
+  "fixture_sha256": "727947978c5fefd03ad8cc64e62303dc9141cd1003d4236f6aaabacfdd495769",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "727947978c5fefd03ad8cc64e62303dc9141cd1003d4236f6aaabacfdd495769",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"findings\": [{\"field\": \"records[1].source_anchor\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"valid\": false}",
+          "expected": "source_anchor"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "findings": []
+        },
+        "surface": "{\"findings\": [], \"valid\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "records[1].source_anchor",
+              "message": "required field missing"
+            }
+          ]
+        },
+        "surface": "{\"findings\": [{\"field\": \"records[1].source_anchor\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"valid\": false}",
+        "exception": null
+      }
+    },
+    "second_sha256": "12d437de795c557fe80931e117c9fc382ad76d73ce32c940b290ca7d5d59e46a"
+  }
+}

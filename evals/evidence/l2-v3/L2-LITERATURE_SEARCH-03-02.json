@@ -1,0 +1,68 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-LITERATURE_SEARCH-03-02",
+  "skill_id": "zju-literature-search",
+  "fixture_sha256": "5fad44a12e24db63ae7a74c39baebc0ea5ffc0c66098748ffe2a49e24a9fb6b7",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "5fad44a12e24db63ae7a74c39baebc0ea5ffc0c66098748ffe2a49e24a9fb6b7",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": 1,
+          "expected": 1
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "AttributeError: 'str' object has no attribute 'get'",
+        "exception": {
+          "type": "AttributeError",
+          "message": "'str' object has no attribute 'get'"
+        }
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "record_count": 2,
+          "identifier_missing_count": 1,
+          "identity_missing_count": 0,
+          "identity_keys": [
+            "doi:10.1000/l2",
+            "title-year-author:identity free evidence::"
+          ],
+          "query_ids": [
+            "Q1",
+            "Q2"
+          ],
+          "source_databases": [
+            "Crossref",
+            "OpenAlex",
+            "manual"
+          ]
+        },
+        "surface": "{\"identifier_missing_count\": 1, \"identity_keys\": [\"doi:10.1000/l2\", \"title-year-author:identity free evidence::\"], \"identity_missing_count\": 0, \"query_ids\": [\"Q1\", \"Q2\"], \"record_count\": 2, \"source_databases\": [\"Crossref\", \"OpenAlex\", \"manual\"]}",
+        "exception": null
+      }
+    },
+    "second_sha256": "4c8434b39a7c0256df0ac1f9e3db6ea47732a991e467165057eaa13d7704300c"
+  }
+}

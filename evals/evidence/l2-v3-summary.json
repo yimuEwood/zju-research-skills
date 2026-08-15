@@ -1,0 +1,136 @@
+{
+  "schema_version": "3.0",
+  "suite_id": "zju-l2-deterministic-portfolio-v3",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_document_sha256": "6cc3def1d336766cfe6284d5fdb3d9b11c4c8bd9a0e2b104e082aca26bcf5816",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "skill_commit": "08aecf5ba38f4879ae0d718ca624d16ac2affb6e",
+  "planned_case_count": 400,
+  "executable_case_count": 400,
+  "blocked_case_count": 0,
+  "passed": 400,
+  "failed": 0,
+  "by_skill": {
+    "zju-chemistry-databases": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-data-availability": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-evidence-synthesis": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-experiment-log": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-fulltext-access": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-hypothesis-design": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-literature-monitor": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-literature-search": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-paper-reader": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-paper-to-patent": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-paper2ppt": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-proposal-writer": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-reference-audit": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-research-director": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-research-integrity": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-review-response": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-reviewer": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-scientific-figure": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-scientific-writing": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "zju-statistics-audit": {
+      "planned": 20,
+      "executable": 20,
+      "passed": 20,
+      "failed": 0
+    }
+  },
+  "claim_boundary": "L2 deterministic function evidence only; no scientific correctness or free-form task-quality claim."
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-REFERENCE_AUDIT-01-04",
+  "skill_id": "zju-reference-audit",
+  "fixture_sha256": "a7152ebd679bff8668d41ef45fc5c24281ca20611851b67d3d10fac12d1e1801",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "a7152ebd679bff8668d41ef45fc5c24281ca20611851b67d3d10fac12d1e1801",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "field": "doi",
+          "submitted": "10.1000/wrong",
+          "canonical": "10.1000/l2-v14",
+          "status": "material_mismatch",
+          "similarity": 0.0
+        },
+        "surface": "{\"canonical\": \"10.1000/l2-v14\", \"field\": \"doi\", \"similarity\": 0.0, \"status\": \"material_mismatch\", \"submitted\": \"10.1000/wrong\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "field": "doi",
+          "submitted": "10.1000/L2",
+          "canonical": "10.1000/l2",
+          "status": "match",
+          "similarity": 1.0
+        },
+        "surface": "{\"canonical\": \"10.1000/l2\", \"field\": \"doi\", \"similarity\": 1.0, \"status\": \"match\", \"submitted\": \"10.1000/L2\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "e87bba3d4ffbc20ccc76d20553d7f9d4ce8348c367310d10caec0b52ebd416bd"
+  }
+}

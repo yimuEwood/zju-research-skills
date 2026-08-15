@@ -1,0 +1,61 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-DATA_AVAILABILITY-01-02",
+  "skill_id": "zju-data-availability",
+  "fixture_sha256": "ee6bcff4ed4b6fe2d40ee6e00dcf68209f30603a538c5e213373a92c8abec268",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "ee6bcff4ed4b6fe2d40ee6e00dcf68209f30603a538c5e213373a92c8abec268",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "workflow_version": "1.0",
+          "artifacts": 1,
+          "supported_result_ids": [],
+          "findings": [
+            {
+              "severity": "error",
+              "field": "artifacts[1].artifact_id",
+              "message": "missing or duplicate artifact ID"
+            }
+          ]
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [{\"field\": \"artifacts[1].artifact_id\", \"message\": \"missing or duplicate artifact ID\", \"severity\": \"error\"}], \"supported_result_ids\": [], \"valid\": false, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "workflow_version": "1.0",
+          "artifacts": 1,
+          "supported_result_ids": [],
+          "findings": []
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [], \"supported_result_ids\": [], \"valid\": true, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "fe09488fc928f12bf573f762efde9cac1003735c10dea1e21bff3f42e594ee1d"
+  }
+}

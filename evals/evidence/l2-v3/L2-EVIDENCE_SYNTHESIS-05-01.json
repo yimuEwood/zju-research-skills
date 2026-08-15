@@ -1,0 +1,66 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-EVIDENCE_SYNTHESIS-05-01",
+  "skill_id": "zju-evidence-synthesis",
+  "fixture_sha256": "51de26197afba07378d6f0af7a0f19fec2b7e3ca185ef7c121525e062f9ea825",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "51de26197afba07378d6f0af7a0f19fec2b7e3ca185ef7c121525e062f9ea825",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "bundle_mode": true,
+          "rows": 2,
+          "claims": 1,
+          "conflicts": 1,
+          "errors": 1,
+          "findings": [
+            {
+              "row": "claim[1]",
+              "field": "certainty",
+              "severity": "error",
+              "message": "invalid certainty"
+            }
+          ]
+        },
+        "surface": "{\"bundle_mode\": true, \"claims\": 1, \"conflicts\": 1, \"errors\": 1, \"findings\": [{\"field\": \"certainty\", \"message\": \"invalid certainty\", \"row\": \"claim[1]\", \"severity\": \"error\"}], \"rows\": 2, \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "bundle_mode": true,
+          "rows": 2,
+          "claims": 1,
+          "conflicts": 1,
+          "errors": 0,
+          "findings": []
+        },
+        "surface": "{\"bundle_mode\": true, \"claims\": 1, \"conflicts\": 1, \"errors\": 0, \"findings\": [], \"rows\": 2, \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "621524c3a7b538055dfefcebf98b6693dfcf44a749def1a97ea4a5c271010793"
+  }
+}

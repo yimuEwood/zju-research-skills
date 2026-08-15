@@ -1,0 +1,91 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-RESEARCH_DIRECTOR-03-04",
+  "skill_id": "zju-research-director",
+  "fixture_sha256": "0a80dd9cce79fab79fab17265f487b35e17ff62fc3611880046c1ae2ed3dfff7",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "0a80dd9cce79fab79fab17265f487b35e17ff62fc3611880046c1ae2ed3dfff7",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "schema_version": "1.1",
+          "mission_id": "MISSION-L2-001-V34",
+          "errors": [
+            {
+              "code": "enum",
+              "path": "constraints.autonomy_ceiling",
+              "message": "Unknown autonomy ceiling: L9"
+            }
+          ],
+          "warnings": [],
+          "counts": {
+            "objectives": 1,
+            "requested_deliverables": 1,
+            "evidence_records": 0,
+            "claims": 0,
+            "hypotheses": 0,
+            "experiments": 0,
+            "artifacts": 0,
+            "decisions": 0,
+            "risks": 0,
+            "open_loops": 0,
+            "gate_ledger": 0,
+            "route": 0,
+            "migration_history": 0
+          }
+        },
+        "surface": "{\"counts\": {\"artifacts\": 0, \"claims\": 0, \"decisions\": 0, \"evidence_records\": 0, \"experiments\": 0, \"gate_ledger\": 0, \"hypotheses\": 0, \"migration_history\": 0, \"objectives\": 1, \"open_loops\": 0, \"requested_deliverables\": 1, \"risks\": 0, \"route\": 0}, \"errors\": [{\"code\": \"enum\", \"message\": \"Unknown autonomy ceiling: L9\", \"path\": \"constraints.autonomy_ceiling\"}], \"mission_id\": \"MISSION-L2-001-V34\", \"schema_version\": \"1.1\", \"valid\": false, \"warnings\": []}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "schema_version": "1.1",
+          "mission_id": "MISSION-L2-001-V34",
+          "errors": [],
+          "warnings": [],
+          "counts": {
+            "objectives": 1,
+            "requested_deliverables": 1,
+            "evidence_records": 0,
+            "claims": 0,
+            "hypotheses": 0,
+            "experiments": 0,
+            "artifacts": 0,
+            "decisions": 0,
+            "risks": 0,
+            "open_loops": 0,
+            "gate_ledger": 0,
+            "route": 0,
+            "migration_history": 0
+          }
+        },
+        "surface": "{\"counts\": {\"artifacts\": 0, \"claims\": 0, \"decisions\": 0, \"evidence_records\": 0, \"experiments\": 0, \"gate_ledger\": 0, \"hypotheses\": 0, \"migration_history\": 0, \"objectives\": 1, \"open_loops\": 0, \"requested_deliverables\": 1, \"risks\": 0, \"route\": 0}, \"errors\": [], \"mission_id\": \"MISSION-L2-001-V34\", \"schema_version\": \"1.1\", \"valid\": true, \"warnings\": []}",
+        "exception": null
+      }
+    },
+    "second_sha256": "175fca642bb1572e3bda5723fb29bc10c16b5b5c480f8a247603f8baf8980057"
+  }
+}

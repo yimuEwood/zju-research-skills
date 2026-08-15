@@ -1,0 +1,55 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_FIGURE-01-02",
+  "skill_id": "zju-scientific-figure",
+  "fixture_sha256": "e260a99363ac917d2d284d861d157a472c2bba9da4741235486038c748ba4fbf",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "e260a99363ac917d2d284d861d157a472c2bba9da4741235486038c748ba4fbf",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "ValueError: source data SHA-256 does not match the canonical result registry; rerun the analysis or select the exact bound data file",
+        "exception": {
+          "type": "ValueError",
+          "message": "source data SHA-256 does not match the canonical result registry; rerun the analysis or select the exact bound data file"
+        }
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "export_formats": [
+            "png",
+            "svg",
+            "pdf"
+          ],
+          "exports_content_hashed": true,
+          "manifest_has_provenance": true,
+          "manifest_written": true
+        },
+        "surface": "{\"export_formats\": [\"png\", \"svg\", \"pdf\"], \"exports_content_hashed\": true, \"manifest_has_provenance\": true, \"manifest_written\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "72112b4d6d1cd9076d3c49ed4cdb169b0dc6a5cea02bdf859717c71b08510d98"
+  }
+}

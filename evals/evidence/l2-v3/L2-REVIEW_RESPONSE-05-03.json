@@ -1,0 +1,68 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-REVIEW_RESPONSE-05-03",
+  "skill_id": "zju-review-response",
+  "fixture_sha256": "53591cca096da8bfbf821ae07d3123bc1201125c3ba2d80719c7428614aeda36",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "53591cca096da8bfbf821ae07d3123bc1201125c3ba2d80719c7428614aeda36",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"evidence_linked_items\": 0, \"findings\": [{\"field\": \"items[1].manuscript_change\", \"message\": \"verified item lacks response, change, or location\", \"severity\": \"error\"}], \"ready\": false, \"unresolved\": 0, \"valid\": false, \"workflow_version\": \"1.0\"}",
+          "expected": "manuscript_change"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "ready": true,
+          "workflow_version": "1.0",
+          "unresolved": 0,
+          "evidence_linked_items": 0,
+          "findings": []
+        },
+        "surface": "{\"evidence_linked_items\": 0, \"findings\": [], \"ready\": true, \"unresolved\": 0, \"valid\": true, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "ready": false,
+          "workflow_version": "1.0",
+          "unresolved": 0,
+          "evidence_linked_items": 0,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "items[1].manuscript_change",
+              "message": "verified item lacks response, change, or location"
+            }
+          ]
+        },
+        "surface": "{\"evidence_linked_items\": 0, \"findings\": [{\"field\": \"items[1].manuscript_change\", \"message\": \"verified item lacks response, change, or location\", \"severity\": \"error\"}], \"ready\": false, \"unresolved\": 0, \"valid\": false, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "26bd3b17bcf8d2868cbe4c9fd447ba31a71e895729bf22b782ddc21489e640b6"
+  }
+}

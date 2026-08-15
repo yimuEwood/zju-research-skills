@@ -1,0 +1,61 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-REVIEWER-05-02",
+  "skill_id": "zju-reviewer",
+  "fixture_sha256": "b541c1131525e417c205a11b2324cc1ab8ff65a704b9941dfd7aea50123ca5a6",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "b541c1131525e417c205a11b2324cc1ab8ff65a704b9941dfd7aea50123ca5a6",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "workflow_version": "1.0",
+          "concerns": 1,
+          "response_handoff_ready": false,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "immutable_packet_sha256",
+              "message": "blind panel needs immutable packet hash"
+            }
+          ]
+        },
+        "surface": "{\"concerns\": 1, \"findings\": [{\"field\": \"immutable_packet_sha256\", \"message\": \"blind panel needs immutable packet hash\", \"severity\": \"error\"}], \"response_handoff_ready\": false, \"valid\": false, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "workflow_version": "1.0",
+          "concerns": 1,
+          "response_handoff_ready": false,
+          "findings": []
+        },
+        "surface": "{\"concerns\": 1, \"findings\": [], \"response_handoff_ready\": false, \"valid\": true, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "60d35e4d274f4f0ad57bfab744696dc850f6e310dd64c63f860326532e8b0876"
+  }
+}

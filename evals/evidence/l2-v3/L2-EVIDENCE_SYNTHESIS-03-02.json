@@ -1,0 +1,72 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-EVIDENCE_SYNTHESIS-03-02",
+  "skill_id": "zju-evidence-synthesis",
+  "fixture_sha256": "b17a19bf879b27b4b8e4ace19f6c8c024871b7aca0b3271f53c12a51257e6325",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "b17a19bf879b27b4b8e4ace19f6c8c024871b7aca0b3271f53c12a51257e6325",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "bundle_mode": false,
+          "rows": 1,
+          "claims": 0,
+          "conflicts": 0,
+          "errors": 2,
+          "findings": [
+            {
+              "row": 1,
+              "field": "risk_of_bias",
+              "severity": "error",
+              "message": "required field missing"
+            },
+            {
+              "row": 1,
+              "field": "risk_of_bias",
+              "severity": "error",
+              "message": "invalid risk-of-bias state"
+            }
+          ]
+        },
+        "surface": "{\"bundle_mode\": false, \"claims\": 0, \"conflicts\": 0, \"errors\": 2, \"findings\": [{\"field\": \"risk_of_bias\", \"message\": \"required field missing\", \"row\": 1, \"severity\": \"error\"}, {\"field\": \"risk_of_bias\", \"message\": \"invalid risk-of-bias state\", \"row\": 1, \"severity\": \"error\"}], \"rows\": 1, \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "bundle_mode": false,
+          "rows": 1,
+          "claims": 0,
+          "conflicts": 0,
+          "errors": 0,
+          "findings": []
+        },
+        "surface": "{\"bundle_mode\": false, \"claims\": 0, \"conflicts\": 0, \"errors\": 0, \"findings\": [], \"rows\": 1, \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "a040f67dae701dac544c09281f3c9a17d5bff6cf5d95a8a02f05905ae8453db7"
+  }
+}

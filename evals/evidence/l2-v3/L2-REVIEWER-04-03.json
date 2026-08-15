@@ -1,0 +1,66 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-REVIEWER-04-03",
+  "skill_id": "zju-reviewer",
+  "fixture_sha256": "b974e3abb7c37a17e9cedb159bde380f5bc5aa9c0061bd78e962d81ad7cb85a1",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "b974e3abb7c37a17e9cedb159bde380f5bc5aa9c0061bd78e962d81ad7cb85a1",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"concerns\": 1, \"findings\": [{\"field\": \"concerns[1].severity\", \"message\": \"invalid severity\", \"severity\": \"error\"}], \"response_handoff_ready\": false, \"valid\": false, \"workflow_version\": \"1.0\"}",
+          "expected": "severity"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "workflow_version": "1.0",
+          "concerns": 1,
+          "response_handoff_ready": false,
+          "findings": []
+        },
+        "surface": "{\"concerns\": 1, \"findings\": [], \"response_handoff_ready\": false, \"valid\": true, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "workflow_version": "1.0",
+          "concerns": 1,
+          "response_handoff_ready": false,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "concerns[1].severity",
+              "message": "invalid severity"
+            }
+          ]
+        },
+        "surface": "{\"concerns\": 1, \"findings\": [{\"field\": \"concerns[1].severity\", \"message\": \"invalid severity\", \"severity\": \"error\"}], \"response_handoff_ready\": false, \"valid\": false, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "2fce303a010a7f928f0510eb497153cc8a76feaf96b03c606607a2fc99b472f6"
+  }
+}

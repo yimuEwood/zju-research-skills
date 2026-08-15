@@ -1,0 +1,72 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-STATISTICS_AUDIT-05-03",
+  "skill_id": "zju-statistics-audit",
+  "fixture_sha256": "19265cda6a31269d5f9c147af21b610ef1c495b51974c4d9f88fadd2dabef506",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "19265cda6a31269d5f9c147af21b610ef1c495b51974c4d9f88fadd2dabef506",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"compared_fields\": 3, \"consistency_rate\": 0.6666666666666666, \"issues\": [{\"message\": \"Reported value 2.4 differs from canonical value -2.4.\", \"path\": \"uses[0].values.estimate\", \"severity\": \"error\"}], \"mismatches\": 1, \"results\": 1, \"unused_result_ids\": [], \"uses\": 1, \"valid\": false}",
+          "expected": "estimate"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "results": 1,
+          "uses": 1,
+          "compared_fields": 3,
+          "mismatches": 0,
+          "consistency_rate": 1.0,
+          "unused_result_ids": [],
+          "issues": []
+        },
+        "surface": "{\"compared_fields\": 3, \"consistency_rate\": 1.0, \"issues\": [], \"mismatches\": 0, \"results\": 1, \"unused_result_ids\": [], \"uses\": 1, \"valid\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "results": 1,
+          "uses": 1,
+          "compared_fields": 3,
+          "mismatches": 1,
+          "consistency_rate": 0.6666666666666666,
+          "unused_result_ids": [],
+          "issues": [
+            {
+              "path": "uses[0].values.estimate",
+              "severity": "error",
+              "message": "Reported value 2.4 differs from canonical value -2.4."
+            }
+          ]
+        },
+        "surface": "{\"compared_fields\": 3, \"consistency_rate\": 0.6666666666666666, \"issues\": [{\"message\": \"Reported value 2.4 differs from canonical value -2.4.\", \"path\": \"uses[0].values.estimate\", \"severity\": \"error\"}], \"mismatches\": 1, \"results\": 1, \"unused_result_ids\": [], \"uses\": 1, \"valid\": false}",
+        "exception": null
+      }
+    },
+    "second_sha256": "071be3fe61b8d8dc4d4e49356ba1a191a858a48c33343db84d279cf8e61ca61f"
+  }
+}

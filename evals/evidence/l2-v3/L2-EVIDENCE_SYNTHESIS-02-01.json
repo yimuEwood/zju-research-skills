@@ -1,0 +1,66 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-EVIDENCE_SYNTHESIS-02-01",
+  "skill_id": "zju-evidence-synthesis",
+  "fixture_sha256": "d46b8feb4936e6b73712a60b0cf486494dc80463f2edeffe878f62ce6109caa2",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "d46b8feb4936e6b73712a60b0cf486494dc80463f2edeffe878f62ce6109caa2",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "bundle_mode": false,
+          "rows": 1,
+          "claims": 0,
+          "conflicts": 0,
+          "errors": 1,
+          "findings": [
+            {
+              "row": 1,
+              "field": "time_point",
+              "severity": "error",
+              "message": "required field missing"
+            }
+          ]
+        },
+        "surface": "{\"bundle_mode\": false, \"claims\": 0, \"conflicts\": 0, \"errors\": 1, \"findings\": [{\"field\": \"time_point\", \"message\": \"required field missing\", \"row\": 1, \"severity\": \"error\"}], \"rows\": 1, \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "bundle_mode": false,
+          "rows": 1,
+          "claims": 0,
+          "conflicts": 0,
+          "errors": 0,
+          "findings": []
+        },
+        "surface": "{\"bundle_mode\": false, \"claims\": 0, \"conflicts\": 0, \"errors\": 0, \"findings\": [], \"rows\": 1, \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "5a3a1b42375dfdd154970aba264220248f1fa995d12863f84ad6266f14d7ab1a"
+  }
+}

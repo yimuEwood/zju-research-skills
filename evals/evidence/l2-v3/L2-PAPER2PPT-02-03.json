@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PAPER2PPT-02-03",
+  "skill_id": "zju-paper2ppt",
+  "fixture_sha256": "6e17d7f3701df8000bcbda200b115b4e957e9943beb4e1c7c88e88eeffe4e1c9",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "6e17d7f3701df8000bcbda200b115b4e957e9943beb4e1c7c88e88eeffe4e1c9",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"estimated_seconds\": 60.0, \"findings\": [{\"field\": \"slides[1].source_anchors\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"valid\": false}",
+          "expected": "source_anchors"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "estimated_seconds": 60.0,
+          "findings": []
+        },
+        "surface": "{\"estimated_seconds\": 60.0, \"findings\": [], \"valid\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "estimated_seconds": 60.0,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "slides[1].source_anchors",
+              "message": "required field missing"
+            }
+          ]
+        },
+        "surface": "{\"estimated_seconds\": 60.0, \"findings\": [{\"field\": \"slides[1].source_anchors\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"valid\": false}",
+        "exception": null
+      }
+    },
+    "second_sha256": "3a1aeb783588f27fa70edea9324c10946196feca4b61e800ab181e3f6b81f1d2"
+  }
+}

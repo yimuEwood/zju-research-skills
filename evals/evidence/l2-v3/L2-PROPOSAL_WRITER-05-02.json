@@ -1,0 +1,137 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PROPOSAL_WRITER-05-02",
+  "skill_id": "zju-proposal-writer",
+  "fixture_sha256": "023da4907af835e6f679a53803b212d3825ea988e67ebdab7ba4872d1df96f18",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "023da4907af835e6f679a53803b212d3825ea988e67ebdab7ba4872d1df96f18",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": [
+            "WP1",
+            "WP2"
+          ],
+          "expected": [
+            "WP1",
+            "WP2"
+          ]
+        },
+        {
+          "passed": true,
+          "observed": "proposal_schedule_resource_risk_v1",
+          "expected": "proposal_schedule_resource_risk_v1"
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "oracle_id": "proposal_schedule_resource_risk_v1",
+          "valid": false,
+          "topological_order": [
+            "WP1",
+            "WP2"
+          ],
+          "dependency_cycle": [],
+          "resource_overloads": [
+            {
+              "week": 1,
+              "resource": "researcher",
+              "demand": 1.0,
+              "capacity": 0.5
+            },
+            {
+              "week": 2,
+              "resource": "researcher",
+              "demand": 1.0,
+              "capacity": 0.5
+            },
+            {
+              "week": 3,
+              "resource": "researcher",
+              "demand": 1.0,
+              "capacity": 0.5
+            },
+            {
+              "week": 4,
+              "resource": "researcher",
+              "demand": 1.0,
+              "capacity": 0.5
+            },
+            {
+              "week": 5,
+              "resource": "researcher",
+              "demand": 1.0,
+              "capacity": 0.5
+            }
+          ],
+          "risk_coverage": [
+            "WP1"
+          ],
+          "findings": [
+            {
+              "field": "resource_capacities",
+              "message": "researcher overloaded in week 1: 1.0 > 0.5"
+            },
+            {
+              "field": "resource_capacities",
+              "message": "researcher overloaded in week 2: 1.0 > 0.5"
+            },
+            {
+              "field": "resource_capacities",
+              "message": "researcher overloaded in week 3: 1.0 > 0.5"
+            },
+            {
+              "field": "resource_capacities",
+              "message": "researcher overloaded in week 4: 1.0 > 0.5"
+            },
+            {
+              "field": "resource_capacities",
+              "message": "researcher overloaded in week 5: 1.0 > 0.5"
+            }
+          ]
+        },
+        "surface": "{\"dependency_cycle\": [], \"findings\": [{\"field\": \"resource_capacities\", \"message\": \"researcher overloaded in week 1: 1.0 > 0.5\"}, {\"field\": \"resource_capacities\", \"message\": \"researcher overloaded in week 2: 1.0 > 0.5\"}, {\"field\": \"resource_capacities\", \"message\": \"researcher overloaded in week 3: 1.0 > 0.5\"}, {\"field\": \"resource_capacities\", \"message\": \"researcher overloaded in week 4: 1.0 > 0.5\"}, {\"field\": \"resource_capacities\", \"message\": \"researcher overloaded in week 5: 1.0 > 0.5\"}], \"oracle_id\": \"proposal_schedule_resource_risk_v1\", \"resource_overloads\": [{\"capacity\": 0.5, \"demand\": 1.0, \"resource\": \"researcher\", \"week\": 1}, {\"capacity\": 0.5, \"demand\": 1.0, \"resource\": \"researcher\", \"week\": 2}, {\"capacity\": 0.5, \"demand\": 1.0, \"resource\": \"researcher\", \"week\": 3}, {\"capacity\": 0.5, \"demand\": 1.0, \"resource\": \"researcher\", \"week\": 4}, {\"capacity\": 0.5, \"demand\": 1.0, \"resource\": \"researcher\", \"week\": 5}], \"risk_coverage\": [\"WP1\"], \"topological_order\": [\"WP1\", \"WP2\"], \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "oracle_id": "proposal_schedule_resource_risk_v1",
+          "valid": true,
+          "topological_order": [
+            "WP1",
+            "WP2"
+          ],
+          "dependency_cycle": [],
+          "resource_overloads": [],
+          "risk_coverage": [
+            "WP1"
+          ],
+          "findings": []
+        },
+        "surface": "{\"dependency_cycle\": [], \"findings\": [], \"oracle_id\": \"proposal_schedule_resource_risk_v1\", \"resource_overloads\": [], \"risk_coverage\": [\"WP1\"], \"topological_order\": [\"WP1\", \"WP2\"], \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "5e36f8672340f14f6c5a483c3d684e2ca2e9ad1522235bc0f90e6441eafa9b4b"
+  }
+}

@@ -1,9 +1,10 @@
 schema_version: "3.0"
 snapshot_date: "2026-08-15"
-evaluated_package_version: "1.0.0"
+evaluated_package_version: "1.1.0"
 protocol: "evals/portfolio-protocol-v3.json"
 capability_matrix: "evals/skill-evaluation-matrix-v3.json"
 current_evidence_declaration: "evals/current-portfolio-evidence-v3.json"
+evaluated_skill_commit: "08aecf5ba38f4879ae0d718ca624d16ac2affb6e"
 current_status: beta
 official_portfolio_score: null
 official_score_reason: "Protocol v3 has not run a frozen, unseen, independently administered first-attempt holdout for all twenty skills."
@@ -15,21 +16,42 @@ current_layer_evidence:
     checks_per_skill: 6
     passed_records: 120
     total_records: 120
-    input_files_hashed: 153
+    input_files_hashed: 178
     evidence: "evals/l1-contract-census-v3.json"
     interpretation: "Engineering conformance only; no capability score."
-  L2_deterministic_function: {status: incomplete, official_score_contribution: null}
-  L3_controlled_task_capability: {status: incomplete, official_score_contribution: null}
-  L4_frozen_holdout_generalization: {status: incomplete, official_score_contribution: null}
+  L2_deterministic_function:
+    status: complete
+    skills: 20
+    cases_per_skill: 20
+    passed_records: 400
+    total_records: 400
+    negative_cases_per_skill: 5
+    fixture_hashes_unique: 400
+    evidence: "evals/l2-portfolio-evidence-v3.json"
+    case_manifest: "evals/l2-cases-v3.json"
+    interpretation: "Deterministic parser, validator, transformation, rejection, and local artifact behavior only; no free-form scientific correctness claim."
+  L3_controlled_task_capability:
+    status: external_execution_pending
+    official_score_contribution: null
+    operations: "evals/blind_eval_operations_v3.py"
+    remaining_requirement: "Independent task responses, two primary raters, adjudication where required, and signed administration evidence."
+  L4_frozen_holdout_generalization:
+    status: external_administration_pending
+    official_score_contribution: null
+    operations: "evals/blind_eval_operations_v3.py"
+    remaining_requirement: "A separately authored unseen holdout, preregistered independent Ed25519 administrator, first-attempt execution, two independent raters, and post-rating reveal."
 
 local_regression_snapshot:
-  unit_tests_discovered: 192
-  local_tests_passed_with_optional_cache: 192
-  clean_checkout_required_tests_passed: 191
+  unit_tests_discovered: 295
+  local_tests_passed_with_optional_cache: 295
+  clean_checkout_required_tests_passed: 294
   clean_checkout_optional_cache_checks_skipped: 1
-  skill_scripts_scanned: 46
+  core_skill_scripts_scanned: 65
+  optional_pack_scripts_scanned: 3
+  skill_scripts_scanned: 68
   static_findings: 0
-  adversarial_release_gate_tests: 7
+  adversarial_release_gate_tests: 8
+  blind_evaluation_operations_tests: 12
 
 historical_evidence_audit:
   first_wave:

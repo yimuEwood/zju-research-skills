@@ -1,0 +1,160 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-FULLTEXT_ACCESS-04-04",
+  "skill_id": "zju-fulltext-access",
+  "fixture_sha256": "8762936c37afd68a65aad9ae73cd4b02b96ebe735049579106184fabf9f75dcf",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "8762936c37afd68a65aad9ae73cd4b02b96ebe735049579106184fabf9f75dcf",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "status": "subscription_required",
+          "route": "zju_library_interactive",
+          "url": "https://libweb.zju.edu.cn/56334/list.htm",
+          "route_candidates": [
+            {
+              "route": "zju_library_interactive",
+              "url": "https://libweb.zju.edu.cn/56334/list.htm",
+              "status": "subscription_required",
+              "rank": 5
+            },
+            {
+              "route": "manual_identifier_lookup",
+              "url": "https://doi.org/10.1000/l2-v44",
+              "status": "unresolved",
+              "rank": 6
+            },
+            {
+              "route": "manual_citation_resolution",
+              "url": "",
+              "status": "unresolved",
+              "rank": 7
+            }
+          ],
+          "requires_interactive_authentication": true,
+          "automation_allowed": false,
+          "requested_components": [
+            "full_text",
+            "supplement",
+            "data"
+          ],
+          "available_components": [
+            "data",
+            "supplement"
+          ],
+          "missing_components": [
+            "full_text"
+          ],
+          "source_package_complete": false,
+          "reader_handoff": {
+            "record_id": "REC-1-V44",
+            "version_requested": "version_of_record",
+            "version_obtained": "not_verified",
+            "primary_url": "",
+            "source_level": "metadata_only",
+            "component_urls": {
+              "full_text": "",
+              "supplement": "https://example.org/supp.pdf",
+              "protocol_or_registration": "",
+              "data": "https://example.org/data",
+              "code": "",
+              "correction_or_retraction_notice": ""
+            },
+            "ready": false
+          },
+          "note": "Classification is not proof of access rights; verify on the target page."
+        },
+        "surface": "{\"automation_allowed\": false, \"available_components\": [\"data\", \"supplement\"], \"missing_components\": [\"full_text\"], \"note\": \"Classification is not proof of access rights; verify on the target page.\", \"reader_handoff\": {\"component_urls\": {\"code\": \"\", \"correction_or_retraction_notice\": \"\", \"data\": \"https://example.org/data\", \"full_text\": \"\", \"protocol_or_registration\": \"\", \"supplement\": \"https://example.org/supp.pdf\"}, \"primary_url\": \"\", \"ready\": false, \"record_id\": \"REC-1-V44\", \"source_level\": \"metadata_only\", \"version_obtained\": \"not_verified\", \"version_requested\": \"version_of_record\"}, \"requested_components\": [\"full_text\", \"supplement\", \"data\"], \"requires_interactive_authentication\": true, \"route\": \"zju_library_interactive\", \"route_candidates\": [{\"rank\": 5, \"route\": \"zju_library_interactive\", \"status\": \"subscription_required\", \"url\": \"https://libweb.zju.edu.cn/56334/list.htm\"}, {\"rank\": 6, \"route\": \"manual_identifier_lookup\", \"status\": \"unresolved\", \"url\": \"https://doi.org/10.1000/l2-v44\"}, {\"rank\": 7, \"route\": \"manual_citation_resolution\", \"status\": \"unresolved\", \"url\": \"\"}], \"source_package_complete\": false, \"status\": \"subscription_required\", \"url\": \"https://libweb.zju.edu.cn/56334/list.htm\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "status": "subscription_required",
+          "route": "zju_library_interactive",
+          "url": "https://libweb.zju.edu.cn/56334/list.htm",
+          "route_candidates": [
+            {
+              "route": "zju_library_interactive",
+              "url": "https://libweb.zju.edu.cn/56334/list.htm",
+              "status": "subscription_required",
+              "rank": 5
+            },
+            {
+              "route": "manual_identifier_lookup",
+              "url": "https://doi.org/10.1000/l2-v44",
+              "status": "unresolved",
+              "rank": 6
+            },
+            {
+              "route": "manual_citation_resolution",
+              "url": "",
+              "status": "unresolved",
+              "rank": 7
+            }
+          ],
+          "requires_interactive_authentication": true,
+          "automation_allowed": false,
+          "requested_components": [
+            "full_text",
+            "supplement",
+            "data"
+          ],
+          "available_components": [
+            "data",
+            "supplement"
+          ],
+          "missing_components": [
+            "full_text"
+          ],
+          "source_package_complete": false,
+          "reader_handoff": {
+            "record_id": "REC-1-V44",
+            "version_requested": "version_of_record",
+            "version_obtained": "not_verified",
+            "primary_url": "",
+            "source_level": "metadata_only",
+            "component_urls": {
+              "full_text": "",
+              "supplement": "https://example.org/supp.pdf",
+              "protocol_or_registration": "",
+              "data": "https://example.org/data",
+              "code": "",
+              "correction_or_retraction_notice": ""
+            },
+            "ready": false
+          },
+          "note": "Classification is not proof of access rights; verify on the target page."
+        },
+        "surface": "{\"automation_allowed\": false, \"available_components\": [\"data\", \"supplement\"], \"missing_components\": [\"full_text\"], \"note\": \"Classification is not proof of access rights; verify on the target page.\", \"reader_handoff\": {\"component_urls\": {\"code\": \"\", \"correction_or_retraction_notice\": \"\", \"data\": \"https://example.org/data\", \"full_text\": \"\", \"protocol_or_registration\": \"\", \"supplement\": \"https://example.org/supp.pdf\"}, \"primary_url\": \"\", \"ready\": false, \"record_id\": \"REC-1-V44\", \"source_level\": \"metadata_only\", \"version_obtained\": \"not_verified\", \"version_requested\": \"version_of_record\"}, \"requested_components\": [\"full_text\", \"supplement\", \"data\"], \"requires_interactive_authentication\": true, \"route\": \"zju_library_interactive\", \"route_candidates\": [{\"rank\": 5, \"route\": \"zju_library_interactive\", \"status\": \"subscription_required\", \"url\": \"https://libweb.zju.edu.cn/56334/list.htm\"}, {\"rank\": 6, \"route\": \"manual_identifier_lookup\", \"status\": \"unresolved\", \"url\": \"https://doi.org/10.1000/l2-v44\"}, {\"rank\": 7, \"route\": \"manual_citation_resolution\", \"status\": \"unresolved\", \"url\": \"\"}], \"source_package_complete\": false, \"status\": \"subscription_required\", \"url\": \"https://libweb.zju.edu.cn/56334/list.htm\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "7e2a1469573457f7563561ec1e5a13deafe3f55f1f9fa66419b809b4f4c54d33"
+  }
+}

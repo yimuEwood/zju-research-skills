@@ -1,0 +1,58 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_WRITING-02-04",
+  "skill_id": "zju-scientific-writing",
+  "fixture_sha256": "0ea4d0d369bfe6d111307229cdac558e0813db82148cee898a79552e4a417232",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "0ea4d0d369bfe6d111307229cdac558e0813db82148cee898a79552e4a417232",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "claims": 1,
+          "issues": [
+            {
+              "claim_id": "C1-V24",
+              "field": "evidence_ids",
+              "severity": "error",
+              "message": "A supported claim must reference evidence."
+            }
+          ]
+        },
+        "surface": "{\"claims\": 1, \"issues\": [{\"claim_id\": \"C1-V24\", \"field\": \"evidence_ids\", \"message\": \"A supported claim must reference evidence.\", \"severity\": \"error\"}], \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "claims": 1,
+          "issues": []
+        },
+        "surface": "{\"claims\": 1, \"issues\": [], \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "a89d162f2e36057d8aa0c006ed5a4d5cdab395d03d3d9a03d53bd416f144aa71"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-RESEARCH_DIRECTOR-02-02",
+  "skill_id": "zju-research-director",
+  "fixture_sha256": "70a923b8dab39a05b891becd39d4f9643ca0278b18a4ad915314b20d38c0359c",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "70a923b8dab39a05b891becd39d4f9643ca0278b18a4ad915314b20d38c0359c",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "schema_version": "1.1",
+          "mission_id": "MISSION-L2-001",
+          "errors": [
+            {
+              "code": "minimum",
+              "path": "requested_deliverables",
+              "message": "At least one deliverable is required"
+            }
+          ],
+          "warnings": [],
+          "counts": {
+            "objectives": 1,
+            "requested_deliverables": 0,
+            "evidence_records": 0,
+            "claims": 0,
+            "hypotheses": 0,
+            "experiments": 0,
+            "artifacts": 0,
+            "decisions": 0,
+            "risks": 0,
+            "open_loops": 0,
+            "gate_ledger": 0,
+            "route": 0,
+            "migration_history": 0
+          }
+        },
+        "surface": "{\"counts\": {\"artifacts\": 0, \"claims\": 0, \"decisions\": 0, \"evidence_records\": 0, \"experiments\": 0, \"gate_ledger\": 0, \"hypotheses\": 0, \"migration_history\": 0, \"objectives\": 1, \"open_loops\": 0, \"requested_deliverables\": 0, \"risks\": 0, \"route\": 0}, \"errors\": [{\"code\": \"minimum\", \"message\": \"At least one deliverable is required\", \"path\": \"requested_deliverables\"}], \"mission_id\": \"MISSION-L2-001\", \"schema_version\": \"1.1\", \"valid\": false, \"warnings\": []}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "schema_version": "1.1",
+          "mission_id": "MISSION-L2-001",
+          "errors": [],
+          "warnings": [],
+          "counts": {
+            "objectives": 1,
+            "requested_deliverables": 1,
+            "evidence_records": 0,
+            "claims": 0,
+            "hypotheses": 0,
+            "experiments": 0,
+            "artifacts": 0,
+            "decisions": 0,
+            "risks": 0,
+            "open_loops": 0,
+            "gate_ledger": 0,
+            "route": 0,
+            "migration_history": 0
+          }
+        },
+        "surface": "{\"counts\": {\"artifacts\": 0, \"claims\": 0, \"decisions\": 0, \"evidence_records\": 0, \"experiments\": 0, \"gate_ledger\": 0, \"hypotheses\": 0, \"migration_history\": 0, \"objectives\": 1, \"open_loops\": 0, \"requested_deliverables\": 1, \"risks\": 0, \"route\": 0}, \"errors\": [], \"mission_id\": \"MISSION-L2-001\", \"schema_version\": \"1.1\", \"valid\": true, \"warnings\": []}",
+        "exception": null
+      }
+    },
+    "second_sha256": "d343d708c64c4bd3f0135ec63bc3690955aa4d4afd09b1ae531892b0086210a2"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PAPER2PPT-01-04",
+  "skill_id": "zju-paper2ppt",
+  "fixture_sha256": "eeadcadb15903ed2dc14920f737c22bf2d2fcb0a3e4289941d077b88ac021bec",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "eeadcadb15903ed2dc14920f737c22bf2d2fcb0a3e4289941d077b88ac021bec",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "estimated_seconds": 60.0,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "slides[1].claim",
+              "message": "required field missing"
+            }
+          ]
+        },
+        "surface": "{\"estimated_seconds\": 60.0, \"findings\": [{\"field\": \"slides[1].claim\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "estimated_seconds": 60.0,
+          "findings": []
+        },
+        "surface": "{\"estimated_seconds\": 60.0, \"findings\": [], \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "274503a9256e888f27a9a8a06a86f0538412d08ef0ca600545305ea47b034895"
+  }
+}

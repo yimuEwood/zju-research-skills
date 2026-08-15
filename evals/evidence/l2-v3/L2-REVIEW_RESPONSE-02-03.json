@@ -1,0 +1,68 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-REVIEW_RESPONSE-02-03",
+  "skill_id": "zju-review-response",
+  "fixture_sha256": "1a0bd39255dff0fad8f85a5e4f00a29af2002a9d900bd77394d57ccd3fb0861e",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "1a0bd39255dff0fad8f85a5e4f00a29af2002a9d900bd77394d57ccd3fb0861e",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"evidence_linked_items\": 0, \"findings\": [{\"field\": \"items[1].status\", \"message\": \"invalid status\", \"severity\": \"error\"}], \"ready\": false, \"unresolved\": 1, \"valid\": false, \"workflow_version\": \"1.0\"}",
+          "expected": "status"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "ready": true,
+          "workflow_version": "1.0",
+          "unresolved": 0,
+          "evidence_linked_items": 0,
+          "findings": []
+        },
+        "surface": "{\"evidence_linked_items\": 0, \"findings\": [], \"ready\": true, \"unresolved\": 0, \"valid\": true, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "ready": false,
+          "workflow_version": "1.0",
+          "unresolved": 1,
+          "evidence_linked_items": 0,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "items[1].status",
+              "message": "invalid status"
+            }
+          ]
+        },
+        "surface": "{\"evidence_linked_items\": 0, \"findings\": [{\"field\": \"items[1].status\", \"message\": \"invalid status\", \"severity\": \"error\"}], \"ready\": false, \"unresolved\": 1, \"valid\": false, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "8cb9942687e799509912b9f51c4258340911aef0d383fc797bae71a3eb1afab6"
+  }
+}

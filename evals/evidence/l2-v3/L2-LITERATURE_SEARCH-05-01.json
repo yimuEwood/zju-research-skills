@@ -1,0 +1,71 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-LITERATURE_SEARCH-05-01",
+  "skill_id": "zju-literature-search",
+  "fixture_sha256": "0e3afe36dfd64f4fe62750a003bb2550cdeee7bf9b30fc20e60fad3bcd16dfac",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "0e3afe36dfd64f4fe62750a003bb2550cdeee7bf9b30fc20e60fad3bcd16dfac",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": [
+            "Q-HANDOFF-1",
+            "Q2"
+          ],
+          "expected": "Q-HANDOFF-1"
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "AttributeError: 'str' object has no attribute 'get'",
+        "exception": {
+          "type": "AttributeError",
+          "message": "'str' object has no attribute 'get'"
+        }
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "record_count": 2,
+          "identifier_missing_count": 1,
+          "identity_missing_count": 0,
+          "identity_keys": [
+            "doi:10.1000/l2",
+            "title-year-author:identity free evidence:2024:"
+          ],
+          "query_ids": [
+            "Q-HANDOFF-1",
+            "Q2"
+          ],
+          "source_databases": [
+            "Crossref",
+            "OpenAlex",
+            "manual"
+          ]
+        },
+        "surface": "{\"identifier_missing_count\": 1, \"identity_keys\": [\"doi:10.1000/l2\", \"title-year-author:identity free evidence:2024:\"], \"identity_missing_count\": 0, \"query_ids\": [\"Q-HANDOFF-1\", \"Q2\"], \"record_count\": 2, \"source_databases\": [\"Crossref\", \"OpenAlex\", \"manual\"]}",
+        "exception": null
+      }
+    },
+    "second_sha256": "18c654ee7a143ddd0a5b6082972559762bdf3e9078b4c157783ba6f51d26eae0"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-STATISTICS_AUDIT-01-04",
+  "skill_id": "zju-statistics-audit",
+  "fixture_sha256": "d2e8014a7595b9f7bffafca8b330c858b08418cec47567eade6dcda494e08646",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "d2e8014a7595b9f7bffafca8b330c858b08418cec47567eade6dcda494e08646",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "plan_ready": false,
+          "outcomes": 1,
+          "analyses": 1,
+          "confirmatory_outcomes_covered": true,
+          "issues": [
+            {
+              "path": "analyses[0].estimand",
+              "severity": "error",
+              "message": "Required analysis decision is missing."
+            }
+          ]
+        },
+        "surface": "{\"analyses\": 1, \"confirmatory_outcomes_covered\": true, \"issues\": [{\"message\": \"Required analysis decision is missing.\", \"path\": \"analyses[0].estimand\", \"severity\": \"error\"}], \"outcomes\": 1, \"plan_ready\": false, \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "plan_ready": true,
+          "outcomes": 1,
+          "analyses": 1,
+          "confirmatory_outcomes_covered": true,
+          "issues": []
+        },
+        "surface": "{\"analyses\": 1, \"confirmatory_outcomes_covered\": true, \"issues\": [], \"outcomes\": 1, \"plan_ready\": true, \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "969d4069721121c554d996d2daa11dc8933c1fe305e971346e9516ce957945ba"
+  }
+}

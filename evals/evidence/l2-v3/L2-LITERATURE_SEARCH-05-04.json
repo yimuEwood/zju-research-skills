@@ -1,0 +1,72 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-LITERATURE_SEARCH-05-04",
+  "skill_id": "zju-literature-search",
+  "fixture_sha256": "a6729cd3fa5508a8ce89d97e6aa5b83732e04825f3a35b43d65f27b13a8a1712",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "a6729cd3fa5508a8ce89d97e6aa5b83732e04825f3a35b43d65f27b13a8a1712",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": [
+            "OpenAlex",
+            "ZJU export",
+            "manual"
+          ],
+          "expected": "ZJU export"
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "AttributeError: 'str' object has no attribute 'get'",
+        "exception": {
+          "type": "AttributeError",
+          "message": "'str' object has no attribute 'get'"
+        }
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "record_count": 2,
+          "identifier_missing_count": 1,
+          "identity_missing_count": 0,
+          "identity_keys": [
+            "doi:10.1000/l2-v54",
+            "title-year-author:identity free evidence case 54:2024:"
+          ],
+          "query_ids": [
+            "Q1-V54",
+            "Q2-V54"
+          ],
+          "source_databases": [
+            "OpenAlex",
+            "ZJU export",
+            "manual"
+          ]
+        },
+        "surface": "{\"identifier_missing_count\": 1, \"identity_keys\": [\"doi:10.1000/l2-v54\", \"title-year-author:identity free evidence case 54:2024:\"], \"identity_missing_count\": 0, \"query_ids\": [\"Q1-V54\", \"Q2-V54\"], \"record_count\": 2, \"source_databases\": [\"OpenAlex\", \"ZJU export\", \"manual\"]}",
+        "exception": null
+      }
+    },
+    "second_sha256": "10a7cc8e099ceef620e047f6b440a0122d41582673e8ecd4e3b129153243308e"
+  }
+}

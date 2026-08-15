@@ -1,0 +1,158 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-FULLTEXT_ACCESS-01-02",
+  "skill_id": "zju-fulltext-access",
+  "fixture_sha256": "21d99e6f02f3d7aa0eefe548870d690b59b979e00c38c4f0b8d6a22ec6bce63c",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "21d99e6f02f3d7aa0eefe548870d690b59b979e00c38c4f0b8d6a22ec6bce63c",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "doi:10.1000/target",
+          "expected": "doi:10.1000/target"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "status": "likely",
+          "route": "open_access",
+          "url": "https://example.org/paper.pdf",
+          "route_candidates": [
+            {
+              "route": "open_access",
+              "url": "https://example.org/paper.pdf",
+              "status": "likely",
+              "rank": 1
+            },
+            {
+              "route": "manual_identifier_lookup",
+              "url": "https://doi.org/10.1000/target",
+              "status": "unresolved",
+              "rank": 6
+            },
+            {
+              "route": "manual_citation_resolution",
+              "url": "",
+              "status": "unresolved",
+              "rank": 7
+            }
+          ],
+          "requires_interactive_authentication": false,
+          "automation_allowed": true,
+          "requested_components": [
+            "full_text",
+            "supplement",
+            "data"
+          ],
+          "available_components": [
+            "data",
+            "full_text",
+            "supplement"
+          ],
+          "missing_components": [],
+          "source_package_complete": true,
+          "reader_handoff": {
+            "record_id": "REC-1",
+            "version_requested": "version_of_record",
+            "version_obtained": "not_verified",
+            "primary_url": "https://example.org/paper.pdf",
+            "source_level": "full_text_candidate",
+            "component_urls": {
+              "full_text": "https://example.org/paper.pdf",
+              "supplement": "https://example.org/supp.pdf",
+              "protocol_or_registration": "",
+              "data": "https://example.org/data",
+              "code": "",
+              "correction_or_retraction_notice": ""
+            },
+            "ready": true
+          },
+          "note": "Classification is not proof of access rights; verify on the target page."
+        },
+        "surface": "{\"automation_allowed\": true, \"available_components\": [\"data\", \"full_text\", \"supplement\"], \"missing_components\": [], \"note\": \"Classification is not proof of access rights; verify on the target page.\", \"reader_handoff\": {\"component_urls\": {\"code\": \"\", \"correction_or_retraction_notice\": \"\", \"data\": \"https://example.org/data\", \"full_text\": \"https://example.org/paper.pdf\", \"protocol_or_registration\": \"\", \"supplement\": \"https://example.org/supp.pdf\"}, \"primary_url\": \"https://example.org/paper.pdf\", \"ready\": true, \"record_id\": \"REC-1\", \"source_level\": \"full_text_candidate\", \"version_obtained\": \"not_verified\", \"version_requested\": \"version_of_record\"}, \"requested_components\": [\"full_text\", \"supplement\", \"data\"], \"requires_interactive_authentication\": false, \"route\": \"open_access\", \"route_candidates\": [{\"rank\": 1, \"route\": \"open_access\", \"status\": \"likely\", \"url\": \"https://example.org/paper.pdf\"}, {\"rank\": 6, \"route\": \"manual_identifier_lookup\", \"status\": \"unresolved\", \"url\": \"https://doi.org/10.1000/target\"}, {\"rank\": 7, \"route\": \"manual_citation_resolution\", \"status\": \"unresolved\", \"url\": \"\"}], \"source_package_complete\": true, \"status\": \"likely\", \"url\": \"https://example.org/paper.pdf\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "status": "likely",
+          "route": "open_access",
+          "url": "https://example.org/paper.pdf",
+          "route_candidates": [
+            {
+              "route": "open_access",
+              "url": "https://example.org/paper.pdf",
+              "status": "likely",
+              "rank": 1
+            },
+            {
+              "route": "manual_identifier_lookup",
+              "url": "https://doi.org/10.1000/target",
+              "status": "unresolved",
+              "rank": 6
+            },
+            {
+              "route": "manual_citation_resolution",
+              "url": "",
+              "status": "unresolved",
+              "rank": 7
+            }
+          ],
+          "requires_interactive_authentication": false,
+          "automation_allowed": true,
+          "requested_components": [
+            "full_text",
+            "supplement",
+            "data"
+          ],
+          "available_components": [
+            "data",
+            "full_text",
+            "supplement"
+          ],
+          "missing_components": [],
+          "source_package_complete": true,
+          "reader_handoff": {
+            "record_id": "doi:10.1000/target",
+            "version_requested": "version_of_record",
+            "version_obtained": "not_verified",
+            "primary_url": "https://example.org/paper.pdf",
+            "source_level": "full_text_candidate",
+            "component_urls": {
+              "full_text": "https://example.org/paper.pdf",
+              "supplement": "https://example.org/supp.pdf",
+              "protocol_or_registration": "",
+              "data": "https://example.org/data",
+              "code": "",
+              "correction_or_retraction_notice": ""
+            },
+            "ready": true
+          },
+          "note": "Classification is not proof of access rights; verify on the target page."
+        },
+        "surface": "{\"automation_allowed\": true, \"available_components\": [\"data\", \"full_text\", \"supplement\"], \"missing_components\": [], \"note\": \"Classification is not proof of access rights; verify on the target page.\", \"reader_handoff\": {\"component_urls\": {\"code\": \"\", \"correction_or_retraction_notice\": \"\", \"data\": \"https://example.org/data\", \"full_text\": \"https://example.org/paper.pdf\", \"protocol_or_registration\": \"\", \"supplement\": \"https://example.org/supp.pdf\"}, \"primary_url\": \"https://example.org/paper.pdf\", \"ready\": true, \"record_id\": \"doi:10.1000/target\", \"source_level\": \"full_text_candidate\", \"version_obtained\": \"not_verified\", \"version_requested\": \"version_of_record\"}, \"requested_components\": [\"full_text\", \"supplement\", \"data\"], \"requires_interactive_authentication\": false, \"route\": \"open_access\", \"route_candidates\": [{\"rank\": 1, \"route\": \"open_access\", \"status\": \"likely\", \"url\": \"https://example.org/paper.pdf\"}, {\"rank\": 6, \"route\": \"manual_identifier_lookup\", \"status\": \"unresolved\", \"url\": \"https://doi.org/10.1000/target\"}, {\"rank\": 7, \"route\": \"manual_citation_resolution\", \"status\": \"unresolved\", \"url\": \"\"}], \"source_package_complete\": true, \"status\": \"likely\", \"url\": \"https://example.org/paper.pdf\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "9eb62e1131cfc61ab0fdd263ebaf54bd5188e0ea4bd4a4fdc8ddd825c827f817"
+  }
+}

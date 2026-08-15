@@ -1,0 +1,104 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-LITERATURE_MONITOR-03-02",
+  "skill_id": "zju-literature-monitor",
+  "fixture_sha256": "6602a5ff40675dd1a8e6992e6491b05eb52f53ec78ca875cfd479dceb3859505",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "6602a5ff40675dd1a8e6992e6491b05eb52f53ec78ca875cfd479dceb3859505",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "counts": {
+            "new": 1,
+            "updated": 0,
+            "duplicate": 0,
+            "unresolved_identity": 0
+          },
+          "handoff_queue": [
+            {
+              "identity": "doi:10.1000/new",
+              "change_class": "new",
+              "urgency": "routine",
+              "linked_ids": {
+                "claim_ids": [],
+                "gap_ids": [],
+                "hypothesis_ids": [],
+                "seed_record_ids": []
+              },
+              "actions": [
+                "screen_for_relevance"
+              ],
+              "next_skills": [
+                "zju-fulltext-access",
+                "zju-paper-reader",
+                "zju-evidence-synthesis"
+              ]
+            }
+          ],
+          "state": {
+            "profile_id": "MON-1",
+            "seen": [
+              {
+                "identity": "doi:10.1000/new",
+                "aliases": [],
+                "work_identity": "title-year:new monitored work|2026",
+                "first_seen_at": "2026-08-15T09:00:00+08:00",
+                "last_seen_at": "2026-08-15T09:00:00+08:00",
+                "current_state": {},
+                "history": [
+                  {
+                    "observed_at": "2026-08-15T09:00:00+08:00",
+                    "change_class": "new",
+                    "identity": "doi:10.1000/new",
+                    "state": {}
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "surface": "{\"counts\": {\"duplicate\": 0, \"new\": 1, \"unresolved_identity\": 0, \"updated\": 0}, \"handoff_queue\": [{\"actions\": [\"screen_for_relevance\"], \"change_class\": \"new\", \"identity\": \"doi:10.1000/new\", \"linked_ids\": {\"claim_ids\": [], \"gap_ids\": [], \"hypothesis_ids\": [], \"seed_record_ids\": []}, \"next_skills\": [\"zju-fulltext-access\", \"zju-paper-reader\", \"zju-evidence-synthesis\"], \"urgency\": \"routine\"}], \"state\": {\"profile_id\": \"MON-1\", \"seen\": [{\"aliases\": [], \"current_state\": {}, \"first_seen_at\": \"2026-08-15T09:00:00+08:00\", \"history\": [{\"change_class\": \"new\", \"identity\": \"doi:10.1000/new\", \"observed_at\": \"2026-08-15T09:00:00+08:00\", \"state\": {}}], \"identity\": \"doi:10.1000/new\", \"last_seen_at\": \"2026-08-15T09:00:00+08:00\", \"work_identity\": \"title-year:new monitored work|2026\"}]}}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "counts": {
+            "new": 0,
+            "updated": 0,
+            "duplicate": 0,
+            "unresolved_identity": 0
+          },
+          "handoff_queue": [],
+          "state": {
+            "profile_id": "MON-1",
+            "seen": []
+          }
+        },
+        "surface": "{\"counts\": {\"duplicate\": 0, \"new\": 0, \"unresolved_identity\": 0, \"updated\": 0}, \"handoff_queue\": [], \"state\": {\"profile_id\": \"MON-1\", \"seen\": []}}",
+        "exception": null
+      }
+    },
+    "second_sha256": "735f251ceb4df66566e41f789af36505d43da118fba77394419cb34b2debe005"
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-EVIDENCE_SYNTHESIS-04-04",
+  "skill_id": "zju-evidence-synthesis",
+  "fixture_sha256": "8510c30fb73a6456d3f63d492ee81f7a5eefa10cc1c8a5277354754b25e90ede",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "8510c30fb73a6456d3f63d492ee81f7a5eefa10cc1c8a5277354754b25e90ede",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": 0,
+          "expected": 0
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "groups": [
+            {
+              "claim_or_outcome_id": "CLM-1-V44",
+              "study_ids": [
+                "S1-V44",
+                "S2-V44"
+              ],
+              "direction_groups": {
+                "contradicts_or_negative": [
+                  "S2-V44"
+                ],
+                "null_mixed_or_unclear": [],
+                "supports_or_positive": [
+                  "S1-V44"
+                ]
+              },
+              "directional_conflict": true,
+              "null_disagreement": false,
+              "candidate_moderators": [
+                {
+                  "field": "measurement_method",
+                  "observed_values": [
+                    "assay-A",
+                    "assay-B"
+                  ]
+                }
+              ],
+              "risk_of_bias_strata": {
+                "low": [
+                  "S1-V44",
+                  "S2-V44"
+                ]
+              },
+              "directness_strata": {
+                "direct": [
+                  "S1-V44",
+                  "S2-V44"
+                ]
+              },
+              "resolution_state": "context_hypothesis_available"
+            }
+          ],
+          "summary": {
+            "groups": 1,
+            "directional_conflicts": 1,
+            "null_disagreements": 0,
+            "unexplained_conflicts": 0
+          },
+          "interpretation_note": "Candidate moderators explain where studies differ; they do not prove the cause of heterogeneity."
+        },
+        "surface": "{\"groups\": [{\"candidate_moderators\": [{\"field\": \"measurement_method\", \"observed_values\": [\"assay-A\", \"assay-B\"]}], \"claim_or_outcome_id\": \"CLM-1-V44\", \"direction_groups\": {\"contradicts_or_negative\": [\"S2-V44\"], \"null_mixed_or_unclear\": [], \"supports_or_positive\": [\"S1-V44\"]}, \"directional_conflict\": true, \"directness_strata\": {\"direct\": [\"S1-V44\", \"S2-V44\"]}, \"null_disagreement\": false, \"resolution_state\": \"context_hypothesis_available\", \"risk_of_bias_strata\": {\"low\": [\"S1-V44\", \"S2-V44\"]}, \"study_ids\": [\"S1-V44\", \"S2-V44\"]}], \"interpretation_note\": \"Candidate moderators explain where studies differ; they do not prove the cause of heterogeneity.\", \"summary\": {\"directional_conflicts\": 1, \"groups\": 1, \"null_disagreements\": 0, \"unexplained_conflicts\": 0}}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "groups": [
+            {
+              "claim_or_outcome_id": "CLM-1-V44",
+              "study_ids": [
+                "S1-V44",
+                "S2-V44"
+              ],
+              "direction_groups": {
+                "contradicts_or_negative": [],
+                "null_mixed_or_unclear": [],
+                "supports_or_positive": [
+                  "S1-V44",
+                  "S2-V44"
+                ]
+              },
+              "directional_conflict": false,
+              "null_disagreement": false,
+              "candidate_moderators": [
+                {
+                  "field": "measurement_method",
+                  "observed_values": [
+                    "assay-A",
+                    "assay-B"
+                  ]
+                }
+              ],
+              "risk_of_bias_strata": {
+                "low": [
+                  "S1-V44",
+                  "S2-V44"
+                ]
+              },
+              "directness_strata": {
+                "direct": [
+                  "S1-V44",
+                  "S2-V44"
+                ]
+              },
+              "resolution_state": "no_directional_conflict_detected"
+            }
+          ],
+          "summary": {
+            "groups": 1,
+            "directional_conflicts": 0,
+            "null_disagreements": 0,
+            "unexplained_conflicts": 0
+          },
+          "interpretation_note": "Candidate moderators explain where studies differ; they do not prove the cause of heterogeneity."
+        },
+        "surface": "{\"groups\": [{\"candidate_moderators\": [{\"field\": \"measurement_method\", \"observed_values\": [\"assay-A\", \"assay-B\"]}], \"claim_or_outcome_id\": \"CLM-1-V44\", \"direction_groups\": {\"contradicts_or_negative\": [], \"null_mixed_or_unclear\": [], \"supports_or_positive\": [\"S1-V44\", \"S2-V44\"]}, \"directional_conflict\": false, \"directness_strata\": {\"direct\": [\"S1-V44\", \"S2-V44\"]}, \"null_disagreement\": false, \"resolution_state\": \"no_directional_conflict_detected\", \"risk_of_bias_strata\": {\"low\": [\"S1-V44\", \"S2-V44\"]}, \"study_ids\": [\"S1-V44\", \"S2-V44\"]}], \"interpretation_note\": \"Candidate moderators explain where studies differ; they do not prove the cause of heterogeneity.\", \"summary\": {\"directional_conflicts\": 0, \"groups\": 1, \"null_disagreements\": 0, \"unexplained_conflicts\": 0}}",
+        "exception": null
+      }
+    },
+    "second_sha256": "dac8bb80f7909cb22149fd18ed771279bedbb1bf648b684051ebf7847d40b216"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_WRITING-04-01",
+  "skill_id": "zju-scientific-writing",
+  "fixture_sha256": "67b5adf624365b5f83831a57c47b061bcb3ada0f3f34d51cfc00f09f0c2c9307",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "67b5adf624365b5f83831a57c47b061bcb3ada0f3f34d51cfc00f09f0c2c9307",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "contributions": 1,
+          "results_sections": 1,
+          "reviewer_objections": 1,
+          "workflow_version": "2.0",
+          "issues": [
+            {
+              "path": "contributions[0].claim_boundary",
+              "severity": "error",
+              "message": "Required field is missing."
+            }
+          ]
+        },
+        "surface": "{\"contributions\": 1, \"issues\": [{\"message\": \"Required field is missing.\", \"path\": \"contributions[0].claim_boundary\", \"severity\": \"error\"}], \"results_sections\": 1, \"reviewer_objections\": 1, \"valid\": false, \"workflow_version\": \"2.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "contributions": 1,
+          "results_sections": 1,
+          "reviewer_objections": 1,
+          "workflow_version": "2.0",
+          "issues": []
+        },
+        "surface": "{\"contributions\": 1, \"issues\": [], \"results_sections\": 1, \"reviewer_objections\": 1, \"valid\": true, \"workflow_version\": \"2.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "9caa71a95081778a78baa9d665892f97496e3ceda0a5c5c0d4a1e9c943ac9de7"
+  }
+}

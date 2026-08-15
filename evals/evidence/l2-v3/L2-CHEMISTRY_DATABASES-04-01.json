@@ -1,0 +1,178 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-CHEMISTRY_DATABASES-04-01",
+  "skill_id": "zju-chemistry-databases",
+  "fixture_sha256": "96286aa8ecc4bdb34158cb5d74ac181e226e80c273c259f4a6de7ea093dbd0a3",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "96286aa8ecc4bdb34158cb5d74ac181e226e80c273c259f4a6de7ea093dbd0a3",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": 1,
+          "expected": 1
+        },
+        {
+          "passed": true,
+          "observed": "chemistry_condition_normalization_v1",
+          "expected": "chemistry_condition_normalization_v1"
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "oracle_id": "chemistry_condition_normalization_v1",
+          "valid": false,
+          "normalized_records": [
+            {
+              "record_id": "R1",
+              "entity_id": "inchikey-x",
+              "endpoint": "yield",
+              "basis": "isolated",
+              "conditions": {
+                "temperature": {
+                  "value": 298.15,
+                  "unit": "K"
+                },
+                "time": {
+                  "value": 3600.0,
+                  "unit": "s"
+                },
+                "pressure": {
+                  "value": 101325.0,
+                  "unit": "Pa"
+                },
+                "solvent": "water",
+                "catalyst": "pd",
+                "atmosphere": "n2"
+              }
+            },
+            {
+              "record_id": "R2",
+              "entity_id": "inchikey-x",
+              "endpoint": "yield",
+              "basis": "isolated",
+              "conditions": {
+                "time": {
+                  "value": 3600.0,
+                  "unit": "s"
+                },
+                "pressure": {
+                  "value": 101325.0,
+                  "unit": "Pa"
+                },
+                "solvent": "water",
+                "catalyst": "pd",
+                "atmosphere": "n2"
+              }
+            }
+          ],
+          "pairs": [
+            {
+              "left": "R1",
+              "right": "R2",
+              "comparable": false,
+              "reasons": [
+                "different_temperature"
+              ]
+            }
+          ],
+          "comparable_pairs": 0,
+          "findings": [
+            {
+              "field": "records[1].conditions.temperature",
+              "message": "unsupported or invalid temperature unit"
+            }
+          ]
+        },
+        "surface": "{\"comparable_pairs\": 0, \"findings\": [{\"field\": \"records[1].conditions.temperature\", \"message\": \"unsupported or invalid temperature unit\"}], \"normalized_records\": [{\"basis\": \"isolated\", \"conditions\": {\"atmosphere\": \"n2\", \"catalyst\": \"pd\", \"pressure\": {\"unit\": \"Pa\", \"value\": 101325.0}, \"solvent\": \"water\", \"temperature\": {\"unit\": \"K\", \"value\": 298.15}, \"time\": {\"unit\": \"s\", \"value\": 3600.0}}, \"endpoint\": \"yield\", \"entity_id\": \"inchikey-x\", \"record_id\": \"R1\"}, {\"basis\": \"isolated\", \"conditions\": {\"atmosphere\": \"n2\", \"catalyst\": \"pd\", \"pressure\": {\"unit\": \"Pa\", \"value\": 101325.0}, \"solvent\": \"water\", \"time\": {\"unit\": \"s\", \"value\": 3600.0}}, \"endpoint\": \"yield\", \"entity_id\": \"inchikey-x\", \"record_id\": \"R2\"}], \"oracle_id\": \"chemistry_condition_normalization_v1\", \"pairs\": [{\"comparable\": false, \"left\": \"R1\", \"reasons\": [\"different_temperature\"], \"right\": \"R2\"}], \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "oracle_id": "chemistry_condition_normalization_v1",
+          "valid": true,
+          "normalized_records": [
+            {
+              "record_id": "R1",
+              "entity_id": "inchikey-x",
+              "endpoint": "yield",
+              "basis": "isolated",
+              "conditions": {
+                "temperature": {
+                  "value": 298.15,
+                  "unit": "K"
+                },
+                "time": {
+                  "value": 3600.0,
+                  "unit": "s"
+                },
+                "pressure": {
+                  "value": 101325.0,
+                  "unit": "Pa"
+                },
+                "solvent": "water",
+                "catalyst": "pd",
+                "atmosphere": "n2"
+              }
+            },
+            {
+              "record_id": "R2",
+              "entity_id": "inchikey-x",
+              "endpoint": "yield",
+              "basis": "isolated",
+              "conditions": {
+                "temperature": {
+                  "value": 298.15,
+                  "unit": "K"
+                },
+                "time": {
+                  "value": 3600.0,
+                  "unit": "s"
+                },
+                "pressure": {
+                  "value": 101325.0,
+                  "unit": "Pa"
+                },
+                "solvent": "water",
+                "catalyst": "pd",
+                "atmosphere": "n2"
+              }
+            }
+          ],
+          "pairs": [
+            {
+              "left": "R1",
+              "right": "R2",
+              "comparable": true,
+              "reasons": []
+            }
+          ],
+          "comparable_pairs": 1,
+          "findings": []
+        },
+        "surface": "{\"comparable_pairs\": 1, \"findings\": [], \"normalized_records\": [{\"basis\": \"isolated\", \"conditions\": {\"atmosphere\": \"n2\", \"catalyst\": \"pd\", \"pressure\": {\"unit\": \"Pa\", \"value\": 101325.0}, \"solvent\": \"water\", \"temperature\": {\"unit\": \"K\", \"value\": 298.15}, \"time\": {\"unit\": \"s\", \"value\": 3600.0}}, \"endpoint\": \"yield\", \"entity_id\": \"inchikey-x\", \"record_id\": \"R1\"}, {\"basis\": \"isolated\", \"conditions\": {\"atmosphere\": \"n2\", \"catalyst\": \"pd\", \"pressure\": {\"unit\": \"Pa\", \"value\": 101325.0}, \"solvent\": \"water\", \"temperature\": {\"unit\": \"K\", \"value\": 298.15}, \"time\": {\"unit\": \"s\", \"value\": 3600.0}}, \"endpoint\": \"yield\", \"entity_id\": \"inchikey-x\", \"record_id\": \"R2\"}], \"oracle_id\": \"chemistry_condition_normalization_v1\", \"pairs\": [{\"comparable\": true, \"left\": \"R1\", \"reasons\": [], \"right\": \"R2\"}], \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "c98b4bea4ba3567e1f0680a13c12e545a7dbd788f1351ee2410553d49c38dd4a"
+  }
+}

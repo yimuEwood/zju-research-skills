@@ -1,0 +1,67 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-REFERENCE_AUDIT-02-02",
+  "skill_id": "zju-reference-audit",
+  "fixture_sha256": "d8a26b026568634b819cf93c546cecb3b2679ab5f64bfabdb8c01fde4d358450",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "d8a26b026568634b819cf93c546cecb3b2679ab5f64bfabdb8c01fde4d358450",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "as_of": "2026-08-15",
+          "max_age_days": 30,
+          "records": [
+            {
+              "audit_id": "REF-1",
+              "freshness": "stale",
+              "age_days": 2418,
+              "issues": []
+            }
+          ]
+        },
+        "surface": "{\"as_of\": \"2026-08-15\", \"max_age_days\": 30, \"records\": [{\"age_days\": 2418, \"audit_id\": \"REF-1\", \"freshness\": \"stale\", \"issues\": []}], \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "as_of": "2026-08-15",
+          "max_age_days": 30,
+          "records": [
+            {
+              "audit_id": "REF-1",
+              "freshness": "current",
+              "age_days": 30,
+              "issues": []
+            }
+          ]
+        },
+        "surface": "{\"as_of\": \"2026-08-15\", \"max_age_days\": 30, \"records\": [{\"age_days\": 30, \"audit_id\": \"REF-1\", \"freshness\": \"current\", \"issues\": []}], \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "dc3869cbba1f77f91fdeeafcafde3f564aa95e277fe90b58112115d6af7cbc68"
+  }
+}

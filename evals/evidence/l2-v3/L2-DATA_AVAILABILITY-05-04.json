@@ -1,0 +1,74 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-DATA_AVAILABILITY-05-04",
+  "skill_id": "zju-data-availability",
+  "fixture_sha256": "68f0966a8547186d55e0ca4438b1e9272a76ae82d325dc394334042862afd868",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "68f0966a8547186d55e0ca4438b1e9272a76ae82d325dc394334042862afd868",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": 1,
+          "expected": 1
+        },
+        {
+          "passed": true,
+          "observed": "data_statement_inventory_bijection_v1",
+          "expected": "data_statement_inventory_bijection_v1"
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "oracle_id": "data_statement_inventory_bijection_v1",
+          "valid": false,
+          "inventory_artifacts": 1,
+          "statement_artifacts": 1,
+          "omitted_required": [],
+          "unknown_statement_artifacts": [],
+          "findings": [
+            {
+              "field": "statement_entries[D1].access",
+              "message": "statement access state differs from inventory"
+            }
+          ]
+        },
+        "surface": "{\"findings\": [{\"field\": \"statement_entries[D1].access\", \"message\": \"statement access state differs from inventory\"}], \"inventory_artifacts\": 1, \"omitted_required\": [], \"oracle_id\": \"data_statement_inventory_bijection_v1\", \"statement_artifacts\": 1, \"unknown_statement_artifacts\": [], \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "oracle_id": "data_statement_inventory_bijection_v1",
+          "valid": true,
+          "inventory_artifacts": 1,
+          "statement_artifacts": 1,
+          "omitted_required": [],
+          "unknown_statement_artifacts": [],
+          "findings": []
+        },
+        "surface": "{\"findings\": [], \"inventory_artifacts\": 1, \"omitted_required\": [], \"oracle_id\": \"data_statement_inventory_bijection_v1\", \"statement_artifacts\": 1, \"unknown_statement_artifacts\": [], \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "6ce13a0f482e16bb63502323c15ca2d24bcc72cb3d784b17cc7db5b5f76781d4"
+  }
+}

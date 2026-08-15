@@ -1,0 +1,78 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-PAPER_TO_PATENT-03-03",
+  "skill_id": "zju-paper-to-patent",
+  "fixture_sha256": "1351a42953a7a385e6328849203e9d18c3e1af42486702b9d4f984be89c62d10",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "1351a42953a7a385e6328849203e9d18c3e1af42486702b9d4f984be89c62d10",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"claim_order\": [\"C1\", \"C2\"], \"dependency_cycle\": [], \"findings\": [{\"field\": \"claims[C2].feature_ids\", \"message\": \"dependent claim must add a limiting feature\"}], \"independent_claims\": 1, \"oracle_id\": \"patent_claim_dependency_support_v1\", \"valid\": false}",
+          "expected": "must add a limiting feature"
+        },
+        {
+          "passed": true,
+          "observed": "patent_claim_dependency_support_v1",
+          "expected": "patent_claim_dependency_support_v1"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "oracle_id": "patent_claim_dependency_support_v1",
+          "valid": true,
+          "claim_order": [
+            "C1",
+            "C2"
+          ],
+          "dependency_cycle": [],
+          "independent_claims": 1,
+          "findings": []
+        },
+        "surface": "{\"claim_order\": [\"C1\", \"C2\"], \"dependency_cycle\": [], \"findings\": [], \"independent_claims\": 1, \"oracle_id\": \"patent_claim_dependency_support_v1\", \"valid\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "oracle_id": "patent_claim_dependency_support_v1",
+          "valid": false,
+          "claim_order": [
+            "C1",
+            "C2"
+          ],
+          "dependency_cycle": [],
+          "independent_claims": 1,
+          "findings": [
+            {
+              "field": "claims[C2].feature_ids",
+              "message": "dependent claim must add a limiting feature"
+            }
+          ]
+        },
+        "surface": "{\"claim_order\": [\"C1\", \"C2\"], \"dependency_cycle\": [], \"findings\": [{\"field\": \"claims[C2].feature_ids\", \"message\": \"dependent claim must add a limiting feature\"}], \"independent_claims\": 1, \"oracle_id\": \"patent_claim_dependency_support_v1\", \"valid\": false}",
+        "exception": null
+      }
+    },
+    "second_sha256": "88f80b6a5fe2998deda2291dbf70fd3a0ba89fa07d0e1a1a411ba848bd995f44"
+  }
+}

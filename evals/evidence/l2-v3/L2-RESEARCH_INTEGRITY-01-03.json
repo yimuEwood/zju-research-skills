@@ -1,0 +1,64 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-RESEARCH_INTEGRITY-01-03",
+  "skill_id": "zju-research-integrity",
+  "fixture_sha256": "2d7ff798779209fe3ab78aedac934f0bf0ac8e1030341793eef1568a486d4a84",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "2d7ff798779209fe3ab78aedac934f0bf0ac8e1030341793eef1568a486d4a84",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"artifacts\": 1, \"findings\": [{\"field\": \"artifacts[1].sha256\", \"message\": \"SHA-256 mismatch: computed 2653a0ac19cd7fcc102fc26c57a4e20c61b68d218a21202b76144ab08fecaef2\", \"severity\": \"error\"}], \"valid\": false, \"verified_artifacts\": 0}",
+          "expected": "SHA-256 mismatch"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "artifacts": 1,
+          "verified_artifacts": 1,
+          "findings": []
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [], \"valid\": true, \"verified_artifacts\": 1}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "artifacts": 1,
+          "verified_artifacts": 0,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "artifacts[1].sha256",
+              "message": "SHA-256 mismatch: computed 2653a0ac19cd7fcc102fc26c57a4e20c61b68d218a21202b76144ab08fecaef2"
+            }
+          ]
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [{\"field\": \"artifacts[1].sha256\", \"message\": \"SHA-256 mismatch: computed 2653a0ac19cd7fcc102fc26c57a4e20c61b68d218a21202b76144ab08fecaef2\", \"severity\": \"error\"}], \"valid\": false, \"verified_artifacts\": 0}",
+        "exception": null
+      }
+    },
+    "second_sha256": "1d52746a3e202eff5c44f489da9af5100b910c7658b2a1006baeb8d5c507d6b5"
+  }
+}

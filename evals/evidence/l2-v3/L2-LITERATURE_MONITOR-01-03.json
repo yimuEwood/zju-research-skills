@@ -1,0 +1,146 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-LITERATURE_MONITOR-01-03",
+  "skill_id": "zju-literature-monitor",
+  "fixture_sha256": "2c725aa68502e0f7a327d328d051b8a42ce7d4b68a9339cf8ebe9981128dcbea",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "2c725aa68502e0f7a327d328d051b8a42ce7d4b68a9339cf8ebe9981128dcbea",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "",
+          "expected": ""
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "counts": {
+            "new": 1,
+            "updated": 0,
+            "duplicate": 0,
+            "unresolved_identity": 0
+          },
+          "handoff_queue": [
+            {
+              "identity": "doi:10.1000/new",
+              "change_class": "new",
+              "urgency": "routine",
+              "linked_ids": {
+                "claim_ids": [],
+                "gap_ids": [],
+                "hypothesis_ids": [],
+                "seed_record_ids": []
+              },
+              "actions": [
+                "screen_for_relevance"
+              ],
+              "next_skills": [
+                "zju-fulltext-access",
+                "zju-paper-reader",
+                "zju-evidence-synthesis"
+              ]
+            }
+          ],
+          "state": {
+            "profile_id": "MON-1",
+            "seen": [
+              {
+                "identity": "doi:10.1000/new",
+                "aliases": [],
+                "work_identity": "title-year:new monitored work|2026",
+                "first_seen_at": "2026-08-15T09:00:00+08:00",
+                "last_seen_at": "2026-08-15T09:00:00+08:00",
+                "current_state": {},
+                "history": [
+                  {
+                    "observed_at": "2026-08-15T09:00:00+08:00",
+                    "change_class": "new",
+                    "identity": "doi:10.1000/new",
+                    "state": {}
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "surface": "{\"counts\": {\"duplicate\": 0, \"new\": 1, \"unresolved_identity\": 0, \"updated\": 0}, \"handoff_queue\": [{\"actions\": [\"screen_for_relevance\"], \"change_class\": \"new\", \"identity\": \"doi:10.1000/new\", \"linked_ids\": {\"claim_ids\": [], \"gap_ids\": [], \"hypothesis_ids\": [], \"seed_record_ids\": []}, \"next_skills\": [\"zju-fulltext-access\", \"zju-paper-reader\", \"zju-evidence-synthesis\"], \"urgency\": \"routine\"}], \"state\": {\"profile_id\": \"MON-1\", \"seen\": [{\"aliases\": [], \"current_state\": {}, \"first_seen_at\": \"2026-08-15T09:00:00+08:00\", \"history\": [{\"change_class\": \"new\", \"identity\": \"doi:10.1000/new\", \"observed_at\": \"2026-08-15T09:00:00+08:00\", \"state\": {}}], \"identity\": \"doi:10.1000/new\", \"last_seen_at\": \"2026-08-15T09:00:00+08:00\", \"work_identity\": \"title-year:new monitored work|2026\"}]}}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "counts": {
+            "new": 1,
+            "updated": 0,
+            "duplicate": 0,
+            "unresolved_identity": 0
+          },
+          "handoff_queue": [
+            {
+              "identity": "doi:10.1000/new",
+              "change_class": "new",
+              "urgency": "routine",
+              "linked_ids": {
+                "claim_ids": [],
+                "gap_ids": [],
+                "hypothesis_ids": [],
+                "seed_record_ids": []
+              },
+              "actions": [
+                "screen_for_relevance"
+              ],
+              "next_skills": [
+                "zju-fulltext-access",
+                "zju-paper-reader",
+                "zju-evidence-synthesis"
+              ]
+            }
+          ],
+          "state": {
+            "profile_id": "",
+            "seen": [
+              {
+                "identity": "doi:10.1000/new",
+                "aliases": [],
+                "work_identity": "title-year:new monitored work|2026",
+                "first_seen_at": "2026-08-15T09:00:00+08:00",
+                "last_seen_at": "2026-08-15T09:00:00+08:00",
+                "current_state": {},
+                "history": [
+                  {
+                    "observed_at": "2026-08-15T09:00:00+08:00",
+                    "change_class": "new",
+                    "identity": "doi:10.1000/new",
+                    "state": {}
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "surface": "{\"counts\": {\"duplicate\": 0, \"new\": 1, \"unresolved_identity\": 0, \"updated\": 0}, \"handoff_queue\": [{\"actions\": [\"screen_for_relevance\"], \"change_class\": \"new\", \"identity\": \"doi:10.1000/new\", \"linked_ids\": {\"claim_ids\": [], \"gap_ids\": [], \"hypothesis_ids\": [], \"seed_record_ids\": []}, \"next_skills\": [\"zju-fulltext-access\", \"zju-paper-reader\", \"zju-evidence-synthesis\"], \"urgency\": \"routine\"}], \"state\": {\"profile_id\": \"\", \"seen\": [{\"aliases\": [], \"current_state\": {}, \"first_seen_at\": \"2026-08-15T09:00:00+08:00\", \"history\": [{\"change_class\": \"new\", \"identity\": \"doi:10.1000/new\", \"observed_at\": \"2026-08-15T09:00:00+08:00\", \"state\": {}}], \"identity\": \"doi:10.1000/new\", \"last_seen_at\": \"2026-08-15T09:00:00+08:00\", \"work_identity\": \"title-year:new monitored work|2026\"}]}}",
+        "exception": null
+      }
+    },
+    "second_sha256": "57c50a5e1db384387cea068726e6639eb6c64727a43c31b8499fbfbeff4adfb4"
+  }
+}

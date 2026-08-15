@@ -16,6 +16,7 @@
     "l2_deterministic_cases_passed": 400,
     "l2_deterministic_cases_total": 400,
     "l2_scorer_complete_skills": 20,
+    "evaluated_skill_commit": "08aecf5ba38f4879ae0d718ca624d16ac2affb6e",
     "offline_tests_discovered": 295,
     "local_tests_passed_with_optional_cache": 295,
     "clean_checkout_required_tests_passed": 294,

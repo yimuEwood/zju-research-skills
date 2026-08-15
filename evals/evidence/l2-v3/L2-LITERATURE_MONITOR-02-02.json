@@ -1,0 +1,154 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-LITERATURE_MONITOR-02-02",
+  "skill_id": "zju-literature-monitor",
+  "fixture_sha256": "617cdbb4b864bbf143b6d6a75c2ac804ba0734f40ff87124b6495525084a4229",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "617cdbb4b864bbf143b6d6a75c2ac804ba0734f40ff87124b6495525084a4229",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "preprint",
+          "expected": "preprint"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "counts": {
+            "new": 1,
+            "updated": 0,
+            "duplicate": 0,
+            "unresolved_identity": 0
+          },
+          "handoff_queue": [
+            {
+              "identity": "doi:10.1000/new",
+              "change_class": "new",
+              "urgency": "routine",
+              "linked_ids": {
+                "claim_ids": [],
+                "gap_ids": [],
+                "hypothesis_ids": [],
+                "seed_record_ids": []
+              },
+              "actions": [
+                "screen_for_relevance"
+              ],
+              "next_skills": [
+                "zju-fulltext-access",
+                "zju-paper-reader",
+                "zju-evidence-synthesis"
+              ]
+            }
+          ],
+          "state": {
+            "profile_id": "MON-1",
+            "seen": [
+              {
+                "identity": "doi:10.1000/new",
+                "aliases": [],
+                "work_identity": "title-year:new monitored work|2026",
+                "first_seen_at": "2026-08-15T09:00:00+08:00",
+                "last_seen_at": "2026-08-15T09:00:00+08:00",
+                "current_state": {
+                  "version_status": "version_of_record"
+                },
+                "history": [
+                  {
+                    "observed_at": "2026-08-15T09:00:00+08:00",
+                    "change_class": "new",
+                    "identity": "doi:10.1000/new",
+                    "state": {
+                      "version_status": "version_of_record"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "surface": "{\"counts\": {\"duplicate\": 0, \"new\": 1, \"unresolved_identity\": 0, \"updated\": 0}, \"handoff_queue\": [{\"actions\": [\"screen_for_relevance\"], \"change_class\": \"new\", \"identity\": \"doi:10.1000/new\", \"linked_ids\": {\"claim_ids\": [], \"gap_ids\": [], \"hypothesis_ids\": [], \"seed_record_ids\": []}, \"next_skills\": [\"zju-fulltext-access\", \"zju-paper-reader\", \"zju-evidence-synthesis\"], \"urgency\": \"routine\"}], \"state\": {\"profile_id\": \"MON-1\", \"seen\": [{\"aliases\": [], \"current_state\": {\"version_status\": \"version_of_record\"}, \"first_seen_at\": \"2026-08-15T09:00:00+08:00\", \"history\": [{\"change_class\": \"new\", \"identity\": \"doi:10.1000/new\", \"observed_at\": \"2026-08-15T09:00:00+08:00\", \"state\": {\"version_status\": \"version_of_record\"}}], \"identity\": \"doi:10.1000/new\", \"last_seen_at\": \"2026-08-15T09:00:00+08:00\", \"work_identity\": \"title-year:new monitored work|2026\"}]}}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "counts": {
+            "new": 1,
+            "updated": 0,
+            "duplicate": 0,
+            "unresolved_identity": 0
+          },
+          "handoff_queue": [
+            {
+              "identity": "doi:10.1000/new",
+              "change_class": "new",
+              "urgency": "routine",
+              "linked_ids": {
+                "claim_ids": [],
+                "gap_ids": [],
+                "hypothesis_ids": [],
+                "seed_record_ids": []
+              },
+              "actions": [
+                "screen_for_relevance"
+              ],
+              "next_skills": [
+                "zju-fulltext-access",
+                "zju-paper-reader",
+                "zju-evidence-synthesis"
+              ]
+            }
+          ],
+          "state": {
+            "profile_id": "MON-1",
+            "seen": [
+              {
+                "identity": "doi:10.1000/new",
+                "aliases": [],
+                "work_identity": "title-year:new monitored work|2026",
+                "first_seen_at": "2026-08-15T09:00:00+08:00",
+                "last_seen_at": "2026-08-15T09:00:00+08:00",
+                "current_state": {
+                  "version_status": "preprint"
+                },
+                "history": [
+                  {
+                    "observed_at": "2026-08-15T09:00:00+08:00",
+                    "change_class": "new",
+                    "identity": "doi:10.1000/new",
+                    "state": {
+                      "version_status": "preprint"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "surface": "{\"counts\": {\"duplicate\": 0, \"new\": 1, \"unresolved_identity\": 0, \"updated\": 0}, \"handoff_queue\": [{\"actions\": [\"screen_for_relevance\"], \"change_class\": \"new\", \"identity\": \"doi:10.1000/new\", \"linked_ids\": {\"claim_ids\": [], \"gap_ids\": [], \"hypothesis_ids\": [], \"seed_record_ids\": []}, \"next_skills\": [\"zju-fulltext-access\", \"zju-paper-reader\", \"zju-evidence-synthesis\"], \"urgency\": \"routine\"}], \"state\": {\"profile_id\": \"MON-1\", \"seen\": [{\"aliases\": [], \"current_state\": {\"version_status\": \"preprint\"}, \"first_seen_at\": \"2026-08-15T09:00:00+08:00\", \"history\": [{\"change_class\": \"new\", \"identity\": \"doi:10.1000/new\", \"observed_at\": \"2026-08-15T09:00:00+08:00\", \"state\": {\"version_status\": \"preprint\"}}], \"identity\": \"doi:10.1000/new\", \"last_seen_at\": \"2026-08-15T09:00:00+08:00\", \"work_identity\": \"title-year:new monitored work|2026\"}]}}",
+        "exception": null
+      }
+    },
+    "second_sha256": "407e7a5920230b5c73f48c793384f8329cd95f4b88798709ebe557d1100ddb04"
+  }
+}

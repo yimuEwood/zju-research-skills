@@ -1,0 +1,66 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-REVIEWER-05-03",
+  "skill_id": "zju-reviewer",
+  "fixture_sha256": "dd93d8fae539af5f083d1bcea907992d627dca838ea493e0d228cc4b9de9c97f",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "dd93d8fae539af5f083d1bcea907992d627dca838ea493e0d228cc4b9de9c97f",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"concerns\": 1, \"findings\": [{\"field\": \"immutable_packet_sha256\", \"message\": \"blind panel needs immutable packet hash\", \"severity\": \"error\"}], \"response_handoff_ready\": false, \"valid\": false, \"workflow_version\": \"1.0\"}",
+          "expected": "immutable_packet_sha256"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "workflow_version": "1.0",
+          "concerns": 1,
+          "response_handoff_ready": false,
+          "findings": []
+        },
+        "surface": "{\"concerns\": 1, \"findings\": [], \"response_handoff_ready\": false, \"valid\": true, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "workflow_version": "1.0",
+          "concerns": 1,
+          "response_handoff_ready": false,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "immutable_packet_sha256",
+              "message": "blind panel needs immutable packet hash"
+            }
+          ]
+        },
+        "surface": "{\"concerns\": 1, \"findings\": [{\"field\": \"immutable_packet_sha256\", \"message\": \"blind panel needs immutable packet hash\", \"severity\": \"error\"}], \"response_handoff_ready\": false, \"valid\": false, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "583db8598431c28083a2b7079ef4c857adfe01c2fc0ea546605b7c5f84ab9d56"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-LITERATURE_SEARCH-05-03",
+  "skill_id": "zju-literature-search",
+  "fixture_sha256": "e7c2717bc212f05b40f389e047b57fd5a2efcddc883c77f332e2132660652253",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "e7c2717bc212f05b40f389e047b57fd5a2efcddc883c77f332e2132660652253",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "AttributeError: 'str' object has no attribute 'get'",
+          "expected": "get"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "record_count": 2,
+          "identifier_missing_count": 1,
+          "identity_missing_count": 0,
+          "identity_keys": [
+            "doi:10.1000/l2",
+            "title-year-author:identity free evidence:2024:"
+          ],
+          "query_ids": [
+            "Q-HANDOFF-1",
+            "Q2"
+          ],
+          "source_databases": [
+            "Crossref",
+            "OpenAlex",
+            "manual"
+          ]
+        },
+        "surface": "{\"identifier_missing_count\": 1, \"identity_keys\": [\"doi:10.1000/l2\", \"title-year-author:identity free evidence:2024:\"], \"identity_missing_count\": 0, \"query_ids\": [\"Q-HANDOFF-1\", \"Q2\"], \"record_count\": 2, \"source_databases\": [\"Crossref\", \"OpenAlex\", \"manual\"]}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "AttributeError: 'str' object has no attribute 'get'",
+        "exception": {
+          "type": "AttributeError",
+          "message": "'str' object has no attribute 'get'"
+        }
+      }
+    },
+    "second_sha256": "5115ec28c04ec72da3659129b625ab8609f59fb2b3d2bb14c86711a06d313615"
+  }
+}

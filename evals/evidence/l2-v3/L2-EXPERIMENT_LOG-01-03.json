@@ -1,0 +1,67 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-EXPERIMENT_LOG-01-03",
+  "skill_id": "zju-experiment-log",
+  "fixture_sha256": "476737183c88e6a75231ed383ee0ff700d226052103c32a29465a0b0fe7c114f",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "476737183c88e6a75231ed383ee0ff700d226052103c32a29465a0b0fe7c114f",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"issues\": [{\"message\": \"At least one artifact is required.\", \"path\": \"inputs\", \"severity\": \"error\"}, {\"message\": \"Unknown parent artifact ID: RAW-1\", \"path\": \"outputs[0].derived_from\", \"severity\": \"error\"}], \"schema_version\": \"2.0\", \"valid\": false}",
+          "expected": "inputs"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "schema_version": "2.0",
+          "issues": []
+        },
+        "surface": "{\"issues\": [], \"schema_version\": \"2.0\", \"valid\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "schema_version": "2.0",
+          "issues": [
+            {
+              "path": "inputs",
+              "severity": "error",
+              "message": "At least one artifact is required."
+            },
+            {
+              "path": "outputs[0].derived_from",
+              "severity": "error",
+              "message": "Unknown parent artifact ID: RAW-1"
+            }
+          ]
+        },
+        "surface": "{\"issues\": [{\"message\": \"At least one artifact is required.\", \"path\": \"inputs\", \"severity\": \"error\"}, {\"message\": \"Unknown parent artifact ID: RAW-1\", \"path\": \"outputs[0].derived_from\", \"severity\": \"error\"}], \"schema_version\": \"2.0\", \"valid\": false}",
+        "exception": null
+      }
+    },
+    "second_sha256": "e96d8799f4818dd9178ed095662c964a87119c6a7a29d1da475826b33c2fa180"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_FIGURE-05-03",
+  "skill_id": "zju-scientific-figure",
+  "fixture_sha256": "54299e40d7b77c553083a84e818840d3f7909109ea1a904a41aa8993285225b5",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "54299e40d7b77c553083a84e818840d3f7909109ea1a904a41aa8993285225b5",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "export_formats": [
+            "png",
+            "svg",
+            "pdf"
+          ],
+          "exports_content_hashed": true,
+          "manifest_has_provenance": true,
+          "manifest_written": true
+        },
+        "surface": "{\"export_formats\": [\"png\", \"svg\", \"pdf\"], \"exports_content_hashed\": true, \"manifest_has_provenance\": true, \"manifest_written\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "ValueError: width_mm and height_mm must be positive and dpi must be at least 72",
+        "exception": {
+          "type": "ValueError",
+          "message": "width_mm and height_mm must be positive and dpi must be at least 72"
+        }
+      }
+    },
+    "second_sha256": "a79a6326232a56cacb75c2796c1c86606141e950c8058e9c97fe3f5dce443c26"
+  }
+}

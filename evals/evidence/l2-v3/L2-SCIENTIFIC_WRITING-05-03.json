@@ -1,0 +1,68 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_WRITING-05-03",
+  "skill_id": "zju-scientific-writing",
+  "fixture_sha256": "06eb97d4c77b03bd50fc137ae9f556a97e7b2c56e5c703ac48f30cb220c6a4b5",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "06eb97d4c77b03bd50fc137ae9f556a97e7b2c56e5c703ac48f30cb220c6a4b5",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"contributions\": 1, \"issues\": [{\"message\": \"Unknown canonical result ID: UNKNOWN\", \"path\": \"results_sections[0].result_ids\", \"severity\": \"error\"}], \"results_sections\": 1, \"reviewer_objections\": 1, \"valid\": false, \"workflow_version\": \"2.0\"}",
+          "expected": "UNKNOWN"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "contributions": 1,
+          "results_sections": 1,
+          "reviewer_objections": 1,
+          "workflow_version": "2.0",
+          "issues": []
+        },
+        "surface": "{\"contributions\": 1, \"issues\": [], \"results_sections\": 1, \"reviewer_objections\": 1, \"valid\": true, \"workflow_version\": \"2.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "contributions": 1,
+          "results_sections": 1,
+          "reviewer_objections": 1,
+          "workflow_version": "2.0",
+          "issues": [
+            {
+              "path": "results_sections[0].result_ids",
+              "severity": "error",
+              "message": "Unknown canonical result ID: UNKNOWN"
+            }
+          ]
+        },
+        "surface": "{\"contributions\": 1, \"issues\": [{\"message\": \"Unknown canonical result ID: UNKNOWN\", \"path\": \"results_sections[0].result_ids\", \"severity\": \"error\"}], \"results_sections\": 1, \"reviewer_objections\": 1, \"valid\": false, \"workflow_version\": \"2.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "6e79a189e8b487329715ed1159dc44a232d33c793734385f8dd3da61fffbd506"
+  }
+}

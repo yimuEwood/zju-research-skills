@@ -1,0 +1,68 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-LITERATURE_SEARCH-03-03",
+  "skill_id": "zju-literature-search",
+  "fixture_sha256": "695e3a347dd7e68d617b5087147ba26b5693bae2c975027401ccea1fad92b5e4",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "695e3a347dd7e68d617b5087147ba26b5693bae2c975027401ccea1fad92b5e4",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "AttributeError: 'str' object has no attribute 'get'",
+          "expected": "get"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "record_count": 2,
+          "identifier_missing_count": 1,
+          "identity_missing_count": 0,
+          "identity_keys": [
+            "doi:10.1000/l2",
+            "title-year-author:identity free evidence:2024:"
+          ],
+          "query_ids": [
+            "Q1",
+            "Q2"
+          ],
+          "source_databases": [
+            "Crossref",
+            "OpenAlex",
+            "manual"
+          ]
+        },
+        "surface": "{\"identifier_missing_count\": 1, \"identity_keys\": [\"doi:10.1000/l2\", \"title-year-author:identity free evidence:2024:\"], \"identity_missing_count\": 0, \"query_ids\": [\"Q1\", \"Q2\"], \"record_count\": 2, \"source_databases\": [\"Crossref\", \"OpenAlex\", \"manual\"]}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "AttributeError: 'str' object has no attribute 'get'",
+        "exception": {
+          "type": "AttributeError",
+          "message": "'str' object has no attribute 'get'"
+        }
+      }
+    },
+    "second_sha256": "ecb7f1da8d0c0fe896717b61d621469a5f882bd716ed210ba8b8ec2858177a0f"
+  }
+}

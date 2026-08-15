@@ -1,0 +1,55 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_FIGURE-05-02",
+  "skill_id": "zju-scientific-figure",
+  "fixture_sha256": "cc94448f044462b2f7d70e2fce7f1eaf04f337eba31f1442e1aad625d6a8bb83",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "cc94448f044462b2f7d70e2fce7f1eaf04f337eba31f1442e1aad625d6a8bb83",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "ValueError: width_mm and height_mm must be positive and dpi must be at least 72",
+        "exception": {
+          "type": "ValueError",
+          "message": "width_mm and height_mm must be positive and dpi must be at least 72"
+        }
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "export_formats": [
+            "png",
+            "svg",
+            "pdf"
+          ],
+          "exports_content_hashed": true,
+          "manifest_has_provenance": true,
+          "manifest_written": true
+        },
+        "surface": "{\"export_formats\": [\"png\", \"svg\", \"pdf\"], \"exports_content_hashed\": true, \"manifest_has_provenance\": true, \"manifest_written\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "d03ad3c66a1ced8886e6332acbba2a7887ab061ccc7c702b8dc17a50466e6b5d"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-LITERATURE_SEARCH-02-02",
+  "skill_id": "zju-literature-search",
+  "fixture_sha256": "419b6b1e7458857f92d885fe62ca4b404a80ad3eb3d9538fa711274971f18650",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "419b6b1e7458857f92d885fe62ca4b404a80ad3eb3d9538fa711274971f18650",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": [
+            "citation_index"
+          ],
+          "expected": "citation_index"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "rounds": [
+            {
+              "round_id": "R1",
+              "strategy": "core_query",
+              "source_family": "broad_index",
+              "retrieved": 2,
+              "eligible": 1,
+              "new_records": 2,
+              "new_eligible": 1,
+              "cumulative_records": 2,
+              "cumulative_eligible": 1,
+              "marginal_eligible_fraction": 1.0
+            },
+            {
+              "round_id": "R2",
+              "strategy": "forward_chaining",
+              "source_family": "domain_database",
+              "retrieved": 1,
+              "eligible": 0,
+              "new_records": 0,
+              "new_eligible": 0,
+              "cumulative_records": 2,
+              "cumulative_eligible": 1,
+              "marginal_eligible_fraction": 0.0
+            },
+            {
+              "round_id": "R3",
+              "strategy": "contradiction_query",
+              "source_family": "broad_index",
+              "retrieved": 1,
+              "eligible": 1,
+              "new_records": 1,
+              "new_eligible": 1,
+              "cumulative_records": 3,
+              "cumulative_eligible": 2,
+              "marginal_eligible_fraction": 1.0
+            }
+          ],
+          "coverage": {
+            "required_concepts": [
+              "failure",
+              "material"
+            ],
+            "covered_concepts": [
+              "failure",
+              "material"
+            ],
+            "missing_concepts": [],
+            "required_source_families": [
+              "broad_index",
+              "domain_database"
+            ],
+            "covered_source_families": [
+              "broad_index",
+              "domain_database"
+            ],
+            "missing_source_families": []
+          },
+          "saturation": {
+            "stop_recommended": true,
+            "prerequisites": {
+              "concept_coverage_complete": true,
+              "source_family_coverage_complete": true,
+              "citation_or_seed_expansion_completed": true,
+              "no_open_critical_evidence_gap": true,
+              "consecutive_low_yield_rounds": true
+            },
+            "open_critical_gap_ids": [],
+            "rule": "coverage complete + expansion completed + no critical gap + 2 consecutive rounds with <= 1 new eligible record(s)",
+            "next_action": "freeze_search_set_and_handoff_to_fulltext_screening"
+          },
+          "totals": {
+            "unique_records": 3,
+            "unique_eligible": 2
+          }
+        },
+        "surface": "{\"coverage\": {\"covered_concepts\": [\"failure\", \"material\"], \"covered_source_families\": [\"broad_index\", \"domain_database\"], \"missing_concepts\": [], \"missing_source_families\": [], \"required_concepts\": [\"failure\", \"material\"], \"required_source_families\": [\"broad_index\", \"domain_database\"]}, \"rounds\": [{\"cumulative_eligible\": 1, \"cumulative_records\": 2, \"eligible\": 1, \"marginal_eligible_fraction\": 1.0, \"new_eligible\": 1, \"new_records\": 2, \"retrieved\": 2, \"round_id\": \"R1\", \"source_family\": \"broad_index\", \"strategy\": \"core_query\"}, {\"cumulative_eligible\": 1, \"cumulative_records\": 2, \"eligible\": 0, \"marginal_eligible_fraction\": 0.0, \"new_eligible\": 0, \"new_records\": 0, \"retrieved\": 1, \"round_id\": \"R2\", \"source_family\": \"domain_database\", \"strategy\": \"forward_chaining\"}, {\"cumulative_eligible\": 2, \"cumulative_records\": 3, \"eligible\": 1, \"marginal_eligible_fraction\": 1.0, \"new_eligible\": 1, \"new_records\": 1, \"retrieved\": 1, \"round_id\": \"R3\", \"source_family\": \"broad_index\", \"strategy\": \"contradiction_query\"}], \"saturation\": {\"next_action\": \"freeze_search_set_and_handoff_to_fulltext_screening\", \"open_critical_gap_ids\": [], \"prerequisites\": {\"citation_or_seed_expansion_completed\": true, \"concept_coverage_complete\": true, \"consecutive_low_yield_rounds\": true, \"no_open_critical_evidence_gap\": true, \"source_family_coverage_complete\": true}, \"rule\": \"coverage complete + expansion completed + no critical gap + 2 consecutive rounds with <= 1 new eligible record(s)\", \"stop_recommended\": true}, \"totals\": {\"unique_eligible\": 2, \"unique_records\": 3}}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "rounds": [
+            {
+              "round_id": "R1",
+              "strategy": "core_query",
+              "source_family": "broad_index",
+              "retrieved": 2,
+              "eligible": 1,
+              "new_records": 2,
+              "new_eligible": 1,
+              "cumulative_records": 2,
+              "cumulative_eligible": 1,
+              "marginal_eligible_fraction": 1.0
+            },
+            {
+              "round_id": "R2",
+              "strategy": "forward_chaining",
+              "source_family": "domain_database",
+              "retrieved": 1,
+              "eligible": 0,
+              "new_records": 0,
+              "new_eligible": 0,
+              "cumulative_records": 2,
+              "cumulative_eligible": 1,
+              "marginal_eligible_fraction": 0.0
+            },
+            {
+              "round_id": "R3",
+              "strategy": "contradiction_query",
+              "source_family": "broad_index",
+              "retrieved": 1,
+              "eligible": 1,
+              "new_records": 1,
+              "new_eligible": 1,
+              "cumulative_records": 3,
+              "cumulative_eligible": 2,
+              "marginal_eligible_fraction": 1.0
+            }
+          ],
+          "coverage": {
+            "required_concepts": [
+              "failure",
+              "material"
+            ],
+            "covered_concepts": [
+              "failure",
+              "material"
+            ],
+            "missing_concepts": [],
+            "required_source_families": [
+              "broad_index",
+              "citation_index",
+              "domain_database"
+            ],
+            "covered_source_families": [
+              "broad_index",
+              "domain_database"
+            ],
+            "missing_source_families": [
+              "citation_index"
+            ]
+          },
+          "saturation": {
+            "stop_recommended": false,
+            "prerequisites": {
+              "concept_coverage_complete": true,
+              "source_family_coverage_complete": false,
+              "citation_or_seed_expansion_completed": true,
+              "no_open_critical_evidence_gap": true,
+              "consecutive_low_yield_rounds": true
+            },
+            "open_critical_gap_ids": [],
+            "rule": "coverage complete + expansion completed + no critical gap + 2 consecutive rounds with <= 1 new eligible record(s)",
+            "next_action": "search_missing_source_family"
+          },
+          "totals": {
+            "unique_records": 3,
+            "unique_eligible": 2
+          }
+        },
+        "surface": "{\"coverage\": {\"covered_concepts\": [\"failure\", \"material\"], \"covered_source_families\": [\"broad_index\", \"domain_database\"], \"missing_concepts\": [], \"missing_source_families\": [\"citation_index\"], \"required_concepts\": [\"failure\", \"material\"], \"required_source_families\": [\"broad_index\", \"citation_index\", \"domain_database\"]}, \"rounds\": [{\"cumulative_eligible\": 1, \"cumulative_records\": 2, \"eligible\": 1, \"marginal_eligible_fraction\": 1.0, \"new_eligible\": 1, \"new_records\": 2, \"retrieved\": 2, \"round_id\": \"R1\", \"source_family\": \"broad_index\", \"strategy\": \"core_query\"}, {\"cumulative_eligible\": 1, \"cumulative_records\": 2, \"eligible\": 0, \"marginal_eligible_fraction\": 0.0, \"new_eligible\": 0, \"new_records\": 0, \"retrieved\": 1, \"round_id\": \"R2\", \"source_family\": \"domain_database\", \"strategy\": \"forward_chaining\"}, {\"cumulative_eligible\": 2, \"cumulative_records\": 3, \"eligible\": 1, \"marginal_eligible_fraction\": 1.0, \"new_eligible\": 1, \"new_records\": 1, \"retrieved\": 1, \"round_id\": \"R3\", \"source_family\": \"broad_index\", \"strategy\": \"contradiction_query\"}], \"saturation\": {\"next_action\": \"search_missing_source_family\", \"open_critical_gap_ids\": [], \"prerequisites\": {\"citation_or_seed_expansion_completed\": true, \"concept_coverage_complete\": true, \"consecutive_low_yield_rounds\": true, \"no_open_critical_evidence_gap\": true, \"source_family_coverage_complete\": false}, \"rule\": \"coverage complete + expansion completed + no critical gap + 2 consecutive rounds with <= 1 new eligible record(s)\", \"stop_recommended\": false}, \"totals\": {\"unique_eligible\": 2, \"unique_records\": 3}}",
+        "exception": null
+      }
+    },
+    "second_sha256": "ec7ee6b7e40d0f7ebff861799d4b11a457a2a04ed3ce46fa1270d15a256e9ef9"
+  }
+}

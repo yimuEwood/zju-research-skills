@@ -1,0 +1,59 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-RESEARCH_INTEGRITY-02-04",
+  "skill_id": "zju-research-integrity",
+  "fixture_sha256": "a66fc0572a2cdf1e94b4d3efae6c4d90321a19a7eb4020480276ded8ec9c06de",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "a66fc0572a2cdf1e94b4d3efae6c4d90321a19a7eb4020480276ded8ec9c06de",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "artifacts": 1,
+          "verified_artifacts": 0,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "artifacts[1].sha256",
+              "message": "SHA-256 mismatch: computed c81ac643dd8185fcf56844d8d4c599b3669c46bd4d9e0194c723c6fe279a25c7"
+            }
+          ]
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [{\"field\": \"artifacts[1].sha256\", \"message\": \"SHA-256 mismatch: computed c81ac643dd8185fcf56844d8d4c599b3669c46bd4d9e0194c723c6fe279a25c7\", \"severity\": \"error\"}], \"valid\": false, \"verified_artifacts\": 0}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "artifacts": 1,
+          "verified_artifacts": 1,
+          "findings": []
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [], \"valid\": true, \"verified_artifacts\": 1}",
+        "exception": null
+      }
+    },
+    "second_sha256": "1659a8880a7e57620b5ac40010594219b2db59709de09de8fb708d2912e73573"
+  }
+}

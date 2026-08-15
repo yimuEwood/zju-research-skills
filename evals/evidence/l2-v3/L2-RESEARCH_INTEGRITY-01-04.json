@@ -1,0 +1,59 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-RESEARCH_INTEGRITY-01-04",
+  "skill_id": "zju-research-integrity",
+  "fixture_sha256": "42b4836fc32896c23e9a1b8eb5b444f1387e97e97caacd056fdaadef8dd97dea",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "42b4836fc32896c23e9a1b8eb5b444f1387e97e97caacd056fdaadef8dd97dea",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "artifacts": 1,
+          "verified_artifacts": 0,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "artifacts[1].sha256",
+              "message": "SHA-256 mismatch: computed 2653a0ac19cd7fcc102fc26c57a4e20c61b68d218a21202b76144ab08fecaef2"
+            }
+          ]
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [{\"field\": \"artifacts[1].sha256\", \"message\": \"SHA-256 mismatch: computed 2653a0ac19cd7fcc102fc26c57a4e20c61b68d218a21202b76144ab08fecaef2\", \"severity\": \"error\"}], \"valid\": false, \"verified_artifacts\": 0}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "artifacts": 1,
+          "verified_artifacts": 1,
+          "findings": []
+        },
+        "surface": "{\"artifacts\": 1, \"findings\": [], \"valid\": true, \"verified_artifacts\": 1}",
+        "exception": null
+      }
+    },
+    "second_sha256": "a07ec31a136eb75b0cca814cd9f3f08495a011749294219cb4f4c1288ce273fa"
+  }
+}

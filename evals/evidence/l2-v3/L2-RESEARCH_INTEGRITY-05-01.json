@@ -1,0 +1,100 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-RESEARCH_INTEGRITY-05-01",
+  "skill_id": "zju-research-integrity",
+  "fixture_sha256": "facb11b043c4d2693436f11a44ae688bbc2625c6d70667f2c573244a28ac60d1",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "facb11b043c4d2693436f11a44ae688bbc2625c6d70667f2c573244a28ac60d1",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": "high",
+          "expected": "high"
+        },
+        {
+          "passed": true,
+          "observed": "integrity_remediation_escalation_v1",
+          "expected": "integrity_remediation_escalation_v1"
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "oracle_id": "integrity_remediation_escalation_v1",
+          "valid": false,
+          "check": "remediation_escalation",
+          "details": {
+            "remediation_escalation": {
+              "severity": "high",
+              "required_actions": [
+                "authorized_referral",
+                "document_chronology",
+                "preserve_evidence",
+                "restrict_access"
+              ],
+              "prohibited_actions": [
+                "delete_originals"
+              ]
+            }
+          },
+          "findings": [
+            {
+              "field": "proposed_actions",
+              "message": "prohibited actions: ['delete_originals']",
+              "check": "remediation_escalation"
+            },
+            {
+              "field": "proposed_actions",
+              "message": "required actions omitted for high severity: ['authorized_referral', 'document_chronology', 'preserve_evidence', 'restrict_access']",
+              "check": "remediation_escalation"
+            }
+          ]
+        },
+        "surface": "{\"check\": \"remediation_escalation\", \"details\": {\"remediation_escalation\": {\"prohibited_actions\": [\"delete_originals\"], \"required_actions\": [\"authorized_referral\", \"document_chronology\", \"preserve_evidence\", \"restrict_access\"], \"severity\": \"high\"}}, \"findings\": [{\"check\": \"remediation_escalation\", \"field\": \"proposed_actions\", \"message\": \"prohibited actions: ['delete_originals']\"}, {\"check\": \"remediation_escalation\", \"field\": \"proposed_actions\", \"message\": \"required actions omitted for high severity: ['authorized_referral', 'document_chronology', 'preserve_evidence', 'restrict_access']\"}], \"oracle_id\": \"integrity_remediation_escalation_v1\", \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "oracle_id": "integrity_remediation_escalation_v1",
+          "valid": true,
+          "check": "remediation_escalation",
+          "details": {
+            "remediation_escalation": {
+              "severity": "high",
+              "required_actions": [
+                "authorized_referral",
+                "document_chronology",
+                "preserve_evidence",
+                "restrict_access"
+              ],
+              "prohibited_actions": []
+            }
+          },
+          "findings": []
+        },
+        "surface": "{\"check\": \"remediation_escalation\", \"details\": {\"remediation_escalation\": {\"prohibited_actions\": [], \"required_actions\": [\"authorized_referral\", \"document_chronology\", \"preserve_evidence\", \"restrict_access\"], \"severity\": \"high\"}}, \"findings\": [], \"oracle_id\": \"integrity_remediation_escalation_v1\", \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "ba4c09ef8358d424ba85bddcc42c45a4565822939377c809b11377ecf2aa2742"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-RESEARCH_INTEGRITY-03-03",
+  "skill_id": "zju-research-integrity",
+  "fixture_sha256": "396593af9823fd848003d5c768eed1467428be84151f280e2c3c6783663694eb",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "396593af9823fd848003d5c768eed1467428be84151f280e2c3c6783663694eb",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"check\": \"neutral_triage\", \"details\": {\"neutral_triage\": {\"items\": 2, \"kind_counts\": {\"anomaly\": 0, \"interpretation\": 0, \"observed_fact\": 1, \"reported_statement\": 1}}}, \"findings\": [{\"check\": \"neutral_triage\", \"field\": \"triage_items[0].text\", \"message\": \"triage text must remain descriptive and must not declare intent or misconduct\"}], \"oracle_id\": \"integrity_neutrality_contract_v1\", \"valid\": false}",
+          "expected": "must not declare intent or misconduct"
+        },
+        {
+          "passed": true,
+          "observed": "integrity_neutrality_contract_v1",
+          "expected": "integrity_neutrality_contract_v1"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "oracle_id": "integrity_neutrality_contract_v1",
+          "valid": true,
+          "check": "neutral_triage",
+          "details": {
+            "neutral_triage": {
+              "items": 2,
+              "kind_counts": {
+                "observed_fact": 1,
+                "anomaly": 0,
+                "interpretation": 0,
+                "reported_statement": 1
+              }
+            }
+          },
+          "findings": []
+        },
+        "surface": "{\"check\": \"neutral_triage\", \"details\": {\"neutral_triage\": {\"items\": 2, \"kind_counts\": {\"anomaly\": 0, \"interpretation\": 0, \"observed_fact\": 1, \"reported_statement\": 1}}}, \"findings\": [], \"oracle_id\": \"integrity_neutrality_contract_v1\", \"valid\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "oracle_id": "integrity_neutrality_contract_v1",
+          "valid": false,
+          "check": "neutral_triage",
+          "details": {
+            "neutral_triage": {
+              "items": 2,
+              "kind_counts": {
+                "observed_fact": 1,
+                "anomaly": 0,
+                "interpretation": 0,
+                "reported_statement": 1
+              }
+            }
+          },
+          "findings": [
+            {
+              "field": "triage_items[0].text",
+              "message": "triage text must remain descriptive and must not declare intent or misconduct",
+              "check": "neutral_triage"
+            }
+          ]
+        },
+        "surface": "{\"check\": \"neutral_triage\", \"details\": {\"neutral_triage\": {\"items\": 2, \"kind_counts\": {\"anomaly\": 0, \"interpretation\": 0, \"observed_fact\": 1, \"reported_statement\": 1}}}, \"findings\": [{\"check\": \"neutral_triage\", \"field\": \"triage_items[0].text\", \"message\": \"triage text must remain descriptive and must not declare intent or misconduct\"}], \"oracle_id\": \"integrity_neutrality_contract_v1\", \"valid\": false}",
+        "exception": null
+      }
+    },
+    "second_sha256": "a598a66c24e32e6345731736275c75e7eef61d3ab6c27b2dbc122f8c927a1c55"
+  }
+}

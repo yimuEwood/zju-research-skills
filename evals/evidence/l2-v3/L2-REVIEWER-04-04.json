@@ -1,0 +1,61 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-REVIEWER-04-04",
+  "skill_id": "zju-reviewer",
+  "fixture_sha256": "5742d741cd69e215e1901a75fb09a3e46a7983c19673ffd6fa2dd12ab78ebd89",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "5742d741cd69e215e1901a75fb09a3e46a7983c19673ffd6fa2dd12ab78ebd89",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "workflow_version": "1.0",
+          "concerns": 1,
+          "response_handoff_ready": false,
+          "findings": [
+            {
+              "severity": "error",
+              "field": "concerns[1].severity",
+              "message": "invalid severity"
+            }
+          ]
+        },
+        "surface": "{\"concerns\": 1, \"findings\": [{\"field\": \"concerns[1].severity\", \"message\": \"invalid severity\", \"severity\": \"error\"}], \"response_handoff_ready\": false, \"valid\": false, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "workflow_version": "1.0",
+          "concerns": 1,
+          "response_handoff_ready": false,
+          "findings": []
+        },
+        "surface": "{\"concerns\": 1, \"findings\": [], \"response_handoff_ready\": false, \"valid\": true, \"workflow_version\": \"1.0\"}",
+        "exception": null
+      }
+    },
+    "second_sha256": "ba1f3e2ed9f5841e8d513c038ec3745db7203b356dcdc510128cc059052d82d6"
+  }
+}

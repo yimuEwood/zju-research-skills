@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-EXPERIMENT_LOG-01-04",
+  "skill_id": "zju-experiment-log",
+  "fixture_sha256": "868b02c2785465064db9b4292c1d254db24bd8f4ec5e42f480187545b2269a48",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "868b02c2785465064db9b4292c1d254db24bd8f4ec5e42f480187545b2269a48",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "schema_version": "2.0",
+          "issues": [
+            {
+              "path": "inputs",
+              "severity": "error",
+              "message": "At least one artifact is required."
+            },
+            {
+              "path": "outputs[0].derived_from",
+              "severity": "error",
+              "message": "Unknown parent artifact ID: RAW-1-V14"
+            }
+          ]
+        },
+        "surface": "{\"issues\": [{\"message\": \"At least one artifact is required.\", \"path\": \"inputs\", \"severity\": \"error\"}, {\"message\": \"Unknown parent artifact ID: RAW-1-V14\", \"path\": \"outputs[0].derived_from\", \"severity\": \"error\"}], \"schema_version\": \"2.0\", \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "schema_version": "2.0",
+          "issues": []
+        },
+        "surface": "{\"issues\": [], \"schema_version\": \"2.0\", \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "8fe0b0a89ef981c0d9a6fe2c247916fda7428ef4070199f9e5ad4e22e98fa55c"
+  }
+}

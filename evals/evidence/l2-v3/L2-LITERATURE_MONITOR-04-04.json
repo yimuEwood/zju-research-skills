@@ -1,0 +1,162 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-LITERATURE_MONITOR-04-04",
+  "skill_id": "zju-literature-monitor",
+  "fixture_sha256": "1ad76f2bbbbfd94d4d9e5d7ad09752fd340b942e7c2d926ba185024887361ff5",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "1ad76f2bbbbfd94d4d9e5d7ad09752fd340b942e7c2d926ba185024887361ff5",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": [
+            "zju-fulltext-access",
+            "zju-paper-reader",
+            "zju-evidence-synthesis"
+          ],
+          "expected": "zju-evidence-synthesis"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "counts": {
+            "new": 1,
+            "updated": 0,
+            "duplicate": 0,
+            "unresolved_identity": 0
+          },
+          "handoff_queue": [
+            {
+              "identity": "doi:10.1000/new-v44",
+              "change_class": "new",
+              "urgency": "critical",
+              "linked_ids": {
+                "claim_ids": [],
+                "gap_ids": [],
+                "hypothesis_ids": [],
+                "seed_record_ids": []
+              },
+              "actions": [
+                "recheck_linked_claims",
+                "reopen_evidence_synthesis",
+                "audit_downstream_citations"
+              ],
+              "next_skills": [
+                "zju-fulltext-access",
+                "zju-paper-reader",
+                "zju-evidence-synthesis"
+              ]
+            }
+          ],
+          "state": {
+            "profile_id": "MON-1-V44",
+            "seen": [
+              {
+                "identity": "doi:10.1000/new-v44",
+                "aliases": [],
+                "work_identity": "title-year:new monitored work case 44|2026",
+                "first_seen_at": "2026-08-15T09:00:00+08:00",
+                "last_seen_at": "2026-08-15T09:00:00+08:00",
+                "current_state": {
+                  "retraction_status": "expression_of_concern"
+                },
+                "history": [
+                  {
+                    "observed_at": "2026-08-15T09:00:00+08:00",
+                    "change_class": "new",
+                    "identity": "doi:10.1000/new-v44",
+                    "state": {
+                      "retraction_status": "expression_of_concern"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "surface": "{\"counts\": {\"duplicate\": 0, \"new\": 1, \"unresolved_identity\": 0, \"updated\": 0}, \"handoff_queue\": [{\"actions\": [\"recheck_linked_claims\", \"reopen_evidence_synthesis\", \"audit_downstream_citations\"], \"change_class\": \"new\", \"identity\": \"doi:10.1000/new-v44\", \"linked_ids\": {\"claim_ids\": [], \"gap_ids\": [], \"hypothesis_ids\": [], \"seed_record_ids\": []}, \"next_skills\": [\"zju-fulltext-access\", \"zju-paper-reader\", \"zju-evidence-synthesis\"], \"urgency\": \"critical\"}], \"state\": {\"profile_id\": \"MON-1-V44\", \"seen\": [{\"aliases\": [], \"current_state\": {\"retraction_status\": \"expression_of_concern\"}, \"first_seen_at\": \"2026-08-15T09:00:00+08:00\", \"history\": [{\"change_class\": \"new\", \"identity\": \"doi:10.1000/new-v44\", \"observed_at\": \"2026-08-15T09:00:00+08:00\", \"state\": {\"retraction_status\": \"expression_of_concern\"}}], \"identity\": \"doi:10.1000/new-v44\", \"last_seen_at\": \"2026-08-15T09:00:00+08:00\", \"work_identity\": \"title-year:new monitored work case 44|2026\"}]}}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "counts": {
+            "new": 1,
+            "updated": 0,
+            "duplicate": 0,
+            "unresolved_identity": 0
+          },
+          "handoff_queue": [
+            {
+              "identity": "doi:10.1000/new-v44",
+              "change_class": "new",
+              "urgency": "critical",
+              "linked_ids": {
+                "claim_ids": [],
+                "gap_ids": [],
+                "hypothesis_ids": [],
+                "seed_record_ids": []
+              },
+              "actions": [
+                "recheck_linked_claims",
+                "reopen_evidence_synthesis",
+                "audit_downstream_citations"
+              ],
+              "next_skills": [
+                "zju-fulltext-access",
+                "zju-paper-reader",
+                "zju-evidence-synthesis"
+              ]
+            }
+          ],
+          "state": {
+            "profile_id": "MON-1-V44",
+            "seen": [
+              {
+                "identity": "doi:10.1000/new-v44",
+                "aliases": [],
+                "work_identity": "title-year:new monitored work case 44|2026",
+                "first_seen_at": "2026-08-15T09:00:00+08:00",
+                "last_seen_at": "2026-08-15T09:00:00+08:00",
+                "current_state": {
+                  "retraction_status": "retracted"
+                },
+                "history": [
+                  {
+                    "observed_at": "2026-08-15T09:00:00+08:00",
+                    "change_class": "new",
+                    "identity": "doi:10.1000/new-v44",
+                    "state": {
+                      "retraction_status": "retracted"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "surface": "{\"counts\": {\"duplicate\": 0, \"new\": 1, \"unresolved_identity\": 0, \"updated\": 0}, \"handoff_queue\": [{\"actions\": [\"recheck_linked_claims\", \"reopen_evidence_synthesis\", \"audit_downstream_citations\"], \"change_class\": \"new\", \"identity\": \"doi:10.1000/new-v44\", \"linked_ids\": {\"claim_ids\": [], \"gap_ids\": [], \"hypothesis_ids\": [], \"seed_record_ids\": []}, \"next_skills\": [\"zju-fulltext-access\", \"zju-paper-reader\", \"zju-evidence-synthesis\"], \"urgency\": \"critical\"}], \"state\": {\"profile_id\": \"MON-1-V44\", \"seen\": [{\"aliases\": [], \"current_state\": {\"retraction_status\": \"retracted\"}, \"first_seen_at\": \"2026-08-15T09:00:00+08:00\", \"history\": [{\"change_class\": \"new\", \"identity\": \"doi:10.1000/new-v44\", \"observed_at\": \"2026-08-15T09:00:00+08:00\", \"state\": {\"retraction_status\": \"retracted\"}}], \"identity\": \"doi:10.1000/new-v44\", \"last_seen_at\": \"2026-08-15T09:00:00+08:00\", \"work_identity\": \"title-year:new monitored work case 44|2026\"}]}}",
+        "exception": null
+      }
+    },
+    "second_sha256": "e334e4f3d2926b6498fec87a28df431d291edb4294d3b763555642ce98ec9408"
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-HYPOTHESIS_DESIGN-03-04",
+  "skill_id": "zju-hypothesis-design",
+  "fixture_sha256": "4349058499b76bc0c36b071adaf62527dfa7977d2c464f33b864adf97dba3cd7",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "4349058499b76bc0c36b071adaf62527dfa7977d2c464f33b864adf97dba3cd7",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "schema_version": "legacy",
+          "findings": [
+            {
+              "severity": "error",
+              "location": "hypotheses[1].falsifiers",
+              "message": "required field missing"
+            }
+          ],
+          "hypothesis_readiness_ranking": [
+            {
+              "hypothesis_id": "H2-V34",
+              "research_readiness_score": 32.5,
+              "components": {
+                "evidence_linkage": 0.3333,
+                "prediction_specificity": 0.5,
+                "falsifiability": 0.5,
+                "boundary_clarity": 0.0,
+                "discriminating_test_coverage": 0.0
+              }
+            },
+            {
+              "hypothesis_id": "H1-V34",
+              "research_readiness_score": 22.5,
+              "components": {
+                "evidence_linkage": 0.3333,
+                "prediction_specificity": 0.5,
+                "falsifiability": 0.0,
+                "boundary_clarity": 0.0,
+                "discriminating_test_coverage": 0.0
+              }
+            }
+          ],
+          "experiment_discrimination_ranking": [
+            {
+              "experiment_id": "X1-V34",
+              "score": 3.0,
+              "pair_discrimination_coverage": 0.0,
+              "distinguished_pairs": 0,
+              "total_pairs": 1,
+              "comparisons": [
+                {
+                  "pair": [
+                    "H1-V34",
+                    "H2-V34"
+                  ],
+                  "specified": false,
+                  "distinguishes": false
+                }
+              ],
+              "feasibility": 0.0,
+              "cost_level": 5,
+              "time_level": 5,
+              "orthogonal_measurement": false
+            }
+          ],
+          "known_evidence_count": 0,
+          "ranking_note": "Scores rank research readiness and discriminatory efficiency, not probability of truth."
+        },
+        "surface": "{\"experiment_discrimination_ranking\": [{\"comparisons\": [{\"distinguishes\": false, \"pair\": [\"H1-V34\", \"H2-V34\"], \"specified\": false}], \"cost_level\": 5, \"distinguished_pairs\": 0, \"experiment_id\": \"X1-V34\", \"feasibility\": 0.0, \"orthogonal_measurement\": false, \"pair_discrimination_coverage\": 0.0, \"score\": 3.0, \"time_level\": 5, \"total_pairs\": 1}], \"findings\": [{\"location\": \"hypotheses[1].falsifiers\", \"message\": \"required field missing\", \"severity\": \"error\"}], \"hypothesis_readiness_ranking\": [{\"components\": {\"boundary_clarity\": 0.0, \"discriminating_test_coverage\": 0.0, \"evidence_linkage\": 0.3333, \"falsifiability\": 0.5, \"prediction_specificity\": 0.5}, \"hypothesis_id\": \"H2-V34\", \"research_readiness_score\": 32.5}, {\"components\": {\"boundary_clarity\": 0.0, \"discriminating_test_coverage\": 0.0, \"evidence_linkage\": 0.3333, \"falsifiability\": 0.0, \"prediction_specificity\": 0.5}, \"hypothesis_id\": \"H1-V34\", \"research_readiness_score\": 22.5}], \"known_evidence_count\": 0, \"ranking_note\": \"Scores rank research readiness and discriminatory efficiency, not probability of truth.\", \"schema_version\": \"legacy\", \"valid\": false}",
+        "exception": null
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "schema_version": "legacy",
+          "findings": [],
+          "hypothesis_readiness_ranking": [
+            {
+              "hypothesis_id": "H1-V34",
+              "research_readiness_score": 42.5,
+              "components": {
+                "evidence_linkage": 0.3333,
+                "prediction_specificity": 0.5,
+                "falsifiability": 1.0,
+                "boundary_clarity": 0.0,
+                "discriminating_test_coverage": 0.0
+              }
+            },
+            {
+              "hypothesis_id": "H2-V34",
+              "research_readiness_score": 32.5,
+              "components": {
+                "evidence_linkage": 0.3333,
+                "prediction_specificity": 0.5,
+                "falsifiability": 0.5,
+                "boundary_clarity": 0.0,
+                "discriminating_test_coverage": 0.0
+              }
+            }
+          ],
+          "experiment_discrimination_ranking": [
+            {
+              "experiment_id": "X1-V34",
+              "score": 3.0,
+              "pair_discrimination_coverage": 0.0,
+              "distinguished_pairs": 0,
+              "total_pairs": 1,
+              "comparisons": [
+                {
+                  "pair": [
+                    "H1-V34",
+                    "H2-V34"
+                  ],
+                  "specified": false,
+                  "distinguishes": false
+                }
+              ],
+              "feasibility": 0.0,
+              "cost_level": 5,
+              "time_level": 5,
+              "orthogonal_measurement": false
+            }
+          ],
+          "known_evidence_count": 0,
+          "ranking_note": "Scores rank research readiness and discriminatory efficiency, not probability of truth."
+        },
+        "surface": "{\"experiment_discrimination_ranking\": [{\"comparisons\": [{\"distinguishes\": false, \"pair\": [\"H1-V34\", \"H2-V34\"], \"specified\": false}], \"cost_level\": 5, \"distinguished_pairs\": 0, \"experiment_id\": \"X1-V34\", \"feasibility\": 0.0, \"orthogonal_measurement\": false, \"pair_discrimination_coverage\": 0.0, \"score\": 3.0, \"time_level\": 5, \"total_pairs\": 1}], \"findings\": [], \"hypothesis_readiness_ranking\": [{\"components\": {\"boundary_clarity\": 0.0, \"discriminating_test_coverage\": 0.0, \"evidence_linkage\": 0.3333, \"falsifiability\": 1.0, \"prediction_specificity\": 0.5}, \"hypothesis_id\": \"H1-V34\", \"research_readiness_score\": 42.5}, {\"components\": {\"boundary_clarity\": 0.0, \"discriminating_test_coverage\": 0.0, \"evidence_linkage\": 0.3333, \"falsifiability\": 0.5, \"prediction_specificity\": 0.5}, \"hypothesis_id\": \"H2-V34\", \"research_readiness_score\": 32.5}], \"known_evidence_count\": 0, \"ranking_note\": \"Scores rank research readiness and discriminatory efficiency, not probability of truth.\", \"schema_version\": \"legacy\", \"valid\": true}",
+        "exception": null
+      }
+    },
+    "second_sha256": "e8b30694dc6163a462cea61616f8dc112b1a6863264ba058c18313d3b14a45fc"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-SCIENTIFIC_WRITING-02-03",
+  "skill_id": "zju-scientific-writing",
+  "fixture_sha256": "ec1d111f3cca7f985e55256d263474fe859c80200e425c82952fb259b60c3c4d",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "ec1d111f3cca7f985e55256d263474fe859c80200e425c82952fb259b60c3c4d",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": "{\"claims\": 1, \"issues\": [{\"claim_id\": \"C1\", \"field\": \"evidence_ids\", \"message\": \"A supported claim must reference evidence.\", \"severity\": \"error\"}], \"valid\": false}",
+          "expected": "evidence"
+        }
+      ],
+      "control": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "valid": true,
+          "claims": 1,
+          "issues": []
+        },
+        "surface": "{\"claims\": 1, \"issues\": [], \"valid\": true}",
+        "exception": null
+      },
+      "test": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {
+          "valid": false,
+          "claims": 1,
+          "issues": [
+            {
+              "claim_id": "C1",
+              "field": "evidence_ids",
+              "severity": "error",
+              "message": "A supported claim must reference evidence."
+            }
+          ]
+        },
+        "surface": "{\"claims\": 1, \"issues\": [{\"claim_id\": \"C1\", \"field\": \"evidence_ids\", \"message\": \"A supported claim must reference evidence.\", \"severity\": \"error\"}], \"valid\": false}",
+        "exception": null
+      }
+    },
+    "second_sha256": "7f82336d1e979da97e8ff5eddced6587006d5fcaea415931abf13248d3cf937b"
+  }
+}

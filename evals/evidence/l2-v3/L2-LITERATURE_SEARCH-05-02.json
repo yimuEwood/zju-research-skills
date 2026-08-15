@@ -1,0 +1,68 @@
+{
+  "schema_version": "3.0",
+  "run_id": "l2-deterministic-portfolio-v3",
+  "case_id": "L2-LITERATURE_SEARCH-05-02",
+  "skill_id": "zju-literature-search",
+  "fixture_sha256": "4ba93638936dcf08dc62a9bc0047148d03799904bb7607da45b18ae82149de21",
+  "runner_sha256": "4e4543147ed68bbb99615d03bfdae33ddc074399a0c49357502fd63828a5d14b",
+  "observation": {
+    "passed": true,
+    "fixture_sha256": "4ba93638936dcf08dc62a9bc0047148d03799904bb7607da45b18ae82149de21",
+    "deterministic_repeat": true,
+    "first": {
+      "matched": true,
+      "checks": [
+        {
+          "passed": true,
+          "observed": true,
+          "expected": true
+        },
+        {
+          "passed": true,
+          "observed": false,
+          "expected": false
+        },
+        {
+          "passed": true,
+          "observed": 1,
+          "expected": 1
+        }
+      ],
+      "control": {
+        "accepted": false,
+        "observed": "rejected",
+        "details": {},
+        "surface": "AttributeError: 'str' object has no attribute 'get'",
+        "exception": {
+          "type": "AttributeError",
+          "message": "'str' object has no attribute 'get'"
+        }
+      },
+      "test": {
+        "accepted": true,
+        "observed": "accepted",
+        "details": {
+          "record_count": 2,
+          "identifier_missing_count": 1,
+          "identity_missing_count": 1,
+          "identity_keys": [
+            "doi:10.1000/l2",
+            "existing-record-id:REC-3"
+          ],
+          "query_ids": [
+            "Q1",
+            "Q2"
+          ],
+          "source_databases": [
+            "Crossref",
+            "OpenAlex",
+            "manual"
+          ]
+        },
+        "surface": "{\"identifier_missing_count\": 1, \"identity_keys\": [\"doi:10.1000/l2\", \"existing-record-id:REC-3\"], \"identity_missing_count\": 1, \"query_ids\": [\"Q1\", \"Q2\"], \"record_count\": 2, \"source_databases\": [\"Crossref\", \"OpenAlex\", \"manual\"]}",
+        "exception": null
+      }
+    },
+    "second_sha256": "66dabbc3f4c7285862eaeb4111b73086777da080bb4372bfea140c5fda0da451"
+  }
+}
