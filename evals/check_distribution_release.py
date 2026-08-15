@@ -283,7 +283,7 @@ def evaluate(root: Path) -> dict[str, Any]:
     _check(checks, "evaluated_snapshot_binding", snapshot_ok, snapshot_evidence)
 
     core_script_count = len(list((root / "skills").glob("*/scripts/*.py")))
-    pack_script_count = len(list((root / "packs").glob("*/scripts/*.py")))
+    pack_script_count = len(list((root / "packs").rglob("scripts/*.py")))
     script_count = core_script_count + pack_script_count
     _check(
         checks,

@@ -56,7 +56,7 @@ class PortfolioProtocolV3Tests(unittest.TestCase):
         self.assertEqual(report["evidence_coverage"]["L2_deterministic_function"]["complete_skills"], 20)
         self.assertEqual(report["evidence_coverage"]["L3_controlled_task_capability"]["complete_skills"], 0)
         self.assertEqual(report["evidence_coverage"]["L4_frozen_holdout_generalization"]["complete_skills"], 0)
-        self.assertEqual(len(results["records"]), 120)
+        self.assertEqual(len(results["records"]), 520)
         self.assertRegex(results["skill_commit"], r"^[0-9a-f]{40}$")
 
     def test_all_three_json_schemas_validate_current_documents(self):
